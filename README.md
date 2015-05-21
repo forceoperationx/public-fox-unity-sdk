@@ -126,7 +126,7 @@ FoxPlugin.sendStartSession();
 * **アクセス解析による課金計測**
 アクセス解析による課金計測を実施したい場合は下記のリンクを参照してください。
 
-[アクセス解析による課金計測](./doc/analytics_purchase/ja)
+[アクセス解析によるイベント計測](./doc/analytics_event/ja)
 
 
 ## 5. 各OS毎の設定

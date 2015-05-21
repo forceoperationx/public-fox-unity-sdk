@@ -1,6 +1,14 @@
 ## アクセス解析による課金計測
 
-アクセス解析機能を利用し、自然流入経由を含めた広告別の課金計測を行うことができます。アクセス解析による課金計測を行うために、次のsendEventメソッドを実装します。
+アクセス解析機能を利用し、自然流入経由を含めた広告別のイベントや売り上げをそれぞれ計測することが可能です。アクセス解析による計測を行うために、次のsendEventメソッドを実装します。
+
+チュートリアル突破や会員登録などのイベント計測の場合には以下のように記述してください。
+
+```C#
+FoxPlugin.sendEventPurchase(eventName, action, label, quantity);
+```
+
+課金計測の場合には以下のように記述してください。
 
 ```C#
 FoxPlugin.sendEventPurchase(eventName, action, label, orderId, sku, itemName, price, quantity, currency);
