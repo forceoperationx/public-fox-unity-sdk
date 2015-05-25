@@ -89,7 +89,8 @@ LTV計測を行うためには、各成果地点を識別する成果地点IDを
 
 ```C#
 // ...
-FoxPlugin.addParameter(FoxPlugin.PARAM_PRICE, "2000");
+FoxPlugin.addParameter(FoxPlugin.PARAM_CURRENCY, "USD");
+FoxPlugin.addParameter(FoxPlugin.PARAM_PRICE, "20");
 FoxPlugin.sendLtv(成果地点 ID);
 ```
 
@@ -217,7 +218,7 @@ SDKの動作に必要な設定をplistに追加します。「AppAdForce.plist�
 
 * **Android用プロジェクトの設定**
 
-Android 用の設定は Unity プロジェクト上で行うことができます。Unity プロジェクトに組み込まれた 
+Android 用の設定は Unity プロジェクト上で行うことができます。Unity プロジェクトに組み込まれた
 AndroidManifest.xml を編集します。プロジェクトに AndroidManifest.xml が存在しない場合は、 「Plugins/Android/AndroidManifest-sample.xml」を「AndroidManifest.xml」にリネームしてご利用ください。
 
 
