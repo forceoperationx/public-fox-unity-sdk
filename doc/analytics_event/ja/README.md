@@ -32,15 +32,16 @@ sendEventメソッドのパラメータの仕様は下記の通りです。
 
 LTV計測においても課金を成果地点としている場合には、同一の箇所にLTVとアクセス解析のそれぞれの計測処理を実装します。
 
-サンプルとして、以下にアメリカドルで300円の課金を行った場合の実装例を記載致します。
+サンプルとして、以下にアメリカドルで3ドルの課金を行った場合の実装例を記載致します。
 
 
 
-```C#		
+```C#
 // LTV計測による課金計測
-FoxPlugin.addParameter(FoxPlugin.PARAM_PRICE, "300");
+FoxPlugin.addParameter(FoxPlugin.PARAM_CURRENCY, "USD");
+FoxPlugin.addParameter(FoxPlugin.PARAM_PRICE, "3");
 FoxPlugin.sendLtv(成果地点 ID);
 
 // アクセス解析による課金計測
-FoxPlugin.sendEventPurchase("purchase", null, null, null, null, "", 300, 1, "JPY");
+FoxPlugin.sendEventPurchase("purchase", null, null, null, null, "", 3, 1, "USD");
 ```
