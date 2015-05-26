@@ -96,6 +96,7 @@ FoxPlugin.sendLtv(成果地点 ID);
 
 > Javascriptで編集する場合は、文中の「FoxPlugin」を「FoxPluginJS」に読み替えてください。
 
+* [sendLtvの詳細](./doc/send_ltv_conversion/ja)
 
 ## 4. アクセス解析の実装
 
