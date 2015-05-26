@@ -30,7 +30,7 @@ FoxPlugin.sendLtv(成果地点 ID);
 アプリ内計測時には、パラメータをオプションとして設定する事が可能です。
 
 ```C#
-	FoxPlugin::addParameter("パラメータ名", "値");
+	FoxPlugin.addParameter("パラメータ名", "値");
 ```
 
 指定できるパラメータは次の通りです。
