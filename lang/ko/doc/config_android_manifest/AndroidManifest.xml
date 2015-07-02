@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.aaa"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.aaa.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- URL 스키마 설정 (sampleapp://) -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="sampleapp" />
+            </intent-filter>
+        </activity>
+
+        <!-- 사용자 정의 URL스키마 경유의 기동 측정 설정 -->
+        <activity
+            android:name="jp.appAdForce.android.IntentReceiverActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="sampleapplaunch" />
+            </intent-filter>
+        </activity>
+
+        <!-- install referer측정의 receiver설정 -->
+        <receiver android:exported="true" android:name="jp.appAdForce.android.InstallReceiver" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 옵션: 두개의 INSTALL_REFERRER receiver 공존 시키는것을 설정 -->
+        <!-- value에 공존시키고 싶은 receiver 클래스 경로를 작성합니다 -->
+        <meta-data android:name="APPADFORCE_FORWARD_RECEIVER"
+            android:value="com.example.InstallReceiver" />
+
+        <!-- 옵션: Google Play Services SDK의 도입 -->
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- 필수: meta-data 설정 -->
+        <meta-data android:name="APPADFORCE_APP_ID" android:value="xxxxxx" />
+        <meta-data android:name="APPADFORCE_SERVER_URL" android:value="xxxxxx" />
+        <meta-data android:name="APPADFORCE_CRYPTO_SALT" android:value="xxxxxx" />
+        <meta-data android:name="ANALYTICS_APP_KEY" android:value="xxxxxx" />
+
+        <!-- 옵션: -->
+    </application>
+
+    <!-- 필수: 퍼미션 설정 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+</manifest>
