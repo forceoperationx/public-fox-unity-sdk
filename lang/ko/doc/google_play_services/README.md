@@ -42,7 +42,7 @@ Google Play Services를 이용하기 위해서는 아래의 설정을 AndroidMan
 
 ```xml
 <meta-data android:name="com.google.android.gms.version"
-        android:value="@ integer / google_play_services_version" />
+        android:value="@integer/google_play_services_version" />
 ```
 
 #### Proguard 설정

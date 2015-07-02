@@ -1,4 +1,4 @@
-# Force Opetaion X Integration Guide
+# Force Opetaion X Unity SDK Integration Guide
 
 ###LANGUAGE
 * [Japanese](./lang/ja/)

@@ -209,11 +209,10 @@ SDK의 동작에 필요한 설정을 plist에 추가합니다. 「AppAdForce.pli
 </tr>
 </table>
 
-![프레임 워크 설정 01](https://github.com/cyber-z/public_fox_ios_sdk/raw/master/doc/config_plist/ja/img05.png)
+![프레임 워크 설정 01](./doc/config_plist/img05.png)
 
-[SDK 고급 설정](https://github.com/cyber-z/public_fox_ios_sdk/blob/master/doc/config_plist/ja/README.md)
-
-[AppAdForce.plist 샘플](https://github.com/cyber-z/public_fox_ios_sdk/blob/master/doc/config_plist/AppAdForce.plist)
+[SDK 고급 설정](./doc/config_plist/)
+[AppAdForce.plist 샘플](./doc/config_plist/AppAdForce.plist)
 
 
 * **Android용 프로젝트의 설정**
@@ -286,7 +285,7 @@ SDK의 실행에 필요한 정보를<application>태그내에 추가합니다.
 
 [광고 ID를 이용하기 위한 Google Play Services SDK의 도입](./doc/google_play_services/)
 
-[(옵션) 외부 스토리지를 이용한 중복 제거 설정](https://github.com/cyber-z/public_fox_android_sdk/tree/master/doc/external_storage/ja)
+[(옵션) 외부 스토리지를 이용한 중복 제거 설정](./doc/external_storage/)
 
 [AndroidManifest.xml 샘플](./doc/config_android_manifest/AndroidManifest.xml)
 
@@ -392,4 +391,4 @@ F.O.X는 몇개의 방식을 조합하여 단말기의 중복 설치 검사를 �
 
 [광고 ID를 이용하기 위한 Google Play Services SDK의 도입](./doc/google_play_services/)
 
-[(옵션)외부 스토리지를 이용한 중복 제거 설정](https://github.com/cyber-z/public_fox_android_sdk/tree/master/doc/external_storage/ja)
+[(옵션)외부 스토리지를 이용한 중복 제거 설정](./doc/external_storage/)
