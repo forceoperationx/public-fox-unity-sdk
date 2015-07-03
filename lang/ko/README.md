@@ -163,9 +163,9 @@ iOS 용 프로젝트를 생성하기 위해 다음과 같이 Xcode 프로젝트�
 
 > AdSupport.framework은 iOS 6 이후에 추가된 프레임 워크를 위해, 앱을 iOS 5 이하에서도 기동 시키는(iOS Deployment Target을 5.1 이하로 설정하는) 경우에는 weak link를 실행하기 위해 "Optional"로 설정 하십시오.
 
-![프레임 워크 설정 01] (https://github.com/cyber-z/public_fox_ios_sdk/raw/master/doc/config_framework/ja/img01.png)
+![프레임 워크 설정 01] (./doc/config_framework/img01.png)
 
-[프레임 워크 설정의 상세] (https://github.com/cyber-z/public_fox_ios_sdk/blob/master/doc/config_framework/ja/README.md)
+[프레임 워크 설정의 상세](./doc/config_framework/ja/README.md)
 
 * **SDK 설정**
 
@@ -212,6 +212,7 @@ SDK의 동작에 필요한 설정을 plist에 추가합니다. 「AppAdForce.pli
 ![프레임 워크 설정 01](./doc/config_plist/img05.png)
 
 [SDK 고급 설정](./doc/config_plist/)
+
 [AppAdForce.plist 샘플](./doc/config_plist/AppAdForce.plist)
 
 
