@@ -165,7 +165,7 @@ iOS 용 프로젝트를 생성하기 위해 다음과 같이 Xcode 프로젝트�
 
 ![프레임 워크 설정 01] (./doc/config_framework/img01.png)
 
-[프레임 워크 설정의 상세](./doc/config_framework/ja/README.md)
+[프레임 워크 설정의 상세](./doc/config_framework/)
 
 * **SDK 설정**
 
@@ -265,7 +265,7 @@ SDK의 실행에 필요한 정보를<application>태그내에 추가합니다.
 </receiver>
 ```
 
-이미 "com.android.vending.INSTALL_REFERRER"에 대한 receiver 클래스가 정의되어있는 경우에는, [두개의 INSTALL_REFERRER receiver를 공존시키는 경우 설정](https://github.com/cyber-z/public_fox_android_sdk/blob/master/doc/install_referrer/ja/README.md)를 참조하십시오.
+이미 "com.android.vending.INSTALL_REFERRER"에 대한 receiver 클래스가 정의되어있는 경우에는, [두개의 INSTALL_REFERRER receiver를 공존시키는 경우 설정](./doc/install_referrer/)를 참조하십시오.
 
 
 ### Engagement 측정의 구현
