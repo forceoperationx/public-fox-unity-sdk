@@ -164,9 +164,9 @@ iOS用のプロジェクトを作成するために、次の手順でXcodeプロ
 
 > AdSupport.frameworkはiOS 6以降で追加されたフレームワークのため、アプリケーションをiOS 5以前でも動作させる(iOS Deployment Targetを5.1以下に設定する)場合にはweak linkを行うために”Optional”に設定してください。
 
-![フレームワーク設定01](https://github.com/cyber-z/public_fox_ios_sdk/raw/master/doc/config_framework/img01.png)
+![フレームワーク設定01](https://github.com/cyber-z/public_fox_ios_sdk/raw/master/doc/config_framework/ja/img01.png)
 
-[フレームワーク設定の詳細](https://github.com/cyber-z/public_fox_ios_sdk/blob/master/doc/config_framework/README.md)
+[フレームワーク設定の詳細](https://github.com/cyber-z/public_fox_ios_sdk/blob/master/doc/config_framework/ja/README.md)
 
 * **SDK設定**
 
@@ -285,7 +285,7 @@ SDKの実行に必要な情報を<application>タグ内に追加します。
 </activity>
 ```
 
-[広告IDを利用するためのGoogle Play Services SDKの導入](./doc/google_play_services/ja/)
+[広告IDを利用するためのGoogle Play Services SDKの導入](./doc/google_play_services/)
 
 [（オプション）外部ストレージを利用した重複排除設定](https://github.com/cyber-z/public_fox_android_sdk/tree/master/doc/external_storage/ja/)
 
