@@ -83,7 +83,7 @@ ProGuard を利用してアプリケーションの難読化を行う際は F
 -libraryjars libs/AppAdForce.jar
 -keep interface jp.appAdForce.** { *; }
 -keep class jp.appAdForce.** { *; }
--keep class jp.co.dimage.** { *; }
+-keep class jp.co.dimage.** { *; }
 -keep class com.google.android.gms.ads.identifier.* { *; }
 -dontwarn jp.appAdForce.android.**
 -dontwarn jp.co.dimage.**
@@ -92,7 +92,7 @@ ProGuard を利用してアプリケーションの難読化を行う際は F
 -dontwarn com.adobe.fre.FREExtension
 -dontwarn com.adobe.fre.FREFunction
 -dontwarn com.adobe.fre.FREObject
--dontwarn com.ansca.**
+-dontwarn com.ansca.**
 -dontwarn com.naef.jnlua.**
 ```
 
