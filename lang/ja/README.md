@@ -36,6 +36,11 @@ F.O.Xで計測された情報を使い、ユーザーに対してプッシュ通
 
 [Unityプラグインの導入方法](./doc/integration/)
 
+### 各OS毎の設定
+
+* [iOSプロジェクトの設定](./doc/integration/ios/)
+* [Androidプロジェクトの設定](./doc/integration/android)
+
 
 ## 2. インストール計測の実装
 
@@ -59,7 +64,10 @@ F.O.Xで計測された情報を使い、ユーザーに対してプッシュ通
 
 GUI(Inspector)を利用せず、スクリプトでインストール計測処理の記述を行う場合には、起動時に実行されるスクリプトからFoxPlugin.sendConversionをコールします。
 
-```C#
+iOS9より初回起動時のブラウザ起動からアプリに戻る際に、ダイアログが出力されます。
+F.O.X SDKではiOS9からリリースされた新たなWebView形式である”SFSafariViewController”を初回起動時に起動させ計測することで、ダイアログ表示によるユーザビリティの低下を防止することが出来ます。
+
+```cs
 FoxPlugin.sendConversion("default");
 ```
 
@@ -67,9 +75,13 @@ sendConversionの引数には、通常は上記の通り"default"という文字
 
 特定のURLヘ遷移させたい場合や、アプリケーションで動的にURLを生成したい場合には、URLの文字列を設定してください。
 
-```C#
+```cs
 FoxPlugin.sendConversion("http://yourhost.com/yourpage.html");
 ```
+
+> ※defaultを指定した場合には、標準の簡単なサンプルページが表示されますが、後からF.O.Xの管理画面上で遷移先URLもしくはHTMLページを弊社で設定いたします。
+遷移先ページからアプリへ戻すためのURLスキームが必要となりますので、マーケットへのリリースまでに弊社へURLスキーム名をご連絡ください。
+
 
 ## 3. LTV計測の実装
 
@@ -79,7 +91,7 @@ FoxPlugin.sendConversion("http://yourhost.com/yourpage.html");
 課金計測では、登録・課金処理実行後のコールバック内に LTV 計測処理を記述します。 対象のスクリプト(C#、または JavaScript)によって編集内容が異なりますのてこ注意ください。
 
 
-```C#
+```cs
 FoxPlugin.sendLtv(成果地点 ID);
 ```
 
@@ -87,7 +99,7 @@ LTV計測を行うためには、各成果地点を識別する成果地点IDを
 
 課金計測を行う場合には、課金が完了した箇所で以下のように課金額を指定してください。
 
-```C#
+```cs
 // ...
 FoxPlugin.addParameter(FoxPlugin.PARAM_CURRENCY, "USD");
 FoxPlugin.addParameter(FoxPlugin.PARAM_PRICE, "20");
@@ -119,11 +131,9 @@ FoxPlugin.sendLtv(成果地点 ID);
 
 アプリの起動地点にて次のメソッドを実装してください。
 
-```C#
+```cs
 FoxPlugin.sendStartSession();
 ```
-
-
 
 * **アクセス解析による課金計測**
 アクセス解析による課金計測を実施したい場合は下記のリンクを参照してください。
@@ -131,195 +141,8 @@ FoxPlugin.sendStartSession();
 [アクセス解析によるイベント計測](./doc/analytics_event)
 
 
-## 5. 各OS毎の設定
 
-* **iOS用Xcodeプロジェクトの設定**
-
-### Xcodeプロジェクトのパブリッシュ
-
-iOS用のプロジェクトを作成するために、次の手順でXcodeプロジェクトをパブリッシュし、Xcode上で必要な設定を行います。
-
-1. メニューの「File」>「BUild Settings…」を選択する
-2. Platformの「iOS」を選択し、「Switch Platform」を押下する
-3. 「Player Settings」を押下し、Inspectorでご自身の環境に合わせて設定を行う
-4. 	「Build」か「Build And Run」を押下し、Xcodeプロジェクトのパブリッシュを行う
-
-
-### Xcodeプロジェクトの編集
-
-パブリッシュされたXcodeプロジェクトを開き、編集します。
-
-* **フレームワーク設定**
-
-次のフレームワークをプロジェクトにリンクしてください。
-
-<table>
-<tr><th>フレームワーク名</th><th>Status</th></tr>
-<tr><td>AdSupport.framework</td><td>Optional</td></tr>
-<tr><td>iAd.framework </td><td>Required</td></tr>
-<tr><td>Security.framework </td><td>Required </td></tr>
-<tr><td>StoreKit.framework </td><td>Required </td></tr>
-<tr><td>SystemConfiguration.framework </td><td>Required </td></tr>
-</table>
-
-> AdSupport.frameworkはiOS 6以降で追加されたフレームワークのため、アプリケーションをiOS 5以前でも動作させる(iOS Deployment Targetを5.1以下に設定する)場合にはweak linkを行うために”Optional”に設定してください。
-
-![フレームワーク設定01](https://github.com/cyber-z/public_fox_ios_sdk/raw/master/doc/config_framework/ja/img01.png)
-
-[フレームワーク設定の詳細](https://github.com/cyber-z/public_fox_ios_sdk/blob/master/doc/config_framework/ja/README.md)
-
-* **SDK設定**
-
-SDKの動作に必要な設定をplistに追加します。「AppAdForce.plist」というファイルをプロジェクトの任意の場所に作成し、次のキーと値を入力してください。
-
-<table>
-<tr>
-  <th>Key</th>
-  <th>Type</th>
-  <th>Value</th>
-</tr>
-<tr>
-  <td>APP_ID</td>
-  <td>String</td>
-  <td>Force Operation X管理者より連絡しますので、その値を入力してください。</td>
-</tr>
-<tr>
-  <td>SERVER_URL</td>
-  <td>String</td>
-  <td>Force Operation X管理者より連絡しますので、その値を入力してください。</td>
-</tr>
-<tr>
-  <td>APP_SALT</td>
-  <td>String</td>
-  <td>Force Operation X管理者より連絡しますので、その値を入力してください。</td>
-</tr>
-<tr>
-  <td>APP_OPTIONS</td>
-  <td>String</td>
-  <td>何も入力せず、空文字の状態にしてください。</td>
-</tr>
-<tr>
-  <td>CONVERSION_MODE</td>
-  <td>String</td>
-  <td>1</td>
-</tr>
-<tr>
-  <td>ANALYTICS_APP_KEY</td>
-  <td>String</td>
-  <td>Force Operation X管理者より連絡しますので、その値を入力してください。<br />アクセス解析を利用しない場合は設定の必要はありません。</td>
-</tr>
-</table>
-
-![フレームワーク設定01](https://github.com/cyber-z/public_fox_ios_sdk/raw/master/doc/config_plist/ja/img05.png)
-
-[SDK設定の詳細](https://github.com/cyber-z/public_fox_ios_sdk/blob/master/doc/config_plist/ja/README.md)
-
-[AppAdForce.plistサンプル](https://github.com/cyber-z/public_fox_ios_sdk/blob/master/doc/config_plist/AppAdForce.plist)
-
-
-* **Android用プロジェクトの設定**
-
-Android 用の設定は Unity プロジェクト上で行うことができます。Unity プロジェクトに組み込まれた
-AndroidManifest.xml を編集します。プロジェクトに AndroidManifest.xml が存在しない場合は、 「Plugins/Android/AndroidManifest-sample.xml」を「AndroidManifest.xml」にリネームしてご利用ください。
-
-
-### パーミッションの設定
-
-<Manifest>タグ内に次のパーミッションの設定を追加します。
-
-```xml:
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-```
-
-### メタデータの設定
-
-SDKの実行に必要な情報を<application>タグ内に追加します。
-
-```xml:
-<meta-data android:name="APPADFORCE_APP_ID" android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
-<meta-data android:name="APPADFORCE_SERVER_URL" android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
-<meta-data android:name="APPADFORCE_CRYPTO_SALT" android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
-<meta-data android:name="ANALYTICS_APP_KEY" android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
-```
-
-設定するキーとバリューは以下の通りです。
-
-|パラメータ名|必須|概要|
-|:------|:------|:------|
-|APPADFORCE_APP_ID|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
-|APPADFORCE_SERVER_URL|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
-|APPADFORCE_CRYPTO_SALT|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
-|ANALYTICS_APP_KEY|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
-
-
-### インストールリファラ計測の設定
-インストールリファラーを用いたインストール計測を行うために下記の設定を<application>タグに追加します。
-
-```xml:
-<receiver android:name="jp.appAdForce.android.InstallReceiver" android:exported="true">
-	<intent-filter>
-		<action android:name="com.android.vending.INSTALL_REFERRER" />
-	</intent-filter>
-</receiver>
-```
-
-既に"com.android.vending.INSTALL_REFERRER"に対するレシーバークラスが定義されている場合には、[二つのINSTALL_REFERRERレシーバーを共存させる場合の設定](https://github.com/cyber-z/public_fox_android_sdk/blob/master/doc/install_referrer/ja/README.md)をご参照ください。
-
-
-### リエンゲージメント計測の実装
-
-カスタムURLスキーム経由の起動を計測するために必要な設定を<application>タグ内に追記します。
-カスタムURLスキームは他のActivityで設定しているものと異なる値を設定してください。
-
-```xml
-<activity android:name="jp.appAdForce.android.IntentReceiverActivity">
-	<intent-filter>
-		<action android:name="android.intent.action.VIEW" />
-		<category android:name="android.intent.category.DEFAULT" />
-		<category android:name="android.intent.category.BROWSABLE" />
-		<data android:scheme="カスタム URL スキーム" />
-	</intent-filter>
-</activity>
-```
-
-[広告IDを利用するためのGoogle Play Services SDKの導入](./doc/google_play_services/)
-
-[（オプション）外部ストレージを利用した重複排除設定](https://github.com/cyber-z/public_fox_android_sdk/tree/master/doc/external_storage/ja/)
-
-[AndroidManifest.xmlサンプル](./doc/config_android_manifest/AndroidManifest.xml)
-
-
-## 6. ProGuardを利用する場合
-
-ProGuard を利用してアプリケーションの難読化を行う際は F.O.X SDK のメソッドが対象とならないよう、以下の設定 を追加してください。
-
-```
--keepattributes *Annotation*
-
--libraryjars libs/AppAdForce.jar
--keep interface jp.appAdForce.** { *; }
--keep class jp.appAdForce.** { *; }
--keep class jp.co.dimage.** { *; }
--keep class com.google.android.gms.ads.identifier.* { *; }
--dontwarn jp.appAdForce.android.ane.AppAdForceContext
--dontwarn jp.appAdForce.android.ane.AppAdForceExtension
--dontwarn com.adobe.fre.FREContext
--dontwarn com.adobe.fre.FREExtension
--dontwarn com.adobe.fre.FREFunction
--dontwarn com.adobe.fre.FREObject
--dontwarn com.ansca.**
--dontwarn com.naef.jnlua.**
-```
-
-また、Google Play Service SDK を導入されている場合は、以下のぺージに記載されている keep 指定が記述されているかご確認ください。
-
-[Google Play Services導入時のProguard対応](https://developer.android.com/google/play-services/setup.html#Proguard)
-
-
-## 疎通テストの実施
+## 5.疎通テストの実施
 
 マーケットへの申請までに、SDKを導入した状態で十分にテストを行い、アプリケーションの動作に問題がないことを確認してください。
 
