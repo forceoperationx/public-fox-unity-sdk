@@ -4,13 +4,13 @@
 
 チュートリアル突破や会員登録などのイベント計測の場合には以下のように記述してください。
 
-```C#
+```cs
 FoxPlugin.sendEventPurchase(eventName, action, label, quantity);
 ```
 
 課金計測の場合には以下のように記述してください。
 
-```C#
+```cs
 FoxPlugin.sendEventPurchase(eventName, action, label, orderId, sku, itemName, price, quantity, currency);
 ```
 
@@ -36,7 +36,7 @@ LTV計測においても課金を成果地点としている場合には、同�
 
 
 
-```C#
+```cs
 // LTV計測による課金計測
 FoxPlugin.addParameter(FoxPlugin.PARAM_CURRENCY, "USD");
 FoxPlugin.addParameter(FoxPlugin.PARAM_PRICE, "3");
@@ -47,4 +47,4 @@ FoxPlugin.sendEventPurchase("purchase", null, null, null, null, "", 3, 1, "USD")
 ```
 
 ---
-[TOPへ](/lang/ja/)
+[TOPへ](/lang/ja/README.md)

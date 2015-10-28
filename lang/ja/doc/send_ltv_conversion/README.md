@@ -45,7 +45,7 @@ FoxPlugin.sendLtv(成果地点 ID);
 PARAM_CURRENCYには[ISO 4217](http://ja.wikipedia.org/wiki/ISO_4217)で定義された通貨コードを指定してください。
 
 設定例：
-```C#
+```cs
 FoxPlugin.addParameter(PARAM_SKU, "ABC1234");
 FoxPlugin.addParameter(PARAM_CURRENCY,  "USD");
 FoxPlugin.addParameter(PARAM_PRICE, "20");
@@ -55,4 +55,4 @@ FoxPlugin.sendLtv(70, "Taro");
 
 
 ---
-[TOPへ](/lang/ja/)
+[TOPへ](/lang/ja/README.md)

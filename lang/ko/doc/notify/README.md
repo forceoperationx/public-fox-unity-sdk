@@ -15,7 +15,7 @@ APNs 및 GCM에 단말기를 등록하기 위해서는 아래의 설정을합니
 
 > sendConversion 메소드를 스크립트 구현하고 있는 경우는 반드시 sendConversion 메소드를 호출후에 배치 하십시오.
 
-```C#
+```cs
 #if UNITY_IOS || UNITY_IPHONE
 	FoxPlugin.registerForRemoteNotifications();
 #elif UNITY_ANDROID
@@ -39,15 +39,15 @@ APNs 및 GCM에 단말기를 등록하기 위해서는 아래의 설정을합니
 2. Unity 프로젝트를 빌드한 후 Xcode에서 Classes/AppController.mm을 엽니다
 3. Apple에서 디바이스 토큰을 수신했을때 F.O.X로 토큰을 보내도록 합니다
 
-디바이스 토큰의 취득에 성공했을 경우 Application Delegate의 didRegisterForRemoteNotificationsWithDeviceToken: 이 호출되므로 취득한 디바이스 토큰을 F.O.X에 전송하기 위해 다음과 같이 구현을해야합니다.
+디바이스 토큰의 취득에 성공했을 경우 Application Delegate의 `didRegisterForRemoteNotificationsWithDeviceToken:` 이 호출되므로 취득한 디바이스 토큰을 F.O.X에 전송하기 위해 다음과 같이 구현을해야합니다.
 
-```objectivec
-#import "Notify.h" 
+```objective-c
+#import "Notify.h"
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken{
     // F.O.X에 단말기를 등록하는 메소드
     [[Notify sharedManager] manageDevToken:deviceToken];
-    
+
     UnitySendDeviceToken(deviceToken);
 }
 ```
@@ -56,7 +56,7 @@ APNs 및 GCM에 단말기를 등록하기 위해서는 아래의 설정을합니
 
 application:didFinishLaunchingWithOptions:와application:didReceiveRemoteNotification 에 아래의 구현을 해야합니다.
 
-```objectivec
+```objective-c
 - (BOOL)application:(UIApplication *)application
    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// ...
@@ -69,7 +69,7 @@ application:didFinishLaunchingWithOptions:와application:didReceiveRemoteNotific
 }
 ```
 
-```objectivec
+```objective-c
 - (void)application:(UIApplication *)application
 	 didReceiveRemoteNotification:(NSDictionary *)userInfo {
 
@@ -97,7 +97,7 @@ application:didFinishLaunchingWithOptions:와application:didReceiveRemoteNotific
 
 ### 푸시 알림 용 수신기 설정
 
-아래와 같이 푸시 알림을받을 데 필요한 수신기의 설정을 \<application \> 태그에 추가하십시오.
+아래와 같이 푸시 알림을받을 데 필요한 수신기의 설정을 &lt;application&gt; 태그에 추가하십시오.
 
 ```xml
 <receiver android:name="jp.appAdForce.android.NotifyReceiver"
@@ -119,3 +119,6 @@ com.google.android.c2dm.intent.RECEIVE과 com.google.android.c2dm.intent.REGISTR
 ```
 
 내부적으로는 jp.appAdForce.android.NotifyReceiver 클래스에서 공존시키고 싶은 receiver클래스의 onResume() 또는 onMessage(), onRegistered()를 호출합니다.
+
+---
+[TOP](/lang/ko/doc/README.md)

@@ -34,49 +34,20 @@ iOS用のプロジェクトを作成するために、次の手順でXcodeプロ
 
 ![フレームワーク設定01](/lang/ja/doc/integration/ios/config_framework/img01.png)
 
-[フレームワーク設定の詳細](/lang/ja/doc/integration/ios/config_framework/)
+[フレームワーク設定の詳細](/lang/ja/doc/integration/ios/config_framework/README.md)
 
 * **SDK設定**
 
 SDKの動作に必要な設定をplistに追加します。「AppAdForce.plist」というファイルをプロジェクトの任意の場所に作成し、次のキーと値を入力してください。
 
-<table>
-<tr>
-  <th>Key</th>
-  <th>Type</th>
-  <th>Value</th>
-</tr>
-<tr>
-  <td>APP_ID</td>
-  <td>String</td>
-  <td>Force Operation X管理者より連絡しますので、その値を入力してください。</td>
-</tr>
-<tr>
-  <td>SERVER_URL</td>
-  <td>String</td>
-  <td>Force Operation X管理者より連絡しますので、その値を入力してください。</td>
-</tr>
-<tr>
-  <td>APP_SALT</td>
-  <td>String</td>
-  <td>Force Operation X管理者より連絡しますので、その値を入力してください。</td>
-</tr>
-<tr>
-  <td>APP_OPTIONS</td>
-  <td>String</td>
-  <td>何も入力せず、空文字の状態にしてください。</td>
-</tr>
-<tr>
-  <td>CONVERSION_MODE</td>
-  <td>String</td>
-  <td>1</td>
-</tr>
-<tr>
-  <td>ANALYTICS_APP_KEY</td>
-  <td>String</td>
-  <td>Force Operation X管理者より連絡しますので、その値を入力してください。<br />アクセス解析を利用しない場合は設定の必要はありません。</td>
-</tr>
-</table>
+Key | Type | Value
+:---: | :---: | :---
+APP_ID | String | Force Operation X管理者より連絡しますので、その値を入力してください。
+SERVER_URL | String | Force Operation X管理者より連絡しますので、その値を入力してください。
+APP_SALT | String | Force Operation X管理者より連絡しますので、その値を入力してください。
+APP_OPTIONS | String | 何も入力せず、空文字の状態にしてください。
+CONVERSION_MODE | String | 1
+ANALYTICS_APP_KEY | String | Force Operation X管理者より連絡しますので、その値を入力してください。<br />アクセス解析を利用しない場合は設定の必要はありません。
 
 ![フレームワーク設定01](/lang/ja/doc/integration/ios/config_plist/img05.png)
 
@@ -105,4 +76,4 @@ F.O.X Unity SDK v2.16以降では、SFSafariViewController起動後の制御をF
 > これまで外されていた場合には、本Unity SDKのunitypackageファイルに同梱のFoxReengagePluginをご導入ください。
 
 ---
-[TOPへ](/lang/ja/)
+[TOPへ](/lang/ja/README.md)

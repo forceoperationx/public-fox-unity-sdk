@@ -9,7 +9,7 @@
 
 
 v2.14からAndroidにおいて、広告IDに対応しています。
-広告IDを取得する場合は、「[広告IDを利用するためのGoogle Play Services SDKの導入](../../google_play_services/ja/README.md)」を確認してください。
+広告IDを取得する場合は、「[広告IDを利用するためのGoogle Play Services SDKの導入](/lang/ja/doc/integration/android/google_play_services/README.md)」を確認してください。
 
 また、v2.14からリエンゲージメント計測機能が追加されています。
 リエンゲージメント計測を実施される場合は、iOSアプリの場合は、FoxReengagePlugin.m/hをプロジェクトに追加してください。Androidアプリの場合は、「リエンゲージメント計測の実装」を確認し、実装してください。
@@ -19,4 +19,4 @@ SDKのアップデート後は、必ず効果測定テストを実施し、計�
 
 
 ---
-[TOPへ](/lang/ja/)
+[TOPへ](/lang/ja/README.md)

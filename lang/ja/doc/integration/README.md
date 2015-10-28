@@ -28,7 +28,6 @@ F.O.XのiOS SDK, Android SDKを組み込みます。
 
 <img src="./img02.png" width="700px" />
 
-
 > AndroidでF.O.Xのプッシュ通知機能を利用する場合は、gcm.jarの導入が必要となります。
 gcm.jarを導入していない場合は、「FOX Android SDK_<version>」に含まれる「gcm.jar」をプロジェクトに導入してください。
 
@@ -48,4 +47,4 @@ F.O.X Unity SDK v2.16以降では、SFSafariViewController起動後の制御をF
 
 
 ---
-[TOPへ](/lang/ja/)
+[TOPへ](/lang/ja/README.md)

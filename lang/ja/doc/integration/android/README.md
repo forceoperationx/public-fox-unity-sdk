@@ -23,7 +23,7 @@ ACCESS_NETWORK_STATE|Normal|必須|F.O.X SDKが通信可能かを確認するた
 READ_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排除機能向上に必要となります。(※1)
 WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排除機能向上に必要となります。(※1)
 
-> ※1 Android MよりProtectionLevelが`dangerous`に指定されているパーミッションを必要とする機能を利用するには、ユーザーの許可が必要になります。詳細は[外部ストレージを利用した重複排除設定](/lang/ja/doc/integration/android/external_storage/)をご確認ください。
+> ※1 Android MよりProtectionLevelが`dangerous`に指定されているパーミッションを必要とする機能を利用するには、ユーザーの許可が必要になります。詳細は[外部ストレージを利用した重複排除設定](/lang/ja/doc/integration/android/external_storage/README.md)をご確認ください。
 
 
 ## メタデータの設定
@@ -66,7 +66,7 @@ SDKの実行に必要な情報を<application>タグ内に追加します。
 </receiver>
 ```
 
-既に"com.android.vending.INSTALL_REFERRER"に対するレシーバークラスが定義されている場合には、[二つのINSTALL_REFERRERレシーバーを共存させる場合の設定](/lang/ja/doc/integration/android/install_referrer/)をご参照ください。
+既に"com.android.vending.INSTALL_REFERRER"に対するレシーバークラスが定義されている場合には、[二つのINSTALL_REFERRERレシーバーを共存させる場合の設定](/lang/ja/doc/integration/android/install_referrer/README.md)をご参照ください。
 
 
 ## リエンゲージメント計測の実装
@@ -90,13 +90,13 @@ SDKの実行に必要な情報を<application>タグ内に追加します。
 
 ## その他
 
-* [広告IDを利用するためのGoogle Play Services SDKの導入](/lang/ja/doc/integration/android/google_play_services/)
+* [広告IDを利用するためのGoogle Play Services SDKの導入](/lang/ja/doc/integration/android/google_play_services/README.md)
 
 * [AndroidManifest.xml 設定サンプル](/lang/ja/doc/integration/android/config_android_manifest/AndroidManifest.xml)
 
-* [（オプション）外部ストレージを利用した重複排除設定](/lang/ja/doc/integration/android/external_storage/)
+* [（オプション）外部ストレージを利用した重複排除設定](/lang/ja/doc/integration/android/external_storage/README.md)
 
-* [（オプション）Android M オートバックアップ機能の利用](/lang/ja/doc/integration/android/auto_backup/)
+* [（オプション）Android M オートバックアップ機能の利用](/lang/ja/doc/integration/android/auto_backup/README.md)
 
 
 ## ProGuardを利用する場合
@@ -128,4 +128,4 @@ ProGuard を利用してアプリケーションの難読化を行う際は F
 
 
 ---
-[TOPへ](/lang/ja/)
+[TOPへ](/lang/ja/README.md)

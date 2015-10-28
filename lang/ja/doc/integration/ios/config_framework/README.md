@@ -22,4 +22,4 @@
 ![フレームワーク設定02](/lang/ja/doc/integration/ios/config_framework/img02.png)
 
 ---
-[iOS TOPへ](/lang/ja/doc/integration/ios)
+[iOS TOPへ](/lang/ja/doc/integration/ios/README.md)

@@ -30,16 +30,16 @@ F.O.Xで計測された情報を使い、ユーザーに対してプッシュ通
 
 [SDKリリースページ](https://github.com/cyber-z/public-fox-unity-sdk/releases)
 
-既にアプリケーションにSDKが導入されている場合には、[最新バージョンへのアップデートについて](./doc/update/)をご参照ください。
+既にアプリケーションにSDKが導入されている場合には、[最新バージョンへのアップデートについて](./doc/update/README.md)をご参照ください。
 
 ダウンロードしたSDK「FOX_UnityPlugin_<version>.zip」を展開し、アプリケーションのプロジェクトに組み込んでください。
 
-[Unityプラグインの導入方法](./doc/integration/)
+[Unityプラグインの導入方法](./doc/integration/README.md)
 
 ### 各OS毎の設定
 
-* [iOSプロジェクトの設定](./doc/integration/ios/)
-* [Androidプロジェクトの設定](./doc/integration/android)
+* [iOSプロジェクトの設定](./doc/integration/ios/README.md)
+* [Androidプロジェクトの設定](./doc/integration/android/README.md)
 
 
 ## 2. インストール計測の実装
@@ -108,7 +108,7 @@ FoxPlugin.sendLtv(成果地点 ID);
 
 > Javascriptで編集する場合は、文中の「FoxPlugin」を「FoxPluginJS」に読み替えてください。
 
-* [sendLtvの詳細](./doc/send_ltv_conversion)
+* [sendLtvの詳細](./doc/send_ltv_conversion/README.md)
 
 ## 4. アクセス解析の実装
 
@@ -138,7 +138,7 @@ FoxPlugin.sendStartSession();
 * **アクセス解析による課金計測**
 アクセス解析による課金計測を実施したい場合は下記のリンクを参照してください。
 
-[アクセス解析によるイベント計測](./doc/analytics_event)
+[アクセス解析によるイベント計測](./doc/analytics_event/README.md)
 
 
 
@@ -168,34 +168,34 @@ FoxPlugin.sendStartSession();
 > テストURLをクリックした際に、遷移先がなくエラーダイアログが表示される場合がありますが、疎通テストにおいては問題ありません。
 
 
-[リエンゲージメント計測を行う場合のテスト手順](./doc/reengagement_test/)
+[リエンゲージメント計測を行う場合のテスト手順](./doc/reengagement_test/README.md)
 
 
-## その他機能の実装
+## 6. その他機能の実装
 
-[プッシュ通知の実装](./doc/notify/)
+* [プッシュ通知の実装](./doc/notify/README.md)
 
-[オプトアウトの実装](./doc/optout/)
+* [オプトアウトの実装](./doc/optout/README.md)
 
-[管理画面上に登録したバンドルバージョンに応じた処理の振り分け](./doc/check_version/)
+* [管理画面上に登録したバンドルバージョンに応じた処理の振り分け](./doc/check_version/README.md)
 
 
-## 最後に必ずご確認ください（これまで発生したトラブル集）
+## 7. 最後に必ずご確認ください（これまで発生したトラブル集）
 
-### URLスキームの設定がされずリリースされたためブラウザからアプリに遷移ができない
+### 7.1. URLスキームの設定がされずリリースされたためブラウザからアプリに遷移ができない
 
 Cookie計測を行うために外部ブラウザを起動した後に、元の画面に戻すためにはURLスキームを利用してアプリケーションに遷移させる必要があります。この際、独自のURLスキームが設定されている必要があり、URLスキームを設定せずにリリースした場合にはこのような遷移を行うことができなくなります。
 
-### URLスキームに大文字や記号が含まれ、正常にアプリに遷移されない
+### 7.2. URLスキームに大文字や記号が含まれ、正常にアプリに遷移されない
 
 環境によって、URLスキームの大文字小文字が判別されないことにより正常にURLスキームの遷移が行えない場合があります。URLスキームは全て小文字の英数字で設定を行ってください。
 
 
-### URLスキームの設定が他社製アプリと同一でブラウザからそちらのアプリが起動してしまう
+### 7.3. URLスキームの設定が他社製アプリと同一でブラウザからそちらのアプリが起動してしまう
 
 iOSにおいて、複数のアプリに同一のURLスキームが設定されていた場合に、どのアプリが起動するかは不定です。確実に特定のアプリを起動することができなくなるため、URLスキームは他社製アプリとはユニークになるようある程度の複雑性のあるものを設定してください。
 
-### 短時間で大量のユーザー獲得を行うプロモーションを実施したら正常に計測がされなかった
+### 7.4. 短時間で大量のユーザー獲得を行うプロモーションを実施したら正常に計測がされなかった
 
 iOSには、アプリ起動時に一定時間以上メインスレッドがブロックされるとアプリケーションを強制終了する仕様があります。起動時の初期化処理など、メインスレッド上でサーバーへの同期通信を行わないようにご注意ください。リワード広告などの大量のユーザーを短時間で獲得した結果、サーバーへのアクセスが集中し、通信のレスポンスが非常に悪くなることでアプリケーションの起動に時間がかかり、起動時に強制終了され正常に広告成果が計測できなくなった事例がございます。
 
@@ -207,15 +207,15 @@ iOSには、アプリ起動時に一定時間以上メインスレッドがブ�
 * 「Very Bad Network」をチェック
 
 
-### F.O.Xで確認できるインストール数の値がGoogle Play Developer Consoleの数字より大きい
+### 7.5. F.O.Xで確認できるインストール数の値がGoogle Play Developer Consoleの数字より大きい
 
 F.O.Xではいくつかの方式を組み合わせて端末の重複インストール検知を行っています。
 重複検知が行えない設定では、同一端末でも再インストールされる度にF.O.Xは新規のインストールと判定してしまいます。
 
 重複検知の精度を向上するために、以下の設定を行ってください。
 
-* [広告IDを利用するためのGoogle Play Services SDKの導入](./doc/google_play_services/)
+* [広告IDを利用するためのGoogle Play Services SDKの導入](./doc/google_play_services/README.md)
 
-* [（オプション）外部ストレージを利用した重複排除設定](/lang/ja/doc/integration/android/external_storage/)
+* [（オプション）外部ストレージを利用した重複排除設定](/lang/ja/doc/integration/android/external_storage/README.md)
 
-* [（オプション）Android M オートバックアップ機能の利用](./doc/integration/android/auto_backup/)
+* [（オプション）Android M オートバックアップ機能の利用](./doc/integration/android/auto_backup/README.md)
