@@ -52,3 +52,7 @@ FoxPlugin.addParameter(PARAM_PRICE, "20");
 FoxPlugin.addParameter(“my_param”, "ABC");
 FoxPlugin.sendLtv(70, "Taro");
 ```
+
+
+---
+[TOPへ](/lang/ja/)

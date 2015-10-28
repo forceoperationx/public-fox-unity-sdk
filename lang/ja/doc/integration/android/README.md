@@ -6,7 +6,8 @@ AndroidManifest.xml を編集します。プロジェクトに AndroidMani
 
 ## パーミッションの設定
 
-<Manifest>タグ内に次のパーミッションの設定を追加します。
+F.O.X SDKでは下記4つのパーミッションを利用します。
+&lt;Manifest&gt;タグ内に次のパーミッションの設定を追加します。
 
 ```xml:
 <uses-permission android:name="android.permission.INTERNET" />
@@ -15,15 +16,33 @@ AndroidManifest.xml を編集します。プロジェクトに AndroidMani
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
+パーミッション|Protection Level|必須|概要
+:---|:---:|:---:|:---
+INTERNET|Normal|必須|F.O.X SDKが通信を行うために必要となります。
+ACCESS_NETWORK_STATE|Normal|必須|F.O.X SDKが通信可能かを確認するために必要となります。
+READ_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排除機能向上に必要となります。(※1)
+WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排除機能向上に必要となります。(※1)
+
+> ※1 Android MよりProtectionLevelが`dangerous`に指定されているパーミッションを必要とする機能を利用するには、ユーザーの許可が必要になります。詳細は[外部ストレージを利用した重複排除設定](https://github.com/cyber-z/public_fox_android_sdk/tree/master/doc/external_storage/ja/)をご確認ください。
+
+
 ## メタデータの設定
 
 SDKの実行に必要な情報を<application>タグ内に追加します。
 
-```xml:
-<meta-data android:name="APPADFORCE_APP_ID" android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
-<meta-data android:name="APPADFORCE_SERVER_URL" android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
-<meta-data android:name="APPADFORCE_CRYPTO_SALT" android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
-<meta-data android:name="ANALYTICS_APP_KEY" android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
+```xml
+<meta-data
+	android:name="APPADFORCE_APP_ID"
+	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
+<meta-data
+	android:name="APPADFORCE_SERVER_URL"
+	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
+<meta-data
+	android:name="APPADFORCE_CRYPTO_SALT"
+	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
+<meta-data
+	android:name="ANALYTICS_APP_KEY"
+	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
 ```
 
 設定するキーとバリューは以下の通りです。
@@ -37,9 +56,9 @@ SDKの実行に必要な情報を<application>タグ内に追加します。
 
 
 ## インストールリファラ計測の設定
-インストールリファラーを用いたインストール計測を行うために下記の設定を<application>タグに追加します。
+インストールリファラーを用いたインストール計測を行うために下記の設定を&lt;application&gt;タグに追加します。
 
-```xml:
+```xml
 <receiver android:name="jp.appAdForce.android.InstallReceiver" android:exported="true">
 	<intent-filter>
 		<action android:name="com.android.vending.INSTALL_REFERRER" />
@@ -53,7 +72,10 @@ SDKの実行に必要な情報を<application>タグ内に追加します。
 ## リエンゲージメント計測の実装
 
 カスタムURLスキーム経由の起動を計測するために必要な設定を<application>タグ内に追記します。
-カスタムURLスキームは他のActivityで設定しているものと異なる値を設定してください。
+以下の`IntentReceiverActivity`はF.O.X SDKで提供しているActivityとなります。
+
+カスタムURLスキームで本Activityが呼び出されることでリエンゲージメント計測を行います。
+ここでのカスタムURLスキームは他のActivityに設定しているものとは異なる値を設定してください。
 
 ```xml
 <activity android:name="jp.appAdForce.android.IntentReceiverActivity">
@@ -66,11 +88,15 @@ SDKの実行に必要な情報を<application>タグ内に追加します。
 </activity>
 ```
 
-[広告IDを利用するためのGoogle Play Services SDKの導入](/lang/ja/doc/google_play_services/)
+## その他
 
-[（オプション）外部ストレージを利用した重複排除設定](https://github.com/cyber-z/public_fox_android_sdk/tree/master/doc/external_storage/ja/)
+* [広告IDを利用するためのGoogle Play Services SDKの導入](/lang/ja/doc/integration/android/google_play_services/)
 
-[AndroidManifest.xmlサンプル](/lang/ja/doc/config_android_manifest/AndroidManifest.xml)
+* [AndroidManifest.xml 設定サンプル](/lang/ja/doc/integration/android/config_android_manifest/AndroidManifest.xml)
+
+* [（オプション）外部ストレージを利用した重複排除設定](https://github.com/cyber-z/public_fox_android_sdk/tree/master/doc/external_storage/ja/)
+
+* [（オプション）Android M オートバックアップ機能の利用](/lang/ja/doc/integration/android/auto_backup/)
 
 
 ## ProGuardを利用する場合
@@ -99,3 +125,7 @@ ProGuard を利用してアプリケーションの難読化を行う際は F
 また、Google Play Service SDK を導入されている場合は、以下のぺージに記載されている keep 指定が記述されているかご確認ください。
 
 [Google Play Services導入時のProguard対応](https://developer.android.com/google/play-services/setup.html#Proguard)
+
+
+---
+[TOPへ](/lang/ja/)

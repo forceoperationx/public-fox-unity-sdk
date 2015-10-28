@@ -36,11 +36,11 @@ APNs及びGCMに端末を登録するために下記の設定を行います。
 デバイストークンの取得に成功した場合、Application DelegateのdidRegisterForRemoteNotificationsWithDeviceToken:が呼び出されますので、 取得したデバイストークンをF.O.Xへ送信するために、次の通り実装を行ってください。
 
 ```objectivec
-#import "Notify.h" 
+#import "Notify.h"
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken{
     // F.O.Xに端末を登録するメソッド    [[Notify sharedManager] manageDevToken:deviceToken];
-        UnitySendDeviceToken(deviceToken);}
+    UnitySendDeviceToken(deviceToken);}
 ```
 
 4. プッシュ通知を受信した際に、F.O.Xへ開封通知を送信するメソッドを追加
@@ -110,3 +110,6 @@ com.google.android.c2dm.intent.RECEIVEとcom.google.android.c2dm.intent.REGISTRA
 ```
 
 内部的にはjp.appAdForce.android.NotifyReceiverクラスから、共存させたいレシーバークラスのonResume()、もしくはonMessage()、onRegistered()を呼び出します。
+
+---
+[TOPへ](/lang/ja/)

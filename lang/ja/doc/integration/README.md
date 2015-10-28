@@ -41,7 +41,11 @@ gcm.jarを導入していない場合は、「FOX Android SDK_<version>」に含
 
 * **iOS9における導入の注意点**
 
-> Cookie計測を実施する際に、iOS9ではSFSafariViewControllerが使用します。
+> Cookie計測を実施する際に、iOS9ではSFSafariViewControllerを使用します。
 F.O.X Unity SDK v2.16以降では、SFSafariViewController起動後の制御をFoxReengagePluginで行うため導入が必須となります。
 
 > これまで外されていた場合には、本Unity SDKのunitypackageファイルに同梱のFoxReengagePluginをご導入ください。
+
+
+---
+[TOPへ](/lang/ja/)

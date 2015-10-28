@@ -45,3 +45,6 @@ FoxPlugin.sendLtv(成果地点 ID);
 // アクセス解析による課金計測
 FoxPlugin.sendEventPurchase("purchase", null, null, null, null, "", 3, 1, "USD");
 ```
+
+---
+[TOPへ](/lang/ja/)

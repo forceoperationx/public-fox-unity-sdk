@@ -217,3 +217,5 @@ F.O.Xではいくつかの方式を組み合わせて端末の重複インスト
 [広告IDを利用するためのGoogle Play Services SDKの導入](./doc/google_play_services/)
 
 [（オプション）外部ストレージを利用した重複排除設定](https://github.com/cyber-z/public_fox_android_sdk/tree/master/doc/external_storage/ja/)
+
+[Android M オートバックアップ機能の利用](./doc/integration/android/auto_backup/)

@@ -78,7 +78,7 @@ SDKの動作に必要な設定をplistに追加します。「AppAdForce.plist�
 </tr>
 </table>
 
-![フレームワーク設定01](/lang/ja/doc/config_plist/img05.png)
+![フレームワーク設定01](/lang/ja/doc/integration/ios/config_plist/img05.png)
 
 * **App Transport Securityについて**
 
@@ -91,11 +91,11 @@ NSExceptionDomains|Dictionary|ATSの例外を指定するディクショナリ�
 NSExceptionAllowsInsecureHTTPLoads|Boolean|YES を指定してくださいATSの例外とします。
 NSIncludesSubdomains|Boolean|YES を指定しATSの例外設定をサブドメインにも適用させます。
 
-![ATS設定](/lang/ja/doc/config_plist/img06.png)
+![ATS設定](/lang/ja/doc/integration/ios/config_plist/img06.png)
 
-[SDK設定の詳細](/lang/ja/doc/config_plist/README.md)
+[SDK設定の詳細](/lang/ja/doc/integration/ios/config_plist/README.md)
 
-[AppAdForce.plistサンプル](/lang/ja/doc/config_plist/AppAdForce.plist)
+[AppAdForce.plistサンプル](/lang/ja/doc/integration/ios/config_plist/AppAdForce.plist)
 
 **iOS9における導入の注意点**
 
@@ -103,3 +103,6 @@ NSIncludesSubdomains|Boolean|YES を指定しATSの例外設定をサブドメ�
 F.O.X Unity SDK v2.16以降では、SFSafariViewController起動後の制御をFoxReengagePluginで行うため導入が必須となります。
 
 > これまで外されていた場合には、本Unity SDKのunitypackageファイルに同梱のFoxReengagePluginをご導入ください。
+
+---
+[TOPへ](/lang/ja/)

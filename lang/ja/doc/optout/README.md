@@ -6,3 +6,6 @@
 ```C#// ユーザーがオプトアウトを選択した場合に setOptout を有効にするif(user.optout) {	FoxPlugin.setOptout(true);}
 FoxPlugin.sendConversion("default");
 ```
+
+---
+[TOPへ](/lang/ja/)
