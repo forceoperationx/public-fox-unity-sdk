@@ -32,9 +32,9 @@ iOS用のプロジェクトを作成するために、次の手順でXcodeプロ
 
 > ※SafariServices.frameworkはiOS 9以降で追加されたフレームワークのため、アプリケーションをiOS 8以前でも動作させる(iOS Deployment Targetを8.4以下に設定する)場合にはweak linkを行うために”Optional”に設定してください。
 
-![フレームワーク設定01](https://github.com/cyber-z/public_fox_ios_sdk/raw/master/doc/config_framework/ja/img01.png)
+![フレームワーク設定01](/lang/ja/doc/integration/ios/config_framework/img01.png)
 
-[フレームワーク設定の詳細](https://github.com/cyber-z/public_fox_ios_sdk/blob/master/doc/config_framework/ja/README.md)
+[フレームワーク設定の詳細](/lang/ja/doc/integration/ios/config_framework/)
 
 * **SDK設定**
 

@@ -201,7 +201,7 @@ iOSには、アプリ起動時に一定時間以上メインスレッドがブ�
 
 以下の手順で、こうした状況をテストすることができますので、以下の設定でアプリケーションが正常に起動するかをご確認ください。
 
-iOS「設定」→「デベロッパー」→「NETWORK LINK CONDITIONER」
+`iOS「設定」→「デベロッパー」→「NETWORK LINK CONDITIONER」`
 
 * 「Enable」をオン
 * 「Very Bad Network」をチェック
@@ -214,8 +214,8 @@ F.O.Xではいくつかの方式を組み合わせて端末の重複インスト
 
 重複検知の精度を向上するために、以下の設定を行ってください。
 
-[広告IDを利用するためのGoogle Play Services SDKの導入](./doc/google_play_services/)
+* [広告IDを利用するためのGoogle Play Services SDKの導入](./doc/google_play_services/)
 
-[（オプション）外部ストレージを利用した重複排除設定](https://github.com/cyber-z/public_fox_android_sdk/tree/master/doc/external_storage/ja/)
+* [（オプション）外部ストレージを利用した重複排除設定](/lang/ja/doc/integration/android/external_storage/)
 
-[Android M オートバックアップ機能の利用](./doc/integration/android/auto_backup/)
+* [Android M オートバックアップ機能の利用](./doc/integration/android/auto_backup/)
