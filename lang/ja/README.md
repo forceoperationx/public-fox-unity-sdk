@@ -218,4 +218,4 @@ F.O.Xではいくつかの方式を組み合わせて端末の重複インスト
 
 * [（オプション）外部ストレージを利用した重複排除設定](/lang/ja/doc/integration/android/external_storage/)
 
-* [Android M オートバックアップ機能の利用](./doc/integration/android/auto_backup/)
+* [（オプション）Android M オートバックアップ機能の利用](./doc/integration/android/auto_backup/)
