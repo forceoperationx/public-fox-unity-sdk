@@ -9,10 +9,13 @@
 
 
 v2.14부터 Android는 광고 ID에 대응하고 있습니다.
-광고 ID를 취득하는 경우는 「[광고 ID를 이용하기위한 Google Play Services SDK의 도입](../../google_play_services/ja/README.md)」를 확인하십시오.
+광고 ID를 취득하는 경우는 「[광고 ID를 이용하기위한 Google Play Services SDK의 도입](/lang/ko/doc/google_play_services/ja/README.md)」를 확인하십시오.
 
 또한 v2.14부터 Engagement측정 기능이 추가되어 있습니다.
 Engagement측정을 실시하는 경우, iOS는 FoxReengagePlugin.m/h를 프로젝트에 추가하십시오. Android 앱의 경우는 「Engagement 측정 구현」를 확인 후 구현합니다.
 
 SDK의 업데이트후에는 반드시 효과 측정 테스트를 실시하고 계측 및 앱의 작동에 문제가 없음을 확인하십시오.
 또 「Engagement 측정을 실시하는 경우는 Engagement측정용 테스트를 실시해야합니다.
+
+---
+[TOP](/lang/ko/doc/README.md)

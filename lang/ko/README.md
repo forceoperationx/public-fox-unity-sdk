@@ -30,11 +30,11 @@ F.O.X에서 측정된 정보를 사용하여 사용자에게 푸시 알림을 �
 
 [SDK 릴리스 페이지] (https://github.com/cyber-z/public-fox-unity-sdk/releases)
 
-이미 앱에 SDK가 설치되어있는 경우에는 [최신 버전에 대한 업데이트에 대해](./doc/update/)를 참조하십시오.
+이미 앱에 SDK가 설치되어있는 경우에는 [최신 버전에 대한 업데이트에 대해](./doc/update/README.md)를 참조하십시오.
 
 다운로드 한 SDK「FOX_UnityPlugin_<version>.zip」의 압축을 풀어 앱 프로젝트에 포함 시키십시오.
 
-[Unity 플러그인의 설치 방법](./doc/integration/)
+[Unity 플러그인의 설치 방법](./doc/integration/README.md)
 
 
 ## 2. 설치 계측 구현
@@ -59,7 +59,7 @@ F.O.X에서 측정된 정보를 사용하여 사용자에게 푸시 알림을 �
 
 GUI(Inspector)를 이용하지 않고 스크립트로 설치 측정 프로세스에 대한 설명을 할 경우에는 기동시 실행되는 스크립트로부터 FoxPlugin.sendConversion를 호출합니다.
 
-```C#
+```cs
 FoxPlugin.sendConversion("default");
 ```
 
@@ -67,7 +67,7 @@ sendConversion의 인수에는 일반적으로 위와 같이 "default"라는 문
 
 특정 URL에 이동 시키고 싶은 경우나 앱에서 동적으로 URL을 생성하고자하는 경우에는 URL 문자열을 설정하십시오.
 
-```C#
+```cs
 FoxPlugin.sendConversion("http://yourhost.com/yourpage.html");
 ```
 
@@ -78,7 +78,7 @@ FoxPlugin.sendConversion("http://yourhost.com/yourpage.html");
 소스의 편집은 성과가 오른 후에 실행되는 스크립트에 처리를 기술합니다. 예를 들어 회원 가입이나 앱 내 과금후의 과금측정에서는 등록·과금 처리 실행 후 콜백에 LTV 측정 처리를 기술합니다. 대상 스크립트(C# 또는 JavaScript)에 의해 편집 내용이 다르기 때문에 주의 하십시오.
 
 
-```C#
+```cs
 FoxPlugin.sendLtv(성과지점 ID);
 ```
 
@@ -86,7 +86,7 @@ LTV 측정을하기 위해서는 각 성과 지점을 식별하는 성과 지점
 
 과금 측정을 할 경우에는 결제가 완료된 부분에 아래와 같이 결제 금액을 지정하십시오.
 
-```C#
+```cs
 // ...
 FoxPlugin.addParameter(FoxPlugin.PARAM_CURRENCY, "USD");
 FoxPlugin.addParameter(FoxPlugin.PARAM_PRICE, "20");
@@ -95,7 +95,7 @@ FoxPlugin.sendLtv(성과지점 ID);
 
 > Javascript에서 편집 할 경우, 문장 안의 「FoxPlugin」을 「FoxPluginJS」로 바꿉니다.
 
-* [sendLtv 상세 정보] (./doc/send_ltv_conversion/)
+* [sendLtv 상세 정보] (./doc/send_ltv_conversion/README.md)
 
 ## 4. 액세스 해석의 구현
 
@@ -118,8 +118,8 @@ FoxPlugin.sendLtv(성과지점 ID);
 
 앱의 기동 지점에서 다음 메소드를 구현합니다.
 
-```C#
-FoxPlugin.sendStartSession ();
+```cs
+FoxPlugin.sendStartSession();
 ```
 
 
@@ -127,7 +127,7 @@ FoxPlugin.sendStartSession ();
 * **액세스 해석에 의한 과금 측정**
 액세스 해석에 의한 과금 측정을 수행하려면 아래 링크를 참조하십시오.
 
-[액세스 해석에 의한 이벤트 측정] (./doc/analytics_event/)
+[액세스 해석에 의한 이벤트 측정] (./doc/analytics_event/README.md)
 
 
 ## 5. 각 OS마다 설정
@@ -165,7 +165,7 @@ iOS 용 프로젝트를 생성하기 위해 다음과 같이 Xcode 프로젝트�
 
 ![프레임 워크 설정 01] (./doc/config_framework/img01.png)
 
-[프레임 워크 설정의 상세](./doc/config_framework/)
+[프레임 워크 설정의 상세](./doc/config_framework/README.md)
 
 * **SDK 설정**
 
@@ -211,7 +211,7 @@ SDK의 동작에 필요한 설정을 plist에 추가합니다. 「AppAdForce.pli
 
 ![프레임 워크 설정 01](./doc/config_plist/img05.png)
 
-[SDK설정의 상세](./doc/config_plist/)
+[SDK설정의 상세](./doc/config_plist/README.md)
 
 [AppAdForce.plist 샘플](./doc/config_plist/AppAdForce.plist)
 
@@ -265,7 +265,7 @@ SDK의 실행에 필요한 정보를<application>태그내에 추가합니다.
 </receiver>
 ```
 
-이미 "com.android.vending.INSTALL_REFERRER"에 대한 receiver 클래스가 정의되어있는 경우에는, [두개의 INSTALL_REFERRER receiver를 공존시키는 경우 설정](./doc/install_referrer/)를 참조하십시오.
+이미 "com.android.vending.INSTALL_REFERRER"에 대한 receiver 클래스가 정의되어있는 경우에는, [두개의 INSTALL_REFERRER receiver를 공존시키는 경우 설정](./doc/install_referrer/README.md)를 참조하십시오.
 
 
 ### Engagement 측정의 구현
@@ -284,9 +284,9 @@ SDK의 실행에 필요한 정보를<application>태그내에 추가합니다.
 </activity>
 ```
 
-[광고 ID를 이용하기 위한 Google Play Services SDK의 도입](./doc/google_play_services/)
+[광고 ID를 이용하기 위한 Google Play Services SDK의 도입](./doc/google_play_services/README.md)
 
-[(옵션) 외부 스토리지를 이용한 중복 제거 설정](./doc/external_storage/)
+[(옵션) 외부 스토리지를 이용한 중복 제거 설정](./doc/external_storage/README.md)
 
 [AndroidManifest.xml 샘플](./doc/config_android_manifest/AndroidManifest.xml)
 
@@ -344,16 +344,16 @@ ProGuard를 이용하여 앱의 난독화 처리를 할 때는 F.O.X SDK의 메�
 > 테스트 URL을 클릭했을 때 전환 대상이 아닌 오류 메시지가 표시되는 경우가 있습니다만 소통 테스트에서는 문제 없습니다.
 
 
-[Engagement측정을 할 경우 테스트 단계](./doc/reengagement_test/)
+[Engagement측정을 할 경우 테스트 단계](./doc/reengagement_test/README.md)
 
 
 ## 기타 기능의 구현
 
-[푸시 알림 구현](./doc/notify/)
+* [푸시 알림 구현](./doc/notify/README.md)
 
-[수신 거부의 구현](./doc/optout/)
+* [수신 거부의 구현](./doc/optout/README.md)
 
-[관리 화면에 등록한 번들 버전에 따른 처리의 배분](./doc/check_version/)
+* [관리 화면에 등록한 번들 버전에 따른 처리의 배분](./doc/check_version/README.md)
 
 
 ## 마지막에 반드시 확인하시기 바랍니다 (지금까지 발생한 문제점들)
@@ -390,6 +390,6 @@ F.O.X는 몇개의 방식을 조합하여 단말기의 중복 설치 검사를 �
 
 중복 탐지의 정확성을 향상시키기 위해 아래와 같이 설정하십시오.
 
-[광고 ID를 이용하기 위한 Google Play Services SDK의 도입](./doc/google_play_services/)
+* [광고 ID를 이용하기 위한 Google Play Services SDK의 도입](./doc/google_play_services/README.md)
 
-[(옵션)외부 스토리지를 이용한 중복 제거 설정](./doc/external_storage/)
+* [(옵션)외부 스토리지를 이용한 중복 제거 설정](./doc/external_storage/README.md)
