@@ -10,7 +10,7 @@ JavaScriptに編集する場合は、文中の「FoxPlugin」を「FoxPluginJS�
 
 成果通知のコードを追加
 
-```C#
+```cs
 FoxPlugin.sendLtv(成果地点 ID);
 ```
 > 成果地点ID(必須)：管理者より連絡します。その値を入力してください。
@@ -18,7 +18,7 @@ FoxPlugin.sendLtv(成果地点 ID);
 
 アプリ内部の成果に、広告主端末ID（会員IDなど）を含める事ができ、これを基準とした成果計測が行えます。LTV成果に広告主端末IDを付与したい場合は以下のように記述してください。
 
-```C#
+```cs
 	FoxPlugin.sendLtv(成果地点ID, "広告主端末ID");
 ```
 
@@ -29,7 +29,7 @@ FoxPlugin.sendLtv(成果地点 ID);
 
 アプリ内計測時には、パラメータをオプションとして設定する事が可能です。
 
-```C#
+```cs
 	FoxPlugin.addParameter("パラメータ名", "値");
 ```
 
@@ -45,10 +45,14 @@ FoxPlugin.sendLtv(成果地点 ID);
 PARAM_CURRENCYには[ISO 4217](http://ja.wikipedia.org/wiki/ISO_4217)で定義された通貨コードを指定してください。
 
 設定例：
-```C#
+```cs
 FoxPlugin.addParameter(PARAM_SKU, "ABC1234");
 FoxPlugin.addParameter(PARAM_CURRENCY,  "USD");
 FoxPlugin.addParameter(PARAM_PRICE, "20");
 FoxPlugin.addParameter(“my_param”, "ABC");
 FoxPlugin.sendLtv(70, "Taro");
 ```
+
+
+---
+[TOPへ](/lang/ja/README.md)

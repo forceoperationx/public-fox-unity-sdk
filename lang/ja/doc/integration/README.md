@@ -28,7 +28,6 @@ F.O.XのiOS SDK, Android SDKを組み込みます。
 
 <img src="./img02.png" width="700px" />
 
-
 > AndroidでF.O.Xのプッシュ通知機能を利用する場合は、gcm.jarの導入が必要となります。
 gcm.jarを導入していない場合は、「FOX Android SDK_<version>」に含まれる「gcm.jar」をプロジェクトに導入してください。
 
@@ -38,3 +37,14 @@ gcm.jarを導入していない場合は、「FOX Android SDK_<version>」に含
 「FOX_iOS_SDK_<version>」以下に含まれる全てのファイルをドラッグして、Unityの「Plugins/iOS」フォルダに組み込みます。
 
 <img src="./img03.png" width="700px" />
+
+* **iOS9における導入の注意点**
+
+> Cookie計測を実施する際に、iOS9ではSFSafariViewControllerを使用します。
+F.O.X Unity SDK v2.16以降では、SFSafariViewController起動後の制御をFoxReengagePluginで行うため導入が必須となります。
+
+> これまで外されていた場合には、本Unity SDKのunitypackageファイルに同梱のFoxReengagePluginをご導入ください。
+
+
+---
+[TOPへ](/lang/ja/README.md)
