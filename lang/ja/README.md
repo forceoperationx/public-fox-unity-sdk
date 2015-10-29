@@ -177,8 +177,6 @@ FoxPlugin.sendStartSession();
 
 * [オプトアウトの実装](./doc/optout/README.md)
 
-* [管理画面上に登録したバンドルバージョンに応じた処理の振り分け](./doc/check_version/README.md)
-
 
 ## 7. 最後に必ずご確認ください（これまで発生したトラブル集）
 
