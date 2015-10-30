@@ -18,3 +18,6 @@
 > AdSupport.framework은 iOS 6 이상에서 추가된 프레임 워크를 위한 앱을 iOS 5 이하에서도 작동 시키는(iOS Deployment Target을 5.1 이하로 설정하는) 경우에는 weak link를 실행하기 위해 "Optional"로 설정 하십시오.
 
 ![프레임 워크 설정 02](https://github.com/cyber-z/public_fox_ios_sdk/raw/master/doc/config_framework/ja/img02.png)
+
+---
+[TOP](/lang/ko/doc/README.md)

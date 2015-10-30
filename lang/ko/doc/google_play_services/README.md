@@ -41,8 +41,9 @@ Google Play Services 의 라이브러리 프로​​젝트를 취득하면 Unit
 Google Play Services를 이용하기 위해서는 아래의 설정을 AndroidManifest.xml의<application> 태그 내에 기술합니다.
 
 ```xml
-<meta-data android:name="com.google.android.gms.version"
-        android:value="@integer/google_play_services_version" />
+<meta-data
+    android:name="com.google.android.gms.version"
+    android:value="@integer/google_play_services_version" />
 ```
 
 #### Proguard 설정
@@ -67,3 +68,6 @@ Proguard를 이용해서 읽기 어렵게 된 경우에는 다음 설정을 추�
     public static final ** CREATOR;
 }
 ```
+
+---
+[TOP](/lang/ko/doc/README.md)

@@ -4,13 +4,13 @@
 
 튜토리얼 돌파와 회원 등록 등의 이벤트 계측의 경우에는 다음과 같이 설명합니다.
 
-```C#
+```cs
 FoxPlugin.sendEventPurchase(eventName, action, label, quantity);
 ```
 
 과금 측정의 경우에는 아래와 같이 설명합니다.
 
-```C#
+```cs
 FoxPlugin.sendEventPurchase(eventName, action, label, orderId, sku, itemName, price, quantity, currency);
 ```
 
@@ -36,7 +36,7 @@ LTV 측정에서도 과금을 성과 지점으로하는 경우에는 동일한 �
 
 
 
-```C#
+```cs
 // LTV계측에 의한 과금 측정
 FoxPlugin.addParameter(FoxPlugin.PARAM_CURRENCY, "USD");
 FoxPlugin.addParameter(FoxPlugin.PARAM_PRICE, "3");
@@ -45,3 +45,6 @@ FoxPlugin.sendLtv(성과지점 ID);
 // 액세스 해석에 의한 과금 측정
 FoxPlugin.sendEventPurchase("purchase", null, null, null, null, "", 3, 1, "USD");
 ```
+
+---
+[TOP](/lang/ko/doc/README.md)

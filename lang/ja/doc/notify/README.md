@@ -15,7 +15,7 @@ APNs及びGCMに端末を登録するために下記の設定を行います。
 
 > sendConversionメソッドをスクリプト実装している場合は、必ずsendConversionメソッドが呼ばれる後に配置してください。
 
-```C#
+```cs
 #if UNITY_IOS || UNITY_IPHONE		FoxPlugin.registerForRemoteNotifications();#elif UNITY_ANDROID
 		// ××××××にはGoogle Developers Consoleで取得したProject番号を入力してください。		FoxPlugin.registerForRemoteNotifications(××××××);#endif
 ```
@@ -33,21 +33,21 @@ APNs及びGCMに端末を登録するために下記の設定を行います。
 2. Unityプロジェクトをビルドした後に立ち上がるXcode上のClasses/AppController.mmを開きます
 3. Appleからデバイストークンを受信した際にF.O.Xへとトークンを送信するようにします
 
-デバイストークンの取得に成功した場合、Application DelegateのdidRegisterForRemoteNotificationsWithDeviceToken:が呼び出されますので、 取得したデバイストークンをF.O.Xへ送信するために、次の通り実装を行ってください。
+デバイストークンの取得に成功した場合、Application Delegateの`didRegisterForRemoteNotificationsWithDeviceToken:`が呼び出されますので、 取得したデバイストークンをF.O.Xへ送信するために、次の通り実装を行ってください。
 
-```objectivec
-#import "Notify.h" 
+```objective-c
+#import "Notify.h"
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken{
     // F.O.Xに端末を登録するメソッド    [[Notify sharedManager] manageDevToken:deviceToken];
-        UnitySendDeviceToken(deviceToken);}
+    UnitySendDeviceToken(deviceToken);}
 ```
 
 4. プッシュ通知を受信した際に、F.O.Xへ開封通知を送信するメソッドを追加
 
-application:didFinishLaunchingWithOptions:とapplication:didReceiveRemoteNotificationに下記の実装を行ってください。
+`application:didFinishLaunchingWithOptions:`と`application:didReceiveRemoteNotification:`に下記の実装を行ってください。
 
-```objectivec
+```objective-c
 - (BOOL)application:(UIApplication *)application
    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// ...
@@ -60,7 +60,7 @@ application:didFinishLaunchingWithOptions:とapplication:didReceiveRemoteNotific
 }
 ```
 
-```objectivec
+```objective-c
 - (void)application:(UIApplication *)application
 	 didReceiveRemoteNotification:(NSDictionary *)userInfo {
 
@@ -106,7 +106,12 @@ application:didFinishLaunchingWithOptions:とapplication:didReceiveRemoteNotific
 com.google.android.c2dm.intent.RECEIVEとcom.google.android.c2dm.intent.REGISTRATIONに対するレシーバークラスは一つしか選択できません。アプリケーションが二つのレシーバークラスを必要とする場合は、以下の設定を追記してください。
 
 ```xml
-<meta-data android:name="APPADFORCE_NOTIFY_RECEIVER" android:value="共存させたいF.O.X以外のレシーバークラス" />
+<meta-data
+	android:name="APPADFORCE_NOTIFY_RECEIVER"
+	android:value="共存させたいF.O.X以外のレシーバークラス" />
 ```
 
 内部的にはjp.appAdForce.android.NotifyReceiverクラスから、共存させたいレシーバークラスのonResume()、もしくはonMessage()、onRegistered()を呼び出します。
+
+---
+[TOPへ](/lang/ja/README.md)
