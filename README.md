@@ -1,4 +1,4 @@
-# Force Opetaion X Unity SDK Integration Guide
+# Force Operation X Unity SDK Integration Guide
 
 ###LANGUAGE
 * [Japanese](./lang/ja/README.md)
