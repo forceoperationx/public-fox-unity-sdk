@@ -5,7 +5,7 @@
 튜토리얼 돌파와 회원 등록 등의 이벤트 계측의 경우에는 다음과 같이 설명합니다.
 
 ```cs
-FoxPlugin.sendEventPurchase(eventName, action, label, quantity);
+FoxPlugin.sendEvent(eventName, action, label, quantity);
 ```
 
 과금 측정의 경우에는 아래와 같이 설명합니다.

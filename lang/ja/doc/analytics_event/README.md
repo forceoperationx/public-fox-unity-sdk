@@ -5,7 +5,7 @@
 チュートリアル突破や会員登録などのイベント計測の場合には以下のように記述してください。
 
 ```cs
-FoxPlugin.sendEventPurchase(eventName, action, label, quantity);
+FoxPlugin.sendEvent(eventName, action, label, quantity);
 ```
 
 課金計測の場合には以下のように記述してください。
