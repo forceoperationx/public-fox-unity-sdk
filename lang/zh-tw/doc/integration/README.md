@@ -39,7 +39,5 @@ F.O.X Unity SDK v2.16及以後版本，是靠FoxReengagePlugin做SFSafariViewCon
 
 > 如果到此都沒有安裝，請導入同捆的FoxReengagePlugin到這個Unity SDK的unitypackage文件裡。
 
-> ※從iOS9開始，從初回啟動時的瀏覽器啟動到返回APP的時候，會彈出對話框。F.O.X SDK從iOS9開始發布了新的WebView形式，在初回啟動時啟動這個新形式的“SFSafariViewController”來進行計測。在內部控制SFSafariViewController需要`FoxReengagePlugin`，所以若是支持iOS9的APP請務必導入。
-
 ---
 [TOP](/lang/zh-tw/README.md)
