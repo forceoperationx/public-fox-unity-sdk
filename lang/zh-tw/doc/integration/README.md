@@ -47,4 +47,4 @@ F.O.X Unity SDK v2.16以降では、SFSafariViewController起動後の制御をF
 
 
 ---
-[TOPへ](/lang/ja/README.md)
+[TOPへ](/lang/zh-tw/README.md)

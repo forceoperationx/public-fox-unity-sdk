@@ -8,4 +8,4 @@
 ```
 
 ---
-[TOPへ](/lang/ja/README.md)
+[TOPへ](/lang/zh-tw/README.md)

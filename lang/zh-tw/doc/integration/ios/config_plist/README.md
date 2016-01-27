@@ -62,7 +62,7 @@ SDKの動作に必要な設定をplistに追加します。「AppAdForce.plist�
 </tr>
 </table>
 
-[AppAdForce.plistサンプル](/lang/ja/doc/integration/ios/config_plist/AppAdForce.plist)
+[AppAdForce.plistサンプル](/lang/zh-tw/doc/integration/ios/config_plist/AppAdForce.plist)
 
 ---
-[iOS TOPへ](/lang/ja/doc/integration/ios/README.md)
+[iOS TOPへ](/lang/zh-tw/doc/integration/ios/README.md)

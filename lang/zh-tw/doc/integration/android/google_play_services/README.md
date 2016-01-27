@@ -70,4 +70,4 @@ Proguardを利用して難読化している場合は、以下の設定を追加
 ```
 
 ---
-[Android TOPへ](/lang/ja/doc/integration/android/README.md)
+[Android TOPへ](/lang/zh-tw/doc/integration/android/README.md)

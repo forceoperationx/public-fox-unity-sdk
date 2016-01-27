@@ -87,4 +87,4 @@ protectionLevelがdangerousに指定されているパーミッションを必�
 * [実装の参考](https://developer.android.com/training/permissions/requesting.html#perm-request)
 
 ---
-[Android TOPへ](/lang/ja/doc/integration/android/README.md)
+[Android TOPへ](/lang/zh-tw/doc/integration/android/README.md)

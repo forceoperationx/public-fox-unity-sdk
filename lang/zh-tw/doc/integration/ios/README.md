@@ -32,9 +32,9 @@ iOS用のプロジェクトを作成するために、次の手順でXcodeプロ
 
 > ※SafariServices.frameworkはiOS 9以降で追加されたフレームワークのため、アプリケーションをiOS 8以前でも動作させる(iOS Deployment Targetを8.4以下に設定する)場合にはweak linkを行うために”Optional”に設定してください。
 
-![フレームワーク設定01](/lang/ja/doc/integration/ios/config_framework/img01.png)
+![フレームワーク設定01](/lang/zh-tw/doc/integration/ios/config_framework/img01.png)
 
-[フレームワーク設定の詳細](/lang/ja/doc/integration/ios/config_framework/README.md)
+[フレームワーク設定の詳細](/lang/zh-tw/doc/integration/ios/config_framework/README.md)
 
 * **SDK設定**
 
@@ -49,7 +49,7 @@ APP_OPTIONS | String | 何も入力せず、空文字の状態にしてくださ
 CONVERSION_MODE | String | 1
 ANALYTICS_APP_KEY | String | Force Operation X管理者より連絡しますので、その値を入力してください。<br />アクセス解析を利用しない場合は設定の必要はありません。
 
-![フレームワーク設定01](/lang/ja/doc/integration/ios/config_plist/img05.png)
+![フレームワーク設定01](/lang/zh-tw/doc/integration/ios/config_plist/img05.png)
 
 * **App Transport Securityについて**
 
@@ -62,11 +62,11 @@ NSExceptionDomains|Dictionary|ATSの例外を指定するディクショナリ�
 NSExceptionAllowsInsecureHTTPLoads|Boolean|YES を指定してくださいATSの例外とします。
 NSIncludesSubdomains|Boolean|YES を指定しATSの例外設定をサブドメインにも適用させます。
 
-![ATS設定](/lang/ja/doc/integration/ios/config_plist/img06.png)
+![ATS設定](/lang/zh-tw/doc/integration/ios/config_plist/img06.png)
 
-[SDK設定の詳細](/lang/ja/doc/integration/ios/config_plist/README.md)
+[SDK設定の詳細](/lang/zh-tw/doc/integration/ios/config_plist/README.md)
 
-[AppAdForce.plistサンプル](/lang/ja/doc/integration/ios/config_plist/AppAdForce.plist)
+[AppAdForce.plistサンプル](/lang/zh-tw/doc/integration/ios/config_plist/AppAdForce.plist)
 
 **iOS9における導入の注意点**
 
@@ -80,4 +80,4 @@ F.O.X Unity SDK v2.16以降では、SFSafariViewController起動後の制御をF
 * [管理画面上に登録したバンドルバージョンに応じた処理の振り分け](./check_version/README.md)
 
 ---
-[TOPへ](/lang/ja/README.md)
+[TOPへ](/lang/zh-tw/README.md)

@@ -1,4 +1,4 @@
-## sendLtvの詳細
+## sendLtvConversionの詳細
 
 sendLtvConversionメソッドを利用することで、広告流入別の課金金額や入会数などを計測することができます。計測のために、任意の地点にLTV成果通信を行うコードを追加します。
 
@@ -55,4 +55,4 @@ FoxPlugin.sendLtv(70, "Taro");
 
 
 ---
-[TOPへ](/lang/ja/README.md)
+[TOPへ](/lang/zh-tw/README.md)
