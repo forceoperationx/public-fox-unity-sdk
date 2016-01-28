@@ -1,62 +1,60 @@
 # Androidプロジェクトの設定
 
-Android 用の設定は Unity プロジェクト上で行うことができます。Unity プロジェクトに組み込まれた
-AndroidManifest.xml を編集します。プロジェクトに AndroidManifest.xml が存在しない場合は、 「Plugins/Android/AndroidManifest-sample.xml」を「AndroidManifest.xml」にリネームしてご利用ください。
+能夠在Unity項目裡進行Android開發設定。編輯項目中的AndroidManifest.xml。如果不存在AndroidManifest.xml文件，請把「Plugins/Android/AndroidManifest-sample.xml」文件名變成「AndroidManifest.xml」來使用。
 
+## permission的設定
 
-## パーミッションの設定
+F.O.X SDK利用下面4種permission。
+請在&lt;Manifest&gt;tag內添加如下permission設定。
 
-F.O.X SDKでは下記4つのパーミッションを利用します。
-&lt;Manifest&gt;タグ内に次のパーミッションの設定を追加します。
-
-```xml:
+```xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-パーミッション|Protection Level|必須|概要
+permission|Protection Level|必須|概要
 :---|:---:|:---:|:---
-INTERNET|Normal|必須|F.O.X SDKが通信を行うために必要となります。
-ACCESS_NETWORK_STATE|Normal|必須|F.O.X SDKが通信可能かを確認するために必要となります。
-READ_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排除機能向上に必要となります。(※1)
-WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排除機能向上に必要となります。(※1)
+INTERNET|Normal|必須|F.O.X SDK進行通信時必須。
+ACCESS_NETWORK_STATE|Normal|必須|F.O.X SDK確認可否通信時必須。
+READ_EXTERNAL_STORAGE ※1|Dangerous|任意|利用外部存儲提高重複排重功能時必須。(※2)
+WRITE_EXTERNAL_STORAGE ※1|Dangerous|任意|利用外部存儲提高重複排重功能時必須。(※2)
 
-> ※1 Android MよりProtectionLevelが`dangerous`に指定されているパーミッションを必要とする機能を利用するには、ユーザーの許可が必要になります。詳細は[外部ストレージを利用した重複排除設定](/lang/zh-tw/doc/integration/android/external_storage/README.md)をご確認ください。
+> ※1 READ_EXTERNAL_STORAGE和WRITE_EXTERNAL_STORAGE權限是利用把數據保存在外部存儲器，為了再安裝APP的時候更準確地進行Install計測而必須設定的權限，屬於任意設定。
 
+> ※2 Android M為了利用ProtectionLevel設定為`dangerous`權限的機能，需要獲得用戶許可。詳細請查看[利用外部存儲設定重複排除](/lang/zh-tw/doc/integration/android/external_storage/README.md)
 
-## メタデータの設定
+## meta-data的設定
 
-SDKの実行に必要な情報を<application>タグ内に追加します。
+為了執行SDK，請將必要的訊息添加到&lt;application&gt;tag內。
 
 ```xml
 <meta-data
 	android:name="APPADFORCE_APP_ID"
-	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
+	android:value="請輸入Force Operation X管理員告知的值。" />
 <meta-data
 	android:name="APPADFORCE_SERVER_URL"
-	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
+	android:value="請輸入Force Operation X管理員告知的值。" />
 <meta-data
 	android:name="APPADFORCE_CRYPTO_SALT"
-	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
+	android:value="請輸入Force Operation X管理員告知的值。" />
 <meta-data
 	android:name="ANALYTICS_APP_KEY"
-	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
+	android:value="請輸入Force Operation X管理員告知的值。" />
 ```
 
-設定するキーとバリューは以下の通りです。
+設定的Key和Value如下：
 
-|パラメータ名|必須|概要|
+|參數名|必須|概要|
 |:------|:------|:------|
-|APPADFORCE_APP_ID|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
-|APPADFORCE_SERVER_URL|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
-|APPADFORCE_CRYPTO_SALT|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
-|ANALYTICS_APP_KEY|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
+|APPADFORCE_APP_ID|必須|請輸入Force Operation X管理員告知的值。|
+|APPADFORCE_SERVER_URL|必須|請輸入Force Operation X管理員告知的值。|
+|APPADFORCE_CRYPTO_SALT|必須|請輸入Force Operation X管理員告知的值。|
+|ANALYTICS_APP_KEY|必須|請輸入Force Operation X管理員告知的值。|
 
-
-## インストールリファラ計測の設定
-インストールリファラーを用いたインストール計測を行うために下記の設定を&lt;application&gt;タグに追加します。
+## Install referrer計測的設定
+將Install referrer計測所需要的設定添加在&lt;application&gt;tag內。
 
 ```xml
 <receiver android:name="jp.appAdForce.android.InstallReceiver" android:exported="true">
@@ -66,16 +64,15 @@ SDKの実行に必要な情報を<application>タグ内に追加します。
 </receiver>
 ```
 
-既に"com.android.vending.INSTALL_REFERRER"に対するレシーバークラスが定義されている場合には、[二つのINSTALL_REFERRERレシーバーを共存させる場合の設定](/lang/zh-tw/doc/integration/android/install_referrer/README.md)をご参照ください。
+如果"com.android.vending.INSTALL_REFERRER"的receiver class已經被定義，請參照[讓多個INSTALL_REFERRER R seceiver共存的設定](/lang/zh-tw/doc/integration/android/install_referrer/README.md)
 
+## Reengagement計測的設定
 
-## リエンゲージメント計測の実装
+為了進行Reengagement廣告的計測（經由定製URL Scheme啟動的計測），需在&lt;application&gt;標簽裡添加必要的設定。
+下面的`IntentReceiverActivity`是利用F.O.X SDK提供的Activity。
 
-カスタムURLスキーム経由の起動を計測するために必要な設定を<application>タグ内に追記します。
-以下の`IntentReceiverActivity`はF.O.X SDKで提供しているActivityとなります。
-
-カスタムURLスキームで本Activityが呼び出されることでリエンゲージメント計測を行います。
-ここでのカスタムURLスキームは他のActivityに設定しているものとは異なる値を設定してください。
+Reengagement計測是利用定製URLScheme來調用Activity的方式進行計測。
+這個定製的URL Scheme，請區別開其他Activity裡的值來設定。
 
 ```xml
 <activity android:name="jp.appAdForce.android.IntentReceiverActivity">
@@ -83,25 +80,24 @@ SDKの実行に必要な情報を<application>タグ内に追加します。
 		<action android:name="android.intent.action.VIEW" />
 		<category android:name="android.intent.category.DEFAULT" />
 		<category android:name="android.intent.category.BROWSABLE" />
-		<data android:scheme="カスタム URL スキーム" />
+		<data android:scheme="定製的URL Scheme" />
 	</intent-filter>
 </activity>
 ```
 
-## その他
+## 其他
 
-* [広告IDを利用するためのGoogle Play Services SDKの導入](/lang/zh-tw/doc/integration/android/google_play_services/README.md)
+* [導入Google Play Services SDK來使用廣告ID](/lang/zh-tw/doc/integration/android/google_play_services/README.md)
 
-* [AndroidManifest.xml 設定サンプル](/lang/zh-tw/doc/integration/android/config_android_manifest/AndroidManifest.xml)
+* [AndroidManifest.xml設定範例](/lang/zh-tw/doc/integration/android/config_android_manifest/AndroidManifest.xml)
 
-* [（オプション）外部ストレージを利用した重複排除設定](/lang/zh-tw/doc/integration/android/external_storage/README.md)
+* [（任意）利用外部存儲設定重複排除](/lang/zh-tw/doc/integration/android/external_storage/README.md)
 
-* [（オプション）Android M オートバックアップ機能の利用](/lang/zh-tw/doc/integration/android/auto_backup/README.md)
+* [（任意）Android M(6.0) 利用自動備份功能](/lang/zh-tw/doc/integration/android/auto_backup/README.md)
 
+## 使用ProGuard
 
-## ProGuardを利用する場合
-
-ProGuard を利用してアプリケーションの難読化を行う際は F.O.X SDK のメソッドが対象とならないよう、以下の設定 を追加してください。
+使用ProGuard進行APP讀取混淆化時，請進行以下設定，將F.O.X SDK的method排除在對象外。
 
 ```
 -keepattributes *Annotation*
@@ -122,10 +118,8 @@ ProGuard を利用してアプリケーションの難読化を行う際は F
 -dontwarn com.naef.jnlua.**
 ```
 
-また、Google Play Service SDK を導入されている場合は、以下のぺージに記載されている keep 指定が記述されているかご確認ください。
-
-[Google Play Services導入時のProguard対応](https://developer.android.com/google/play-services/setup.html#Proguard)
-
+如果已導入GooglePlayServiceSDK，請確認下面網頁所記載的keep指定是否有被記述。
+[導入Google Play Services時的Proguard対応](https://developer.android.com/google/play-services/setup.html#Proguard)
 
 ---
-[TOPへ](/lang/zh-tw/README.md)
+[TOP](/lang/zh-tw/README.md)
