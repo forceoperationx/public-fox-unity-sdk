@@ -1,4 +1,4 @@
-# Androidプロジェクトの設定
+# Android項目的設定
 
 能夠在Unity項目裡進行Android開發設定。編輯項目中的AndroidManifest.xml。如果不存在AndroidManifest.xml文件，請把「Plugins/Android/AndroidManifest-sample.xml」文件名變成「AndroidManifest.xml」來使用。
 
