@@ -71,6 +71,7 @@ FoxPlugin.sendConversion("http://yourhost.com/yourpage.html");
 ```
 
 > ※如果指定了default，會表示標準的簡單的範例頁面，隨後鄙公司會在F.O.X的管理畫面上設定跳轉目的地URL或者HTML頁面。
+
 > ※為了從跳轉目的地頁面回到APP需要URL Scheme，到發布到Market之前請告知鄙公司URL Scheme。
 
 ## 3. LTV計測的安裝
@@ -104,10 +105,10 @@ FoxPlugin.sendLtv(成果地点 ID);
 
 如果希望做流量分析計測，請任選下面一個方法來進行安裝。
 
-* スクリプトを利用する
-* コードを記述する
+* 使用Script
+* 書寫代碼
 
-### [使用腳本語言]
+### [使用Script]
 
 把「`Plugins/FoxAnalyticsSessio`」拖拽到 `Main Camera` 裡。
 APP啟動時或者從後台恢復時開始Session計測。
