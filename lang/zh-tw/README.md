@@ -201,3 +201,6 @@ F.O.X使用了多種方式來監測終端的重複安裝。倘若設定了不進
 * [導入Google Play Services SDK來使用廣告ID](./doc/integration/android/google_play_services/README.md)
 * [（任意）利用外部存儲設定重複排除](./doc/integration/android/external_storage/README.md)
 * [（任意）Android M(6.0) 利用自動備份功能](./doc/integration/android/auto_backup/README.md)
+
+---
+[TOP MENU](/README.md)
