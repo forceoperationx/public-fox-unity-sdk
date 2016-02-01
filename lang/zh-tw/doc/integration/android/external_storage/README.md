@@ -1,6 +1,6 @@
 ## 利用外部存儲設定重複排除（任意）
 
-將APP初次啟動時，SDK生成的識別ID會保存在本地存儲和外部存儲（SD card）裡，在APP再安裝時能做重複判定。雖然本設定並非必須，但為了提高再安裝APP時的重複監測精度，推薦設定。
+將APP初次啟動時，SDK生成的識別ID會保存在本地存儲和外部存儲（SD 卡）裡，在APP再安裝時能做重複判定。雖然本設定並非必須，但為了提高再安裝APP時的重複監測精度，推薦設定。
 
 ### permission的設定
 
@@ -17,7 +17,6 @@
 用Environment.getExternalStorageDirectory().getPath()取得的路徑/APP的Package名/__FOX_XUNIQ__
 ```
 
-```
 ### （任意）變更保存目錄和文件名
 
 默認使用Package名作為用於保存文件的目錄名，也可以改變為任意的目錄名和文件名。當然也可以選擇不保存文件。
@@ -34,9 +33,9 @@
 
 > 沒有指定”APPADFORCE_ID_FILE”（任意的文件名），只指定了目錄名的話，在指定的目錄下會創建以”__XUNIQ__”為名的文件。通常不需要設定。
 
-### 設定例
+### 設定範例
 
-下面記述了AndroidManifest.xml設定實例。
+下面記述了AndroidManifest.xml設定範例。
 
 ```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /><uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
