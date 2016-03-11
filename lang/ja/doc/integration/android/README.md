@@ -114,10 +114,7 @@ ProGuard を利用してアプリケーションの難読化を行う際は F
 -dontwarn jp.appAdForce.android.**
 -dontwarn jp.co.dimage.**
 -dontwarn jp.co.cyberz.fox.**
--dontwarn com.adobe.fre.FREContext
--dontwarn com.adobe.fre.FREExtension
--dontwarn com.adobe.fre.FREFunction
--dontwarn com.adobe.fre.FREObject
+-dontwarn com.adobe.fre.**
 -dontwarn com.ansca.**
 -dontwarn com.naef.jnlua.**
 ```
@@ -128,4 +125,6 @@ ProGuard を利用してアプリケーションの難読化を行う際は F
 
 
 ---
+[戻る](/lang/ja/doc/integration/README.md)
+
 [TOPへ](/lang/ja/README.md)

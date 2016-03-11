@@ -4,6 +4,25 @@ Force Operation X (以下F.O.X)は、スマートフォンにおける広告効�
 
 本ドキュメントでは、スマートフォンアプリケーションにおける広告効果最大化のためのF.O.X SDK導入手順について説明します。
 
+## 目次
+
+* **[1. インストール](#install_sdk)**
+	* [SDKダウンロード](https://github.com/cyber-z/public-fox-unity-sdk/releases)
+  * [Unityプラグインの導入方法](./doc/integration/README.md)
+  * [iOSプロジェクトの設定](./doc/integration/ios/README.md)
+  * [Androidプロジェクトの設定](./doc/integration/android/README.md)
+* **[2. インストール計測の実装](#tracking_install)**
+* **[3. LTV計測の実装](#tracking_ltv)**
+	* [sendLtvの詳細](./doc/send_ltv_conversion/README.md)
+* **[4. アクセス解析の実装](#tracking_analytics)**
+	* [アクセス解析によるイベント計測](./doc/analytics_event/README.md)
+* **[5. 疎通テストの実施](#integration_test)**
+  * [リエンゲージメント計測を行う場合のテスト手順](./doc/reengagement_test/README.md)
+* **[6. その他機能の実装](#other_function)**
+  * [プッシュ通知の実装](./doc/notify/README.md)
+  * [オプトアウトの実装](./doc/optout/README.md)
+* **[7. 最後に必ずご確認ください](#trouble_shooting)**
+
 ## F.O.X SDKとは
 
 F.O.X SDKをアプリケーションに導入することで、以下の機能を実現します。
@@ -24,6 +43,8 @@ F.O.X SDKをアプリケーションに導入することで、以下の機能�
 
 F.O.Xで計測された情報を使い、ユーザーに対してプッシュ通知を行うことができます。例えば、特定の広告から流入したユーザーに対してメッセージを送ることができます。
 
+
+<div id="install_sdk"></div>
 ## 1. インストール
 
 以下のページより最新のSDKをダウンロードしてください。
@@ -42,6 +63,7 @@ F.O.Xで計測された情報を使い、ユーザーに対してプッシュ通
 * [Androidプロジェクトの設定](./doc/integration/android/README.md)
 
 
+<div id="tracking_install"></div>
 ## 2. インストール計測の実装
 
 初回起動のインストール計測を実装することで、広告の効果測定を行うことができます。下記のいずれかの手順で実装を行ってください。
@@ -79,10 +101,16 @@ sendConversionの引数には、通常は上記の通り"default"という文字
 FoxPlugin.sendConversion("http://yourhost.com/yourpage.html");
 ```
 
+sendConversionメソッドの第二引数に広告主端末IDを渡すことができます。<br>例えば、アプリ起動時にSDKがUUIDを生成し、初回起動の成果と紐付けて管理したい場合等に、利用できます。
+
+```cs
+FoxPlugin.sendConversion("default", "your unique id");
+```
+
 > ※defaultを指定した場合には、標準の簡単なサンプルページが表示されますが、後からF.O.Xの管理画面上で遷移先URLもしくはHTMLページを弊社で設定いたします。
 遷移先ページからアプリへ戻すためのURLスキームが必要となりますので、マーケットへのリリースまでに弊社へURLスキーム名をご連絡ください。
 
-
+<div id="tracking_ltv"></div>
 ## 3. LTV計測の実装
 
 会員登録、チュートリアル突破、課金など任意の成果地点にLTV計測を実装することで、流入元広告のLTVを測定することができます。LTV計測が不要の場合には、本項目の実装を省略できます。
@@ -110,6 +138,8 @@ FoxPlugin.sendLtv(成果地点 ID);
 
 * [sendLtvの詳細](./doc/send_ltv_conversion/README.md)
 
+
+<div id="tracking_analytics"></div>
 ## 4. アクセス解析の実装
 
 自然流入と広告流入のインストール数比較、アプリケーションの起動数やユニークユーザー数(DAU/MAU)、継続率等を計測することができます。アクセス解析が不要の場合には、本項目の実装を省略できます。
@@ -144,7 +174,7 @@ FoxPlugin.sendStartSession();
 [アクセス解析によるイベント計測](./doc/analytics_event/README.md)
 
 
-
+<div id="integration_test"></div>
 ## 5.疎通テストの実施
 
 マーケットへの申請までに、SDKを導入した状態で十分にテストを行い、アプリケーションの動作に問題がないことを確認してください。
@@ -174,6 +204,7 @@ FoxPlugin.sendStartSession();
 [リエンゲージメント計測を行う場合のテスト手順](./doc/reengagement_test/README.md)
 
 
+<div id="other_function"></div>
 ## 6. その他機能の実装
 
 * [プッシュ通知の実装](./doc/notify/README.md)
@@ -181,6 +212,7 @@ FoxPlugin.sendStartSession();
 * [オプトアウトの実装](./doc/optout/README.md)
 
 
+<div id="trouble_shooting"></div>
 ## 7. 最後に必ずご確認ください（これまで発生したトラブル集）
 
 ### 7.1. URLスキームの設定がされずリリースされたためブラウザからアプリに遷移ができない
@@ -220,3 +252,6 @@ F.O.Xではいくつかの方式を組み合わせて端末の重複インスト
 * [（オプション）外部ストレージを利用した重複排除設定](/lang/ja/doc/integration/android/external_storage/README.md)
 
 * [（オプション）Android M オートバックアップ機能の利用](./doc/integration/android/auto_backup/README.md)
+
+---
+[トップメニュー](/README.md)
