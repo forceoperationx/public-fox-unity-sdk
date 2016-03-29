@@ -12,7 +12,7 @@
 
 <img src="./img01.png" width="400px" />
 
-> ※ `Fox_<version>.unitypackage`には最新のネイティブ版SDK(iOS/Android)が同梱されています。
+> ※ `Fox_<version>.unitypackage`には最新のネイティブ版SDK(iOS/Android)が同梱されています。
 
 > ※ iOSでF.O.Xのプッシュ通知を利用しない場合は、FoxNotifyPlugin.h, FoxNotifyPlugin.mをインポートしないでください。また、リエンゲージメント計測を実施しない場合は、FoxReengagePlugin.h, FoxReengagePlugin.mをインポートしないでください。
 

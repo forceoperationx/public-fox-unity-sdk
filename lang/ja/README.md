@@ -16,7 +16,7 @@ Force Operation X (以下F.O.X)は、スマートフォンにおける広告効�
 	* [sendLtvの詳細](./doc/send_ltv_conversion/README.md)
 * **[4. アクセス解析の実装](#tracking_analytics)**
 	* [アクセス解析によるイベント計測](./doc/analytics_event/README.md)
-* **[5. 広告配信機能](./doc/fox_trade/README.md)**
+* **[5. 広告配信機能](#fox_trade)**
 	* [広告配信機能の詳細](./doc/fox_trade/README.md)
 * **[6. 疎通テストの実施](#integration_test)**
   * [リエンゲージメント計測を行う場合のテスト手順](./doc/reengagement_test/README.md)
