@@ -63,6 +63,10 @@ AdvertisingIDを取得するには[`こちら`](/lang/ja/doc/google_play_service
 |:---:|:---|
 |TOP|画面上部の中心に配置します。|
 |BOTTOM|画面下部の中心に配置します。|
+|TOP_LEFT|画面上部の左に配置します。|
+|TOP_RIGHT|画面上部の右に配置します。|
+|BOTTOM_LEFT|画面下部の左に配置します。|
+|BOTTOM_RIGHT|画面下部の右に配置します。|
 
 
 ### DahliaInterstitialAds
@@ -120,7 +124,7 @@ public class ViewAdsDemoScript : MonoBehaviour
                                        0.8f * Screen.width, 0.1f * Screen.height);
 		    if (GUI.Button(showBannerRect, "Banner Bottom"))
         {
-			       dba.load ("バナー広告表示ID", DahliaAds.Api.AdPosition.BOTTOM);
+			       dba.load ("バナー広告表示ID", DahliaAds.Api.AdPosition.BOTTOM_LEFT);
 		    }
 
         Rect hideBannerRect = new Rect(0.1f * Screen.width, 0.3f * Screen.height,
