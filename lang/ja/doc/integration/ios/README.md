@@ -11,6 +11,10 @@ iOS用のプロジェクトを作成するために、次の手順でXcodeプロ
 3. 「Player Settings」を押下し、Inspectorでご自身の環境に合わせて設定を行う
 4. 	「Build」か「Build And Run」を押下し、Xcodeプロジェクトのパブリッシュを行う
 
+> ※ `Automatic Reference Counting`をYESにした場合、コンパイルを通すため、Xcode Build Phasesにで下記2ファイルの`compiler flags`に`-fno-objc-arc`を設定してください。
+* LibFoxSdk.m
+* FoxVersionPlugin.mm
+
 ### Xcodeプロジェクトの編集
 
 パブリッシュされたXcodeプロジェクトを開き、編集します。
@@ -30,7 +34,7 @@ iOS用のプロジェクトを作成するために、次の手順でXcodeプロ
 
 > AdSupport.frameworkはiOS 6以降で追加されたフレームワークのため、アプリケーションをiOS 5以前でも動作させる(iOS Deployment Targetを5.1以下に設定する)場合にはweak linkを行うために”Optional”に設定してください。
 
-> ※SafariServices.frameworkはiOS 9以降で追加されたフレームワークのため、アプリケーションをiOS 8以前でも動作させる(iOS Deployment Targetを8.4以下に設定する)場合にはweak linkを行うために”Optional”に設定してください。
+> ※ SafariServices.frameworkはiOS 9以降で追加されたフレームワークのため、アプリケーションをiOS 8以前でも動作させる(iOS Deployment Targetを8.4以下に設定する)場合にはweak linkを行うために”Optional”に設定してください。
 
 ![フレームワーク設定01](/lang/ja/doc/integration/ios/config_framework/img01.png)
 
