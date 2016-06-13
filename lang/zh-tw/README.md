@@ -4,26 +4,25 @@ Force Operation X (下面簡稱F.O.X)是基於智慧手機的，用來最大改�
 
 在這個文檔裡，詳細講解了基於智慧手機平台優化廣告效果的F.O.X SDK的導入步驟。
 
-## 目次
+## 目錄
 
-* **[1. インストール](#install_sdk)**
-	* [SDKダウンロード](https://github.com/cyber-z/public-fox-unity-sdk/releases)
-  * [Unityプラグインの導入方法](./doc/integration/README.md)
-  * [iOSプロジェクトの設定](./doc/integration/ios/README.md)
-  * [Androidプロジェクトの設定](./doc/integration/android/README.md)
-* **[2. インストール計測の実装](#tracking_install)**
-* **[3. LTV計測の実装](#tracking_ltv)**
+* **[1. 導入](#install_sdk)**
+	* [SDK下載](https://github.com/cyber-z/public-fox-unity-sdk/releases)
+  * [Unity插件的導入方法](./doc/integration/README.md)
+  * [iOS項目的設定](./doc/integration/ios/README.md)
+  * [Android項目的設定](./doc/integration/android/README.md)
+* **[2. Install計測的安裝](#tracking_install)**
+* **[3. LTV計測的安裝](#tracking_ltv)**
 	* [sendLtvの詳細](./doc/send_ltv_conversion/README.md)
-* **[4. アクセス解析の実装](#tracking_analytics)**
-	* [アクセス解析によるイベント計測](./doc/analytics_event/README.md)
-* **[5. 広告配信機能](#fox_trade)**
-	* [広告配信機能の詳細](./doc/fox_trade/README.md)
-* **[6. 疎通テストの実施](#integration_test)**
-  * [リエンゲージメント計測を行う場合のテスト手順](./doc/reengagement_test/README.md)
-* **[7. その他機能の実装](#other_function)**
-  * [プッシュ通知の実装](./doc/notify/README.md)
-  * [オプトアウトの実装](./doc/optout/README.md)
-* **[8. 最後に必ずご確認ください](#trouble_shooting)**
+* **[4. 流量分析的安裝](#tracking_analytics)**
+  * [依靠流量分析進行Event計測](./doc/analytics_event/README.md)
+* **[5. 廣告投放機能](#fox_trade)**
+	* [廣告投放機能的詳細](./doc/fox_trade/README.md)
+* **[6. 進行疏通測試](#integration_test)**
+  * [Reengagement計測時的疏通測試](./doc/reengagement_test/README.md)
+* **[7. 其他機能的安裝](#other_function)**
+  * [Opt-Out的安裝](./doc/optout/README.md)
+* **[8. 最後請務必確認](#trouble_shooting)**
 
 ## F.O.X SDK是什麼
 
@@ -41,10 +40,9 @@ Force Operation X (下面簡稱F.O.X)是基於智慧手機的，用來最大改�
 
 自然流入和廣告流入的APP安裝數比較。能夠計測APP的啟動數，唯一用戶數(DAU/MAU)，持續率等。
 
-* **広告配信**
+* **廣告投放**
 
-アプリ内に相互集客広告を表示させることができます。尚、広告表示が不要の場合には、本項目の実装を省略できます。
-
+能夠在APP內部表示互動推廣廣告。如果不需要顯示該廣告，可以省略本章節的安裝。
 
 <div id="install_sdk"></div>
 ## 1. 導入
@@ -53,7 +51,7 @@ Force Operation X (下面簡稱F.O.X)是基於智慧手機的，用來最大改�
 
 [SDK發布頁面](https://github.com/cyber-z/public-fox-unity-sdk/releases)
 
-既にアプリケーションにSDKが導入されている場合には、[最新バージョンへのアップデートについて](./doc/update/README.md)をご参照ください。
+如果已經在APP裡導入了SDK，請參考[關於升級到最新版本](./doc/update/README.md)
 
 請展開下載的SDK「FOX_UnityPlugin_&lt;version&gt;.zip」，並導入到APP的項目裡。
 
@@ -101,7 +99,7 @@ FoxPlugin.sendConversion("default");
 FoxPlugin.sendConversion("http://yourhost.com/yourpage.html");
 ```
 
-sendConversionメソッドの第二引数に広告主端末IDを渡すことができます。<br>例えば、アプリ起動時にSDKがUUIDを生成し、初回起動の成果と紐付けて管理したい場合等に、利用できます。
+sendConversion方法的第二個參數可以用來傳遞廣告主終端ID。<br>例如、APP啟動時SDK生成UUID，希望和初次啟動的成果綁定到一起管理的時候可以利用這個參數。
 
 ```cs
 FoxPlugin.sendConversion("default", "your unique id");
@@ -173,48 +171,48 @@ FoxPlugin.sendStartSession();
 [依靠流量分析進行Event計測](./doc/analytics_event/README.md)
 
 <div id="fox_trade"></div>
-## 5. 広告配信機能
+## 5. 廣告投放機能
 
-本機能を利用することで相互集客広告を表示させることができます。
-尚、広告表示が不要の場合には、本項目の実装を省略できます。
-表示する広告の種類は以下の２つとなります。
+能夠在APP內部表示相互推廣獲得客源的廣告。
+如果不需要顯示該廣告，可以省略本章節的安裝。
+可以顯示的廣告種類有以下兩種。
 
-* バナー広告
-* インタースティシャル広告
+* 橫幅廣告（Banner Ad）
+* 插播廣告（Interstitial Ad）
 
-### 5.1 バナー広告表示の実装
+### 5.1 橫幅廣告表示的安裝
 
-バナー広告の表示対象となる画面にて以下のDahliaBannerAdsインスタンスを生成し、loadメソッドを実装してください。
+請在橫幅廣告表示對象的畫面裡生成下面的DahliaBannerAds實例，並安裝load方法。
 
 ```cs
 using DahliaAds.Api;
 
 DahliaBannerAds dbanner = new DahliaBannerAds();
-dbanner.load ("広告表示ID", DahliaAds.Api.AdPosition.TOP);
+dbanner.load ("廣告表示ID", DahliaAds.Api.AdPosition.TOP);
 ```
 
-> loadメソッドの第一引数には管理者より発行される広告表示IDを指定してください。
+> 請在load方法的第一個參數裡指定管理員發行的廣告表示ID。
 
-> loadメソッドの第一引数にはバナー広告の表示位置オプションを指定します。<br>
-　`DahliaAds.Api.AdPosition.TOP` : 画面上部の中心に配置<br>
-　`DahliaAds.Api.AdPosition.BOTTOM` : 画面下部部の中心に配置
+> 在load方法的第一個參數裡指定廣告表示位置option。<br>
+　`DahliaAds.Api.AdPosition.TOP` : 配置到畫面上部的中心<br>
+　`DahliaAds.Api.AdPosition.BOTTOM` : 配置到畫面下部的中心
 
-[広告配信機能の詳細](./doc/fox_trade/README.md)
+[廣告投放機能的詳細](./doc/fox_trade/README.md)
 
-### 5.2 インタースティシャル広告表示の実装
+### 5.2 插播廣告表示的安裝
 
-インタースティシャル広告の表示対象となる画面にてDahliaInterstitialAdsインスタンスを生成し、showメソッドを実装してください。
+請在插播廣告表示對象的畫面裡生成下面的DahliaInterstitialAds實例，並安裝show方法。
 
 ```cs
 using DahliaAds.Api;
 
 DahliaInterstitialAds dInterstitial = new DahliaInterstitialAds();
-dInterstitial.show("広告表示ID");
+dInterstitial.show("廣告表示ID");
 ```
 
-> showメソッドの引数には管理者より発行される広告表示IDを指定してください。
+> 請在show方法的參數裡指定管理員發行的廣告表示ID。
 
-[広告配信機能の詳細](./doc/fox_trade/README.md)
+[廣告投放機能的詳細](./doc/fox_trade/README.md)
 
 <div id="integration_test"></div>
 ## 6.進行疏通測試
