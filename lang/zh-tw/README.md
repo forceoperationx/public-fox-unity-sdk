@@ -97,7 +97,7 @@ FoxPlugin.sendConversion("default");
 FoxPlugin.sendConversion("http://yourhost.com/yourpage.html");
 ```
 
-sendConversion方法的第二個參數可以用來傳遞廣告主終端ID。<br>例如、APP啟動時用戶自己設定的ID，希望和初次啟動的成果綁定到一起管理的時候可以利用這個參數。
+sendConversion方法的第二個參數可以用來傳遞廣告主終端ID。<br>例如、希望把用户ID和SDK生成的UUID结合起来管理时可以使用这个参数。
 
 ```cs
 FoxPlugin.sendConversion("default", "your unique id");

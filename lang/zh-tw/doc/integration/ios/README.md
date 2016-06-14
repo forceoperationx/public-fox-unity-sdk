@@ -11,7 +11,7 @@
 3. 按下「Player Settings」、使用Inspector結合自己的環境進行設定
 4. 	按下「Build」或者「Build And Run」、從Xcode項目進行發行。
 
-> ※ `Automatic Reference Counting`をYESにした場合、コンパイルを通すため、Xcode Build Phasesにで下記2ファイルの`compiler flags`に`-fno-objc-arc`を設定してください。
+> ※ 把`Automatic Reference Counting`設定為YES的時候、為了通過編譯，請在Xcode Build Phases裡將下面兩個文件的`compiler flags`設定為`-fno-objc-arc`。
 * LibFoxSdk.m
 * FoxVersionPlugin.mm
 
@@ -77,10 +77,6 @@ NSIncludesSubdomains|Boolean|指定成YES，把ATS的例外設定也適用到子
 F.O.X Unity SDK v2.16及以後版本，是靠FoxReengagePlugin做SFSafariViewController啟動後的控制，請務必導入。
 
 > 如果到目前為止都沒有安裝，請導入同捆的FoxReengagePlugin到這個Unity SDK的unitypackage文件裡。
-
-### 其他
-
-* [登錄到管理畫面的BundleVersion相對應的不同處理](./check_version/README.md)
 
 ---
 [TOP](/lang/zh-tw/README.md)
