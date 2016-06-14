@@ -6,7 +6,7 @@
 
 為了做成iOS用的項目，按下面的步驟發行Xcode項目，在Xcode上進行必要的設定。
 
-1. 選擇「File」>「BUild Settings…」
+1. 選擇「File」>「Build Settings…」
 2. 選擇Platform的「iOS」、按下「Switch Platform」
 3. 按下「Player Settings」、使用Inspector結合自己的環境進行設定
 4. 	按下「Build」或者「Build And Run」、從Xcode項目進行發行。
