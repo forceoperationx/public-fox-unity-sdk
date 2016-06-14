@@ -16,8 +16,8 @@ Force Operation X (下面簡稱F.O.X)是基於智慧手機的，用來最大改�
 	* [sendLtvの詳細](./doc/send_ltv_conversion/README.md)
 * **[4. 流量分析的安裝](#tracking_analytics)**
   * [依靠流量分析進行Event計測](./doc/analytics_event/README.md)
-* **[5. 廣告投放機能](#fox_trade)**
-	* [廣告投放機能的詳細](./doc/fox_trade/README.md)
+* **[5. 廣告投放功能](#fox_trade)**
+	* [廣告投放功能的詳細](./doc/fox_trade/README.md)
 * **[6. 進行疏通測試](#integration_test)**
   * [Reengagement計測時的疏通測試](./doc/reengagement_test/README.md)
 * **[7. 其他機能的安裝](#other_function)**
@@ -50,8 +50,6 @@ Force Operation X (下面簡稱F.O.X)是基於智慧手機的，用來最大改�
 請從下面的頁面來下載最新的SDK。
 
 [SDK發布頁面](https://github.com/cyber-z/public-fox-unity-sdk/releases)
-
-如果已經在APP裡導入了SDK，請參考[關於升級到最新版本](./doc/update/README.md)
 
 請展開下載的SDK「FOX_UnityPlugin_&lt;version&gt;.zip」，並導入到APP的項目裡。
 
@@ -99,7 +97,7 @@ FoxPlugin.sendConversion("default");
 FoxPlugin.sendConversion("http://yourhost.com/yourpage.html");
 ```
 
-sendConversion方法的第二個參數可以用來傳遞廣告主終端ID。<br>例如、APP啟動時SDK生成UUID，希望和初次啟動的成果綁定到一起管理的時候可以利用這個參數。
+sendConversion方法的第二個參數可以用來傳遞廣告主終端ID。<br>例如、APP啟動時用戶自己設定的ID，希望和初次啟動的成果綁定到一起管理的時候可以利用這個參數。
 
 ```cs
 FoxPlugin.sendConversion("default", "your unique id");
