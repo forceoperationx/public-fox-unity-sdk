@@ -146,7 +146,7 @@ FoxPlugin.sendLtv(成果地点 ID);
 
 ### [使用Script]
 
-把「`Plugins/FoxAnalyticsSessio`」拖拽到 `Main Camera` 裡。
+把「`Plugins/FoxAnalyticsSession.cs`」拖拽到 `Main Camera` 裡。
 APP啟動時或者從後台恢復時開始Session計測。
 
 >
