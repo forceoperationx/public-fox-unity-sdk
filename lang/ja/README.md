@@ -157,7 +157,7 @@ FoxPlugin.sendLtv(成果地点 ID);
 
 ### [スクリプトを利用する場合]
 
-「`Plugins/FoxAnalyticsSessio`」を `Main Camera` にドラッグ&ドロップします。
+「`Plugins/FoxAnalyticsSession.cs`」を `Main Camera` にドラッグ&ドロップします。
 アプリの起動時やバックグラウンドからの復帰時にセッション開始計測を行います。
 
 > プロジェクト内に複数のSceneが存在する場合は、計測地点は全てのMain Cameraに設定してください。設定されていないSceneが表示されている状態でバックグラウンドから復帰した場合には、正確な計測が行えなくなります。
