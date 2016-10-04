@@ -7,21 +7,21 @@ Force Operation X (以下F.O.X)は、スマートフォンにおける広告効�
 ## 目次
 
 * **[1. インストール](#install_sdk)**
-	* [SDKダウンロード](https://github.com/cyber-z/public-fox-unity-sdk/releases)
+  * [SDKダウンロード](https://github.com/cyber-z/public-fox-unity-sdk/releases)
   * [Unityプラグインの導入方法](./doc/integration/README.md)
-  * [iOSプロジェクトの設定](./doc/integration/ios/README.md)
-  * [Androidプロジェクトの設定](./doc/integration/android/README.md)
-* **[2. インストール計測の実装](#tracking_install)**
-* **[3. LTV計測の実装](#tracking_ltv)**
-	* [sendLtvの詳細](./doc/send_ltv_conversion/README.md)
-* **[4. アクセス解析の実装](#tracking_analytics)**
-	* [アクセス解析によるイベント計測](./doc/analytics_event/README.md)
-* **[5. 疎通テストの実施](#integration_test)**
-  * [リエンゲージメント計測を行う場合のテスト手順](./doc/reengagement_test/README.md)
-* **[6. その他機能の実装](#other_function)**
-  * [プッシュ通知の実装](./doc/notify/README.md)
-  * [オプトアウトの実装](./doc/optout/README.md)
-* **[7. 最後に必ずご確認ください](#trouble_shooting)**
+   * [iOSプロジェクトの設定](./doc/integration/ios/README.md)
+   * [Androidプロジェクトの設定](./doc/integration/android/README.md)
+  * [最新バージョンへのマイグレーションについて](./doc/update/README.md)
+* **[2. F.O.X SDKのアクティベーション](#activate_sdk)**
+* **[3. インストール計測の実装](#track_install)**
+	*	[インストール計測の詳細](./doc/track_install/README.md)
+* **[4. アプリ内イベントの計測](#track_event)**
+	* [セッション(起動)イベントの計測](#track_event)
+	* [その他アプリ内イベントの計測](#track_other_event)
+	* [イベント計測の詳細](./doc/track_event/README.md)
+* **[5. 最後に必ずご確認ください](#trouble_shooting)**
+
+---
 
 ## F.O.X SDKとは
 
@@ -39,14 +39,6 @@ F.O.X SDKをアプリケーションに導入することで、以下の機能�
 
 自然流入と広告流入のインストール比較。アプリケーションの起動数やユニークユーザー数(DAU/MAU)。継続率等を計測することができます。
 
-* **プッシュ通知**
-
-F.O.Xで計測された情報を使い、ユーザーに対してプッシュ通知を行うことができます。例えば、特定の広告から流入したユーザーに対してメッセージを送ることができます。
-
-* **広告配信**
-
-アプリ内に相互集客広告を表示させることができます。尚、広告表示が不要の場合には、本項目の実装を省略できます。
-
 
 <div id="install_sdk"></div>
 ## 1. インストール
@@ -55,7 +47,7 @@ F.O.Xで計測された情報を使い、ユーザーに対してプッシュ通
 
 [SDKリリースページ](https://github.com/cyber-z/public-fox-unity-sdk/releases)
 
-既にアプリケーションにSDKが導入されている場合には、[最新バージョンへのアップデートについて](./doc/update/README.md)をご参照ください。
+既にアプリケーションにSDKが導入されている場合には、[最新バージョンへのマイグレーションについて](./doc/update/README.md)をご参照ください。
 
 ダウンロードしたSDK「FOX_UnityPlugin_<version>.zip」を展開し、アプリケーションのプロジェクトに組み込んでください。
 
@@ -66,172 +58,132 @@ F.O.Xで計測された情報を使い、ユーザーに対してプッシュ通
 * [iOSプロジェクトの設定](./doc/integration/ios/README.md)
 * [Androidプロジェクトの設定](./doc/integration/android/README.md)
 
+<div id="activate_sdk"></div>
+## 2. F.O.X SDKのアクティベーション
 
-<div id="tracking_install"></div>
-## 2. インストール計測の実装
-
-初回起動のインストール計測を実装することで、広告の効果測定を行うことができます。下記のいずれかの手順で実装を行ってください。
-
-* GUI(Inspector)でインストール計測を設定
-* コードを記述する
-
-
-### GUI(Inspector)でのインストール計測の実装
-
-アプリ起動時に一度だけ読み込まれるオブジェクトがある場合は、GUI(Inspector)での編集が可能です。
-
-例）Main CameraのInspectorを利用し、インストール計測を行う
-
-1. プロジェクトの「Plugins/FoxPlugin.cs」をMain Cameraにドラッグ＆ドロップする
-2. Main CameraのInspector上で、Fox PluginスクリプトのUrl変数に対してdefaultという文字列を指定する
-
-
-### コードを記述する場合のインストール計測の実装
-
-GUI(Inspector)を利用せず、スクリプトでインストール計測処理の記述を行う場合には、起動時に実行されるスクリプトからFoxPlugin.sendConversionをコールします。
-
-iOS9より初回起動時のブラウザ起動からアプリに戻る際に、ダイアログが出力されます。
-F.O.X SDKではiOS9からリリースされた新たなWebView形式である”SFSafariViewController”を初回起動時に起動させ計測することで、ダイアログ表示によるユーザビリティの低下を防止することが出来ます。
+F.O.X SDKのアクティベーションを行うため、アプリの起動時点に以下の実装を行います。<br>
+FoxConfigに必須事項を格納したら`Fox.activate`を実行します。
 
 ```cs
-FoxPlugin.sendConversion("default");
+using Cyz;
+...
+
+void Start() {
+	FoxConfig config = new FoxConfig ();
+	config.iOSAppId = 発行されたiOS用APP_ID;
+	config.iOSAppKey = 発行されたiOS用APP_KEY;
+	config.iOSAppSalt = 発行されたiOS用APP_SALT;
+	config.androidAppId = 発行されたAndroid用APP_ID;
+	config.androidAppKey = 発行されたAndroid用APP_KEY;
+	config.androidAppSalt = 発行されたAndroid用APP_SALT;
+	if(debug) config.isDebug = true;
+	Fox.activate(config);
+}
 ```
 
-sendConversionの引数には、通常は上記の通り"default"という文字列を入力してください。
+> ※ `isDebug`はtrueにするとデバッグ用ログを出力することが可能となります。
 
-特定のURLヘ遷移させたい場合や、アプリケーションで動的にURLを生成したい場合には、URLの文字列を設定してください。
+
+<div id="track_install"></div>
+## 3. インストール計測の実装
+
+初回起動のインストール計測を実装することで、広告の効果測定を行うことができます。
+
+### インストール計測の実装
+
+インストール計測を行うには、起動時に実行されるスクリプトから`Fox.trackInstall`をコールします。
 
 ```cs
-FoxPlugin.sendConversion("http://yourhost.com/yourpage.html");
+using Cyz;
+...
+
+	Fox.trackInstall();
 ```
 
-sendConversionメソッドの第二引数に広告主端末IDを渡すことができます。<br>例えば、アプリ起動時にSDKがUUIDを生成し、初回起動の成果と紐付けて管理したい場合等に、利用できます。
+*	[インストール計測の詳細](./doc/track_install/README.md)
+
+<div id="track_event"></div>
+## 4. アプリ内イベントの計測
+
+起動セッション、会員登録、チュートリアル突破、課金など任意の成果地点にイベント計測を実装することで、流入元広告のLTVや継続率を測定することができます。それらの計測が不要の場合には、各項目の実装を省略できます。
+
+<div id="track_session"></div>
+### セッション(起動)イベントの計測
+
+自然流入と広告流入のインストール数比較、アプリケーションの起動数やユニークユーザー数(DAU/MAU)、継続率等を計測することができます。アクセス解析が不要の場合には、本項目の実装を省略できます。
+<br>
+アプリケーションが起動、もしくはバックグラウンドから復帰する際にセッション計測を行うコードを追加します。不要の場合には、本項目の実装を省略できます。
 
 ```cs
-FoxPlugin.sendConversion("default", "your unique id");
+using Cyz;
+...
+
+	Fox.trackSession();
 ```
 
-> ※defaultを指定した場合には、標準の簡単なサンプルページが表示されますが、後からF.O.Xの管理画面上で遷移先URLもしくはHTMLページを弊社で設定いたします。
-遷移先ページからアプリへ戻すためのURLスキームが必要となりますので、マーケットへのリリースまでに弊社へURLスキーム名をご連絡ください。
+<div id="track_other_event"></div>
+### その他アプリ内イベントの計測
 
-<div id="tracking_ltv"></div>
-## 3. LTV計測の実装
+会員登録、チュートリアル突破、課金など任意の成果地点にイベント計測を実装することで、流入元広告のLTVを測定することができます。<br>
+イベント計測が不要の場合には、本項目の実装を省略できます。<br>
+成果がアプリ内部で発生する場合、成果処理部に以下のように記述してください。<br>
 
-会員登録、チュートリアル突破、課金など任意の成果地点にLTV計測を実装することで、流入元広告のLTVを測定することができます。LTV計測が不要の場合には、本項目の実装を省略できます。
-
-ソースの編集は、成果が上がった後に実行されるスクリプトに処理を記述します。例えば、会員登録やアプリ内課金後の
-課金計測では、登録・課金処理実行後のコールバック内に LTV 計測処理を記述します。 対象のスクリプト(C#、または JavaScript)によって編集内容が異なりますのてこ注意ください。
-
-
+**[チュートリアルイベントの計測例]**
 ```cs
-FoxPlugin.sendLtv(成果地点 ID);
+using Cyz;
+...
+
+	int ltvId = 成果地点ID;
+	FoxEvent e = new FoxEvent("_tutorial_comp", ltvId);
+	e.buid = "USER_001"
+	Fox.trackEvent(e);
 ```
 
-LTV計測を行うためには、各成果地点を識別する成果地点IDを指定する必要があります。sendLtvの引数に発行されたIDを指定してください。
+> 成果地点ID(必須)：管理者より連絡します。その値を入力してください。
+
+> LTV計測を行うためには、各成果地点を識別する`成果地点ID`を指定する必要があります。FoxEventのコンストラクタの第二引数に発行されたIDを指定してください。
+
+**[課金イベントの計測例]**
 
 課金計測を行う場合には、課金が完了した箇所で以下のように課金額を指定してください。
 
 ```cs
-// ...
-FoxPlugin.addParameter(FoxPlugin.PARAM_CURRENCY, "USD");
-FoxPlugin.addParameter(FoxPlugin.PARAM_PRICE, "20");
-FoxPlugin.sendLtv(成果地点 ID);
+using Cyz;
+...
+
+	int ltvId = 成果地点ID;
+	double price = 1.2;
+	String currency = "USD";
+	FoxEvent purchase = FoxEvent.makePurchase("_purchase", ltvId, price, currency);
+	purchase.buid = "USER_001"
+	purchase.orderId = "ABCDEFG12345";
+	purchase.itemName = "Coin";
+	purchase.sku = "A-001"
+	purchase.quantity = 1;
+	Fox.trackEvent(purchase);
 ```
 
-> Javascriptで編集する場合は、文中の「FoxPlugin」を「FoxPluginJS」に読み替えてください。
+> currencyの指定には[ISO 4217](http://ja.wikipedia.org/wiki/ISO_4217)で定義された通過コードを指定してください。
 
-* [sendLtvの詳細](./doc/send_ltv_conversion/README.md)
-
-
-<div id="tracking_analytics"></div>
-## 4. アクセス解析の実装
-
-自然流入と広告流入のインストール数比較、アプリケーションの起動数やユニークユーザー数(DAU/MAU)、継続率等を計測することができます。アクセス解析が不要の場合には、本項目の実装を省略できます。
-
-アクセス解析による計測を行う場合は、下記のいずれかの手順で実装を行ってください。
-
-* スクリプトを利用する
-* コードを記述する
-
-### [スクリプトを利用する場合]
-
-「`Plugins/FoxAnalyticsSession.cs`」を `Main Camera` にドラッグ&ドロップします。
-アプリの起動時やバックグラウンドからの復帰時にセッション開始計測を行います。
-
-> プロジェクト内に複数のSceneが存在する場合は、計測地点は全てのMain Cameraに設定してください。設定されていないSceneが表示されている状態でバックグラウンドから復帰した場合には、正確な計測が行えなくなります。
-
-
-### [コードを記述する場合]
-
-Sceneの起動地点にて次のメソッドを実装してください。
-
-```cs
-FoxPlugin.sendStartSession();
-```
-
-> プロジェクト内に複数のSceneが存在する場合は、全てのSceneの軌道地点に実装してください。
-
-
-* **アクセス解析による課金計測**
-アクセス解析による課金計測を実施したい場合は下記のリンクを参照してください。
-
-[アクセス解析によるイベント計測](./doc/analytics_event/README.md)
-
-<div id="integration_test"></div>
-## 5.疎通テストの実施
-
-マーケットへの申請までに、SDKを導入した状態で十分にテストを行い、アプリケーションの動作に問題がないことを確認してください。
-
-インストール計測の通信は、起動後に一度のみ行わるため、続けて効果測定テストを行いたい場合には、アプリケーションをアンインストールし、再度インストールから行ってください。
-
-* **テスト手順**
-
-1. テスト用端末にテストアプリがインストールされている場合には、アンインストール
-1. テスト用端末のデフォルトブラウザのCookieを削除
-1. 弊社より発行したテスト用URLをクリック
-1. マーケットへリダイレクト
-1. テスト用端末にテストアプリをインストール<br />
-1. アプリを起動、ブラウザが起動<br />
-ここでブラウザが起動しない場合には、正常に設定が行われていません。設定を見直していただき、問題が見当たらない場合には弊社へご連絡ください。
-1. LTV地点まで画面遷移<br />
-1. アプリを終了し、バックグラウンドからも削除<br />
-1. 再度アプリを起動<br />
-
-弊社へ3、6、7、9の時間をお伝えください。正常に計測が行われているか確認いたします。弊社側の確認にて問題がなければテスト完了となります。
-
-> テスト用URLは必ず端末のデフォルトブラウザ上でリクエストされるようにしてください。メールアプリやQRコードアプリを利用されそのアプリ内WebViewで遷移した場合には計測できません。
-
-> テストURLをクリックした際に、遷移先がなくエラーダイアログが表示される場合がありますが、疎通テストにおいては問題ありません。
-
-
-[リエンゲージメント計測を行う場合のテスト手順](./doc/reengagement_test/README.md)
-
-
-<div id="other_function"></div>
-## 6. その他機能の実装
-
-* [プッシュ通知の実装](./doc/notify/README.md)
-
-* [オプトアウトの実装](./doc/optout/README.md)
-
+* [イベント計測の詳細](./doc/track_event/README.md)
 
 <div id="trouble_shooting"></div>
-## 7. 最後に必ずご確認ください（これまで発生したトラブル集）
+## 5. 最後に必ずご確認ください（これまで発生したトラブル集）
 
-### 7.1. URLスキームの設定がされずリリースされたためブラウザからアプリに遷移ができない
+### 5.1. URLスキームの設定がされずリリースされたためブラウザからアプリに遷移ができない
 
 Cookie計測を行うために外部ブラウザを起動した後に、元の画面に戻すためにはURLスキームを利用してアプリケーションに遷移させる必要があります。この際、独自のURLスキームが設定されている必要があり、URLスキームを設定せずにリリースした場合にはこのような遷移を行うことができなくなります。
 
-### 7.2. URLスキームに大文字や記号が含まれ、正常にアプリに遷移されない
+### 5.2. URLスキームに大文字や記号が含まれ、正常にアプリに遷移されない
 
 環境によって、URLスキームの大文字小文字が判別されないことにより正常にURLスキームの遷移が行えない場合があります。URLスキームは全て小文字の英数字で設定を行ってください。
 
 
-### 7.3. URLスキームの設定が他社製アプリと同一でブラウザからそちらのアプリが起動してしまう
+### 5.3. URLスキームの設定が他社製アプリと同一でブラウザからそちらのアプリが起動してしまう
 
 iOSにおいて、複数のアプリに同一のURLスキームが設定されていた場合に、どのアプリが起動するかは不定です。確実に特定のアプリを起動することができなくなるため、URLスキームは他社製アプリとはユニークになるようある程度の複雑性のあるものを設定してください。
 
-### 7.4. 短時間で大量のユーザー獲得を行うプロモーションを実施したら正常に計測がされなかった
+### 5.4. 短時間で大量のユーザー獲得を行うプロモーションを実施したら正常に計測がされなかった
 
 iOSには、アプリ起動時に一定時間以上メインスレッドがブロックされるとアプリケーションを強制終了する仕様があります。起動時の初期化処理など、メインスレッド上でサーバーへの同期通信を行わないようにご注意ください。リワード広告などの大量のユーザーを短時間で獲得した結果、サーバーへのアクセスが集中し、通信のレスポンスが非常に悪くなることでアプリケーションの起動に時間がかかり、起動時に強制終了され正常に広告成果が計測できなくなった事例がございます。
 
@@ -243,7 +195,7 @@ iOSには、アプリ起動時に一定時間以上メインスレッドがブ�
 * 「Very Bad Network」をチェック
 
 
-### 7.5. F.O.Xで確認できるインストール数の値がGoogle Play Developer Consoleの数字より大きい
+### 5.5. F.O.Xで確認できるインストール数の値がGoogle Play Developer Consoleの数字より大きい
 
 F.O.Xではいくつかの方式を組み合わせて端末の重複インストール検知を行っています。
 重複検知が行えない設定では、同一端末でも再インストールされる度にF.O.Xは新規のインストールと判定してしまいます。

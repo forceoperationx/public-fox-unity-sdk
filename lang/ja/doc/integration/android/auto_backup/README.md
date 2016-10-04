@@ -1,3 +1,7 @@
+[TOP](../../../../README.md)　>　[Unityプラグインの導入手順](../../README.md)　>　[Android プロジェクトの詳細設定](../README.md)　>　**オートバックアップを利用した重複排除設定**
+
+---
+
 # オートバックアップ機能を用いた重複排除機能の向上
 
 Android M(6.0)より追加されたオートバックアップを用いることで重複排除機能を向上させることが可能です。
@@ -35,4 +39,6 @@ Android M(6.0)より追加されたオートバックアップを用いること
 ```
 
 ---
-[Android TOPへ](/lang/ja/doc/integration/android/README.md)
+[戻る](../README.md)
+
+[トップ](../../../../README.md)
