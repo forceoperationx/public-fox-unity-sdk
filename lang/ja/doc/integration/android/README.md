@@ -4,12 +4,32 @@
 
 # Android プロジェクトの詳細設定
 
+* [Gradle経由での導入](#install_by_gradle)
 * [AndroidManifest.xmlのサンプルについて](#sample_manifest)
 * [パーミッションの設定](#permission)
 * [インストールリファラ計測の設定](#install_referrer)
 * [リエンゲージメント計測の実装](#track_reengagement)
 * [ProGuardを利用する場合](#proguard)
 * [その他](#others)
+
+<div id="install_by_gradle"></div>
+## Gradle経由での導入
+
+Android StudioプロジェクトでGradleを用いてSDKを導入する場合以下のDependenciesを設定します。
+
+```groovy
+repositories {
+    maven {
+        url "https://github.com/cyber-z/public-fox-android-sdk/raw/master/mavenRepo"
+    }
+}
+
+dependencies {
+    compile 'co.cyberz.fox:track-core:4.0.0'
+    compile 'co.cyberz.fox.support:track-unity:1.0.0'
+}
+```
+
 
 <div id="sample_manifest"></div>
 ## AndroidManifest.xmlのサンプルについて
