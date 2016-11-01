@@ -36,9 +36,9 @@ Link following framework to project.
 
 > ※ Since SafariServices.framework is the added framework on iOS 9 or later, to run the application on iOS 8 or more previous version(set iOS Deployment Target on 8.4 or lesser),  set as "optional" for performing weak link.
 
-![Setting frame work 01](/lang/ja/doc/integration/ios/config_framework/img01.png)
+![Setting frame work 01](/lang/en/doc/integration/ios/config_framework/img01.png)
 
-[Detail for setting framework](/lang/ja/doc/integration/ios/config_framework/README.md)
+[Detail for setting framework](/lang/en/doc/integration/ios/config_framework/README.md)
 
 * **SDK setting**
 
@@ -53,7 +53,7 @@ APP_OPTIONS | String | Please do not type anything, so please keep it empty.
 CONVERSION_MODE | String | 1
 ANALYTICS_APP_KEY | String | Force Operation X manager will notice, input that value.<br />No need to set if access analysis is not used.
 
-![Framework setting 01](/lang/ja/doc/integration/ios/config_plist/img05.png)
+![Framework setting 01](/lang/en/doc/integration/ios/config_plist/img05.png)
 
 * **About App Transport Security**
 
@@ -66,11 +66,11 @@ NSExceptionDomains|Dictionary|Dictionary that specify exception of ATS
 NSExceptionAllowsInsecureHTTPLoads|Boolean|Specify YES to make an exception of ATS
 NSIncludesSubdomains|Boolean|Specify YES to aplly  an exceptional setting of ATS to sub domain as well.
 
-![ATS setting ](/lang/ja/doc/integration/ios/config_plist/img06.png)
+![ATS setting ](/lang/en/doc/integration/ios/config_plist/img06.png)
 
-[Detail of SDK setting](/lang/ja/doc/integration/ios/config_plist/README.md)
+[Detail of SDK setting](/lang/en/doc/integration/ios/config_plist/README.md)
 
-[AppAdForce.plist sample ](/lang/ja/doc/integration/ios/config_plist/AppAdForce.plist)
+[AppAdForce.plist sample ](/lang/en/doc/integration/ios/config_plist/AppAdForce.plist)
 
 **Note on implementation on iOS 9**
 
@@ -84,6 +84,6 @@ NSIncludesSubdomains|Boolean|Specify YES to aplly  an exceptional setting of ATS
 * [Distribution depending on bundle version enrolled on the management screen.](./check_version/README.md)
 
 ---
-[PREVIOUS](/lang/ja/doc/integration/README.md)
+[PREVIOUS](/lang/en/doc/integration/README.md)
 
-[TOP](/lang/ja/README.md)
+[TOP](/lang/en/README.md)

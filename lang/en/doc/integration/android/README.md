@@ -65,8 +65,7 @@ To conduct installation measurement using install_referrer, add the following se
 </receiver>
 ```
 
-既に"com.android.vending.INSTALL_REFERRER"に対するレシーバークラスが定義されている場合には、[二つのINSTALL_REFERRERレシーバーを共存させる場合の設定](/lang/ja/doc/integration/android/install_referrer/README.md)をご参照ください。
-In the case that receiver class to "com.android.vending.INSTALL_REFERRER" is already defined, please refer to Setting in [the case of making two INSTALL_REFERRER receivers coexist](/lang/ja/doc/integration/android/install_referrer/README.md).
+In the case that receiver class to "com.android.vending.INSTALL_REFERRER" is already defined, please refer to Setting in [the case of making two INSTALL_REFERRER receivers coexist](/lang/en/doc/integration/android/install_referrer/README.md).
 
 ## Setting of re-engagement measurement
 
@@ -88,13 +87,13 @@ Use different value for this custom URL scheme from one set in other Activit.
 
 ## Other
 
-* [The implementation of Google Play Services SDK to use advertisement ID](/lang/ja/doc/integration/android/google_play_services/README.md)
+* [The implementation of Google Play Services SDK to use advertisement ID](/lang/en/doc/integration/android/google_play_services/README.md)
 
-* [Setting sample for AndroidManifest.xml](/lang/ja/doc/integration/android/config_android_manifest/AndroidManifest.xml)
+* [Setting sample for AndroidManifest.xml](/lang/en/doc/integration/android/config_android_manifest/AndroidManifest.xml)
 
-* [（Option）Setting og deduplication using external storages](/lang/ja/doc/integration/android/external_storage/README.md)
+* [（Option）Setting og deduplication using external storages](/lang/en/doc/integration/android/external_storage/README.md)
 
-* [（Option）Use of Android M auto backup funtion](/lang/ja/doc/integration/android/auto_backup/README.md)
+* [（Option）Use of Android M auto backup funtion](/lang/en/doc/integration/android/auto_backup/README.md)
 
 
 ## In the case of using ProGuard
@@ -123,6 +122,6 @@ Also, in the case of implementing Google Play Service SDK , please check whether
 
 
 ---
-[PREVIOUS](/lang/ja/doc/integration/README.md)
+[PREVIOUS](/lang/en/doc/integration/README.md)
 
-[TOP](/lang/ja/README.md)
+[TOP](/lang/en/README.md)

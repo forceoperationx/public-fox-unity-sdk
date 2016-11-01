@@ -47,4 +47,4 @@ FoxPlugin.sendEventPurchase("purchase", null, null, null, null, "", 3, 1, "USD")
 ```
 
 ---
-[TOP](/lang/ja/README.md)
+[TOP](/lang/en/README.md)

@@ -62,7 +62,7 @@ Key and value for setting are following.
 </tr>
 </table>
 
-[AppAdForce.plist sample.](/lang/ja/doc/integration/ios/config_plist/AppAdForce.plist)
+[AppAdForce.plist sample.](/lang/en/doc/integration/ios/config_plist/AppAdForce.plist)
 
 ---
-[iOS TOP](/lang/ja/doc/integration/ios/README.md)
+[iOS TOP](/lang/en/doc/integration/ios/README.md)

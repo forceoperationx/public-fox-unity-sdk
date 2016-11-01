@@ -114,4 +114,4 @@ com.google.android.c2dm.intent.RECEIVEとcom.google.android.c2dm.intent.REGISTRA
 内部的にはjp.appAdForce.android.NotifyReceiverクラスから、共存させたいレシーバークラスのonResume()、もしくはonMessage()、onRegistered()を呼び出します。
 
 ---
-[TOPへ](/lang/ja/README.md)
+[TOP](/lang/en/README.md)

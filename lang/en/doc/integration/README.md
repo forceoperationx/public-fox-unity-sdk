@@ -24,4 +24,4 @@
 
 
 ---
-[TOP](/lang/ja/README.md)
+[TOP](/lang/en/README.md)

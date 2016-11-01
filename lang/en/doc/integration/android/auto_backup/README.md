@@ -34,4 +34,4 @@ By using auto backup which is added from Android M(6.0), it is able to improve d
 ```
 
 ---
-[Android TOP](/lang/ja/doc/integration/android/README.md)
+[Android TOP](/lang/en/doc/integration/android/README.md)

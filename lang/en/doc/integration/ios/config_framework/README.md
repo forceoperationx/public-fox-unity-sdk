@@ -2,7 +2,7 @@
 
 ビルド対象のターゲットをクリックし、「Build Phases」→「Link Binary With Libraries」を選択。「+」ボタンを押し、各フレームワークを選択してください。
 
-![フレームワーク設定01](/lang/ja/doc/integration/ios/config_framework/img01.png)
+![Fragmework setting 01](/lang/en/doc/integration/ios/config_framework/img01.png)
 
 次のフレームワークをプロジェクトにリンクしてください。
 
@@ -19,7 +19,7 @@
 
 > ※ SafariServices.frameworkはiOS 9以降で追加されたフレームワークのため、アプリケーションをiOS 8以前でも動作させる(iOS Deployment Targetを8.4以下に設定する)場合にはweak linkを行うために”Optional”に設定してください。
 
-![フレームワーク設定02](/lang/ja/doc/integration/ios/config_framework/img02.png)
+![Fragmework setting 02](/lang/en/doc/integration/ios/config_framework/img02.png)
 
 ---
-[iOS TOPへ](/lang/ja/doc/integration/ios/README.md)
+[iOS TOP](/lang/en/doc/integration/ios/README.md)

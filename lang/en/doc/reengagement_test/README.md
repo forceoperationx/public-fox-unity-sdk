@@ -34,4 +34,4 @@ Please tell the time of 3,6,7,9,10,12,13 to our company. We will see if measurem
 > When you click on a test URL, there is a case where error dialog is displayed because there is no transit destination, but this is not a problem in the communication test.
 
 ---
-[TOP](/lang/ja/README.md)
+[TOP](/lang/en/README.md)

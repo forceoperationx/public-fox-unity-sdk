@@ -249,7 +249,7 @@ In F.O.X, by combining some formulations, conduct duplication install detection 
 
 * [The implementation of Google Play Services SDK to use advertisement ID](./doc/integration/android/google_play_services/README.md)
 
-* [（Option）Deduplication setting using external storage](/lang/ja/doc/integration/android/external_storage/README.md)
+* [（Option）Deduplication setting using external storage](/lang/en/doc/integration/android/external_storage/README.md)
 
 * [（Option）Usage of Android M auto backup function](./doc/integration/android/auto_backup/README.md)
 

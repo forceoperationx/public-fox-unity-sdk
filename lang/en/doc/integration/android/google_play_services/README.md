@@ -67,4 +67,4 @@ In the case of obfuscating with using Proguard, add the following setting.
 ```
 
 ---
-[Android TOP](/lang/ja/doc/integration/android/README.md)
+[Android TOP](/lang/en/doc/integration/android/README.md)

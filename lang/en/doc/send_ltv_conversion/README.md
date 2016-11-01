@@ -51,4 +51,4 @@ FoxPlugin.sendLtv(70, "John");
 
 
 ---
-[TOP](/lang/ja/README.md)
+[TOP](/lang/en/README.md)

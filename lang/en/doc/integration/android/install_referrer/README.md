@@ -70,4 +70,4 @@ public class MyReceiver extends BroadcastReceiver {
 ```
 
 ---
-[Android TOP](/lang/ja/doc/integration/android/README.md)
+[Android TOP](/lang/en/doc/integration/android/README.md)

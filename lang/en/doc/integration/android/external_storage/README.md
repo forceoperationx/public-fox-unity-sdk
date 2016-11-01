@@ -85,4 +85,4 @@ Using the function requiring permission that protectionLevel is specified as dan
 * [Example of the implementation](https://developer.android.com/training/permissions/requesting.html#perm-request)
 
 ---
-[Android TOP](/lang/ja/doc/integration/android/README.md)
+[Android TOP](/lang/en/doc/integration/android/README.md)

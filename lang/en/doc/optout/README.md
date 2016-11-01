@@ -8,4 +8,4 @@ Users are enabled to select not being used for targeting Ads by advertising comp
 ```
 
 ---
-[TOP](/lang/ja/README.md)
+[TOP](/lang/en/README.md)
