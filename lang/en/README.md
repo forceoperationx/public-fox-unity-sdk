@@ -1,52 +1,51 @@
 # About the Force Operation X
 
-Force Operation X (Hereinafter referred to as F.O.X) is total solution platform optimizing the ad effectiveness on Smartphone. Including downloading application and the calculation of user's' actions, it is able to maximize the price-performance ratio of companies' promotion according to criteria of original effective measurements based on behavior characteristics of Smartphone users.
+Force Operation X (Hereinafter referred to as F.O.X) is total solution platform optimizing the ad effectiveness on Smartphones. This platform provides not only a measurement of app downloads and user actions, but also helps to maximize the price-performance ratio of your app's promotional campaign through measurement of effect based on users' behavioral characteristics.
 
-This documents instructs the installation procedures of F.O.X. SDK to maximize the ad effectiveness on Smartphone application.
+This document serves as a guide for correct installation of F.O.X. SDK in order to maximize the ad effectiveness of Smartphone applications.
 
 ## Index
 
 * **[1. Install](#install_sdk)**
 	* [SDK downloads](https://github.com/cyber-z/public-fox-unity-sdk/releases)
   * [How to implement Unity plug-in](./doc/integration/README.md)
-  * [Setting of iOS project](./doc/integration/ios/README.md)
-  * [Setting of Android project](./doc/integration/android/README.md)
-* **[2. The implementation of installation measurement](#tracking_install)**
-* **[3. The implementation of LTV mesurement](#tracking_ltv)**
-	* [The detail of sendLtv](./doc/send_ltv_conversion/README.md)
-* **[4. The implementation of access analysis](#tracking_analytics)**
-	* [Event measurement by using access analysis](./doc/analytics_event/README.md)
-* **[5. Implementation of examination of communication](#integration_test)**
-  * [Test procedure for re-engagement mesurement](./doc/reengagement_test/README.md)
-* **[6. Implementation of other functions](#other_function)**
-  * [Implementation of push notification](./doc/notify/README.md)
-  * [Implementation of Opt-out](./doc/optout/README.md)
-* **[7. Please absolutely confirm](#trouble_shooting)**
+  * [iOS project setup guide](./doc/integration/ios/README.md)
+  * [Android project setup guide](./doc/integration/android/README.md)
+* **[2. Implementing app installation measurement](#tracking_install)**
+* **[3. Implementing LTV measurement](#tracking_ltv)**
+	* [The sendLtv() method](./doc/send_ltv_conversion/README.md)
+* **[4. Implementing app access analysis](#tracking_analytics)**
+	* [Event measurement using app access analysis](./doc/analytics_event/README.md)
+* **[5. Testing the setup](#integration_test)**
+  * [Testing re-engagement measurement](./doc/reengagement_test/README.md)
+* **[6. Implementing other features](#other_function)**
+  * [Implementing push notification](./doc/notify/README.md)
+  * [Implementing Opt-out](./doc/optout/README.md)
+* **[7. Troubleshooting](#trouble_shooting)**
 
 ## What is F.O.X SDK?
 
-Installing F.O.X SDK into application realizes the following functions.
+Including F.O.X SDK into an app enables the following features.
 
-* **Installation measurement**
+* **Measurement of app downloads**
 
-It is able to measure the number of installation for each inflows of advertisement .
+Measurement of number of app downloads separately for each ad campaign.
 
 * **LTV measurement**
 
-It measures Life Time Value for each advertisements of influx sources. Primary conversion points are membership registration, completion of tutorial, and billing. It is able to measure registration rate, billing rate, and the billing amount for each advertisement.
+Measurement of Life Time Value (LTV) for each ad campaign. Primary conversion points are member registration, completion of a tutorial, and billing. F.O.X also measures the registration rate, the billing rate, and the billing amount for each ad campaign.
 
-* **Access Analysis**
+* **App Access Analysis**
 
-Comparison of natural inflows and advertisement inflow. It is able to measure the number of starting application and unique users (DAU/MAU), persistency rate and etc.
+Comparison of ad driven user access, and non-ad driven user access. It is also possible to measure the number of app launches, number of unique users (DAU/MAU), persistency rate etc.
 
-* **Push notification**
+* **Push notifications**
 
-By using information measured in F.O.X, it is able to conduct push notification towards users. For example, it is able to send messages to users who come from specific advertisement.
+Using the data collected by F.O.X, it is possible to send push notifications to a specific group of users. For example, it is possible to send notifications to users who installed the app through a particular ad campaign.
 
 * **Advertisement distribution**
 
-It is able to display the advertisement of mutual attracting consumers in apps. Still, in the case that displaying advertisement is unnecessary, it is able to omit the implementation of this item.
-
+It is possible to display ads in the app. Implementation of this feature may be omitted if not needed.
 
 <div id="install_sdk"></div>
 ## 1. Installation
