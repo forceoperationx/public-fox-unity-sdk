@@ -38,10 +38,9 @@ Available parameters are noted below.
 |PARAM_CURRENCY|Currency<br>（Currency code of three half-width alphabet）<br>Please use when aggregating total amouunt in each currency.<br>In the case of not specifying the currency, Price will be JPY(Japanese Yen).|
 |It is able to arbitrary add parameter.|FoxPlugin.addParameter(“Paramter name”, “value”);<br>※1  In the case of same parameter name, the latter is available.<br>※2 Please do not note underscore（"_"）at start of parameter name.<br>※3 Only hald-width alphanumeric is available.|
 
-PARAM_CURRENCYには[ISO 4217](http://ja.wikipedia.org/wiki/ISO_4217)で定義された通貨コードを指定してください。
 lease specify the currency code defined by [`ISO 4217`](http://ja.wikipedia.org/wiki/ISO_4217) for PARAM_CURRENCY.
 
-設定例：
+Setting example :
 ```cs
 FoxPlugin.addParameter(PARAM_SKU, "ABC1234");
 FoxPlugin.addParameter(PARAM_CURRENCY,  "USD");
