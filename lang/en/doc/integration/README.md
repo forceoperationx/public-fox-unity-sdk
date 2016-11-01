@@ -1,28 +1,27 @@
-## Unityプラグイン導入手順
+## Implementation of Unity plugin
 
-### Unityプラグインのプロジェクトへの追加
+### Adding Unity plugin to project
 
-1. Unityを起動し、プラグインを組み込むUnityプロジェクトを選択
-2. メニューの「Assets」>「Import Package」>「Custom Package」を選択する
-3. 「FOX-UnityPlugin_<version>.unitypackage」を選択する
-4. 「All」ボタンを押下し、全てにチェックを付ける
-5. iOS用プラグインが不要な場合は、`Fox/iOS`と`Plugins/iOS`のチェックを外す
-6. Android用プラグインが不要な場合は、`Fox/Android`と`Plugins/Android`のチェックを外す
-7. 「Import」ボタンを押下する
+1. Activate unity, then select Unity project to incorporate plugin.
+2. Select 「Assets」>「Import Package」>「Custom Package」 from menu.
+3. Select "FOX-UnityPlugin_.unitypackage"
+4. Select "All" button to check all
+5. If the plug in for iOS is unnecessary, remove the checks from Fox/iOS and Plugin/iOS
+6. If the plugin for Android is unnecessary, remove the checks from Fox/Android and Plugin/Android
+7. Select "Import" button
 
 <img src="./img01.png" width="400px" />
 
-> ※ `Fox_<version>.unitypackage`には最新のネイティブ版SDK(iOS/Android)が同梱されています。
+> ※ Lastest native version of SDK (iOS/Android) is included in `Fox_<version>.unitypackage`
 
-> ※ iOSでF.O.Xのプッシュ通知を利用しない場合は、FoxNotifyPlugin.h, FoxNotifyPlugin.mをインポートしないでください。また、リエンゲージメント計測を実施しない場合は、FoxReengagePlugin.h, FoxReengagePlugin.mをインポートしないでください。
+> ※ If you do not use push notice of F.O.X in iOS, do not import FoxNotifyPlugin.h, FoxNotifyPlugin.m. Also, IF you do not perform reengagement measurement, do not import FoxReengagePlugin.h, FoxReengagePlugin.m.
 
-#### **iOS9における導入の注意点**
+#### **Note about implementing iOS**
 
-> Cookie計測を実施する際に、iOS9ではSFSafariViewControllerを使用します。
-F.O.X Unity SDK v2.16以降では、SFSafariViewController起動後の制御をFoxReengagePluginで行うため導入が必須となります。
+> As performing Cookie measurement, SFSafariViewController is used on iOS. For v2.16 or later, order to make the control of SFSafariViewController after startup, implementing FoxReengagePlugin is necessary.
 
-> これまで外されていた場合には、本Unity SDKのunitypackageファイルに同梱のFoxReengagePluginをご導入ください。
+> If you have not set, please use FoxReengagePlugin included in unitypackage of SDK.
 
 
 ---
-[TOPへ](/lang/ja/README.md)
+[TOP](/lang/ja/README.md)

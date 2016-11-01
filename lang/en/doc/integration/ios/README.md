@@ -1,30 +1,30 @@
-# iOSプロジェクトの設定
+# Setting for iOS project
 
-## **Xcodeプロジェクトの設定**
+## **Setting for Xcode project**
 
-### Xcodeプロジェクトのパブリッシュ
+### Push value or Xcode project
 
-iOS用のプロジェクトを作成するために、次の手順でXcodeプロジェクトをパブリッシュし、Xcode上で必要な設定を行います。
+To create project for iOS, press down Xcode in following  procedure then make necessary setting on Xcode.
 
-1. メニューの「File」>「BUild Settings…」を選択する
-2. Platformの「iOS」を選択し、「Switch Platform」を押下する
-3. 「Player Settings」を押下し、Inspectorでご自身の環境に合わせて設定を行う
-4. 	「Build」か「Build And Run」を押下し、Xcodeプロジェクトのパブリッシュを行う
+1. Select  "File">"BUild Settings..." from menu
+2. Select "iOS" on Platform, then push "Switch Platform"
+3. Press down "Player Setting", then make appropriate setting for your  environment by Inspector.
+4. Press down "Build" or "Build And Run", then publish Xcode
 
-> ※ `Automatic Reference Counting`をYESにした場合、コンパイルを通すため、Xcode Build Phasesにで下記2ファイルの`compiler flags`に`-fno-objc-arc`を設定してください。
+> ※ If `Automatic Reference Counting` is YES, to run through compile, set -fno-objc-arc to compiler flag of following two files.
 * LibFoxSdk.m
 * FoxVersionPlugin.mm
 
-### Xcodeプロジェクトの編集
+### Editing Xcode project
 
-パブリッシュされたXcodeプロジェクトを開き、編集します。
+Open published Xcode project, then edit it.
 
-* **フレームワーク設定**
+* **Setting framework**
 
-次のフレームワークをプロジェクトにリンクしてください。
+Link following framework to project.
 
 <table>
-<tr><th>フレームワーク名</th><th>Status</th></tr>
+<tr><th>Frameworkname</th><th>Status</th></tr>
 <tr><td>SafariServices.framework</td><td>Optional</td></tr>
 <tr><td>AdSupport.framework</td><td>Optional</td></tr>
 <tr><td>iAd.framework </td><td>Required</td></tr>
@@ -32,58 +32,58 @@ iOS用のプロジェクトを作成するために、次の手順でXcodeプロ
 <tr><td>StoreKit.framework </td><td>Required </td></tr>
 </table>
 
-> AdSupport.frameworkはiOS 6以降で追加されたフレームワークのため、アプリケーションをiOS 5以前でも動作させる(iOS Deployment Targetを5.1以下に設定する)場合にはweak linkを行うために”Optional”に設定してください。
+> Since AdSupport.framework is the added framework on iO S6 or later, to run the application on iOS 5 or more previous version(set iOS Deployment Target on 5.1 or lesser),  set as "optional" for performing weak link.
 
-> ※ SafariServices.frameworkはiOS 9以降で追加されたフレームワークのため、アプリケーションをiOS 8以前でも動作させる(iOS Deployment Targetを8.4以下に設定する)場合にはweak linkを行うために”Optional”に設定してください。
+> ※ Since SafariServices.framework is the added framework on iOS 9 or later, to run the application on iOS 8 or more previous version(set iOS Deployment Target on 8.4 or lesser),  set as "optional" for performing weak link.
 
-![フレームワーク設定01](/lang/ja/doc/integration/ios/config_framework/img01.png)
+![Setting frame work 01](/lang/ja/doc/integration/ios/config_framework/img01.png)
 
-[フレームワーク設定の詳細](/lang/ja/doc/integration/ios/config_framework/README.md)
+[Detail for setting framework](/lang/ja/doc/integration/ios/config_framework/README.md)
 
-* **SDK設定**
+* **SDK setting**
 
-SDKの動作に必要な設定をplistに追加します。「AppAdForce.plist」というファイルをプロジェクトの任意の場所に作成し、次のキーと値を入力してください。
+Add necessary setting for SDK operation to plist. Create file named AppAdForce.plist on arbitrary place, then input following key and value.
 
 Key | Type | Value
 :---: | :---: | :---
-APP_ID | String | Force Operation X管理者より連絡しますので、その値を入力してください。
-SERVER_URL | String | Force Operation X管理者より連絡しますので、その値を入力してください。
-APP_SALT | String | Force Operation X管理者より連絡しますので、その値を入力してください。
-APP_OPTIONS | String | 何も入力せず、空文字の状態にしてください。
+APP_ID | String | Force Operation X manager will notice, input that value.
+SERVER_URL | String | Force Operation X manager will notice, input that value.
+APP_SALT | String | Force Operation X manager will notice, input that value.
+APP_OPTIONS | String | Please do not type anything, so please keep it empty.
 CONVERSION_MODE | String | 1
-ANALYTICS_APP_KEY | String | Force Operation X管理者より連絡しますので、その値を入力してください。<br />アクセス解析を利用しない場合は設定の必要はありません。
+ANALYTICS_APP_KEY | String | Force Operation X manager will notice, input that value.<br />No need to set if access analysis is not used.
 
-![フレームワーク設定01](/lang/ja/doc/integration/ios/config_plist/img05.png)
+![Framework setting 01](/lang/ja/doc/integration/ios/config_plist/img05.png)
 
-* **App Transport Securityについて**
+* **About App Transport Security**
 
-iOS9より提供されたAppTransportSecurity(以下、ATS)を有効にしている場合、Info.plistに以下の設定を行いF.O.X SDKが行う通信先のドメインをATSの例外としてください。
+If AppTransportSecurity (below, ATS) that is provided from iOS is enabled, make following  setting to make domain as exception of communication destination of F.O.X SDK.
 
 キー | タイプ | 概要
 :---: | :---: | :---
-NSExceptionDomains|Dictionary|ATSの例外を指定するディクショナリー
-指定ドメイン文字列|Dictionary|以下２つのドメインをキーで作成してください。<br>・app-adforce.jp<br>・forceoperationx.com
-NSExceptionAllowsInsecureHTTPLoads|Boolean|YES を指定してくださいATSの例外とします。
-NSIncludesSubdomains|Boolean|YES を指定しATSの例外設定をサブドメインにも適用させます。
+NSExceptionDomains|Dictionary|Dictionary that specify exception of ATS
+指定ドメイン文字列|Dictionary|create folowing 2 domain <br>・app-adforce.jp<br>・forceoperationx.com
+NSExceptionAllowsInsecureHTTPLoads|Boolean|Specify YES to make an exception of ATS
+NSIncludesSubdomains|Boolean|Specify YES to aplly  an exceptional setting of ATS to sub domain as well.
 
-![ATS設定](/lang/ja/doc/integration/ios/config_plist/img06.png)
+![ATS setting ](/lang/ja/doc/integration/ios/config_plist/img06.png)
 
-[SDK設定の詳細](/lang/ja/doc/integration/ios/config_plist/README.md)
+[Detail of SDK setting](/lang/ja/doc/integration/ios/config_plist/README.md)
 
-[AppAdForce.plistサンプル](/lang/ja/doc/integration/ios/config_plist/AppAdForce.plist)
+[AppAdForce.plist sample ](/lang/ja/doc/integration/ios/config_plist/AppAdForce.plist)
 
-**iOS9における導入の注意点**
+**Note on implementation on iOS 9**
 
-> Cookie計測を実施する際に、iOS9ではSFSafariViewControllerが使用します。
-F.O.X Unity SDK v2.16以降では、SFSafariViewController起動後の制御をFoxReengagePluginで行うため導入が必須となります。
+> As performing Cookie measurement, SFSafariViewController uses on iOS9. For F.O.X Unity SDK v2.16 or later, impelemention is
+ｒequired to make  controle  by FoxReengagePlugin after starting  SFSafariViewController.
 
-> これまで外されていた場合には、本Unity SDKのunitypackageファイルに同梱のFoxReengagePluginをご導入ください。
+> If it has been removed, please implement FoXReengagePlugin included in unitypakage of the Unity SDK.
 
-### その他
+### Other
 
-* [管理画面上に登録したバンドルバージョンに応じた処理の振り分け](./check_version/README.md)
+* [Distribution depending on bundle version enrolled on the management screen.](./check_version/README.md)
 
 ---
-[戻る](/lang/ja/doc/integration/README.md)
+[PREVIOUS](/lang/ja/doc/integration/README.md)
 
-[TOPへ](/lang/ja/README.md)
+[TOP](/lang/ja/README.md)

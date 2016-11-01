@@ -1,28 +1,28 @@
-## SDK設定の詳細
+## The detail of SDK setting
 
-SDKの動作に必要な設定をplistに追加します。「AppAdForce.plist」という名称のプロパティリストファイルをプロジェクトの任意の場所に作成し、次のキーと値を入力してください。
+Add the necessary setting for SDK's action into plist. Create the property list file, which is 「AppAdForce.plist」at arbitrary place in project and type the next key and value.
 
-任意の場所で右クリック→「New File...」を選択
+Right click at arbitrary place →Select "New File...".
 
-![SDK設定01](./img01.png)
+![SDK setting 01](./img01.png)
 
-「Property List」を選択。
+Select "Property List".
 
-![SDK設定02](./img02.png)
+![SDK setting 02](./img02.png)
 
-「AppAdForce.plist」という名称に変更し、Createボタンをクリック。
+Change the name to "AppAdForce.plist", click the Create button.
 
-![SDK設定03](./img03.png)
+![SDK setting 03](./img03.png)
 
-作成したプロパティリストファイルを選択。右クリックでメニューを開き、「Add Row」を選択
+Choose the created property list file and open the menu by right click and select"Add Row".
 
-![SDK設定04](./img04.png)
+![SDK setting 04](./img04.png)
 
-各キーとバリューを設定。
+Setting the each key and value.
 
-![SDK設定05](./img05.png)
+![SDK setting 05](./img05.png)
 
-設定するキーとバリューは以下の通りです。
+Key and value for setting are following.
 
 <table>
 <tr>
@@ -33,22 +33,22 @@ SDKの動作に必要な設定をplistに追加します。「AppAdForce.plist�
 <tr>
   <td>APP_ID</td>
   <td>String</td>
-  <td>Force Operation X管理者より連絡しますので、その値を入力してください。</td>
+  <td>There will be a contact from the administrator,so please type the value. </td>
 </tr>
 <tr>
   <td>SERVER_URL</td>
   <td>String</td>
-  <td>Force Operation X管理者より連絡しますので、その値を入力してください。</td>
+  <td>There will be a contact from the administrator,so please type the value. </td>
 </tr>
 <tr>
   <td>APP_SALT</td>
   <td>String</td>
-  <td>Force Operation X管理者より連絡しますので、その値を入力してください。</td>
+  <td>There will be a contact from the administrator,so please type the value. </td>
 </tr>
 <tr>
   <td>APP_OPTIONS</td>
   <td>String</td>
-  <td>何も入力せず、空文字の状態にしてください。</td>
+  <td>Please do not type anything, so please keep it empty.</td>
 </tr>
 <tr>
   <td>CONVERSION_MODE</td>
@@ -58,11 +58,11 @@ SDKの動作に必要な設定をplistに追加します。「AppAdForce.plist�
 <tr>
   <td>ANALYTICS_APP_KEY</td>
   <td>String</td>
-  <td>Force Operation X管理者より連絡しますので、その値を入力してください。<br />アクセス解析を利用しない場合は設定の必要はありません。</td>
+  <td>There will be a contact from the administrator,so please type the value. <br />If you do not use the access analysis, does not need to be set.</td>
 </tr>
 </table>
 
-[AppAdForce.plistサンプル](/lang/ja/doc/integration/ios/config_plist/AppAdForce.plist)
+[AppAdForce.plist sample.](/lang/ja/doc/integration/ios/config_plist/AppAdForce.plist)
 
 ---
-[iOS TOPへ](/lang/ja/doc/integration/ios/README.md)
+[iOS TOP](/lang/ja/doc/integration/ios/README.md)

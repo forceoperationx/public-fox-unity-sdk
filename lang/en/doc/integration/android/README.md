@@ -1,13 +1,12 @@
-# Androidプロジェクトの設定
+# Setting of Android Project
 
-Android 用の設定は Unity プロジェクト上で行うことができます。Unity プロジェクトに組み込まれた
-AndroidManifest.xml を編集します。プロジェクトに AndroidManifest.xml が存在しない場合は、 「Plugins/Android/AndroidManifest-sample.xml」を「AndroidManifest.xml」にリネームしてご利用ください。
+The setting for Android can be conducted on Unity project. Edit AndroidManifest.xml which is put into Unity project. In the case that AndroidManifest.xml does not exist in project, use after renaming from 「Plugins/Android/AndroidManifest-sample.xml」to「AndroidManifest.xml」.
 
 
-## パーミッションの設定
+## Setting of permission
 
-F.O.X SDKでは下記4つのパーミッションを利用します。
-&lt;Manifest&gt;タグ内に次のパーミッションの設定を追加します。
+In F.O.X SDK, use the 4 following permissions.
+ In &lt;Manifest&gt; tag, add the setting of next permissions.
 
 ```xml:
 <uses-permission android:name="android.permission.INTERNET" />
@@ -16,47 +15,47 @@ F.O.X SDKでは下記4つのパーミッションを利用します。
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-パーミッション|Protection Level|必須|概要
+Permission|Protection Level|Mandatory|Outline
 :---|:---:|:---:|:---
-INTERNET|Normal|必須|F.O.X SDKが通信を行うために必要となります。
-ACCESS_NETWORK_STATE|Normal|必須|F.O.X SDKが通信可能かを確認するために必要となります。
-READ_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排除機能向上に必要となります。(※1)
-WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排除機能向上に必要となります。(※1)
+INTERNET|Normal|Mandatory|It is necessary so that F.O.X SDK operates communication.
+ACCESS_NETWORK_STATE|Normal|Mandatory|It is necessary so that F.O.X SDK operates communication.
+READ_EXTERNAL_STORAGE|Dangerous|Arbitrary|It is necessary to improve deduplication using storage.(※1)
+WRITE_EXTERNAL_STORAGE|Dangerous|Arbitrary|It is necessary to improve deduplication using storage.(※1)
 
-> ※1 Android MよりProtectionLevelが`dangerous`に指定されているパーミッションを必要とする機能を利用するには、ユーザーの許可が必要になります。詳細は[外部ストレージを利用した重複排除設定](/lang/ja/doc/integration/android/external_storage/README.md)をご確認ください。
+> ※1 To use the function which is necessary to use the permission specified that ProtectionLevel is dangerous by Android M, it is necessary to get the permission from users. For more detail, check Setting of deduplication using external storage.
 
 
-## メタデータの設定
+## Setting of metadata
 
-SDKの実行に必要な情報を<application>タグ内に追加します。
+Add the necessary information for conducting SDK in &lt;Application&gt;tag.
 
 ```xml
 <meta-data
 	android:name="APPADFORCE_APP_ID"
-	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
+	android:value="There will be a contact from the administrator of Force Operation X, so please type the value." />
 <meta-data
 	android:name="APPADFORCE_SERVER_URL"
-	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
+	android:value="There will be a contact from the administrator of Force Operation X, so please type the value." />
 <meta-data
 	android:name="APPADFORCE_CRYPTO_SALT"
-	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
+	android:value="There will be a contact from the administrator of Force Operation X, so please type the value." />
 <meta-data
 	android:name="ANALYTICS_APP_KEY"
-	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
+	android:value="There will be a contact from the administrator of Force Operation X, so please type the value." />
 ```
 
-設定するキーとバリューは以下の通りです。
+Key and value for setting are following.
 
-|パラメータ名|必須|概要|
+|Name of parameter|Mandatory|Outline|
 |:------|:------|:------|
-|APPADFORCE_APP_ID|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
-|APPADFORCE_SERVER_URL|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
-|APPADFORCE_CRYPTO_SALT|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
-|ANALYTICS_APP_KEY|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
+|APPADFORCE_APP_ID|Mandatory|There will be a contact from the administrator of Force Operation X, so please type the value.|
+|APPADFORCE_SERVER_URL|Mandatory|There will be a contact from the administrator of Force Operation X, so please type the value.|
+|APPADFORCE_CRYPTO_SALT|Mandatory|There will be a contact from the administrator of Force Operation X, so please type the value.|
+|ANALYTICS_APP_KEY|Mandatory|There will be a contact from the administrator of Force Operation X, so please type the value.|
 
 
-## インストールリファラ計測の設定
-インストールリファラーを用いたインストール計測を行うために下記の設定を&lt;application&gt;タグに追加します。
+## Setting of Install referrer
+To conduct installation measurement using install_referrer, add the following setting into &lt;application&gt;tag
 
 ```xml
 <receiver android:name="jp.appAdForce.android.InstallReceiver" android:exported="true">
@@ -67,15 +66,14 @@ SDKの実行に必要な情報を<application>タグ内に追加します。
 ```
 
 既に"com.android.vending.INSTALL_REFERRER"に対するレシーバークラスが定義されている場合には、[二つのINSTALL_REFERRERレシーバーを共存させる場合の設定](/lang/ja/doc/integration/android/install_referrer/README.md)をご参照ください。
+In the case that receiver class to "com.android.vending.INSTALL_REFERRER" is already defined, please refer to Setting in [the case of making two INSTALL_REFERRER receivers coexist](/lang/ja/doc/integration/android/install_referrer/README.md).
 
+## Setting of re-engagement measurement
 
-## リエンゲージメント計測の実装
+Add the necessary setting for measure the startings via custom URL scheme in &lt;application&gt;tag. The following IntntReceiverActivity is the Activity that is provided with SDK.
 
-カスタムURLスキーム経由の起動を計測するために必要な設定を<application>タグ内に追記します。
-以下の`IntentReceiverActivity`はF.O.X SDKで提供しているActivityとなります。
-
-カスタムURLスキームで本Activityが呼び出されることでリエンゲージメント計測を行います。
-ここでのカスタムURLスキームは他のActivityに設定しているものとは異なる値を設定してください。
+Re-engagement meaurement is performed by calling this Antivity with custom URL scheme. <br>
+Use different value for this custom URL scheme from one set in other Activit.
 
 ```xml
 <activity android:name="jp.appAdForce.android.IntentReceiverActivity">
@@ -83,25 +81,25 @@ SDKの実行に必要な情報を<application>タグ内に追加します。
 		<action android:name="android.intent.action.VIEW" />
 		<category android:name="android.intent.category.DEFAULT" />
 		<category android:name="android.intent.category.BROWSABLE" />
-		<data android:scheme="カスタム URL スキーム" />
+		<data android:scheme="custom URL scheme" />
 	</intent-filter>
 </activity>
 ```
 
-## その他
+## Other
 
-* [広告IDを利用するためのGoogle Play Services SDKの導入](/lang/ja/doc/integration/android/google_play_services/README.md)
+* [The implementation of Google Play Services SDK to use advertisement ID](/lang/ja/doc/integration/android/google_play_services/README.md)
 
-* [AndroidManifest.xml 設定サンプル](/lang/ja/doc/integration/android/config_android_manifest/AndroidManifest.xml)
+* [Setting sample for AndroidManifest.xml](/lang/ja/doc/integration/android/config_android_manifest/AndroidManifest.xml)
 
-* [（オプション）外部ストレージを利用した重複排除設定](/lang/ja/doc/integration/android/external_storage/README.md)
+* [（Option）Setting og deduplication using external storages](/lang/ja/doc/integration/android/external_storage/README.md)
 
-* [（オプション）Android M オートバックアップ機能の利用](/lang/ja/doc/integration/android/auto_backup/README.md)
+* [（Option）Use of Android M auto backup funtion](/lang/ja/doc/integration/android/auto_backup/README.md)
 
 
-## ProGuardを利用する場合
+## In the case of using ProGuard
 
-ProGuard を利用してアプリケーションの難読化を行う際は F.O.X SDK のメソッドが対象とならないよう、以下の設定 を追加してください。
+When obfuscating application using ProGuard, please add the following setting not to being subject to method of F.O.X SDK.
 
 ```
 -keepattributes *Annotation*
@@ -119,12 +117,12 @@ ProGuard を利用してアプリケーションの難読化を行う際は F
 -dontwarn com.naef.jnlua.**
 ```
 
-また、Google Play Service SDK を導入されている場合は、以下のぺージに記載されている keep 指定が記述されているかご確認ください。
+Also, in the case of implementing Google Play Service SDK , please check whether keep specification which is noted in the following page is noted, or not.
 
-[Google Play Services導入時のProguard対応](https://developer.android.com/google/play-services/setup.html#Proguard)
+[ProGuard support when in the implementation of Google Play Services](https://developer.android.com/google/play-services/setup.html#Proguard)
 
 
 ---
-[戻る](/lang/ja/doc/integration/README.md)
+[PREVIOUS](/lang/ja/doc/integration/README.md)
 
-[TOPへ](/lang/ja/README.md)
+[TOP](/lang/ja/README.md)

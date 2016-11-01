@@ -1,4 +1,4 @@
-## 最新バージョンへのアップデートについて
+## About update to latest version
 
 旧バージョンのF.O.X SDKが導入されたアプリに対して、最新バージョンのF.O.X SDKを導入する際に必要な手順を説明します。
 
@@ -19,4 +19,4 @@ SDKのアップデート後は、必ず効果測定テストを実施し、計�
 
 
 ---
-[TOPへ](/lang/ja/README.md)
+[TOP](/lang/ja/README.md)

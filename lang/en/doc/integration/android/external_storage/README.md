@@ -1,47 +1,47 @@
-## 外部ストレージを利用した重複排除設定
+## Setting of deduplication using external storages
 
-アプリケーションの初回起動時にSDKが生成した識別IDをローカルストレージまたはSDカードに保存することで、アプリケーション再インストール時に重複判定を行うことができます。
+By preserving identification ID, that SDK created when first starting of application, into local storage or, SD card, it is able to conduct deduplication when reinstalling application.
 
-本設定は必須ではありませんが、アプリケーションの再インストールにおける重複検知の精度が大きく向上するため、実装を推奨しております。
+This setting is not mandatory, however, it helps improving the accuracy of duplicating detection when reinstalling application, so we recommend the implementation.
 
-### パーミッションの設定
+### Setting of permission
 
-外部ストレージへのファイル読み書きに必要なパーミッションの設定をAndroidManifest.xmlの<manifest>タグ内に追加します。
+Add the necessary setting of permission for reading and writing file to external storage into &lt;manifest&gt; tag of AndroidManifest.xml.
 
 ```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /><uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-上記パーミッションが設定されている場合、次のパスに識別IDファイルが保存されます。
+In the case of setting the above permission, identification ID file is preserved into next pass.
 
 ```
-Environment.getExternalStorageDirectory().getPath()で取得できるパス/アプリのパッケージ名/__FOX_XUNIQ__
+Environment.getExternalStorageDirectory().getPath() / Application's package name / __FOX_XUNIQ__
 ```
 
-### （任意）保存ディレクトリ及びファイル名の変更
+### （Arbitraty）Change of preserved directory and file name
 
-保存されるファイルのディレクトリ名は、標準ではパッケージ名で作成されますが、<application>タグ内に以下設定を追加することで、任意のディレクトリ名及びファイル名に変更することができます。
+Preserved file's directory name is normally created by package name, however, by adding following setting into tag, it is able to change to arbitrary directory name and file name.
 
 ```xml
 <meta-data
 	android:name="APPADFORCE_ID_DIR"
-	android:value="任意のディレクトリ名" />
+	android:value="Preserved directory name" />
 <meta-data
 	android:name="APPADFORCE_ID_FILE"
-	android:value="任意のファイル名" />
+	android:value="Preserved directory name" />
 ```
 
-> 任意のディレクトリ名やファイル名を指定した場合でも、Environment.getExternalStorageDirectory().getPath()の返り値のパス配下に作成します。Environment.getExternalStorageDirectory().getPath()の返り値は端末やOSバージョンによって異なります。<br>
+> Even in the case of specifying the arbitrary directory name and filename, it is created under the pass of the return value of  Environment.getExternalStorageDirectory().getPath(). The return value of Environment.getExternalStorageDirectory().getPath() changes depending on the terminal, ot OS version.  <br>
 
-> `APPADFORCE_ID_DIR`(任意のディレクトリ名)を指定せず、任意のファイル名のみを指定した場合、アプリのパッケージ名のディレクトリが作成され、その配下に任意のファイル名で保存されます。<br>
+> In the case of specifying the arbitrary file name without specifying `APPADFORCE_ID_DIR`(arbitrary directory name),  directory with package name will be created and preserved with arbitrary file name under it. <br>
 
-> ※ `APPADFORCE_ID_FILE`(任意のファイル名)を指定せず、任意のディレクトリ名のみを指定した場合、任意の名前でディレクトリが作成され、その配下に"__FOX_XUNIQ__"で保存されます。<br>
-通常は設定の必要はありません。
+> ※ In the case of specifying directory name without specifying `APPADFORCE_ID_FILE`(arbitrary file name), directory with arbitrary name will be created, and directory with the name __FOX_XUNIQ__ will be preserved under it.<br>
+ Normally, this setting is not necessary.
 
 
-### 設定例
+###  Example of setting
 
-AndroidManifest.xmlの設定例を次に記載します。
+Example of setting AndroidManifest.xml is noted next.
 
 ```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /><uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -60,31 +60,29 @@ AndroidManifest.xmlの設定例を次に記載します。
 </application>
 ```
 
-上記の例の場合に、保存されるファイルのパスは次になります。
+In the case of the above example, pass of preserved file will be next name.
 
 ```
-Environment.getExternalStorageDirectory().getPath()で取得できるパス/fox_id_dir/fox_id_file
+Environment.getExternalStorageDirectory().getPath() / fox_id_dir / fox_id_file
 ```
 
-### 外部ストレージの利用停止
+### Suspension of external storage
 
-Force Operation X SDKによる外部ストレージへのアクセスを停止したい場合には、AndroidManifest.xmlにAPPADFORCE_USE_EXTERNAL_STORAGEの設定を追加してください。
+In the case of the above example, pass of preserved file will be next name.
 ```xml
 <meta-data
 	android:name="APPADFORCE_USE_EXTERNAL_STORAGE"
 	android:value="0" />
 ```
 
-本設定を行うことで外部ストレージに対する記録が停止しますが、アプリケーションの削除によりデータが常に初期化されるため、正確なインストール計測が行われなくなります。
+By this setting, the record towards external storages will be stopped, however, accurate installation measurement will not be conducted because data is always initialized by deleting application.
 
 
-### Android M(6.0)における注意点
+### Caution for Android M(6.0)
 
-protectionLevelがdangerousに指定されているパーミッションを必要とする機能を利用するには、ユーザーの許可が必要となります。
-ユーザーの許可がない場合、ストレージ領域へのデータ保存が行えなくなるため重複排除設定が利用出来なくなります。
-前述の`READ_EXTERNAL_STORAGE`と`WRITE_EXTERNAL_STORAGE`においてもdangerousとなっており、ユーザーに許可を貰うための実装を行う必要があります。
+Using the function requiring permission that protectionLevel is specified as dangerous, user's approval is mandatory. In the case of not approved by users, the setting of deduplication is not available because of being able to preserve data into storage domain. Even in above READ_EXTERNAL_STORAGE and WRITE_EXTERNAL_STORAGE, it specifies the dangerous, so the implementation is necessary to get the permission from users.
 
-* [実装の参考](https://developer.android.com/training/permissions/requesting.html#perm-request)
+* [Example of the implementation](https://developer.android.com/training/permissions/requesting.html#perm-request)
 
 ---
-[Android TOPへ](/lang/ja/doc/integration/android/README.md)
+[Android TOP](/lang/ja/doc/integration/android/README.md)

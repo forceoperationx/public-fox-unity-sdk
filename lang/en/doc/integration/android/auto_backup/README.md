@@ -1,33 +1,32 @@
-# オートバックアップ機能を用いた重複排除機能の向上
+## The improvement of deduplication function using auto backup function
 
-Android M(6.0)より追加されたオートバックアップを用いることで重複排除機能を向上させることが可能です。
-尚、当対応は任意となります。
+By using auto backup which is added from Android M(6.0), it is able to improve deduplication function. Still, this correspondence is arbitrary.
 
-## 利用可能条件
+## Terms of use
 
-* Android M端末からAndroid M以上の端末にバックアップデータを復元した場合となります。
-* バックアップ時と復元時で端末ログインしているGoogleアカウントが同じである必要があります。
-* データを引き継ぐには下図のように端末の設定がユーザーによって有効となっていることが必須となります。
+* It is the case of restoration of backup data from Android M terminal to more above than Android M terminal.
+* It is necessary to have the same Google account when backup and restoration.
+* When moving data, like following pictures, it is mandatory that setting of terminal is available by users.
 
-![設定画面](./img01.png)
+![Setting screen](./img01.png)
 
-## 設定
+## Setting
 
-　ご利用の際、アプリのバックアップ設定ファイルの状況に合わせて設定頂く必要があります。
+　When using , it is necessary to set according to the condition of application's backup setting file.
 
-> [参考設定](https://developer.android.com/training/backup/autosyncapi.html)
+> [Reference setting](https://developer.android.com/training/backup/autosyncapi.html)
 
-**[バックアップするアプリデータを個別に指定する場合]**
+**[The case of specifying application date for backup individually]**
 
-　以下のファイルがバックアップの対象にふくまれるように設定をしてください。
+　Please set so that following file can be included to be subject to backup.
 
 ```
 <include domain="file" path="__ADMAGE_RANDOM_DEVICE_ID__" />
 ```
 
-**[全アプリデータのバックアップを行う場合]**
+**[The case of conducting back up data of all application]**
 
-　アプリデータ全てがバックアップの対象となるよう設定されている場合、以下のファイルは除外されるように設定をしてください。
+　In the case of setting that data of application is subject to backup, please set that following files are excluded.
 
 ```
 <exclude domain="file" path="__ADMAGE_WEB_CONVERSION_COMPLETED__" />
@@ -35,4 +34,4 @@ Android M(6.0)より追加されたオートバックアップを用いること
 ```
 
 ---
-[Android TOPへ](/lang/ja/doc/integration/android/README.md)
+[Android TOP](/lang/ja/doc/integration/android/README.md)

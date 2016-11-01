@@ -1,29 +1,26 @@
-## （オプション）管理画面上に登録したバンドルバージョンに応じた処理の振り分け
+## （Option）Distribution of management corresponding to handle version registered on administration screen.
 
-F.O.X の管理画面上に登録しているバージョンと実行中のアプリのバージョンとが一致するかどうかに応じて処理を振り分けることができます。本機能を利用することで、例えばリリース中とテスト中のバージョンの処理の振り分けをF.O.Xを利用して制御し、テスト中のみ特定の処理を実行するなどが可能となります。
-本機能の実装は必須ではありません。
+It is able to distribute management corresponding to whether the version registered on FOX's administration screen and version of application which is in process are matched, or not. By using this function, for example, it is possible to use and control the distribution of managing release and testing version and conduct particular management on only testing version. Implementing this function is not mandatory.
 
-なお、F.O.X で利用するバンドルバージョンとは、CFBundleShortVersionString に相当する値です。
-
-
-バンドルバージョンに応じた処理の振り分けを行うには、checkVersionWithDelegate()メソッドを利用します。バージ ョンチェックの問い合わせを F.O.X サーバーに対して行い、結果を受信すると didLoadVersion()がコールされます。デ リゲートメソッド didLoadVersion()を実装してください。didLoadVersion()のコール時に、管理画面上に登録したバンドルバージョンが実行中のアプリのバージョンと一致するかどうかの判定結果を引数に渡します。一致した場合には”YES”、一致しなかった場合には”NO”を返します。
+By the way bandle version F.O.X uses is the value which is equivalent to CFBundleShortVersionString.
 
 
-以下、本機能の実装例です。
-checkVersionWithDelegate()メソッドをコールし、サーバーに問い合わせを行います。
+For distributing management corresponding to bundle version, use checkVersionWithDelegate:method. After sending the inquiry about checking version to F.O.X server and receiving the result,didLoadVersion() is called. Please implement the delegate methoddidLoadVersion(). When calling didLoadVersion(), the result, whether the bundle version registered on administration screen matches the version of application which is in process, or not, gives to the argument. If matched, respond ”YES”. If not, respond ”NO”.
+
+Below, it is the example of implementing this function. Call checkVersionWithDelegate()method and send the inquiry to the server.
 
 ```cs
 FoxPlugin.setListenerGameObject(this.gameObject.name);FoxPlugin.checkVersionWithDelegate();
 ```
 
-デリゲートメソッドであるdidLoadVersion()を実装します。
+Implement didLoadVersion() which is delegate method.
 
 ```cs
-public void didLoadVersion(string result){	// 一致しなかった場合(例えばテスト中のバージョン)の処理の記述。
+public void didLoadVersion(string result){	// The note of management in the case of not matched (for example testing version).
 	if (result=="NO") {		....	}}
 ```
 
->本メソッドによる F.O.X サーバーへの問い合わせは、負荷軽減のため1クライアントにおいて各 バージョンごとに5回までに制限されます。5 回を超えるとサーバーへの問い合わせは行われず、 didLoadVersion()がコールされません。バンドルバージョンを更新することで再度 5 回を上限 にサーバーへ問い合わせが行われます。
+> For load reduction, the number of sending inquiry to F.O.X server by this method is limited to 5 times at each version for 1 client. After exceeding 5 times, inquiry will not be sent to the server and didLoadVersion() is not called. By updating bundle version, it is able to send inquiry to the server with the maximum 5 times.
 
 ---
 [iOS TOP](../README.md)

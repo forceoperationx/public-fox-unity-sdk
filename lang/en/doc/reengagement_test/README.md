@@ -1,37 +1,37 @@
-## リエンゲージ計測を行う場合のテストの手順
+## Test procedures to perform re-engage measurement
 
-マーケットへの申請までに、SDKを導入した状態で十分にテストを行い、アプリケーションの動作に問題がないことを確認してください。
+Until the application to market, test enough in a state where the the SDK has been introduced, and  make sure that there is no problem in the operation of the application.
 
-インストール計測の通信は、起動後に一度のみ行わるため、続けて効果測定テストを行いたい場合には、アプリケーションをアンインストールし、再度インストールから行ってください。
+Communication of Installation measurement is performed only  once after startup. If you want to do effect measurement test next, uninstall the application, please go from the installation again.
 
-* **テスト手順**
+* **Test procedure**
 
-1. テスト用端末にテストアプリがインストールされている場合には、アンインストール
-1. テスト用端末のデフォルトブラウザのCookieを削除
-1. 弊社より発行したテスト用URLをクリック
-1. マーケットへリダイレクト
-1. テスト用端末にテストアプリをインストール<br />
-1. アプリを起動、ブラウザが起動<br />
-ここでブラウザが起動しない場合には、正常に設定が行われていません。設定を見直していただき、問題が見当たらない場合には弊社へご連絡ください。
-1. LTV地点まで画面遷移<br />
-1. アプリを終了し、バックグラウンドからも削除<br />
-1. ブラウザのCookieを削除し、リエンゲージメント計測テスト用URLをクリック。アプリが起動することを確認ください。<br />
-※アプリが起動しない場合、独自URLスキームが設定されているかどうかご確認ください。<br />
-設定を見直していただき、問題が見当たらない場合には弊社へご連絡ください。<br />
-1. LTV地点まで画面遷移<br />
-1. アプリを終了、バックグラウンドには消さずに残しておく。
-1. 再度、ブラウザのCookieを削除し、リエンゲージメント計測テスト用URLをクリック。アプリが起動することを確認ください。<br />
-※アプリが起動しない場合、独自URLスキームが設定されているかどうかご確認ください。<br />
-設定を見直していただき、問題が見当たらない場合には弊社へご連絡ください。
-1. LTV地点へ到達
-1. アプリを終了し、バックグラウンドからも削除
-1. 再度アプリを起動  
+1. Uninstall test app if it has been installed in the testing terminal.
+1. Delete the Cookie of the default browser of the testing terminal.
+1. Click the test URL that issued from our company
+1. Redirected to the market
+1. Install a test application to the testing terminal<br />
+1. Activate the app, the browser will start-up<br />
+If the browser does not start, that means setting has not been carried out correctly. Review the settings, and if you do not see any problem, contact us.
+1. Screen transition to LTV point<br />
+1. Quit the app, also removed from the background<br />
+1. Delete the browser Cookie, click URL for the re-engagement measurement test. Please ensure that the app is started.<br />
+※ If the application does not start, please check whether original URL scheme has been set.<br />
+Review the settings, please contact us if you do not see the problem.<br />
+1. Screen transition to LTV point<br />
+1. Exit the app, leave on the background without removing.
+1. Again, delete the browser Cookie again, click URL for the re-engagement measurement test. Please ensure that the app is started.<br />
+※ If the application does not start, please check whether original URL scheme has been set.<br />
+Review the settings, please contact us if you do not see the problem.
+1. Reach the LTV point
+1. Exit the app, also removed from the background
+1. Activate the app again  
 
-弊社へ3、6、7、9、10、12、13の時間をお伝えください。正常に計測が行われているか確認いたします。弊社側の確認にて問題がなければテスト完了となります。
+Please tell the time of 3,6,7,9,10,12,13 to our company. We will see if measurement has been successfully performed. If there are no problems in our confirmation, the test will be completed.
 
-> テスト用URLは必ず端末のデフォルトブラウザ上でリクエストされるようにしてください。メールアプリやQRコードアプリを利用されそのアプリ内WebViewで遷移した場合には計測できません。
+> Make sure that test URL will be requested on default browser of the terminal. The measurement will not be performed if you transit by Web View in the app such as mail app or QR code reader.
 
-> テストURLをクリックした際に、遷移先がなくエラーダイアログが表示される場合がありますが、疎通テストにおいては問題ありません。
+> When you click on a test URL, there is a case where error dialog is displayed because there is no transit destination, but this is not a problem in the communication test.
 
 ---
-[TOPへ](/lang/ja/README.md)
+[TOP](/lang/ja/README.md)

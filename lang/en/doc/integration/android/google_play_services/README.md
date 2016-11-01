@@ -1,44 +1,41 @@
-#広告IDを利用するためのGoogle Play Services SDKの導入
+## The implementation of Google Play Services SDK to use advertisement ID
 
 
-## Google Playデベロッパープログラムへの準拠
+## Compliance to Google Play developer program
 
-Force Operation X Android SDKはGoogle Playデベロッパープログラムポリシーに準拠しています。本SDKはポリシーに準拠するために、永続的なデバイス ID（IMEI、MACアドレス及びAndroidID）が取得される場合には広告IDが取得されません。2014年8月1日から、Google Playストアにアップロードされたすべての更新や新着アプリには、広告目的で使用する端末IDには広告ID を利用する必要があります。本ポリシーに準拠するために、以下の手順を行ってください。
+Force Operation X Android SDK is compliant to Google Play developer program policy. To be compliant to policy, in this SDK, advertisement ID is not acquired in the case of acquiring everlasting device ID（IMEI、MAC address and AndroidID）. From August, 1st, 2014, for all update uploaded into Google Play store and new application, it is necessary to advertisement ID for terminal ID using as advertising objectives. For being compliant to this policy, please follow the procedures below.
 
 
 ## Google Play Services SDK
 
 
-広告IDを利用できるようにするために、Google Play Services SDKが組み込まれている必要があります。
-アプリケーションにGoogle Play Services SDKが組み込まれていない場合には、次のサイトの手順に従い、導入を行ってください。
+To use the advertisement ID, Google Play Services SDK needs to be incorporated. In the case of not incorporating Google Play Services SDK into application, please follow the procedures in next site and conduct implementation.
 
 [Setting Up Google Play Services | Android Developers](https://developer.android.com/google/play-services/setup.html)
 
 
 
-## Google Play Services SDKの取得
+## Acquisition of Google Play Services SDK
 
-以下に、2014年12月時点での、Google Play Services SDKの導入方法を記載致します。
+Below, the method of implementing Google Play Services SDK is noted at December, 2014.
 
+In the case of installing Google Play Services SDK, acquire the package from Android SDK Manager.
 
-Google Play Services SDKをインストールしていない場合は、Android SDK Managerからパッケージを取得します。
-
-* Android SDK Managerを起動します。
-* Extrasディレクトリ配下のGoogle Play servicesにチェックをいれ、パッケージをインストールします。
+* Start Android SDK Manager.
+* Put a check Google Play services under the Extras directory and install package.
 
 ![googlePlayServices01](./img01.png)
 
-## Google Play Servicesの導入
+## The implementation of Google Play Services
 
-Google Play Services のライブラリプロジェクトを取得したら、UnityプロジェクトのPlugins/Androidフォルダーに ${ANDROID_SDK_PATH}/extras/google/google_play_services/libproject/google-play-services_libをコピーしてください。
+After acquiring the library project of Google Play Services, copy "${ANDROID_SDK_PATH}/extras/google/google_play_services/libproject/google-play-services_lib" to Plugins/Android folder of Unity project.
 
 
+## Setting for using Google Play Services
 
-## Google Play Servicesを利用するための設定
+#### Edition of AndroidManifest.xml
 
-#### AndroidManifest.xmlの編集
-
-Google Play Servicesを利用するために下記の設定をAndroidManifest.xmlの<application>タグ内に記述します。
+To use Google Play Services, write the following setting in %lt;Application&gt; of AndroidManifest.xml.
 
 ```xml
 <meta-data
@@ -46,9 +43,9 @@ Google Play Servicesを利用するために下記の設定をAndroidManifest.xm
     android:value="@integer/google_play_services_version" />
 ```
 
-#### Proguardの設定
+#### Setting of Proguard
 
-Proguardを利用して難読化している場合は、以下の設定を追加してください。
+In the case of obfuscating with using Proguard, add the following setting.
 
 ```
 -keep class * extends java.util.ListResourceBundle {
@@ -70,4 +67,4 @@ Proguardを利用して難読化している場合は、以下の設定を追加
 ```
 
 ---
-[Android TOPへ](/lang/ja/doc/integration/android/README.md)
+[Android TOP](/lang/ja/doc/integration/android/README.md)

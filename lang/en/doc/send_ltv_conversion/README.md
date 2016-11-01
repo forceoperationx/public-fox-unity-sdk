@@ -1,48 +1,45 @@
-## sendLtvの詳細
+# The detail of sendLtv
 
-sendLtvConversionメソッドを利用することで、広告流入別の課金金額や入会数などを計測することができます。計測のために、任意の地点にLTV成果通信を行うコードを追加します。
+By using sendLtvConversion method, it is able to measure billing amount of each advertisement inflow and the total number of admission. For measurements, add the code of LTV result communication at arbitrary point.
 
-ソースの編集は、成果が上がった後に実行されるスクリプトに処理を記述します。例えば、会員登録やアプリ内課金後の課金計測では、登録・課金処理実行後のコールバック内にLTV計測処理を記述します。
-対象のスクリプト（C#、またはJavaScript）によって編集内容が異なりますのでご注意ください。
+For edition of source, note the management to scripts conducted after acquisition of result. For example, for the charging measurement after member registration and billing in application, note LTV measurement management in callback after management of registration and billing. Please be careful that the content of edition is changed depending on script (C#, or JavaScript）.
 
-成果がアプリ内部で発生する場合、成果処理部に以下C#で記述します。
-JavaScriptに編集する場合は、文中の「FoxPlugin」を「FoxPluginJS」に読み替えてください。
+In the case that result is generated in application, note following C# to result management department. In the case of editing to JavaScript, change from「FoxPlugin」to「FoxPluginJS」in sentences.
 
-成果通知のコードを追加
+Add the code of result notification
 
 ```cs
-FoxPlugin.sendLtv(成果地点 ID);
+FoxPlugin.sendLtv(LTV point ID);
 ```
-> 成果地点ID(必須)：管理者より連絡します。その値を入力してください。
+> LTV point ID(Mandatory)：There is a contact from admistrater, so please type the value.
 
-
-アプリ内部の成果に、広告主端末ID（会員IDなど）を含める事ができ、これを基準とした成果計測が行えます。LTV成果に広告主端末IDを付与したい場合は以下のように記述してください。
+It is able to include advertiser terminal ID (such as member ID)in result in application and measure result measurement based on this. In the case of giving advertisement terminal ID to LTV result, please note like following.
 
 ```cs
-	FoxPlugin.sendLtv(成果地点ID, "広告主端末ID");
+	FoxPlugin.sendLtv(LTV point ID, "Advertisement terminal ID");
 ```
 
-> 成果地点ID(必須)：管理者より連絡します。その値を入力してください。
-広告主端末ID(オプション)：広告主様が管理しているユニークな識別子（会員IDなど）です。
-指定できる値は64文字以内の半角英数字です。
+> Result point ID(mandatory)：There is a contact from administrator., so please type the value.
+Advertsiment terminal ID(Option)：It is unique identifier (such as member ID) administered by advertisers. The specifying value is half-width alphanumeric within 64.
 
 
-アプリ内計測時には、パラメータをオプションとして設定する事が可能です。
+When measuring in application, it is able to set parameter as option.
 
 ```cs
-	FoxPlugin.addParameter("パラメータ名", "値");
+	FoxPlugin.addParameter("Parameter name", "value");
 ```
 
-指定できるパラメータは次の通りです。
+Available parameters are noted below.
 
-|パラメータ名|概要|
+|Parameter name|Outline|
 |:------|:------|
-|PARAM_SKU|Stock Keeping Unit(商品管理コード)<br>（半角英数字32文字まで）<br>商品の在庫管理する際に使用してください|
-|PARAM_PRICE|Price<br>（整数値　日本円）<br>売上額を管理する際に使用してください。|
-|PARAM_CURRENCY|Currency<br>（半角英字3文字の通貨コード）<br>通貨別で課金額を集計する際に使用してください。<br>通貨が設定されていない場合、PriceをJPY(日本円)として扱います。|
-|任意でパラメータを加える事も可能です。|FoxPlugin.addParameter(“パラメータ名”, “値”);<br>※1 同一パラメータ名を記述した場合は、後者が有効となります。<br>※2 アンダースコア（"_"）をパラメータ名の先頭に記述しないでください。<br>※3 半角英数字以外は使用できません。|
+|PARAM_SKU|Stock Keeping Unit(Product administration code)<br>（Till 32 characters in hal-width alphanumeric）<br>Please use when controlling products in stocks.|
+|PARAM_PRICE|Price<br>（Integar value Japanese yen）<br>Please use when contrlling amounts of sales.|
+|PARAM_CURRENCY|Currency<br>（Currency code of three half-width alphabet）<br>Please use when aggregating total amouunt in each currency.<br>In the case of not specifying the currency, Price will be JPY(Japanese Yen).|
+|It is able to arbitrary add parameter.|FoxPlugin.addParameter(“Paramter name”, “value”);<br>※1  In the case of same parameter name, the latter is available.<br>※2 Please do not note underscore（"_"）at start of parameter name.<br>※3 Only hald-width alphanumeric is available.|
 
 PARAM_CURRENCYには[ISO 4217](http://ja.wikipedia.org/wiki/ISO_4217)で定義された通貨コードを指定してください。
+lease specify the currency code defined by [`ISO 4217`](http://ja.wikipedia.org/wiki/ISO_4217) for PARAM_CURRENCY.
 
 設定例：
 ```cs
@@ -50,9 +47,9 @@ FoxPlugin.addParameter(PARAM_SKU, "ABC1234");
 FoxPlugin.addParameter(PARAM_CURRENCY,  "USD");
 FoxPlugin.addParameter(PARAM_PRICE, "20");
 FoxPlugin.addParameter(“my_param”, "ABC");
-FoxPlugin.sendLtv(70, "Taro");
+FoxPlugin.sendLtv(70, "John");
 ```
 
 
 ---
-[TOPへ](/lang/ja/README.md)
+[TOP](/lang/ja/README.md)
