@@ -6,12 +6,12 @@ This document serves as a guide for correct installation of F.O.X. SDK in order 
 
 ## Index
 
-* **[1. Install](#install_sdk)**
+* **[1. Installation](#install_sdk)**
 	* [SDK downloads](https://github.com/cyber-z/public-fox-unity-sdk/releases)
   * [How to implement Unity plug-in](./doc/integration/README.md)
   * [iOS project setup guide](./doc/integration/ios/README.md)
   * [Android project setup guide](./doc/integration/android/README.md)
-* **[2. Implementing app installation measurement](#tracking_install)**
+* **[2. Tracking app downloads](#tracking_install)**
 * **[3. Implementing LTV measurement](#tracking_ltv)**
 	* [The sendLtv() method](./doc/send_ltv_conversion/README.md)
 * **[4. Implementing app access analysis](#tracking_analytics)**
@@ -27,9 +27,9 @@ This document serves as a guide for correct installation of F.O.X. SDK in order 
 
 Including F.O.X SDK into an app enables the following features.
 
-* **Measurement of app downloads**
+* **Tracking app downloads**
 
-Measurement of number of app downloads separately for each ad campaign.
+Tracking then number of app downloads separately for each ad campaign.
 
 * **LTV measurement**
 
@@ -54,64 +54,61 @@ Please download the latest version of SDK from the following page.
 
 [SDK release page](https://github.com/cyber-z/public-fox-unity-sdk/releases)
 
-In the case of already implementing SDK into application, please refer to [updating the latest version](./doc/update/README.md).
+Already using F.O.X? Get the latest version here [updating the latest version](./doc/update/README.md).
 
-Please decompress the downloaded SDK　`"FOX_UnityPlugin_<VERSION>.zip"`,and put into the projects of application.
+Extract the downloaded SDK　`"FOX_UnityPlugin_<VERSION>.zip"`, and copy it into your project.
 
 [How to implement Unity plug-in](./doc/integration/README.md)
 
-### Setting of each OS
+### iOS and Android setup guide
 
-* [Setting of iOS project](./doc/integration/ios/README.md)
-* [Setting of Android project](./doc/integration/android/README.md)
+* [iOS](./doc/integration/ios/README.md)
+* [Android](./doc/integration/android/README.md)
 
 
 <div id="tracking_install"></div>
-## 2. The implementation of installation measurement
+## 2. Tracking app downloads
 
-By implementing install measurements for first time, it is able to start the effectiveness measurements of advertisement. Please implement in a order following.
+By implementing app download tracking, it is possible to measure the effectiveness of your ad campaign. To setup app download tracking, follow one of the methods mentioned below.
 
-* Setting Installing measurement by GUI(inspector)
-* Write the code
+* Setting up app download tracking using GUI (inspector)
+* Setting up app download tracking using code
 
+### Setting up app download tracking using GUI (inspector)
 
-### Implementation of installing measurement by GUI(Inspector)
+If there exists an object that is loaded only once on app startup, then changes using GUI (Inspector) become possible.
 
-If there is the object that is read at only once in activation, editing by GUI(Inspector) is available.
+Example) Tracking app downloads using the Inspector of the Main camera.
 
-Example) Using Inspector of Main Camera, perform installing measurement.
+1. Drag & drop "Plug/FoxPlugin.cs" into the Main Camera.
+2. Using the inspector of the Main Camera, set the 'Url' variable of the Fox plugin script to 'default'.
 
-1. Drag & drop "Plug/FoxPlugin.cs" to Main Camera.
-2. On the inspector of Main Camera, specify the string default to Url variable of Plugin script.
+### Setting up app download tracking using code
 
+To track app downloads without using GUI (Inspector), call 'FoxPlugin.sendConversion' method from a script that runs on app startup.
 
-### Implementation of the installing measurement when you write the code
-
-When you write the installation measurement process in the script without using GUI(Inspector),  call FoxPlugin.sendConversion from scripts that is run at startup.
-
-For iOS, when going back to applications from starting browsers at first starting, dialogue will be exported.
-In F.O.X SDK, by starting “SFSafariViewController”, which is a new WebView form released from iOS9, at first staring and measuring, it is able to prevent from the decline of usability caused by displaying dialogue.
+From iOS 9 onwards, when running the app for the first time, a dialog box pops up when returning from the browser to the app. In F.O.X SDK, the app download tracking is performed using the new "SFSafariViewController" WebView format available in iOS 9 and later, which prevents user experience from degrading due to the dialog box.
 
 ```cs
 FoxPlugin.sendConversion("default");
 ```
 
-For argument of sendConversion, input the string "default" of the above usually.
+Pass the string "default" as a parameter to the sendConversion method as shown above.
 
-To make transition to certain URL or to make URL automatically by apps, set string of URL.
+To redirect to a certain URL or to generate the URL dynamically inside the app, pass the URL in a string as shown below.
 
 ```cs
 FoxPlugin.sendConversion("http://yourhost.com/yourpage.html");
 ```
 
-The advertiser terminal ID can be given to the second argument of sendConversion method.<br>
-For example, it can be used at the point of activation  SDK makes UUID, if you want to manage that with the results of the first activation.
+You can also pass the UUID of the user as a second argument to the sendConversion method.<br>
+This is useful if you want the UUID information along with the first run details of the app.
 
 ```cs
 FoxPlugin.sendConversion("default", "your unique id");
 ```
 
-> ※If default is specified, standard simple sample page will appear first, but we will set transition destination URL or HTML page on management screen of F.O.X later. By the time of release to market, please notice us the name of URL scheme to return from transition destination page to app.
+> ※If 'default' is passed as an argument to the method, a standard sample page will be displayed first, but this can be changed to a specific HTML page or a URL from the F.O.X developer console. To return to the app from this page, URL scheme of the app is necessary. Please inform us about your app' URL scheme before releasing the app to the market.
 
 <div id="tracking_ltv"></div>
 ## 3. Implementation of LTV management
