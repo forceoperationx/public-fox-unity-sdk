@@ -193,56 +193,55 @@ Please inform us the timestamp of the steps 3, 6, 7, and 9. We will check if the
 >Make sure you send the request to the test URL using the default browser of the test device. The tracking will fail if you open the test URL inside the Web View of, say, an email app or a QR code reader app.
 
 
-[Test procedure as performed reengagement measurement.](./doc/reengagement_test/README.md)
+[Test for re-engagement tracking](./doc/reengagement_test/README.md)
 
 
 <div id="other_function"></div>
-## 6.  The implementation of other functions
+## 6.  Implementation of other features
 
-* [The implementation of push notification](./doc/notify/README.md)
+* [Implementing push notification](./doc/notify/README.md)
 
-* [The implementation of opt-out](./doc/optout/README.md)
+* [Implementing opt-out](./doc/optout/README.md)
 
 
 <div id="trouble_shooting"></div>
-## 7. Please confirm（Collection of troubles so far）
+## 7. Troubleshooting（Collection of troubles so far）
 
-### 7.1. It is released without setting of URL scheme and it does not transit to application from browser.
+### 7.1.Transition from browser to the app fails as the URL scheme was not set
 
-After starting external browsers to conduct Cookie measurement, it is necessary to go back to original screen by using URL scheme and transits to application. At this moment, it is necessary to set original URL scheme. If releasing without setting of URL scheme, it does not conduct such a transition.
+After launching the browser to perform app download tracking using cookies, URL scheme is necessary to transition back to the app. For this reason, setting the correct URL scheme is necessary. If the app is released without setting the correct URL scheme, the transition from browser to the app will fail.
 
-### 7.2. URL scheme includes capital letters and small letters and it does not normally conduct transition to application
+### 7.2. Transition from browser to the app fails as the URL scheme includes uppercase letters or symbols
 
-Depending on the environment, the capital letters and small letters of URL scheme are not distinctive and it does not conduct transition of URL scheme as usual. Please set the URL scheme in all small letters and alphanumeric.
+Depending on the environment, it might not be possible to distinguish between uppercase and lowercase letters causing the transition to fail. Please use only lowercase alphanumeric characters in the URL scheme.
+
+### 7.3. URL scheme clashes with that of another app causing the other app to be launched from the browser
+
+In iOS, if there are multiple apps with the same URL scheme, it is not possible to determine which app will be launched. In order to avoid this, make sure your URL scheme is complex enough to prevent it from clashing with that of other apps.
+
+### 7.4. The measurements were not made correctly when running an aggressive ad campaign to acquire a large number of users in a short period of time
+
+iOS forcibly closes the app when the main thread is blocked for longer than a certain time of time on app startup. Do not use synchronous communication with the server on main thread. As a result of acquiring lots of users in a short time period using something like reward ads, the requests to the server might rise making the communication slower. In such a case, if the communication is performed synchronously on main thread, the application might block the main thread for longer than allowed causing the OS to kill the app forcibly. This might lead to incorrect measurements.
+
+This can be tested using the following steps.
+
+iOS「Settings」→「Developer」→「NETWORK LINK CONDITIONER」
+
+* Turn on 'Enable'
+* Check 'Very Bad Network'
 
 
-### 7.3. The setting of URL scheme is same as application made from other companies and it opens the application from browsers.
+### 7.5. The number of app downloads reported by F.O.X is larger than the number of downloads reported by Google Play Developer Console
 
-In iOS, in the case of setting same URL scheme in several application, nobody knows which application is started. It does not start specific application for sure, so URL scheme should have some complexity which are unique to application made from other companies.
+We use a combination of methods to detect multiple installs on same device. If the settings are set in a way that doesn't allow accurate detection of multiple installs on same device, F.O.X would consider each install on the same device as a new install.
 
-### 7.4. When operating promotion to acquire tons of users in short time, it did not measure.
+In order to increase the accuracy of detecting multiple installs on same device, follow the following guides.
 
-iOS forcibly close the application when main thread is blocked for longer than certain time at staring application. Please do not synchronous communication to server on main thread, such as initialization at starting. As a result of acquiring tons of users in short time by reward advertisement, access to the server is concentrated and normal response is getting worse and worse. Then, it takes much time to start application and there is a case that it is forcibly closed and does not measure advertisement effectiveness when starting.
+* [Including Google Play Services SDK to use ad ID](./doc/integration/android/google_play_services/README.md)
 
-By following procedures below, it is able to practice test in the condition, so please confirm that application is normally started in following setting.
+* [（Optional）Duplicate install detection using external storage](/lang/en/doc/integration/android/external_storage/README.md)
 
-iOS「Setting」→「Developer」→「NETWORK LINK CONDITIONER」
-
-* 「Enable」is on.
-* Check「Very Bad Network」
-
-
-### 7.5. The value of installation confirmed in F.O.X is bigger than the number of Google Play Developer Console
-
-In F.O.X, by combining some formulations, conduct duplication install detection for terminal. WIthout the setting not conducting the detection, F.O.X judges that it is a new installation at every time of reinstallation even in same terminal.
-
-重複検知の精度を向上するために、以下の設定を行ってください。
-
-* [The implementation of Google Play Services SDK to use advertisement ID](./doc/integration/android/google_play_services/README.md)
-
-* [（Option）Deduplication setting using external storage](/lang/en/doc/integration/android/external_storage/README.md)
-
-* [（Option）Usage of Android M auto backup function](./doc/integration/android/auto_backup/README.md)
+* [（Optional）Using android M's auto backup feature](./doc/integration/android/auto_backup/README.md)
 
 ---
 [TOP](/README.md)
