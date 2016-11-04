@@ -14,7 +14,7 @@ This document serves as a guide for correct installation of F.O.X. SDK in order 
 * **[2. Tracking app downloads](#tracking_install)**
 * **[3. Implementing LTV measurement](#tracking_ltv)**
 	* [The sendLtv() method](./doc/send_ltv_conversion/README.md)
-* **[4. Implementing app access analysis](#tracking_analytics)**
+* **[4. Tracking app access](#tracking_analytics)**
 	* [Event measurement using app access analysis](./doc/analytics_event/README.md)
 * **[5. Testing the setup](#integration_test)**
   * [Testing re-engagement measurement](./doc/reengagement_test/README.md)
@@ -35,9 +35,9 @@ Tracking then number of app downloads separately for each ad campaign.
 
 Measurement of Life Time Value (LTV) for each ad campaign. Primary conversion points are member registration, completion of a tutorial, and billing. F.O.X also measures the registration rate, the billing rate, and the billing amount for each ad campaign.
 
-* **App Access Analysis**
+* **Tracking app access**
 
-Comparison of ad driven user access, and non-ad driven user access. It is also possible to measure the number of app launches, number of unique users (DAU/MAU), persistency rate etc.
+Comparison of ad driven user access, and non-ad driven user access. It is also possible to measure the number of app launches, number of unique users (DAU/MAU), persistency rate, etc.
 
 * **Push notifications**
 
@@ -111,20 +111,19 @@ FoxPlugin.sendConversion("default", "your unique id");
 > ※If 'default' is passed as an argument to the method, a standard sample page will be displayed first, but this can be changed to a specific HTML page or a URL from the F.O.X developer console. To return to the app from this page, URL scheme of the app is necessary. Please inform us about your app' URL scheme before releasing the app to the market.
 
 <div id="tracking_ltv"></div>
-## 3. Implementation of LTV management
+## 3. Implementing LTV measurement
 
-By implementing LTV measurements at arbitrary conversion points such as membership registration, completion of tutorial, billing and etc, It measures Life Time Value for each advertisements of influx sources. In the case that LTV measurement is not necessary, it is able to omit this implementation.
+By implementing LTV measurements at arbitrary conversion points such as member registration, completion of a tutorial, item purchase, etc., it is possible to measure the Life Time Value of each ad campaign. This step can be skipped if LTV measurement is not necessary.
 
-Editting source writes process on script that is run after outcome is achieved. For example, at account measurement after membership registration or in-app billing, describe the LTV measurement processing in callback after  registration and billing processing execution.
-
+The LTV measurement code should be included in the script that runs after the conversion. For example, for tracking  member registration or item purchase, the LTV measurement code can be included in the callback of member registration or item purchase function. Please note that implementation might change with the scripting language used (C# or JavaScript).
 
 ```cs
-FoxPlugin.sendLtv(LTV POINT ID);
+FoxPlugin.sendLtv(CONVERSION POINT ID);
 ```
 
-In order to perform measure the LTV measurement, you need to specify the outcome point ID that identifies each achievement point. Please specify the issued ID in the argument of the sendLtv.
+In order to perform LTV measurement, you need to specify a unique ID for each conversion point. Pass the conversion point ID as a parameter to the sendLtv() method.
 
-In the case of performing the accounting measurement, please specify the billing amount and the currency code in the following manner at the point where the charging is complete.
+When tracking item purchase, specify the price of the item before calling the sendLtv() method as shown below.
 
 ```cs
 // ...
@@ -133,69 +132,65 @@ FoxPlugin.addParameter(FoxPlugin.PARAM_PRICE, "20");
 FoxPlugin.sendLtv(LTV POINT ID);
 ```
 
-> When you edit by Javascript, read "FoxPlugin" in the text to "FoxPluginS"
+> When using JavaScript, replace 'FoxPlugin' with 'FoxPluginJS'.
 
-* [Detail of sendLtv ](./doc/send_ltv_conversion/README.md)
-
+* [More on sendLtv()](./doc/send_ltv_conversion/README.md)
 
 <div id="tracking_analytics"></div>
-## 4. Implementation of the access analysis
+## 4. Tracking app access
 
-You can measure comparison of Installation number of naturally flow and advertising flows, the number of the of activating application and unique users (DAU / MAU),  the ongoing rate and so on. When the access analysis is not required, you can omit the implementation of this item.
+F.O.X allows you to compare the ad-driven app downloads and non ad-driven app downloads. Also, it is possible to measure the number of app launches, number of unique users (DAU/MAU), persistency rate, etc. This step can skipped if app access tracking is not needed.
 
-To perform access analysis, make any procedure in the following.
+To implement app access tracking, follow any of the following methods.
 
-* Use script
-* Write the code
+* Using the script provided
+* Writing the code yourself
 
-### [When you use script]
+### [Using the script provided]
 
-Drag & drop "Plugins/FoxAnalyticsSession.cs" to Main Camera". Perform At the point of activating apps or returning from background, perform session start measurement.
+Drag & drop "Plugins/FoxAnalyticsSession.cs" into Main Camera. This script will perform the tracking whenever the app is launched or is resumed from the background.
 
-> If multiple Scene exist in project, set  measurement point on all MainCamera. If there are return from background as unset Scene is displayed, measurement will lose accuracy.
+> If you have multiple scenes in your project, it is necessary to drag & drop the script in all the Main Cameras. If the app is resumed from background to a scene that doesn't have the script included, the tracking accuracy would decline.
 
+### [Writing the code yourself]
 
-### [Incase of writing code]
-
-Implement following method at start point of Scene.
+Call the following method at the starting point of the scene.
 
 ```cs
 FoxPlugin.sendStartSession();
 ```
 
-> If multiple Scene exist in project, implement on all orbital points.
+> If you have multiple scenes in the project, call the above method in all the scenes.
 
 
-* **Purchase event measurement by access analysis**
-Refer to following link if you want to carry on accounting measurement by accounting measurement access analysis by access analysis.
+* **Purchase event measurement using app access tracking**
+Refer to the following link if you want to track item purchases using app access tracking.
 
 [Event measurement by access analysis](./doc/analytics_event/README.md)
 
 <div id="integration_test"></div>
-## 5. Implementation of the communication test
+## 5. Testing the setup
 
-Until the application to market, test enough in a state where the the SDK has been introduced, and  make sure that there is no problem in the operation of the application.
+Before releasing the app to the market, please do ample testing of your app with the SDK, and make sure that there are no problems with the functioning of the app.
 
-Communication of Installation measurement is performed only  once after startup. If you want to do effect measurement test next, uninstall the application, please go from the installation again.
+App download tracking is performed only once on first run of the app. If you want to test app download tracking again, uninstall the app, and then install it again.
 
 * **Test procedure**
 
-1. Uninstall test app if it has been installed in the testing terminal.
-1. Delete the Cookie of the default browser of the testing terminal.
-1. Click the test URL that issued from our company
-1. Redirected to the Market
-1. Install a test application to the testing terminal<br />
-1. Activate the app, the browser will start-up<br />
-If the browser does not start, that means setting has not been carried out correctly. Review the settings, and if you do not see any problem, please contact us.
-1. Screen transition to LTV point<br />
-1. Quit the app, also removed from the background<br />
-1. Activate the app again<br />
+1. Uninstall the test app from the test device if already installed.
+1. Clear all cookie from the default browser of the test device.
+1. Click on the test URL issued by FOX.
+1. URL redirects to the market.
+1. Install the app on the test device.<br />
+1. Run the app, it will launch the browser on first run.<br />
+If the browser doesn't launch, there is something wrong with your setup. Make sure you have followed the steps correctly as shown in this guide. If you are unable to fix the setup, please contact us.
+1. Navigate to a screen containing an LTV conversion point.<br />
+1. Exit the app, also kill it from the background.<br />
+1. Launch the app again.<br />
 
-Please tell the time of 3,6,7,9 to us. We will see if measurement has been successfully performed. If there are no problems in our confirmation, the test will be completed.
+Please inform us the timestamp of the steps 3, 6, 7, and 9. We will check if the measurements were performed correctly. If we find no issues, the test will be completed.
 
-> Make sure that test URL will be requested on default browser of the terminal. The measurement will not be performed if you transit by Web View in the app such as mail app or QR code reader.
-
-> When you click on a test URL, there is a case where error dialog is displayed because there is no transit destination, but this is not a problem in the communication test.
+>Make sure you send the request to the test URL using the default browser of the test device. The tracking will fail if you open the test URL inside the Web View of, say, an email app or a QR code reader app.
 
 
 [Test procedure as performed reengagement measurement.](./doc/reengagement_test/README.md)
