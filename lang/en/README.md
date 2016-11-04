@@ -245,7 +245,7 @@ iOS「Setting」→「Developer」→「NETWORK LINK CONDITIONER」
 
 In F.O.X, by combining some formulations, conduct duplication install detection for terminal. WIthout the setting not conducting the detection, F.O.X judges that it is a new installation at every time of reinstallation even in same terminal.
 
-重複検知の精度を向上するために、以下の設定を行ってください。
+In order to increase the accuracy of duplication install detection, make the following settings.
 
 * [The implementation of Google Play Services SDK to use advertisement ID](./doc/integration/android/google_play_services/README.md)
 
