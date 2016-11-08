@@ -15,7 +15,7 @@ This document serves as a guide for correct installation of F.O.X. SDK in order 
 * **[3. Implementing LTV measurement](#tracking_ltv)**
 	* [The sendLtv() method](./doc/send_ltv_conversion/README.md)
 * **[4. Tracking app access](#tracking_analytics)**
-	* [Event measurement using app access analysis](./doc/analytics_event/README.md)
+	* [Event tracking based on app access tracking](./doc/analytics_event/README.md)
 * **[5. Testing the setup](#integration_test)**
   * [Testing re-engagement measurement](./doc/reengagement_test/README.md)
 * **[6. Implementing other features](#other_function)**
@@ -166,7 +166,7 @@ FoxPlugin.sendStartSession();
 * **Purchase event measurement using app access tracking**
 Refer to the following link if you want to track item purchases using app access tracking.
 
-[Event measurement by access analysis](./doc/analytics_event/README.md)
+[Event tracking based on app access tracking](./doc/analytics_event/README.md)
 
 <div id="integration_test"></div>
 ## 5. Testing the setup
