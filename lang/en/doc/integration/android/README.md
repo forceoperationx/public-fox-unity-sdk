@@ -93,7 +93,7 @@ Re-engagement tracking is performed by the `IntentReceiverActivity` that will be
 * [（Option）Using the Android M auto backup feature](/lang/en/doc/integration/android/auto_backup/README.md)
 
 
-## In the case of using ProGuard
+## If using ProGuard
 
 When obfuscating the app source code using ProGuard, please add the following settings so as to remove F.O.X SDK from target files.
 
