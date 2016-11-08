@@ -113,7 +113,7 @@ When obfuscating the app source code using ProGuard, please add the following se
 -dontwarn com.naef.jnlua.**
 ```
 
-Also, in case of importing Google Play Services SDK, please check if keep specification of ProGuard is included in the page below.
+Also, in case of importing Google Play Services SDK, please check if keep specification of ProGuard is included from page below.
 
 [Setting Up Google Play Services](https://developer.android.com/google/play-services/setup.html#Proguard)
 
