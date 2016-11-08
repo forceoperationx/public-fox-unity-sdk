@@ -1,12 +1,11 @@
-# Setting of Android Project
+# Setting up an Android Project
 
-The setting for Android can be conducted on Unity project. Edit AndroidManifest.xml which is put into Unity project. In the case that AndroidManifest.xml does not exist in project, use after renaming from 「Plugins/Android/AndroidManifest-sample.xml」to「AndroidManifest.xml」.
+To setup the SDK for android, you need to edit the AndroidManifest.xml file in the Unity project. Rename "Plugins/Android/AndroidManifest-sample.xml" to "AndroidManifest.xml" in case AndroidManifest.xml file does not exist in your project.
 
+## Setting up the permissions
 
-## Setting of permission
-
-In F.O.X SDK, use the 4 following permissions.
- In &lt;Manifest&gt; tag, add the setting of next permissions.
+FOX sdk uses the following four permssion on android.
+ In &lt;Manifest&gt; tag, add the following permission.
 
 ```xml:
 <uses-permission android:name="android.permission.INTERNET" />
@@ -15,47 +14,46 @@ In F.O.X SDK, use the 4 following permissions.
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-Permission|Protection Level|Mandatory|Outline
+Permission|Protection Level|Requirement|Summary
 :---|:---:|:---:|:---
-INTERNET|Normal|Mandatory|It is necessary so that F.O.X SDK operates communication.
-ACCESS_NETWORK_STATE|Normal|Mandatory|It is necessary so that F.O.X SDK operates communication.
-READ_EXTERNAL_STORAGE|Dangerous|Arbitrary|It is necessary to improve deduplication using storage.(※1)
-WRITE_EXTERNAL_STORAGE|Dangerous|Arbitrary|It is necessary to improve deduplication using storage.(※1)
+INTERNET|Normal|Required|Required to communicate to F.O.X servers.
+ACCESS_NETWORK_STATE|Normal|Required|Required to check if communication with servers is possible.
+READ_EXTERNAL_STORAGE|Dangerous|Can be skipped|Required to perform duplicate entry prevention checks.(※1)
+WRITE_EXTERNAL_STORAGE|Dangerous|Can be skipped|Required to perform duplicate entry prevention checks.(※1)
 
-> ※1 To use the function which is necessary to use the permission specified that ProtectionLevel is dangerous by Android M, it is necessary to get the permission from users. For more detail, check Setting of deduplication using external storage.
+> ※1 In Android M onwards, to do something that requires a `dangerous` ProtectionLevel permission, user's permission is necessary. See [Duplicate entry prevention using external storage](/lang/ja/doc/integration/android/external_storage/README.md) for details.
 
+## Setting up the metadata
 
-## Setting of metadata
-
-Add the necessary information for conducting SDK in &lt;Application&gt;tag.
+Add the following metadata tags containing the information to be used by F.O.X SDK.
 
 ```xml
 <meta-data
 	android:name="APPADFORCE_APP_ID"
-	android:value="There will be a contact from the administrator of Force Operation X, so please type the value." />
+	android:value="Will be informed to you by a Force Operation X representative." />
 <meta-data
 	android:name="APPADFORCE_SERVER_URL"
-	android:value="There will be a contact from the administrator of Force Operation X, so please type the value." />
+	android:value="Will be informed to you by a Force Operation X representative." />
 <meta-data
 	android:name="APPADFORCE_CRYPTO_SALT"
-	android:value="There will be a contact from the administrator of Force Operation X, so please type the value." />
+	android:value="Will be informed to you by a Force Operation X representative." />
 <meta-data
 	android:name="ANALYTICS_APP_KEY"
-	android:value="There will be a contact from the administrator of Force Operation X, so please type the value." />
+	android:value="Will be informed to you by a Force Operation X representative." />
 ```
 
-Key and value for setting are following.
+Here are the key-value pairs included in the metadata above.
 
-|Name of parameter|Mandatory|Outline|
+|Parameter|Requirement|Summary|
 |:------|:------|:------|
-|APPADFORCE_APP_ID|Mandatory|There will be a contact from the administrator of Force Operation X, so please type the value.|
-|APPADFORCE_SERVER_URL|Mandatory|There will be a contact from the administrator of Force Operation X, so please type the value.|
-|APPADFORCE_CRYPTO_SALT|Mandatory|There will be a contact from the administrator of Force Operation X, so please type the value.|
-|ANALYTICS_APP_KEY|Mandatory|There will be a contact from the administrator of Force Operation X, so please type the value.|
+|APPADFORCE_APP_ID|Required|Will be informed to you by a Force Operation X representative.|
+|APPADFORCE_SERVER_URL|Required|Will be informed to you by a Force Operation X representative.|
+|APPADFORCE_CRYPTO_SALT|Required|Will be informed to you by a Force Operation X representative.|
+|ANALYTICS_APP_KEY|Required|Will be informed to you by a Force Operation X representative.|
 
 
-## Setting of Install referrer
-To conduct installation measurement using install_referrer, add the following setting into &lt;application&gt;tag
+## Setting up the Install referrer
+To perform measurement using an install referrer, add the following tags inside the &gt;application&gt; tag.
 
 ```xml
 <receiver android:name="jp.appAdForce.android.InstallReceiver" android:exported="true">
@@ -65,14 +63,13 @@ To conduct installation measurement using install_referrer, add the following se
 </receiver>
 ```
 
-In the case that receiver class to "com.android.vending.INSTALL_REFERRER" is already defined, please refer to Setting in [the case of making two INSTALL_REFERRER receivers coexist](/lang/en/doc/integration/android/install_referrer/README.md).
+In case there already exists a receiver class for "com.android.vending.INSTALL_REFERRER", refer to [Making two INSTALL_REFERRER receivers coexist](/lang/en/doc/integration/android/install_referrer/README.md).
 
-## Setting of re-engagement measurement
+## Setting up re-engagement tracking
 
-Add the necessary setting for measure the startings via custom URL scheme in &lt;application&gt;tag. The following IntntReceiverActivity is the Activity that is provided with SDK.
+Add the necessary settings to track app launches via custom URL scheme in the &lt;application&gt; tag. The `IntentReceiverActivity` mentioned below is an Activity provided with the F.O.X SDK.
 
-Re-engagement meaurement is performed by calling this Antivity with custom URL scheme. <br>
-Use different value for this custom URL scheme from one set in other Activit.
+Re-engagement tracking is performed by the `IntentReceiverActivity` that will be called by the custom URL scheme. Make sure you specify a URL scheme that is not used to launch any other activities.
 
 ```xml
 <activity android:name="jp.appAdForce.android.IntentReceiverActivity">
@@ -89,16 +86,16 @@ Use different value for this custom URL scheme from one set in other Activit.
 
 * [The implementation of Google Play Services SDK to use advertisement ID](/lang/en/doc/integration/android/google_play_services/README.md)
 
-* [Setting sample for AndroidManifest.xml](/lang/en/doc/integration/android/config_android_manifest/AndroidManifest.xml)
+* [Sample AndroidManifest.xml](/lang/en/doc/integration/android/config_android_manifest/AndroidManifest.xml)
 
-* [（Option）Setting og deduplication using external storages](/lang/en/doc/integration/android/external_storage/README.md)
+* [（Optional）Duplicate entry prevention using external storage](/lang/en/doc/integration/android/external_storage/README.md)
 
-* [（Option）Use of Android M auto backup funtion](/lang/en/doc/integration/android/auto_backup/README.md)
+* [（Option）Using the Android M auto backup feature](/lang/en/doc/integration/android/auto_backup/README.md)
 
 
 ## In the case of using ProGuard
 
-When obfuscating application using ProGuard, please add the following setting not to being subject to method of F.O.X SDK.
+When obfuscating the app source code using ProGuard, please add the following settings so as to remove F.O.X SDK from target files.
 
 ```
 -keepattributes *Annotation*
@@ -116,9 +113,9 @@ When obfuscating application using ProGuard, please add the following setting no
 -dontwarn com.naef.jnlua.**
 ```
 
-Also, in the case of implementing Google Play Service SDK , please check whether keep specification which is noted in the following page is noted, or not.
+Also, in case of importing Google Play Services SDK, please check if keep specification of ProGuard is included in the page below.
 
-[ProGuard support when in the implementation of Google Play Services](https://developer.android.com/google/play-services/setup.html#Proguard)
+[Setting Up Google Play Services](https://developer.android.com/google/play-services/setup.html#Proguard)
 
 
 ---
