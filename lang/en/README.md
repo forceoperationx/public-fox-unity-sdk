@@ -9,8 +9,8 @@ This document serves as a guide for correct installation of F.O.X. SDK in order 
 * **[1. Installation](#install_sdk)**
 	* [SDK downloads](https://github.com/cyber-z/public-fox-unity-sdk/releases)
   * [How to implement Unity plug-in](./doc/integration/README.md)
-  * [iOS project setup guide](./doc/integration/ios/README.md)
-  * [Android project setup guide](./doc/integration/android/README.md)
+  * [Setting up an iOS Project](./doc/integration/ios/README.md)
+  * [Setting up an Android Project](./doc/integration/android/README.md)
 * **[2. Tracking app downloads](#tracking_install)**
 * **[3. Implementing LTV measurement](#tracking_ltv)**
 	* [The sendLtv() method](./doc/send_ltv_conversion/README.md)
