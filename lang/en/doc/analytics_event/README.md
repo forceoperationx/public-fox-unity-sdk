@@ -1,14 +1,14 @@
-## Event measurement by access analysis
+## Event tracking based on app access tracking
 
-Using the access analysis function, it is possible to measure respectively events and sales including via natural influx advertising.  To conduct event measurement and billing measurement by access analysis, implement next sendEvent method.
+Using the app access tracking feature, it is possible to track ad-driven (per ad campaign) and non-ad driven events or item purchases. To implement this tracking, use the sendEvent() method as shown below.
 
-In the case of event measurement such as completion of tutorial and member registration, please note like below.
+To track events such as the completion of a tutorial, or new member registration, call the method as shown below.
 
 ```cs
 FoxPlugin.sendEvent(eventName, action, label, quantity);
 ```
 
-In the case of billing measurement, please note like below.
+To track an item purchase, call the sendEventPurchase() method as shown below.
 
 ```cs
 FoxPlugin.sendEventPurchase(eventName, action, label, orderId, sku, itemName, price, quantity, currency);
@@ -16,24 +16,23 @@ FoxPlugin.sendEventPurchase(eventName, action, label, orderId, sku, itemName, pr
 
 Specification of the parameters of the sendEvent method is as follows.
 
-|Parameter|type|maximum length|outline|
+|Parameter|Data type|maximum length|Summary|
 |:------|:------:|:------:|:------|
-|eventName|String|255| Set the arbitrary name identifying event conducting tracking. It is able to set event name freely.|
-|action|String|255|Set the action name belonging to event. It is able to set action name freely. If not specifying, null is acceptable.|
-|label|String|255|Set the label name belonging to action. It is able to set label name freely. If not specifying, null is acceptable.|
-|orderId|String|255|Specify the order number. If not specifying, null is acceptable.|
-|sku|String|255|Specify the product code. If not specifying, null is acceptable.|
-|itemName|String|255|Specify the product name. If not specifying, specify the empty character which is ("").|
-|price|double||Specify the unit price|
-|quantity|int||SPecify the amount. price * quantity is calculated as total sales.|
-|currency|String||Specify the currency code In the case of null, "JPY" is specified.|
+|eventName|String|255| Identifier for the event.|
+|action|String|255|Action associated to the event. Null acceptable.|
+|label|String|255|Label associated to the event. Null acceptable.|
+|orderId|String|255|Order id. Null acceptable.|
+|sku|String|255|Product/item code. Null acceptable.|
+|itemName|String|255|Product/item name. Pass empty string ("") if not applicable..|
+|price|double||Product/item price.|
+|quantity|int||Amount of the product/item bought. Sale is calculated as price*quantity. |
+|currency|String||Currency code. "JPY" is used by default if null is passed.|
 
-> Specify the currency code defined by [`ISO 4217`](http://ja.wikipedia.org/wiki/ISO_4217) for currency.
+> Specify the currency code using the [`ISO 4217`] standard (http://ja.wikipedia.org/wiki/ISO_4217) for currency.
 
-In the case of setting billing as result points in LTV measurement, implement measurement management of each LTV and access analysis at same place.
+If you want to use item purchase event as an LTV conversion point too, then implement LTV measurement in the same place as event tracking.
 
- As a sample, the example of implementation is noted below and it is an example of 3 American dollars.
-
+Here is the sample code that tracks an $3 item purchase event for LTV measurement.
 
 
 ```cs
