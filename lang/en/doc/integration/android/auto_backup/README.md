@@ -1,12 +1,12 @@
-## The improvement of deduplication function using auto backup function
+## Improving duplicate entry prevention using external storage
 
-By using auto backup which is added from Android M(6.0), it is able to improve deduplication function. Still, this correspondence is arbitrary.
+Using the auto backup feature on Android M onwards, it is possible to improve the accuracy of duplicate entry detection. However, the accuracy can still not be guaranteed to be 100%.
 
 ## Terms of use
 
-* It is the case of restoration of backup data from Android M terminal to more above than Android M terminal.
-* It is necessary to have the same Google account when backup and restoration.
-* When moving data, like following pictures, it is mandatory that setting of terminal is available by users.
+* This would work only on Android M and above devices using data backup.
+* The Google account while making the backup and while restoring it should be the same.
+* The user must have 'Back up my data', and 'Automatic restore' switched on as shown below.
 
 ![Setting screen](./img01.png)
 
@@ -14,19 +14,19 @@ By using auto backup which is added from Android M(6.0), it is able to improve d
 
 　When using , it is necessary to set according to the condition of application's backup setting file.
 
-> [Reference setting](https://developer.android.com/training/backup/autosyncapi.html)
+> [Refer here for details](https://developer.android.com/training/backup/autosyncapi.html)
 
-**[The case of specifying application date for backup individually]**
+**[When explicitly specifying app's backup data]
 
-　Please set so that following file can be included to be subject to backup.
+　Please include the following file in backup
 
 ```
 <include domain="file" path="__ADMAGE_RANDOM_DEVICE_ID__" />
 ```
 
-**[The case of conducting back up data of all application]**
+**[When backing up all the app data]**
 
-　In the case of setting that data of application is subject to backup, please set that following files are excluded.
+　When backing up all app data, please exclude the following two files from the backup.
 
 ```
 <exclude domain="file" path="__ADMAGE_WEB_CONVERSION_COMPLETED__" />
