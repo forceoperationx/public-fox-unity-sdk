@@ -21,7 +21,7 @@ ACCESS_NETWORK_STATE|Normal|Required|Required to check if communication with ser
 READ_EXTERNAL_STORAGE|Dangerous|Can be skipped|Required to perform duplicate entry prevention checks.(※1)
 WRITE_EXTERNAL_STORAGE|Dangerous|Can be skipped|Required to perform duplicate entry prevention checks.(※1)
 
-> ※1 In Android M onwards, to do something that requires a `dangerous` ProtectionLevel permission, user's permission is necessary. See [Duplicate entry prevention using external storage](/lang/ja/doc/integration/android/external_storage/README.md) for details.
+> ※1 In Android M onwards, to do something that requires a `dangerous` ProtectionLevel permission, user's permission is necessary. See [Duplicate entry prevention using external storage](/lang/en/doc/integration/android/external_storage/README.md) for details.
 
 ## Setting up the metadata
 
