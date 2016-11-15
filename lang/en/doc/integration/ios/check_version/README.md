@@ -1,26 +1,23 @@
-## （Option）Distribution of management corresponding to handle version registered on administration screen.
+## （Optional）Separating the execution based on the Bundle version specified on FOX developer console
 
-It is able to distribute management corresponding to whether the version registered on FOX's administration screen and version of application which is in process are matched, or not. By using this function, for example, it is possible to use and control the distribution of managing release and testing version and conduct particular management on only testing version. Implementing this function is not mandatory.
+The execution can be separated on whether the bundle version specified on FOX developer console and the version running on the application is the same or not. Using the feature, for example, it is possible to execute test-only code by controlling the release and test bundle version on FOX developer console. Implementation of this feature can be skipped.
+The bundle version used by FOX is stored in CFBundleShortVersionString.
+To seperate the execution based on Bundle version, checkVersionWithDelegate() method is used. Version checking is conducted against FOX servers (i.e it is checked whether the app has the same bundle version as was specified on FOX developer console) and didLoadVersion() method is called when a response is received. Please implement the didLoadVersion() method. The result of version checking is passed as a parameter to didLoadVersion() method. If the two versions match then the parameter passed is "YES", "NO" is passed otherwise.
 
-By the way bandle version F.O.X uses is the value which is equivalent to CFBundleShortVersionString.
-
-
-For distributing management corresponding to bundle version, use checkVersionWithDelegate:method. After sending the inquiry about checking version to F.O.X server and receiving the result,didLoadVersion() is called. Please implement the delegate methoddidLoadVersion(). When calling didLoadVersion(), the result, whether the bundle version registered on administration screen matches the version of application which is in process, or not, gives to the argument. If matched, respond ”YES”. If not, respond ”NO”.
-
-Below, it is the example of implementing this function. Call checkVersionWithDelegate()method and send the inquiry to the server.
+The implementation is shown below.
 
 ```cs
 FoxPlugin.setListenerGameObject(this.gameObject.name);FoxPlugin.checkVersionWithDelegate();
 ```
 
-Implement didLoadVersion() which is delegate method.
+Implement the didLoadVersion() delegate method.
 
 ```cs
 public void didLoadVersion(string result){	// The note of management in the case of not matched (for example testing version).
 	if (result=="NO") {		....	}}
 ```
 
-> For load reduction, the number of sending inquiry to F.O.X server by this method is limited to 5 times at each version for 1 client. After exceeding 5 times, inquiry will not be sent to the server and didLoadVersion() is not called. By updating bundle version, it is able to send inquiry to the server with the maximum 5 times.
+> For load reduction purposes, we have limited the maximum number of possible requests to servers to 5. If the number of requests exceed 5, then the version checking cannot be performed and didLoadVersion() won't be called. This counter is reset when the bundle version is updated.
 
 ---
 [iOS TOP](../README.md)
