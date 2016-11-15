@@ -21,7 +21,7 @@ ACCESS_NETWORK_STATE|Normal|Required|Required to check if communication with ser
 READ_EXTERNAL_STORAGE|Dangerous|Can be skipped|Required to perform duplicate entry prevention checks.(※1)
 WRITE_EXTERNAL_STORAGE|Dangerous|Can be skipped|Required to perform duplicate entry prevention checks.(※1)
 
-> ※1 In Android M onwards, to do something that requires a `dangerous` ProtectionLevel permission, user's permission is necessary. See [Duplicate entry prevention using external storage](/lang/en/doc/integration/android/external_storage/README.md) for details.
+> ※1 In Android M onwards, to do something that requires a `dangerous` ProtectionLevel permission, user's permission is necessary. See [Configuring duplicate entry prevention using external storage](/lang/en/doc/integration/android/external_storage/README.md) for details.
 
 ## Setting up the metadata
 
@@ -84,13 +84,13 @@ Re-engagement tracking is performed by the `IntentReceiverActivity` that will be
 
 ## Other
 
-* [The implementation of Google Play Services SDK to use advertisement ID](/lang/en/doc/integration/android/google_play_services/README.md)
+* [Importing Google Play Services SDK to use Advertising ID](/lang/en/doc/integration/android/google_play_services/README.md)
 
 * [Sample AndroidManifest.xml](/lang/en/doc/integration/android/config_android_manifest/AndroidManifest.xml)
 
-* [（Optional）Duplicate entry prevention using external storage](/lang/en/doc/integration/android/external_storage/README.md)
+* [（Optional）Configuring duplicate entry prevention using external storage](/lang/en/doc/integration/android/external_storage/README.md)
 
-* [（Option）Using the Android M auto backup feature](/lang/en/doc/integration/android/auto_backup/README.md)
+* [（Option）Improving duplicate entry prevention using Android M's auto backup feature](/lang/en/doc/integration/android/auto_backup/README.md)
 
 
 ## If using ProGuard

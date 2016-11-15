@@ -4,7 +4,7 @@ It is not possible to define more than one receiver class corresponding to "com.
 
 In case you are using another SDK that already defines a class corresponding to "com.android.vending.INSTALL_REFERRER", it is possible make the receiver classes coexist by calling the other receiver from the receiver class offered by FOX SDK.
 
-### TO make two INSTALL_REFERRER receivers coexist
+### Making two INSTALL_REFERRER receivers coexist
 
 Add the following snippet to AndroidManifest.xml.
 
@@ -24,7 +24,7 @@ Add the following snippet to AndroidManifest.xml.
 	android:value="com.example.InstallReceiver" />
 ```
 
-### To make three or more receiver classes coexist
+### Making three or more receiver classes coexist
 
 When incorporating three or more receivers, define a main receiver class that calls all other receiver classes one by one.
 
