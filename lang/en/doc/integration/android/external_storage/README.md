@@ -78,7 +78,7 @@ If the above meta-data is added, FOX will not access the external storage. Hower
 
 ### Regarding Android M (6.0)
 
-When doing somethign that requires a `dangerous` protection level permission, the OS will ask for user approval. If the user doesn't permit, the SDK wouldn't be able to access the external storage and reinstall tracking will fail. `READ_EXTERNAL_STORAGE` and `WRITE_EXTERNAL_STORAGE` permissions have `dangerous` protection level, so it is necessary to perform the implementation in a way that fetches the permission from the user.
+When doing something that requires a `dangerous` protection level permission, the OS will ask for user approval. If the user doesn't permit, the SDK wouldn't be able to access the external storage and reinstall tracking will fail. `READ_EXTERNAL_STORAGE` and `WRITE_EXTERNAL_STORAGE` permissions have `dangerous` protection level, so it is necessary to perform the implementation in a way that fetches the permission from the user.
 
 * [Sample implementation](https://developer.android.com/training/permissions/requesting.html#perm-request)
 
