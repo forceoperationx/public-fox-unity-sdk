@@ -1,4 +1,4 @@
-## (Optional) Implementation of opt-out
+## (Optional) Implementing opt-out
 
 It is possible to give users the ability to opt-out of targeted advertising by ad companies. If the user selects to opt-out when shown the privacy policy and terms of use, the user won't be included in any measurement or tracking results, and FOX will also inform the ad companies about that particular user's wish to opt-out.
 

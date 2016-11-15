@@ -1,4 +1,4 @@
-# Setting up an Android Project
+# Setting up Android Project
 
 To setup the SDK for android, you need to edit the AndroidManifest.xml file in the Unity project. Rename "Plugins/Android/AndroidManifest-sample.xml" to "AndroidManifest.xml" in case AndroidManifest.xml file does not exist in your project.
 
