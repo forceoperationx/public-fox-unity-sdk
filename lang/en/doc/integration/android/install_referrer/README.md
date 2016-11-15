@@ -1,15 +1,15 @@
-## Setting in the case of making several INSTALL_REFERRER receivers coexist
+## Configuration required to make multiple INSTALL_REFERRER receivers coexist
 
-It define only one receiver class to "com.android.vending.INSTALL_REFERRER".
+It is not possible to define more than one receiver class corresponding to "com.android.vending.INSTALL_REFERRER".
 
-In the case that the receiver class is already defined to "com.android.vending.INSTALL_REFERRER" such as SDK excluding F.O.X, it is able to make them coexist by calling other receiver classes from receiver classes F.O.X SDK provides.
+In case you are using another SDK that already defines a class corresponding to "com.android.vending.INSTALL_REFERRER", it is possible make the receiver classes coexist by calling the other receiver from the receiver class offered by FOX SDK.
 
-### In the case of making two INSTALL_REFERRER receivers coexist
+### TO make two INSTALL_REFERRER receivers coexist
 
-Edit AndroidManifest.xml and please add the following setting.
+Add the following snippet to AndroidManifest.xml.
 
 ```xml
-<!-- Receiver class specifies the class of F.O.X SDK -->
+<!-- Receiver specifies the FOX SDK's receiver class -->
 <receiver
 	android:name="jp.appAdForce.android.InstallReceiver"
 	android:exported="true">
@@ -18,26 +18,26 @@ Edit AndroidManifest.xml and please add the following setting.
 	</intent-filter>
 </receiver>
 
-<!-- The information of receiver class calling from F.O.X SDK is noted as meta-data -->
+<!-- The other receiver class to be called from the FOX SDK's receiver class is mentioned in the meta-data -->
 <meta-data
 	android:name="APPADFORCE_FORWARD_RECEIVER"
 	android:value="com.example.InstallReceiver" />
 ```
 
-### In the case of making more than three INSTALL_REFERRER receivers coexist
+### To make three or more receiver classes coexist
 
-When incorporating more than three receivers, define the receiver which can be the axis and set to call each receiver in-line in the class.
+When incorporating three or more receivers, define a main receiver class that calls all other receiver classes one by one.
 
-Example of the implementation is noted at the following.
+Sample implementation is shown below.
 
-* MyReceiver Class（You can change class name as you want.）
+* MyReceiver Class（You can name it whatever you want, of course）
 
 ```java
 public class MyReceiver extends BroadcastReceiver {
 	// F.O.X's INSTALL_REFERRER receiver
    jp.appAdForce.android.InstallReceiver foxReceiver;
 
-   //  INSTALL_REFERRER receiver exclusing F.O.X
+   //  Third party INSTALL_REFERRER receivers
    jp.co.android.sample.InstallReceiver thirdPartyReceiver;
    jp.co.android.sample.InstallReceiver2 thirdPartyReceiver2;
 
