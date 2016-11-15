@@ -16,7 +16,7 @@ Using the auto backup feature on Android M onwards, it is possible to improve th
 
 > [Refer here for details](https://developer.android.com/training/backup/autosyncapi.html)
 
-**[When explicitly specifying app's backup data]
+**[When explicitly specifying app's backup data]**
 
 　Please include the following file in backup
 
