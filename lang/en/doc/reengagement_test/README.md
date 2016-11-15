@@ -1,37 +1,38 @@
-## Test procedures to perform re-engage measurement
+## Test for Re-engagement tracking
 
-Until the application to market, test enough in a state where the the SDK has been introduced, and  make sure that there is no problem in the operation of the application.
+Before the app is released to the market, make sure to test it thoroughly after the FOX SDK is imported.
 
-Communication of Installation measurement is performed only  once after startup. If you want to do effect measurement test next, uninstall the application, please go from the installation again.
+App install tracking is performed only once during the app's first launch. To test the app install tracking again, uninstall the app and install it again.
 
 * **Test procedure**
 
-1. Uninstall test app if it has been installed in the testing terminal.
-1. Delete the Cookie of the default browser of the testing terminal.
-1. Click the test URL that issued from our company
-1. Redirected to the market
-1. Install a test application to the testing terminal<br />
-1. Activate the app, the browser will start-up<br />
-If the browser does not start, that means setting has not been carried out correctly. Review the settings, and if you do not see any problem, contact us.
-1. Screen transition to LTV point<br />
-1. Quit the app, also removed from the background<br />
-1. Delete the browser Cookie, click URL for the re-engagement measurement test. Please ensure that the app is started.<br />
-※ If the application does not start, please check whether original URL scheme has been set.<br />
-Review the settings, please contact us if you do not see the problem.<br />
-1. Screen transition to LTV point<br />
-1. Exit the app, leave on the background without removing.
-1. Again, delete the browser Cookie again, click URL for the re-engagement measurement test. Please ensure that the app is started.<br />
-※ If the application does not start, please check whether original URL scheme has been set.<br />
-Review the settings, please contact us if you do not see the problem.
-1. Reach the LTV point
-1. Exit the app, also removed from the background
-1. Activate the app again  
+1. Uninstall the test app if it is already installed in the testing device.
+1. Delete all Cookies from the default browser of the testing device.
+1. Click the test URL that is issued by FOX
+1. URL redirects to market
+1. Install the test app on teh device<br />
+1. Launch the app, browser will be launched after the app launch<br />
+If the browser doesn't launch, there is something wrong with your setup. Make sure you have followed the steps correctly as shown in this guide. If you are unable to fix the setup, please contact us.
+1. Navigate to a screen containing an LTV conversion point.<br />
+1. Exit the app, also kill it from the background.<br />
+1. Delete the browser Cookies, click the URL for the re-engagement tracking test. See if the app launches upon clicking the URL.<br />
+※ If the application does not start, please check whether correct URL scheme has been set.<br />
+Review the settings, please contact us if you can't solve the issue.<br />
+1. Navigate to a screen containing an LTV conversion point.<br />
+1. Exit the app, but this time do not kill it from the background.
+1. Delete the browser Cookie again, click the URL for the re-engagement measurement test. See if the app launches.<br />
+※ If the application does not start, please check whether correct URL scheme has been set.<br />
+Review the settings, please contact us if you can't solve the issue.<br />
+1. The app should go to the appropriate LTV conversion point.
+1. Exit the app, also kill it from the background.
+1. Launch the app again.  
 
-Please tell the time of 3,6,7,9,10,12,13 to our company. We will see if measurement has been successfully performed. If there are no problems in our confirmation, the test will be completed.
 
-> Make sure that test URL will be requested on default browser of the terminal. The measurement will not be performed if you transit by Web View in the app such as mail app or QR code reader.
+Please inform us the timestamp of the steps 3, 6, 7, 9, 10, 12, and 13. We will check if the measurements were performed correctly. If we find no issues, the test is completed.
 
-> When you click on a test URL, there is a case where error dialog is displayed because there is no transit destination, but this is not a problem in the communication test.
+>Make sure you send the request to the test URL using the default browser of the test device. The tracking will fail if you open the test URL inside the Web View of, say, an email app or a QR code reader app.
+
+> When you click on a test URL, sometimes an error dialog is displayed when there is no transit destination, but this is not a problem for communication to server tests.
 
 ---
 [TOP](/lang/en/README.md)

@@ -188,7 +188,7 @@ If the browser doesn't launch, there is something wrong with your setup. Make su
 1. Exit the app, also kill it from the background.<br />
 1. Launch the app again.<br />
 
-Please inform us the timestamp of the steps 3, 6, 7, and 9. We will check if the measurements were performed correctly. If we find no issues, the test will be completed.
+Please inform us the timestamp of the steps 3, 6, 7, and 9. We will check if the measurements were performed correctly. If we find no issues, the test is completed.
 
 >Make sure you send the request to the test URL using the default browser of the test device. The tracking will fail if you open the test URL inside the Web View of, say, an email app or a QR code reader app.
 
