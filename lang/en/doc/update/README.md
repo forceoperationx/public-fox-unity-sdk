@@ -1,22 +1,19 @@
-## About update to latest version
+## Updating to latest version
 
-旧バージョンのF.O.X SDKが導入されたアプリに対して、最新バージョンのF.O.X SDKを導入する際に必要な手順を説明します。
+Please refer to the points below when updating the FOX SDK on an app using an older version.
 
-1. 以前のバージョンのファイルがプロジェクトに組み込まれていれば、それらを全て削除します
-2. 最新バージョンのファイルをプロジェクトに追加します
-3. 「Plugins/FoxPlugin」及び「Plugins/FoxAnalyticsSession」をMainCamera等にドラッグ＆ドロップに追加することで実装を行っていた場合は、古いバージョンのファイルを全て消した上で、再度新しいファイルをドラッグ＆ドロップで追加してください。
-4. iOSの場合は、Unityのビルド後に立ち上がるXcode上でAppAdForce.plistを再作成してください。
+1. Delete all the files of the older version from the app.
+2. Add the latest (updated) files to the project.
+3. If you added 'Plugins/FoxPlugin' and 'Plugins/FoxAnalyticsSession' to the MainCamera by drag & drop, then after deleting all the older version files, add the two files to the MainCamera again using drag & drop.
+4. In case of iOS, after building the project from Unity, recreate AppAdForce.plist file on Xcode launched after the build.
 
+v2.14 and later support Android Advertising ID.
+To acquire the Advertising ID, refer to[Importing Google Play Services SDK to use Advertising ID](/lang/en/doc/integration/android/google_play_services/README.md).
 
-v2.14からAndroidにおいて、広告IDに対応しています。
-広告IDを取得する場合は、「[広告IDを利用するためのGoogle Play Services SDKの導入](/lang/en/doc/integration/android/google_play_services/README.md)」を確認してください。
+Also, re-engagement tracking feature is available in v2.14 and later.
+When performing re-engagement tracking on iOS app, add FoxReengagePlugin.m and FoxReengagePlugin.h to the project. In case of Android app, refer to 'Re-engagement tracking implementation'.  
 
-また、v2.14からリエンゲージメント計測機能が追加されています。
-リエンゲージメント計測を実施される場合は、iOSアプリの場合は、FoxReengagePlugin.m/hをプロジェクトに追加してください。Androidアプリの場合は、「リエンゲージメント計測の実装」を確認し、実装してください。
-
-SDKのアップデート後は、必ず効果測定テストを実施し、計測及びアプリケーションの動作に問題ないことを確認してください。
-また、リエンゲージメント計測を実施される場合は、リエンゲージメント計測用のテストを実施する必要があります。
-
+After updating the SDK, make sure you test the set up thoroughly again. Also, if you implement re-engagement tracking, make sure to test that too.
 
 ---
 [TOP](/lang/en/README.md)
