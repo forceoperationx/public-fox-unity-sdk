@@ -4,11 +4,11 @@ Using the auto backup feature on Android M onwards, it is possible to improve th
 
 ## Terms of use
 
-* This would work only on Android M and above devices using data backup.
+* This would work only on devices with Android M and above using the app data backup feature.
 * The Google account while making the backup and while restoring it should be the same.
 * The user must have 'Back up my data', and 'Automatic restore' switched on as shown in the image below.
 
-![Setting screen](./img01.png)
+![Setting screen](./img02.png)
 
 ## Configuration
 
