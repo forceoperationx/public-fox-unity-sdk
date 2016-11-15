@@ -4,7 +4,7 @@ It is possible to give users the ability to opt-out of targeted advertising by a
 
 If you want to enable opt-out feature in your app, call the setOutput() method before calling sendConversion() as shown below.
 
-```cs// In case of user's selecting opt out, enable setOptoutif(user.optout) {	FoxPlugin.setOptout(true);}
+```cs// if the user chose to opt-out, call the setOptout() methodif(user.optout) {	FoxPlugin.setOptout(true);}
 FoxPlugin.sendConversion("default");
 ```
 
