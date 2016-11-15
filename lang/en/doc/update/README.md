@@ -1,19 +1,19 @@
-## About update to latest version
+## Updating to latest version
 
-By following procedures below, it is able to update to latest version of SDK.
-In this section instructs the update procedures of latest version of SDK.
+Please refer to the points below when updating the F.O.X SDK on an app using an older version.
 
-1. Delete the old version of SDK in your project and add the latest version of SDK to your project
-2. In case of implementation of installation measurement by Inspector, delete old version of SDK files in MainCamera, and drag & drop new version of SDK files to MainCamera.
-3. 「Plugins/FoxPlugin」及び「Plugins/FoxAnalyticsSession」をMainCamera等にドラッグ＆ドロップに追加することで実装を行っていた場合は、古いバージョンのファイルを全て消した上で、再度新しいファイルをドラッグ＆ドロップで追加してください。
-4. In case of iOS application, please re-create AppAdForce.plist in Xcode.
+1. Delete all the files of the older version from the app.
+2. Add the latest (updated) files to the project.
+3. If you added 'Plugins/FoxPlugin' and 'Plugins/FoxAnalyticsSession' to the MainCamera by drag & drop, then after deleting all the older version files, add the two files to the MainCamera again using drag & drop.
+4. In case of iOS, after building the project from Unity, recreate AppAdForce.plist file on Xcode launched after the build.
 
+v2.14 and later support Android Advertising ID.
+To acquire the Advertising ID, refer to[Importing Google Play Services SDK to use Advertising ID](/lang/en/doc/integration/android/google_play_services/README.md).
 
-In case of Android application, F.O.X SDK has the function to obtain the Google Advertising ID since its version 2.14.
-If you need to obtain the Google Advertinsing ID, please refer to [The implementation of Google Play Services SDK to use advertisement ID](/lang/en/doc/integration/android/google_play_services/README.md).
+Also, re-engagement tracking feature is available in v2.14 and later.
+When performing re-engagement tracking on iOS app, add FoxReengagePlugin.m and FoxReengagePlugin.h to the project. In case of Android app, refer to 'Re-engagement tracking implementation'.
 
-After update to latest version of SDK, perform your test and make sure that there is no problem in the operation of the application.
-
+After updating the SDK, make sure you test the set up thoroughly again. Also, if you implement re-engagement tracking, make sure to test that too.
 
 ---
 [TOP](/lang/en/README.md)
