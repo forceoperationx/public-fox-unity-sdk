@@ -1,27 +1,27 @@
-# Setting for iOS project
+# Setting up iOS Project
 
-## **Setting for Xcode project**
+## **Setting up Xcode project**
 
-### Push value or Xcode project
+### Push value for Xcode project
 
-To create project for iOS, press down Xcode in following  procedure then make necessary setting on Xcode.
+To create a project for iOS, publish the Xcode project as shown below, and then add the necessary configuration.
 
-1. Select  "File">"BUild Settings..." from menu
-2. Select "iOS" on Platform, then push "Switch Platform"
-3. Press down "Player Setting", then make appropriate setting for your  environment by Inspector.
-4. Press down "Build" or "Build And Run", then publish Xcode
+1. Select  "File">"Build Settings..." from menu
+2. Select "iOS" from Platform, and then click "Switch Platform"
+3. Click "Player Settings", and then make appropriate changes for your environment using the Inspector.
+4. Click "Build" or "Build and Run" to publish the Xcode project.
 
-> ※ If `Automatic Reference Counting` is YES, to run through compile, set -fno-objc-arc to compiler flag of following two files.
+> ※ If `Automatic Reference Counting` is set to YES, then specify `-fno-objc-arc` compiler flag for the following two files.
 * LibFoxSdk.m
 * FoxVersionPlugin.mm
 
-### Editing Xcode project
+### Configuring Xcode project
 
-Open published Xcode project, then edit it.
+Open the published Xcode project, then configure it as show below.
 
-* **Setting framework**
+* **Setting up the frameworks**
 
-Link following framework to project.
+Link the following frameworks to the project.
 
 <table>
 <tr><th>Frameworkname</th><th>Status</th></tr>
@@ -32,56 +32,55 @@ Link following framework to project.
 <tr><td>StoreKit.framework </td><td>Required </td></tr>
 </table>
 
-> Since AdSupport.framework is the added framework on iO S6 or later, to run the application on iOS 5 or more previous version(set iOS Deployment Target on 5.1 or lesser),  set as "optional" for performing weak link.
+> Since AdSupport.framework was added in iOS 6, to run the app on devices running iOS 5 and older versions (set iOS Deployment Target to 5.1 or below), set status to "Optional" to perform weak linking.
 
-> ※ Since SafariServices.framework is the added framework on iOS 9 or later, to run the application on iOS 8 or more previous version(set iOS Deployment Target on 8.4 or lesser),  set as "optional" for performing weak link.
+> ※ Since SafariServices.framework was added in iOS 9, to run the app on devices running iOS 8 and older versions (set iOS Deployment Target to 8.4 or below), set status to "Optional" to perform weak linking.
 
 ![Setting frame work 01](/lang/en/doc/integration/ios/config_framework/img01.png)
 
-[Detail for setting framework](/lang/en/doc/integration/ios/config_framework/README.md)
+[More on setting up the frameworks](/lang/en/doc/integration/ios/config_framework/README.md)
 
-* **SDK setting**
+* **SDK configuration**
 
-Add necessary setting for SDK operation to plist. Create file named AppAdForce.plist on arbitrary place, then input following key and value.
+Add the necessary configuration for the SDK to plist. Create `AppAdForce.plist` file in any arbitrary location and add the following key-value pairs.
 
 Key | Type | Value
 :---: | :---: | :---
-APP_ID | String | Force Operation X manager will notice, input that value.
-SERVER_URL | String | Force Operation X manager will notice, input that value.
-APP_SALT | String | Force Operation X manager will notice, input that value.
-APP_OPTIONS | String | Please do not type anything, so please keep it empty.
+APP_ID | String | Input the value informed to you by FOX administrator.
+SERVER_URL | String | Input the value informed to you by FOX administrator.
+APP_SALT | String | Input the value informed to you by FOX administrator.
+APP_OPTIONS | String | Please do not type anything, keep it empty.
 CONVERSION_MODE | String | 1
-ANALYTICS_APP_KEY | String | Force Operation X manager will notice, input that value.<br />No need to set if access analysis is not used.
+ANALYTICS_APP_KEY | String | Input the value informed to you by FOX administrator.<br />No need to set if app access tracking is not used.
 
 ![Framework setting 01](/lang/en/doc/integration/ios/config_plist/img05.png)
 
 * **About App Transport Security**
 
-If AppTransportSecurity (below, ATS) that is provided from iOS is enabled, make following  setting to make domain as exception of communication destination of F.O.X SDK.
+If using AppTransportSecurity (ATS) provided in iOS 9 and later, add the following configuration to Info.plist and add the FOX domain in ATS exceptions.
 
-キー | タイプ | 概要
+Key | Type | Summary
 :---: | :---: | :---
-NSExceptionDomains|Dictionary|Dictionary that specify exception of ATS
-指定ドメイン文字列|Dictionary|create folowing 2 domain <br>・app-adforce.jp<br>・forceoperationx.com
-NSExceptionAllowsInsecureHTTPLoads|Boolean|Specify YES to make an exception of ATS
-NSIncludesSubdomains|Boolean|Specify YES to aplly  an exceptional setting of ATS to sub domain as well.
+NSExceptionDomains|Dictionary|Dictionary that specifies ATS exceptions
+Domain String|Dictionary|Create the following two domains as keys <br>・app-adforce.jp<br>・forceoperationx.com
+NSExceptionAllowsInsecureHTTPLoads|Boolean|Specify YES to make an exception for ATS
+NSIncludesSubdomains|Boolean|Specify YES to apply add an ATS exception as sub domain as well.
 
 ![ATS setting ](/lang/en/doc/integration/ios/config_plist/img06.png)
 
-[Detail of SDK setting](/lang/en/doc/integration/ios/config_plist/README.md)
+[More on SDK setup](/lang/en/doc/integration/ios/config_plist/README.md)
 
-[AppAdForce.plist sample ](/lang/en/doc/integration/ios/config_plist/AppAdForce.plist)
+[AppAdForce.plist sample](/lang/en/doc/integration/ios/config_plist/AppAdForce.plist)
 
-**Note on implementation on iOS 9**
+**Note for iOS 9**
 
-> As performing Cookie measurement, SFSafariViewController uses on iOS9. For F.O.X Unity SDK v2.16 or later, impelemention is
-ｒequired to make  controle  by FoxReengagePlugin after starting  SFSafariViewController.
+> When performing Cookie based tracking, SFSafariViewController is used on iOS 9. For FOX Unity SDK v2.16 and later, it is necessary to import FoxReengagePlugin as the control is transferred to it after SFSafariViewController is launched.
 
-> If it has been removed, please implement FoXReengagePlugin included in unitypakage of the Unity SDK.
+> If you have removed it, please re-import FoxReengagePlugin included in the unitypackage file of the SDK.
 
 ### Other
 
-* [Distribution depending on bundle version enrolled on the management screen.](./check_version/README.md)
+* [Distribution depending on bundle version registered in the FOX developer console.](./check_version/README.md)
 
 ---
 [PREVIOUS](/lang/en/doc/integration/README.md)
