@@ -1,13 +1,13 @@
-## フレームワーク設定の詳細
+## More on framework configuration
 
-ビルド対象のターゲットをクリックし、「Build Phases」→「Link Binary With Libraries」を選択。「+」ボタンを押し、各フレームワークを選択してください。
+Click on Build Target, and select 'Build Phased' → 'Link Binary with Libraries'. Select each framework by clicking the '+' button.
 
-![Fragmework setting 01](/lang/en/doc/integration/ios/config_framework/img01.png)
+![Framework setting 01](/lang/en/doc/integration/ios/config_framework/img01.png)
 
-次のフレームワークをプロジェクトにリンクしてください。
+Link the following frameworks to the project.
 
 <table>
-<tr><th>フレームワーク名</th><th>Status</th></tr>
+<tr><th>Framework</th><th>Status</th></tr>
 <tr><td>SafariServices.framework</td><td>Optional</td></tr>
 <tr><td>AdSupport.framework</td><td>Optional</td></tr>
 <tr><td>iAd.framework </td><td>Required</td></tr>
@@ -15,11 +15,11 @@
 <tr><td>StoreKit.framework </td><td>Required </td></tr>
 </table>
 
-> ※ AdSupport.frameworkはiOS 6以降で追加されたフレームワークのため、アプリケーションをiOS 5以前でも動作させる(iOS Deployment Targetを5.1以下に設定する)場合にはweak linkを行うために”Optional”に設定してください。
+> Since AdSupport.framework was added in iOS 6, to run the app on devices running iOS 5 and older versions (set iOS Deployment Target to 5.1 or below), set status to "Optional" to perform weak linking.
 
-> ※ SafariServices.frameworkはiOS 9以降で追加されたフレームワークのため、アプリケーションをiOS 8以前でも動作させる(iOS Deployment Targetを8.4以下に設定する)場合にはweak linkを行うために”Optional”に設定してください。
+> ※ Since SafariServices.framework was added in iOS 9, to run the app on devices running iOS 8 and older versions (set iOS Deployment Target to 8.4 or below), set status to "Optional" to perform weak linking.
 
-![Fragmework setting 02](/lang/en/doc/integration/ios/config_framework/img02.png)
+![Framework setting 02](/lang/en/doc/integration/ios/config_framework/img02.png)
 
 ---
 [iOS TOP](/lang/en/doc/integration/ios/README.md)
