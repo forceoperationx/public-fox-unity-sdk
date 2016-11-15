@@ -1,46 +1,45 @@
-# The detail of sendLtv
+# More on sendLtv()
 
-By using sendLtvConversion method, it is able to measure billing amount of each advertisement inflow and the total number of admission. For measurements, add the code of LTV result communication at arbitrary point.
+Using sendLtvConversion() method, it is possible to track item sales and member registrations driven by each ad campaign. To perform this tracking, call the sendLtv() method wherever required.
 
-For edition of source, note the management to scripts conducted after acquisition of result. For example, for the charging measurement after member registration and billing in application, note LTV measurement management in callback after management of registration and billing. Please be careful that the content of edition is changed depending on script (C#, or JavaScript）.
+Call sendLtv() in a script that runs after the event to be tracked has been successfully completed. For example, to track new member registration or an in-app item purchase, call sendLtv() in the callback after successful execution of member registration or in-app item purchase code. Please note that the implementation details are different for each script (C# and JavaScript).
 
-In the case that result is generated in application, note following C# to result management department. In the case of editing to JavaScript, change from「FoxPlugin」to「FoxPluginJS」in sentences.
+If the event is executed wholly inside the app, include the C# code shown below in the part that runs after the successful completion of the event. In case of JavaScript, replace 'FoxPlugin' with 'FoxPluginJS'.
 
-Add the code of result notification
-
-```cs
-FoxPlugin.sendLtv(LTV point ID);
-```
-> LTV point ID(Mandatory)：There is a contact from admistrater, so please type the value.
-
-It is able to include advertiser terminal ID (such as member ID)in result in application and measure result measurement based on this. In the case of giving advertisement terminal ID to LTV result, please note like following.
+Code to send LTV conversion.
 
 ```cs
-	FoxPlugin.sendLtv(LTV point ID, "Advertisement terminal ID");
+FoxPlugin.sendLtv(LTV conversion point ID);
+```
+> LTV conversion point ID(Required)： This value will be informed to you by a FOX administrator.
+
+It is possible to pass the user's advertising ID (membership ID etc.) as the second argument to sendLtv() making it possible to perform the measurement per user. This can be done as shown below.
+
+```cs
+	FoxPlugin.sendLtv(LTV conversion point ID, "advertising ID");
 ```
 
-> Result point ID(mandatory)：There is a contact from administrator., so please type the value.
-Advertsiment terminal ID(Option)：It is unique identifier (such as member ID) administered by advertisers. The specifying value is half-width alphanumeric within 64.
+> LTV conversion point ID(Required)： This value will be informed to you by a FOX administrator.
+> advertising ID: ID used by the advertiser to uniquely identify the user's device (membership ID etc). Should be less than or equal to 64 alphanumeric characters long.
 
-
-When measuring in application, it is able to set parameter as option.
+To enable parameterized tracking, pass the parameter name and value as shown below.
 
 ```cs
 	FoxPlugin.addParameter("Parameter name", "value");
 ```
 
-Available parameters are noted below.
+The list of available parameters is shown below.
 
-|Parameter name|Outline|
+|Parameter name|Summary|
 |:------|:------|
-|PARAM_SKU|Stock Keeping Unit(Product administration code)<br>（Till 32 characters in hal-width alphanumeric）<br>Please use when controlling products in stocks.|
-|PARAM_PRICE|Price<br>（Integar value Japanese yen）<br>Please use when contrlling amounts of sales.|
-|PARAM_CURRENCY|Currency<br>（Currency code of three half-width alphabet）<br>Please use when aggregating total amouunt in each currency.<br>In the case of not specifying the currency, Price will be JPY(Japanese Yen).|
-|It is able to arbitrary add parameter.|FoxPlugin.addParameter(“Paramter name”, “value”);<br>※1  In the case of same parameter name, the latter is available.<br>※2 Please do not note underscore（"_"）at start of parameter name.<br>※3 Only hald-width alphanumeric is available.|
+|PARAM_SKU|Stock Keeping Unit(Product management code)<br>（32 characters alphanumeric）<br>Please use this when controlling the item stock.|
+|PARAM_PRICE|Price<br>（Integer value, Japanese yen）<br>Please use when controlling the amount of sales.|
+|PARAM_CURRENCY|Currency<br>（Three characters long currency code）<br>Please use when aggregating total amount in different currencies.<br>If not specified, JPY (Japanese Yen) will be used by default.|
+|Arbitrary parameter|FoxPlugin.addParameter(“Paramter name”, “value”);<br>※1  If the same parameter is specified more than once, the latter value will be given priority.<br>※2 Please don't prefix the parameter name with an underscore ('_') sign.<br>※3 Only alphanumeric characters allowed.|
 
-lease specify the currency code defined by [`ISO 4217`](http://ja.wikipedia.org/wiki/ISO_4217) for PARAM_CURRENCY.
+Please specify the currency code as defined in [`ISO 4217`](http://ja.wikipedia.org/wiki/ISO_4217) for PARAM_CURRENCY parameter.
 
-Setting example :
+Example :
 ```cs
 FoxPlugin.addParameter(PARAM_SKU, "ABC1234");
 FoxPlugin.addParameter(PARAM_CURRENCY,  "USD");
