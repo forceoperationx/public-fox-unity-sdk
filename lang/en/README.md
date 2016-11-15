@@ -237,11 +237,11 @@ We use a combination of methods to detect multiple installs on same device. If t
 
 In order to increase the accuracy of detecting multiple installs on same device, follow the following guides.
 
-* [Including Google Play Services SDK to use ad ID](./doc/integration/android/google_play_services/README.md)
+* [Importing Google Play Services SDK to use Advertising ID](./doc/integration/android/google_play_services/README.md)
 
-* [（Optional）Duplicate install detection using external storage](/lang/en/doc/integration/android/external_storage/README.md)
+* [（Optional）Configuring duplicate entry prevention using external storage](/lang/en/doc/integration/android/external_storage/README.md)
 
-* [（Optional）Using android M's auto backup feature](./doc/integration/android/auto_backup/README.md)
+* [（Optional）Improving duplicate entry prevention using Android M's auto backup feature](./doc/integration/android/auto_backup/README.md)
 
 ---
 [TOP](/README.md)

@@ -1,4 +1,4 @@
-## Improving duplicate entry prevention using external storage
+## Improving duplicate entry prevention using Android M's auto backup feature
 
 Using the auto backup feature on Android M onwards, it is possible to improve the accuracy of duplicate entry detection. However, the accuracy can still not be guaranteed to be 100%.
 
