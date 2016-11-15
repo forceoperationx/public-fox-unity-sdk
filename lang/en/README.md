@@ -8,18 +8,18 @@ This document serves as a guide for correct installation of F.O.X. SDK in order 
 
 * **[1. Installation](#install_sdk)**
 	* [SDK downloads](https://github.com/cyber-z/public-fox-unity-sdk/releases)
-  * [How to implement Unity plug-in](./doc/integration/README.md)
-  * [Setting up an iOS Project](./doc/integration/ios/README.md)
-  * [Setting up an Android Project](./doc/integration/android/README.md)
+  * [Integrating the Unity plugin](./doc/integration/README.md)
+  * [Setting up iOS Project](./doc/integration/ios/README.md)
+  * [Setting up Android Project](./doc/integration/android/README.md)
 * **[2. Tracking app downloads](#tracking_install)**
-* **[3. Implementing LTV measurement](#tracking_ltv)**
+* **[3. Implementing LTV tracking](#tracking_ltv)**
 	* [The sendLtv() method](./doc/send_ltv_conversion/README.md)
 * **[4. Tracking app access](#tracking_analytics)**
 	* [Event tracking based on app access tracking](./doc/analytics_event/README.md)
 * **[5. Testing the setup](#integration_test)**
-  * [Testing re-engagement measurement](./doc/reengagement_test/README.md)
-* **[6. Implementing other features](#other_function)**
-  * [Implementing push notification](./doc/notify/README.md)
+  * [Test for Re-engagement tracking](./doc/reengagement_test/README.md)
+* **[6. Implementation of other features](#other_function)**
+  * [Implementing push notifications](./doc/notify/README.md)
   * [Implementing Opt-out](./doc/optout/README.md)
 * **[7. Troubleshooting](#trouble_shooting)**
 
@@ -54,11 +54,11 @@ Please download the latest version of SDK from the following page.
 
 [SDK release page](https://github.com/cyber-z/public-fox-unity-sdk/releases)
 
-Already using F.O.X? Get the latest version here [updating the latest version](./doc/update/README.md).
+Already using F.O.X? Get the latest version here [updating to latest version](./doc/update/README.md).
 
 Extract the downloaded SDK　`"FOX_UnityPlugin_<VERSION>.zip"`, and copy it into your project.
 
-[How to implement Unity plug-in](./doc/integration/README.md)
+[Integrating the Unity plugin](./doc/integration/README.md)
 
 ### iOS and Android setup guide
 
@@ -111,7 +111,7 @@ FoxPlugin.sendConversion("default", "your unique id");
 > ※If 'default' is passed as an argument to the method, a standard sample page will be displayed first, but this can be changed to a specific HTML page or a URL from the F.O.X developer console. To return to the app from this page, URL scheme of the app is necessary. Please inform us about your app' URL scheme before releasing the app to the market.
 
 <div id="tracking_ltv"></div>
-## 3. Implementing LTV measurement
+## 3. Implementing LTV tracking
 
 By implementing LTV measurements at arbitrary conversion points such as member registration, completion of a tutorial, item purchase, etc., it is possible to measure the Life Time Value of each ad campaign. This step can be skipped if LTV measurement is not necessary.
 

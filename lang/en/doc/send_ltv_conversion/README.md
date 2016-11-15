@@ -35,7 +35,7 @@ The list of available parameters is shown below.
 |PARAM_SKU|Stock Keeping Unit(Product management code)<br>（32 characters alphanumeric）<br>Please use this when controlling the item stock.|
 |PARAM_PRICE|Price<br>（Integer value, Japanese yen）<br>Please use when controlling the amount of sales.|
 |PARAM_CURRENCY|Currency<br>（Three characters long currency code）<br>Please use when aggregating total amount in different currencies.<br>If not specified, JPY (Japanese Yen) will be used by default.|
-|Arbitrary parameter|FoxPlugin.addParameter(“Paramter name”, “value”);<br>※1  If the same parameter is specified more than once, the latter value will be given priority.<br>※2 Please don't prefix the parameter name with an underscore ('_') sign.<br>※3 Only alphanumeric characters allowed.|
+|Arbitrary parameter|FoxPlugin.addParameter(“Paramter name”, “value”);<br>※1  If the same parameter is specified more than once, the latter value will be given priority.<br>※2 Please don't prefix the parameter name with an underscore ('_') sign.<br>※3 Only alphanumeric characters and underscore is allowed.|
 
 Please specify the currency code as defined in [`ISO 4217`](http://ja.wikipedia.org/wiki/ISO_4217) for PARAM_CURRENCY parameter.
 
