@@ -1,41 +1,37 @@
-## The implementation of Google Play Services SDK to use advertisement ID
-
+## Importing Google Play Services SDK to use Advertising ID
 
 ## Compliance to Google Play developer program
 
-Force Operation X Android SDK is compliant to Google Play developer program policy. To be compliant to policy, in this SDK, advertisement ID is not acquired in the case of acquiring everlasting device ID（IMEI、MAC address and AndroidID）. From August, 1st, 2014, for all update uploaded into Google Play store and new application, it is necessary to advertisement ID for terminal ID using as advertising objectives. For being compliant to this policy, please follow the procedures below.
-
+Force Operation X Android SDK complies with the Google Play developer program policies. To comply with the developer program policies, the SDK does not acquire the Advertising ID if an immutable device ID (IMEI, MAC address, and Android ID) has been acquired. From August 1 2014, it is necessary to use Advertising ID for the purposes of advertisement based tracking for all new and updated apps. To be compliant to the developer program policies, please follow the following steps.
 
 ## Google Play Services SDK
 
-
-To use the advertisement ID, Google Play Services SDK needs to be incorporated. In the case of not incorporating Google Play Services SDK into application, please follow the procedures in next site and conduct implementation.
+To use Advertising ID, it is necessary to import Google Play Services SDK. If your app does not import Google Play Services SDK already, refer to the following link to import it.
 
 [Setting Up Google Play Services | Android Developers](https://developer.android.com/google/play-services/setup.html)
 
 
+## Acquiring the Google Play Services SDK
 
-## Acquisition of Google Play Services SDK
+As of December 2014, Google Play Services SDK can be imported into the project as shown below.
 
-Below, the method of implementing Google Play Services SDK is noted at December, 2014.
-
-In the case of installing Google Play Services SDK, acquire the package from Android SDK Manager.
+Install the Google Play services package from Android SDK Manager if not done already.
 
 * Start Android SDK Manager.
-* Put a check Google Play services under the Extras directory and install package.
+* Check Google Play services under Extras and install it.
 
 ![googlePlayServices01](./img01.png)
 
-## The implementation of Google Play Services
+## Importing Google Play Services SDK into the project
 
-After acquiring the library project of Google Play Services, copy "${ANDROID_SDK_PATH}/extras/google/google_play_services/libproject/google-play-services_lib" to Plugins/Android folder of Unity project.
+After acquiring Google Play Services package from the Android SDK Manager, copy "${ANDROID_SDK_PATH}/extras/google/google_play_services/libproject/google-play-services_lib" into Plugins/Android folder of the Unity project.
 
 
-## Setting for using Google Play Services
+## Configuring Google Play Services for use
 
-#### Edition of AndroidManifest.xml
+#### AndroidManifest.xml
 
-To use Google Play Services, write the following setting in %lt;Application&gt; of AndroidManifest.xml.
+Add the following meta-data to AndroidManifest.xml.
 
 ```xml
 <meta-data
@@ -43,9 +39,9 @@ To use Google Play Services, write the following setting in %lt;Application&gt; 
     android:value="@integer/google_play_services_version" />
 ```
 
-#### Setting of Proguard
+#### Configuring ProGuard
 
-In the case of obfuscating with using Proguard, add the following setting.
+If you obfuscate the source code using ProGuard, add the following rules to ProGuard.
 
 ```
 -keep class * extends java.util.ListResourceBundle {
