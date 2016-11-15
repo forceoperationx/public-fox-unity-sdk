@@ -1,51 +1,51 @@
-## プッシュ通知の実装
+## Implementing push notifications
 
-F.O.Xのプッシュ通知では、広告流入元別にユーザーのセグメントを分けてプッシュ通知を配信することが可能です。F.O.Xのプッシュ通知機能を使用しない場合は、本設定の必要はありません。
+Using the FOX push notifications feature, it is possible to send out notifications to a group of users brought in by a particular ad campaign. Implementation of this feature can be skipped if you do not plan to use FOX push notifications.
 
+## Common configurations for iOS/Android
 
-## iOS/Androidの共通設定
+### Registering the device
 
-### 端末の登録
+FOX uses APN (Apple Push Notification Service) for iOS, and GCM（Google Cloud Messaging for Android）for Android to send push notifications.
 
-F.O.Xのプッシュ通知は、iOSの場合はAPNs（Apple Push Notification Service）を、Androidの場合はGoogleが提供するGCM（Google Cloud Messaging for Android）を利用してプッシュ通知を行います。
+To register the device in APN or GCM please follow the steps below.
 
-APNs及びGCMに端末を登録するために下記の設定を行います。
+Add the following code to the script that runs on app launch.
 
-起動時に実行されるスクリプトに、次の処理を追加します。
-
-> sendConversionメソッドをスクリプト実装している場合は、必ずsendConversionメソッドが呼ばれる後に配置してください。
+> If the script uses sendConversion() method, then make sure to add the following code after the sendConversion() call.
 
 ```cs
 #if UNITY_IOS || UNITY_IPHONE		FoxPlugin.registerForRemoteNotifications();#elif UNITY_ANDROID
-		// ××××××にはGoogle Developers Consoleで取得したProject番号を入力してください。		FoxPlugin.registerForRemoteNotifications(××××××);#endif
+		// Input the Google Developer Console Project ID in place of xxxxxx
+		FoxPlugin.registerForRemoteNotifications(××××××);#endif
 ```
 
-## iOS用の設定
+## iOS specific configuration
 
-通常は前述の共通設定のみで設定終了です。初回起動時に、Appleのサーバからデバイストークンを取得し、F.O.Xのサーバへ送信します。そのデバイストークンを使用して、F.O.X からプッシュ通知を送信します。
-もし、F.O.X以外のプッシュ通知機能を共存させる場合は次の実装を行ってください。
+Usually, the above common configuration is enough to setup push notifications.
+On app's first run, we acquire the device token from Apple servers and send it to FOX servers.
+FOX sends push notifications using the device token.
+Please follow the steps below if your app requires push notifications other than the ones sent by FOX, too.
+#### When using push notifications other than the ones sent by FOX, on iOS
 
-#### iOSでF.O.X以外のプッシュ通知機能を共存させる場合
+It is required to register the device token on FOX's servers.
 
-デバイストークンをF.O.Xサーバーに登録する必要があります。
+1. Delete FoxNotifyPlugin.h and FoxNotifyPlugin.m included in the FOX SDK.
+2. Open Classes/AppController.mm file for Xcode that is created after building the Unity project.
+3. Send the device token to FOX servers upon receiving the same from Apple.
 
-1. F.O.X SDKに含まれるFoxNotifyPlugin.hとFoxNotifyPlugin.mを削除します。
-2. Unityプロジェクトをビルドした後に立ち上がるXcode上のClasses/AppController.mmを開きます
-3. Appleからデバイストークンを受信した際にF.O.Xへとトークンを送信するようにします
-
-デバイストークンの取得に成功した場合、Application Delegateの`didRegisterForRemoteNotificationsWithDeviceToken:`が呼び出されますので、 取得したデバイストークンをF.O.Xへ送信するために、次の通り実装を行ってください。
+If the device token is acquired successfully, the following code is necessary to send it to FOX servers as `didRegisterForRemoteNotificationsWithDeviceToken:` application delegate gets called.
 
 ```objective-c
 #import "Notify.h"
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken{
-    // F.O.Xに端末を登録するメソッド    [[Notify sharedManager] manageDevToken:deviceToken];
-    UnitySendDeviceToken(deviceToken);}
+		// method to register the device on FOX servers    [[Notify sharedManager] manageDevToken:deviceToken];    UnitySendDeviceToken(deviceToken);}
 ```
 
-4. プッシュ通知を受信した際に、F.O.Xへ開封通知を送信するメソッドを追加
+4. Add the method to send a response to FOX upon receiving a push notification
 
-`application:didFinishLaunchingWithOptions:`と`application:didReceiveRemoteNotification:`に下記の実装を行ってください。
+Implement the `application:didFinishLaunchingWithOptions:` and `application:didReceiveRemoteNotification:` methods as shown below.
 
 ```objective-c
 - (BOOL)application:(UIApplication *)application
@@ -73,22 +73,22 @@ APNs及びGCMに端末を登録するために下記の設定を行います。
 }
 ```
 
-## Android用の設定
+## Android specific configuration
 
-### パーミッションの設定
+### Setting up the permissions
 
-下記のように、プッシュ通知を受け取るために必要なパーミッションの設定を\<manifest\>タグ内に追加してください。
+Add the necessary permissions for receiving push notifications inside the \<manifest\> tag.
 
 ```xml
 <uses-permission android:name="android.permission.WAKE_LOCK" />
-<uses-permission android:name="アプリのパッケージ名.permission.C2D_MESSAGE" />
-<permission android:name="アプリのパッケージ名.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+<uses-permission android:name="applicationPackageName.permission.C2D_MESSAGE" />
+<permission android:name="applicationPackageName.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 ```
 
-### プッシュ通知用レシーバーの設定
+### Setting up the receiver for push notifications
 
-下記のように、プッシュ通知を受け取るために必要なレシーバーの設定を\<application\>タグ内に追加してください。
+Add the following receiver in the \<application\> tag that will handle the push notifications.
 
 ```xml
 <receiver android:name="jp.appAdForce.android.NotifyReceiver"
@@ -96,22 +96,22 @@ APNs及びGCMに端末を登録するために下記の設定を行います。
 	<intent-filter>
 		<action android:name="com.google.android.c2dm.intent.RECEIVE" />
 		<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-		<category android:name="アプリのパッケージ名" />
+		<category android:name="applicationPackageName" />
 	</intent-filter>
 </receiver>
 ```
 
-### 二つのレシーバーを共存させる場合
+### When using two receivers
 
-com.google.android.c2dm.intent.RECEIVEとcom.google.android.c2dm.intent.REGISTRATIONに対するレシーバークラスは一つしか選択できません。アプリケーションが二つのレシーバークラスを必要とする場合は、以下の設定を追記してください。
+Only one receiver class can be registered for com.google.android.c2dm.intent.RECEIVE and com.google.android.c2dm.intent.REGISTRATION. When using more than one receivers, perform the steps below.
 
 ```xml
 <meta-data
 	android:name="APPADFORCE_NOTIFY_RECEIVER"
-	android:value="共存させたいF.O.X以外のレシーバークラス" />
+	android:value="Receiver class other than FOX receiver" />
 ```
 
-内部的にはjp.appAdForce.android.NotifyReceiverクラスから、共存させたいレシーバークラスのonResume()、もしくはonMessage()、onRegistered()を呼び出します。
+jp.appAdForce.android.NotifyReceiver calls onResume(), or onMessage(), or onRegistered() methods of the specified receiver class.
 
 ---
 [TOP](/lang/en/README.md)
