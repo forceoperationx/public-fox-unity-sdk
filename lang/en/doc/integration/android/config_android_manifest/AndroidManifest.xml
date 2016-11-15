@@ -55,7 +55,7 @@
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <!-- Necessary: Setting up meta-data -->
+        <!-- Required: Setting up meta-data -->
         <meta-data android:name="APPADFORCE_APP_ID" android:value="xxxxxx" />
         <meta-data android:name="APPADFORCE_SERVER_URL" android:value="xxxxxx" />
         <meta-data android:name="APPADFORCE_CRYPTO_SALT" android:value="xxxxxx" />
@@ -63,7 +63,7 @@
 
     </application>
 
-    <!-- Necessary: Setting up the permissions -->
+    <!-- Required: Setting up the permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
