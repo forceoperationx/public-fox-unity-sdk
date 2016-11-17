@@ -1,6 +1,7 @@
 # Android項目的設定
-
-能夠在Unity項目裡進行Android開發設定。編輯項目中的AndroidManifest.xml。如果不存在AndroidManifest.xml文件，請把「Plugins/Android/AndroidManifest-sample.xml」文件名變成「AndroidManifest.xml」來使用。
+為使SDK發揮作用請在AndroidManifest.xml裡添加必要的設定。<br />
+請在FOX管理畫面裡（SDK導入→平台的選擇→SDK導入文檔→SDK導入步驟→設定文件的下載）下載該設定文件，並根據自己項目的需要進行修改。<br />
+也可以拷貝「Plugins/Android/AndroidManifest-sample.xml」並改名為「AndroidManifest.xml」來手動添加和修改。
 
 ## permission的設定
 
@@ -42,6 +43,9 @@ WRITE_EXTERNAL_STORAGE ※1|Dangerous|任意|利用外部存儲提高重複排�
 <meta-data
 	android:name="ANALYTICS_APP_KEY"
 	android:value="請輸入Force Operation X管理員告知的值。" />
+<meta-data
+	android:name="ANALYTICS_SERVER_URL"
+	android:value="請輸入Force Operation X管理員告知的值。" />
 ```
 
 設定的Key和Value如下：
@@ -52,6 +56,7 @@ WRITE_EXTERNAL_STORAGE ※1|Dangerous|任意|利用外部存儲提高重複排�
 |APPADFORCE_SERVER_URL|必須|請輸入Force Operation X管理員告知的值。|
 |APPADFORCE_CRYPTO_SALT|必須|請輸入Force Operation X管理員告知的值。|
 |ANALYTICS_APP_KEY|必須|請輸入Force Operation X管理員告知的值。|
+|ANALYTICS_SERVER_URL|必須|請輸入Force Operation X管理員告知的值。|
 
 ## Install referrer計測的設定
 將Install referrer計測所需要的設定添加在&lt;application&gt;tag內。
@@ -64,7 +69,7 @@ WRITE_EXTERNAL_STORAGE ※1|Dangerous|任意|利用外部存儲提高重複排�
 </receiver>
 ```
 
-如果"com.android.vending.INSTALL_REFERRER"的receiver class已經被定義，請參照[讓多個INSTALL_REFERRER R seceiver共存的設定](/lang/zh-tw/doc/integration/android/install_referrer/README.md)
+如果"com.android.vending.INSTALL_REFERRER"的receiver class已經被定義，請參照[讓多個INSTALL_REFERRER seceiver共存的設定](/lang/zh-tw/doc/integration/android/install_referrer/README.md)
 
 ## Reengagement計測的設定
 
@@ -97,6 +102,7 @@ Reengagement計測是利用定製URLScheme來調用Activity的方式進行計測
 
 ## 使用ProGuard
 
+如果沒有使用ProGuard功能，可以跳過本節。
 使用ProGuard進行APP讀取混淆化時，請進行以下設定，將F.O.X SDK的method排除在對象外。
 
 ```
@@ -114,10 +120,6 @@ Reengagement計測是利用定製URLScheme來調用Activity的方式進行計測
 -dontwarn com.ansca.**
 -dontwarn com.naef.jnlua.**
 ```
-
-如果已導入GooglePlayServiceSDK，請確認下面網頁所記載的keep指定是否有被記述。
-[導入Google Play Services時的Proguard対応](https://developer.android.com/google/play-services/setup.html#Proguard)
-
 
 ---
 [返回](/lang/zh-tw/doc/integration/README.md)
