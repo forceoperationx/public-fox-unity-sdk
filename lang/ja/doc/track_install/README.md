@@ -15,7 +15,7 @@ using Cyz;
   FoxTrackOption option = new FoxTrackOption();
   // URLを指定
   option.redirectURL = "http://yourhost.com/yourpage.html";
-  Fox.sendConversion(option);
+  Fox.trackInstall(option);
 ```
 
 ### Buid (広告主端末ID)を指定する
@@ -30,7 +30,7 @@ using Cyz;
   option.redirectURL = "http://yourhost.com/yourpage.html";
   // BUIDを指定
   option.buid = "USER_001"
-  Fox.sendConversion(option);
+  Fox.trackInstall(option);
 ```
 
 <div id="check_track"></div>
@@ -61,7 +61,7 @@ using Cyz;
   option.buid = "USER_001"
   // イベントハンドラを指定
   option.onTrackComplete += HandleFoxTrackComplete;
-  Fox.sendConversion(option);
+  Fox.trackInstall(option);
 ...
 
 // SDKの起動計測が完了したタイミングに呼ばれます
