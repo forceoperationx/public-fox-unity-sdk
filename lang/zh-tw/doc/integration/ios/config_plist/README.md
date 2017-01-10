@@ -2,7 +2,7 @@
 
 追加必要的設定到plist裡讓SDK發揮作用。
 請在FOX管理畫面裡（SDK導入→平台的選擇→SDK導入文檔→SDK導入步驟→設定文件的下載）下載設定文件「AppAdForce.plist」，並根據自己項目的需要進行修改。<br />
-也可以新建「AppAdForce.plist」這樣一個Property List文件放到項目的任意一個地方，並手動輸入下面的Key和Value。
+也可以按下方所示，新建「AppAdForce.plist」這樣一個Property List文件放到項目的任意一個地方，並手動輸入下面的Key和Value。
 
 在任意地點點擊右鍵→選擇「New File...」
 
