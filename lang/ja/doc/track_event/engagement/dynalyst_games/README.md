@@ -1,4 +1,4 @@
-[TOP](../../../README.md)　>　[イベント計測の詳細](../README.md) > [エンゲージメント計測](../README.md) > **DynalystGamesパラメータ設定一覧**
+[TOP](../../../README.md)　>　[イベント計測の詳細](../README.md) > [エンゲージメント計測](../README.md) > **DynalystGames**
 
 ---
 
@@ -14,4 +14,4 @@
 ---
 [戻る](../README.md)
 
-[トップ](../../../../README.md)
+[トップ](../../../../../README.md)

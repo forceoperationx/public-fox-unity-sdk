@@ -33,7 +33,8 @@ string userInfo = "{'guid':'xxxxxxxxxxx', 'ext':{'XXXX':'XXXXX', 'XXXXX':'XXXXXX
 Fox.setUserInfo(userInfo);
 ```
 
-[DynalystGamesでUserInfoに設定できるパラメータ一覧](dynalyst_games/README.md)
+## 連携媒体別の詳細
+* [DynalystGames](dynalyst_games/README.md)
 
 
 ---
