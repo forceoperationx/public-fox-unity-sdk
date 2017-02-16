@@ -15,7 +15,7 @@ using Cyz;
 ...
 
 FoxEvent e = new FoxEvent("_purchase_item", 12345);
-e.eventInfo = "{'guid':'xxxxxxxxxxx','item_id':'XXXX-XXXX'}";
+e.eventInfo = "{'product':[{'id':'XXXX'},{'id':'XXXX'}],'hoge':'xxxxxxxxxxx'}";
 Fox.trackEvent(e);
 ```
 
@@ -29,7 +29,7 @@ setUserInfoにセットされたユーザー情報はtrackEventが実行され�
 using Cyz;
 ...
 
-string userInfo = "{'guid':'xxxxxxxxxxx', `ext`:{`XXXX`:'XXXXX', 'XXXXX':'XXXXXXX'}}";
+string userInfo = "{'guid':'xxxxxxxxxxx', 'ext':{'XXXX':'XXXXX', 'XXXXX':'XXXXXXX'}}";
 Fox.setUserInfo(userInfo);
 ```
 
