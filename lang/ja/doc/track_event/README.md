@@ -118,7 +118,9 @@ public class MainActivity extends Activity {
 
 > ※ JavaとC#の両方でtrackSession()が実行されていた場合、１ユーザーから２重にアプリ起動情報が送信されるため必ずどちらかで実装してください。
 
+#### その他
 
+* [エンゲージメント計測](./engagement/README.md)
 
 
 ---
