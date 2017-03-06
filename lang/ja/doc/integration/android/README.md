@@ -91,6 +91,26 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排�
 </activity>
 ```
 
+<dir id="receive_callback"></div>
+## インストール計測完了のコールバックを受け取る
+[![F.O.X](http://img.shields.io/badge/F.O.X%20SDK-4.1.1%20〜-blue.svg?style=flat)](https://github.com/cyber-z/public-fox-unity-sdk/releases)
+
+バージョン4.1.1以降でインストール計測完了のコールバックを受け取る場合には<br>
+以下のように必ずUnityPlayerActivity(メインのアクティビティ)のonResumeに`Fox.trackDeeplinkLaunch`メソッドを実装してください。
+
+```java
+// Resume Unity
+	@Override protected void onResume()
+	{
+		super.onResume();
+		mUnityPlayer.resume();
+		// FOX
+		Fox.trackDeeplinkLaunch(this);
+	}
+```
+
+> ※ 本実装が行われていない場合、C#にインストール計測完了が通知されません。
+
 <div id="proguard"></div>
 ## ProGuardを利用する場合
 
