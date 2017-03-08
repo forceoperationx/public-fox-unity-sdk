@@ -91,7 +91,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排�
 </activity>
 ```
 
-<dir id="receive_callback"></div>
+<div id="receive_callback"></div>
 ## インストール計測完了のコールバックを受け取る
 [![F.O.X](http://img.shields.io/badge/F.O.X%20SDK-4.1.1%20〜-blue.svg?style=flat)](https://github.com/cyber-z/public-fox-unity-sdk/releases)
 
