@@ -70,7 +70,7 @@ public void HandleFoxTrackComplete(object sender, EventArgs args) {
 }
 ```
 
-> ※ バージョン4.1.1以降においてAndroidでコールバックを受け取るの場合、`UnityPlayerActivity`を編集する必要がありますので[こちら]()をご確認ください。
+> ※ バージョン4.1.1以降においてAndroidでコールバックを受け取るの場合、`UnityPlayerActivity`を編集する必要がありますので[こちら](../integration/android/README.md#receive_callback)をご確認ください。
 
 ### オプトアウトの設定
 
