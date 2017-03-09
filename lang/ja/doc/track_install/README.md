@@ -70,6 +70,8 @@ public void HandleFoxTrackComplete(object sender, EventArgs args) {
 }
 ```
 
+> ※ バージョン4.1.1以降においてAndroidでコールバックを受け取るの場合、`UnityPlayerActivity`を編集する必要がありますので[こちら](../integration/android/README.md#receive_callback)をご確認ください。
+
 ### オプトアウトの設定
 
 広告会社によってターゲティング広告に利用されないことをユーザーに選択させることが可能です。<br>アプリケーションの起動時において、プライバシーポリシーや利用規約を表示するダイアログでユーザーがオプトアウトを選択した場合、効果測定の結果の通知と共に、F.O.Xが広告会社に対してそのユーザーがオプトアウトを選択したことを通知します。
