@@ -26,22 +26,15 @@ iOS用のプロジェクトを作成するために、次の手順でXcodeプロ
 <table>
 <tr><th>フレームワーク名</th><th>Status</th></tr>
 <tr><td>AdSupport.framework</td><td>Optional</td></tr>
-<tr><td>Security.framework </td><td>Required </td></tr>
-<tr><td>SystemConfig.framework </td><td>Required </td></tr>
+<tr><td>Security.framework</td><td>Required </td></tr>
+<tr><td>SystemConfig.framework</td><td>Required </td></tr>
+<tr><td>WebKit.framework</td><td>Required </td></tr>
 </table>
 
 * **App Transport Securityについて**
 
-iOS9より提供されたNSAppTransportSecurity(以下、ATS)を有効にしている場合、Info.plistに以下の設定を行いF.O.X SDKが行う通信先のドメインをATSの例外としてください。
+F.O.X SDK ver4.0.0からは計測における全ての通信をHTTPSを利用して行うため、追加で対応を行う必要はありません。
 
-キー | タイプ | 概要
-:---: | :---: | :---
-NSExceptionDomains|Dictionary|ATSの例外を指定するディクショナリー
-指定ドメイン文字列|Dictionary|以下２つのドメインをキーで作成してください。<br>・app-adforce.jp<br>・forceoperationx.com
-NSExceptionAllowsInsecureHTTPLoads|Boolean|YES を指定してくださいATSの例外とします。
-NSIncludesSubdomains|Boolean|YES を指定しATSの例外設定をサブドメインにも適用させます。
-
-![ATS設定](./img_ats.png)
 
 ---
 [戻る](../README.md)
