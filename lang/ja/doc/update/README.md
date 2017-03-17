@@ -9,7 +9,8 @@
 * [1. 以前のバージョンのファイルを全て削除](#remove_regacy)
 * [2. 最新バージョンのファイルをプロジェクトにインストール](#install_plugins)
 * [3. 旧バージョン(4.0.0未満)からの実装方法を更新](#update_implementation)
-* [4. その他](#other)
+* [4. 4.0.0 から 4.0.1 へのアップデート](#update_401)
+* [5. その他](#other)
 
 <div id="remove_regacy"></div>
 ## 1. 以前のバージョンのファイルを全て削除
@@ -96,11 +97,13 @@
 
 
 <div id="install_plugins"></div>
+
 ## 2. 最新バージョンのファイルをプロジェクトにインストール
 
 > [Unityプラグインの導入方法](./doc/integration/README.md)をご確認ください。
 
 <div id="update_implementation"></div>
+
 ## 3. 旧バージョン(4.0.0未満)からの実装方法を更新
 
 |種別|`〜 3.3.0` の実装|`4.0.0 〜` の実装|
@@ -115,9 +118,24 @@
 
 > ※1 バージョン4.0.0以降にマイグレーションする際、これまで旧バージョンで指定していたイベント名を変更してしまうと、アクセス解析にて計測してきた集計データが引き継がれなくなりますのでご注意ください。
 
+<div id="update_401"></div>
+
+## 4. 4.0.0 から 4.0.1 へのアップデート
+
+#### (iOS) ファイルの差し替え
+
+バージョン4.0.1をインストールする際、下記ファイルを差し替えてください。
+
+|対応|対象ファイル|
+|:---:|:---:|
+|削除|CYZUFoxReengagePlugin.h|
+|削除|CYZUFoxReengagePlugin.m|
+|追加|CYZFoxAppDelegateSwizzling.m|
+
 
 <div id="other"></div>
-## 4. その他
+
+## 5. その他
 
 #### (Android) BroadcastReceiverの複数指定
 
