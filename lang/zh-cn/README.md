@@ -41,6 +41,7 @@ Force Operation X (下面简称F.O.X)是一款基于智能手机的，用来最�
 
 
 <div id="install_sdk"></div>
+
 ## 1. 安装
 
 请从以下页面中下载最新安定版(Latest release)SDK。
@@ -59,6 +60,7 @@ APP中已经导入SDK的场合，请参考[更新到最新版本](./doc/update/R
 * [Android项目设置](./doc/integration/android/README.md)
 
 <div id="activate_sdk"></div>
+
 ## 2. F.O.X SDK激活
 
 为激活F.O.X SDK，需在APP启动时执行以下代码。<br>
@@ -85,6 +87,7 @@ void Start() {
 
 
 <div id="track_install"></div>
+
 ## 3. 执行Install计测
 
 进行首次启动的Install计测，可以计测广告效果。
@@ -103,11 +106,13 @@ using Cyz;
 *	[Install计测详细](./doc/track_install/README.md)
 
 <div id="track_event"></div>
+
 ## 4. APP内事件计测
 
 启动session、会员注册、新手引导突破、付费等任意成果地点中进行事件计测，可以计测广告渠道的LTV和留存率，如不需要以上结果，可以略过。
 
 <div id="track_session"></div>
+
 ### session（启动）事件计测
 
 可以计测自然流量和广告流量的安装数对比、APP启动次数和unique用户人数（DAU/MAU)、留存率等。如不需要流量分析，可以忽略本项。
@@ -122,6 +127,7 @@ using Cyz;
 ```
 
 <div id="track_other_event"></div>
+
 ### 其他的APP内事件计测
 
 在会员注册，新手引导完成，付费等任意成果地点执行事件计测，能够测定广告流入源的LTV。<br>
@@ -168,6 +174,7 @@ using Cyz;
 * [事件计测详细](./doc/track_event/README.md)
 
 <div id="trouble_shooting"></div>
+
 ## 5. 最后需确认内容（常见问题集）
 
 ### 5.1. 未设置URL SCHEME 进行发布时无法从浏览器跳转至APP
