@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.aaa"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.aaa.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- URL Scheme的设置(sampleapp://) -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="sampleapp" />
+            </intent-filter>
+        </activity>
+
+        <!-- 设置经由自定义URL Scheme的启动计测 -->
+        <activity
+            android:name="jp.appAdForce.android.IntentReceiverActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="sampleapplaunch" />
+            </intent-filter>
+        </activity>
+
+        <!-- Install Referrer计测的receiver设置 -->
+        <receiver android:exported="true" android:name="jp.appAdForce.android.InstallReceiver" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 可选项:让两个INSTALL_REFERRER Receiver共存的设定 -->
+        <!-- 记载了让value共存的Receiver类的path -->
+        <meta-data android:name="APPADFORCE_FORWARD_RECEIVER"
+            android:value="com.example.InstallReceiver" />
+
+        <!-- 任意: 导入Google Play Services SDK -->
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+    </application>
+
+    <!-- 必须: permission的设置 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+</manifest>
