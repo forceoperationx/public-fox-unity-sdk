@@ -1,14 +1,15 @@
-[TOP](../../../README.md)　>　[イベント計測の詳細](../README.md) > **エンゲージメント計測**
+[TOP](../../../README.md)　>　[事件计测详细](../README.md) > **一般广告计测(engagement)**
 
 ---
 
-# エンゲージメント計測
+# 一般广告计测(engagement)
 
 エンゲージメント計測および媒体と連携したイベント計測の説明を以下に記します。
+下面针对一般广告计测以及媒体连动事件计测进行说明。
 
-## イベント情報の通知
+## 事件信息的通知
 
-FoxEventのeventInfoフィールドにJson文字列を格納し、`trackEvent`イベントを実行します。
+在FoxEvent的eventInfo字段里放置Json字符串、执行`trackEvent`事件。
 
 ```cs
 using Cyz;
@@ -20,10 +21,10 @@ Fox.trackEvent(e);
 ```
 
 
-## ユーザー情報の通知
+## 用户信息的通知
 
-ユーザー情報のJson文字列を引数にsetUserInfoを呼び出します。<br>
-setUserInfoにセットされたユーザー情報はtrackEventが実行されるタイミングで送信されます。
+把用户信息的Json字符串当做参数调用setUserInfo方法。<br>
+放置在setUserInfo里的用户信息会在执行trackEvent的时机被发送出去。
 
 ```cs
 using Cyz;
@@ -33,11 +34,11 @@ string userInfo = "{'guid':'xxxxxxxxxxx', 'ext':{'XXXX':'XXXXX', 'XXXXX':'XXXXXX
 Fox.setUserInfo(userInfo);
 ```
 
-## 連携媒体別の詳細
+## 不同连动媒体的详细
 * [DynalystGames](dynalyst_games/README.md)
 
 
 ---
-[戻る](../README.md)
+[返回](../README.md)
 
-[トップ](../../../README.md)
+[Top](../../../README.md)

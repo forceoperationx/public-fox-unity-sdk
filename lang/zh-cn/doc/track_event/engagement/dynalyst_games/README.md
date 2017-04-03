@@ -1,17 +1,17 @@
-[TOP](../../../../README.md)　>　[イベント計測の詳細](../../README.md) > [エンゲージメント計測](../README.md) > **DynalystGames**
+[TOP](../../../../README.md)　>　[事件计测详细](../../README.md) > [一般广告计测（engagement）](../README.md) > **DynalystGames**
 
 ---
 
-## DynalystGamesでUserInfoに設定できるパラメータ一覧
+## 使用DynalystGames能放置到UserInfo里的参数一览
 
-| パラメータ名 | 型 | 必須 | 説明 |
+| 参数名 | 类型 | 必须 | 说明 |
 | ------------- | :-------------: | :-------------: | -------------:|
-| guid | String | | ゲームユーザーID |
-| adnt | int | | アプリオプトアウト <br>オプトアウトの場合は1、指定していない場合は0 |
-| ext | JsonObject | | ユーザーデータ<br>詳細はDynalyst社にお問い合わせください。 |
+| guid | String | | Game UserID |
+| adnt | int | | app opt-out <br>指定opt-out时:1、不指定时：0 |
+| ext | JsonObject | | User Data<br>详情请咨询Dynalyst公司。 |
 
 
 ---
-[戻る](../README.md)
+[返回](../README.md)
 
-[トップ](../../../../README.md)
+[Top](../../../../README.md)

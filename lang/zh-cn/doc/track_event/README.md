@@ -1,58 +1,58 @@
-[TOP](../../README.md)　>　**イベント計測の詳細**
+[TOP](../../README.md)　>　**事件计测详细**
 
 ---
 
-# イベント計測の詳細
+# 事件计测详细
 
-trackEventメソッドを利用することで、広告流入別の課金金額や入会数などを計測することができます。計測のために、任意の地点にLTV成果通信を行うコードを追加します。
+通过使用trackEvent方法，可以计测各广告渠道的付费金额和注册人数等。为进行这样的计测，需在任意地点中添加执行LTV成果通信的代码。
 
-ソースの編集は、成果が上がった後に実行されるスクリプトに処理を記述します。例えば、会員登録やアプリ内課金後の課金計測では、登録・課金処理実行後のコールバック内にイベント計測処理を記述します。
+请在成果产生后实行的处理中编辑添加相应代码。例如，会员注册及APP内付费后的付费计测是在注册・付费完成后的回调函数中添加相应的事件计测处理。
 
 ```cs
 using Cyz;
 ...
 
-FoxEvent e = new FoxEvent(イベント名, 成果地点ID);
+FoxEvent e = new FoxEvent(事件名, 成果地点ID);
 Fox.trackEvent(e);
 ```
 
-> イベント名(必須) : 任意のイベント名を指定することができます。
+> 事件名(必须) : 可以指定任意事件名。
 
-> 成果地点ID(必須) : 管理者より連絡します。その値を入力してください。
+> 成果地点ID(必须) : 请输入管理员告知的值。
 
 <div id="add_buid"></div>
-### Buid (広告主端末ID)を指定する
+### 指定Buid(广告主终端ID)
 
-アプリ内部の成果に、広告主端末ID（会員IDなど）を含める事ができ、これを基準とした成果計測が行えます。LTV成果に広告主端末IDを付与したい場合は以下のように記述してください。
+APP内部的成果中，可以包含广告主终端ID（会员ID等），可以以基准做成果计测。LTV成果中希望赋予广告主终端ID时请按下面的方式去执行。
 
 ```cs
 using Cyz;
 ...
 
-	FoxEvent e = new FoxEvent(イベント名, 成果地点ID);
-	e.buid = "広告主端末ID";
+	FoxEvent e = new FoxEvent(事件名, 成果地点ID);
+	e.buid = "广告主终端ID";
 	Fox.trackEvent(e);
 ```
 
-> 広告主端末ID(オプション)：広告主様が管理しているユニークな識別子（会員IDなど）です。
-指定できる値は64文字以内の半角英数字です。
+> 广告主终端ID(任意)：广告主管理的唯一标识符（会员ID等）。
+可以设置64文字以内的半角英文和数字。
 
 <div id="add_params"></div>
-### 任意のパラメータを指定する
+### 指定任意参数
 
-アプリ内計測時には、パラメータをオプションとして設定する事が可能です。
+APP内计测时可以进行参数设置。
 
 ```cs
 using Cyz;
 ...
 
-	FoxEvent e = new FoxEvent(イベント名, 成果地点ID);
-	e.addParam("パラメータ名", "値");
+	FoxEvent e = new FoxEvent(事件名, 成果地点ID);
+	e.addParam("参数名", "值");
 	Fox.trackEvent(e);
 ```
 
 <div id="purchase"></div>
-### 課金イベント実装例
+### 付费事件执行案例
 
 ```cs
 using Cyz;
@@ -70,24 +70,24 @@ using Cyz;
 	Fox.trackEvent(purchase);
 ```
 
-FoxEventに設定できるパラメータの仕様は下記の通りです。
+FoxEvent中可以指定的参数如下。
 
-|パラメータ|型|最大長|概要|
+|参数|型|最大长度|概要|
 |:------|:------:|:------:|:------|
-|eventName|String|255|トラッキングを行うイベントを識別できる任意の名前を設定します。イベント名は自由に設定可能です。|
-|orderId|String|255|注文番号等を指定します。|
-|sku|String|255|商品コード等を指定します。|
-|itemName|String|255|商品名を指定します。|
-|price|double||商品単価を指定します。|
-|quantity|int||数量を指定します。price * quantityが売上金額として計上されます。|
-|currency|String||通貨コードを指定します。未指定の場合は"JPY"が指定されます。|
+|eventName|String|255|设置能够识别追踪事件的任意名称。事件名可自由设置。|
+|orderId|String|255|指定订货单号。|
+|sku|String|255|指定sku商品代码。|
+|itemName|String|255|指定商品名。|
+|price|double||指定商品单价。|
+|quantity|int||指定数量。price * quantity为销售总额。|
+|currency|String||指定货币代码。未指定时默认为"JPY"。|
 
-> currencyには[ISO 4217](http://ja.wikipedia.org/wiki/ISO_4217)で定義された通貨コードを指定してください。
+> currency请设置为[ISO 4217](http://ja.wikipedia.org/wiki/ISO_4217)中定义的货币代码。
 
 <div id="session"></div>
-### セッションイベント
+### session事件
 
-アプリケーションが起動、もしくはバックグラウンドから復帰する際にセッション計測を行うコードを追加します。不要の場合には、本項目の実装を省略できます。
+APP启动时或从后台恢复时，添加session计测代码。不需要该项结果时，请忽略本项。
 
 ```cs
 using Cyz;
@@ -96,12 +96,13 @@ using Cyz;
 	Fox.trackSession();
 ```
 
-#### (Android) Javaによる実装
+#### 使用(Android) Java的编码安装
 
-Androidの場合、以下のようにjavaによる実装も可能です。<br>
-アプリケーションの起動及び、バックグラウンドからの復帰を計測するために、Activityの`onResume`メソッドにコードを追加します。
+Android的场合，可以按照以下内容通过java来编码执行。<br>
+为计测APP的启动及从后台复归，需在Activity中`onResume`方法中添加代码。
 
-アプリケーション起動時の起動計測（MainActivityクラスへの実装例）
+APP启动时的启动计测（MainActivity类的执行案例）
+
 ```java
 import co.cyberz.fox.Fox;
 
@@ -114,14 +115,14 @@ public class MainActivity extends Activity {
 		}
 }
 ```
-> ※ アプリケーションがバックグラウンドから復帰した際に、そのActivityに起動計測の実装がされていない場合など、正確なアクティブユーザー数が計測できなくなります。
+> ※ APP从后台恢复时，Activity中没有执行启动计测的话，将无法正确计测活跃用户数。
 
-> ※ JavaとC#の両方でtrackSession()が実行されていた場合、１ユーザーから２重にアプリ起動情報が送信されるため必ずどちらかで実装してください。
+> ※ Java和C#两者中均未执行trackSession()时，会导致一个用户被记录2次启动信息，请务必在其中一处执行。
 
 #### その他
 
-* [エンゲージメント計測](./engagement/README.md)
+* [一般广告计测(engagement)](./engagement/README.md)
 
 
 ---
-[トップ](../../README.md)
+[Top](../../README.md)
