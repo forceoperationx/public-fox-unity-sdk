@@ -55,13 +55,6 @@
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <!-- 必須，meta-data的设置 -->
-        <meta-data android:name="APPADFORCE_APP_ID" android:value="xxxxxx" />
-        <meta-data android:name="APPADFORCE_SERVER_URL" android:value="xxxxxx" />
-        <meta-data android:name="APPADFORCE_CRYPTO_SALT" android:value="xxxxxx" />
-        <meta-data android:name="ANALYTICS_APP_KEY" android:value="xxxxxx" />
-
-        <!-- option: -->
     </application>
 
     <!-- 必须: permission的设置 -->

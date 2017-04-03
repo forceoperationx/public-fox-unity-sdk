@@ -93,6 +93,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|使用外部储存来优化排除重复�
 
 <div id="receive_callback"></div>
 ## 取得Install计测完成的回调函数
+
 [![F.O.X](http://img.shields.io/badge/F.O.X%20SDK-4.1.1%20〜-blue.svg?style=flat)](https://github.com/cyber-z/public-fox-unity-sdk/releases)
 
 从4.1.1版及以后，希望取得Install计测完成的回调函数的话<br>
