@@ -1,21 +1,21 @@
-[TOP](../../../README.md)　>　[Unityプラグインの導入手順](../README.md)　>　**Android プロジェクトの詳細設定**
+[TOP](../../../README.md)　>　[Unity插件导入步骤](../README.md)　>　**Android项目详细设置**
 
 ---
 
-# Android プロジェクトの詳細設定
+# Android项目详细设置*
 
-* [Gradle経由での導入](#install_by_gradle)
-* [AndroidManifest.xmlのサンプルについて](#sample_manifest)
-* [パーミッションの設定](#permission)
-* [インストールリファラ計測の設定](#install_referrer)
-* [リエンゲージメント計測の実装](#track_reengagement)
-* [ProGuardを利用する場合](#proguard)
-* [その他](#others)
+* [通过Gradle导入](#install_by_gradle)
+* [关于AndroidManifest.xml样本](#sample_manifest)
+* [权限设置](#permission)
+* [install referrer计测设置](#install_referrer)
+* [流失唤回广告(Reengagement)计测的执行](#track_reengagement)
+* [使用ProGuard](#proguard)
+* [其他](#others)
 
 <div id="install_by_gradle"></div>
-## Gradle経由での導入
+## 通过Gradle导入
 
-Android StudioプロジェクトでGradleを用いてSDKを導入する場合以下のDependenciesを設定します。
+Android Studio项目中使用Gradle导入SDK的情况时，设置以下依存关系(Dependencies)。
 
 ```groovy
 repositories {
@@ -32,16 +32,16 @@ dependencies {
 
 
 <div id="sample_manifest"></div>
-## AndroidManifest.xmlのサンプルについて
+## 关于AndroidManifest.xml样本
 
-Android 用の設定は Unity プロジェクト上で行うことができます。Unity プロジェクトに組み込まれた
-AndroidManifest.xml を編集します。<br>プロジェクトに AndroidManifest.xml が存在しない場合は、 「Plugins/Android/AndroidManifest-sample.xml」を「AndroidManifest.xml」にリネームしてご利用ください。
+可以在Unity项目上进行Android设置。编辑Unity项目中的
+AndroidManifest.xml。<br>在项目中已经存在AndroidManifest.xml的情况时，将 「Plugins/Android/AndroidManifest-sample.xml」重命名为「AndroidManifest.xml」后来使用。
 
 <div id="permission"></div>
-## パーミッションの設定
+## 权限设置
 
-F.O.X SDKでは下記4つのパーミッションを利用します。
-&lt;Manifest&gt;タグ内に次のパーミッションの設定を追加します。
+F.O.X SDK可以使用以下三种权限。
+&lt;Manifest&gt;标签中中添加以下权限的设置。
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -49,17 +49,17 @@ F.O.X SDKでは下記4つのパーミッションを利用します。
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-パーミッション|Protection Level|必須|概要
+权限|Protection Level|必须|概要
 :---|:---:|:---:|:---
-INTERNET|Normal|必須|F.O.X SDKが通信を行うために必要となります。
-READ_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排除機能向上に必要となります。(※1)
-WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排除機能向上に必要となります。(※1)
+INTERNET|Normal|必須|F.O.X SDK是进行通信的必要条件。
+READ_EXTERNAL_STORAGE|Dangerous|任意|使用外部储存来优化排除重复功能时必须设定。(※1)
+WRITE_EXTERNAL_STORAGE|Dangerous|任意|使用外部储存来优化排除重复功能时必须设定。(※1)
 
-> ※1 Android MよりProtectionLevelが`dangerous`に指定されているパーミッションを必要とする機能を利用するには、ユーザーの許可が必要になります。詳細は[外部ストレージを利用した重複排除設定](./external_storage/README.md)をご確認ください。
+> ※1 从Android M开始，使用ProtectionLevel被指定为dangerous权限的功能时，需要用户许可。具体请参考[使用外部储存来优化排除重复功能](./external_storage/README.md)。
 
 <div id="install_referrer"></div>
-## インストールリファラ計測の設定
-インストールリファラーを用いたインストール計測を行うために下記の設定を&lt;application&gt;タグに追加します。
+## install referrer计测设置
+使用install referrer进行安装测量时，将以下设置添加至&lt;application&gt;标签中。
 
 ```xml
 <receiver android:name="co.cyberz.fox.FoxInstallReceiver" android:exported="true">
@@ -69,16 +69,16 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排�
 </receiver>
 ```
 
-既に"com.android.vending.INSTALL_REFERRER"に対するレシーバークラスが定義されている場合には、[二つ以上のINSTALL_REFERRERレシーバーを共存させる場合の設定](./install_referrer/README.md)をご参照ください。
+已经定义了"com.android.vending.INSTALL_REFERRER"的receiver类的话，请参考[让两种以上的INSTALL_REFERRER Receiver共存设置](./install_referrer/README.md)。
 
 <div id="track_reengagement"></div>
-## リエンゲージメント計測の実装
+## 流失唤回广告(Reengagement)计测的执行
 
-カスタムURLスキーム経由の起動を計測するために必要な設定を<application>タグ内に追記します。
-以下の`IntentReceiverActivity`はF.O.X SDKで提供しているActivityとなります。
+为了计测经由自定义URL SCHEME的启动行为时，将所需设置添加在<application>标签中。
+以下`IntentReceiverActivity`为F.O.X SDK中提供的Activity。
 
-カスタムURLスキームで本Activityが呼び出されることでリエンゲージメント計測を行います。
-ここでのカスタムURLスキームは他のActivityに設定しているものとは異なる値を設定してください。
+流失唤回广告通过自定义URL SCHEME呼出Activity来进行计测。
+自定义URL SCHEME的设置请区别于其他Activity中已有内容。
 
 ```xml
 <activity android:name="co.cyberz.fox.support.unity.IntentReceiverActivity ">
@@ -86,17 +86,17 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排�
 		<action android:name="android.intent.action.VIEW" />
 		<category android:name="android.intent.category.DEFAULT" />
 		<category android:name="android.intent.category.BROWSABLE" />
-		<data android:scheme="カスタム URL スキーム" />
+		<data android:scheme="自定义 URL SCHEME" />
 	</intent-filter>
 </activity>
 ```
 
 <div id="receive_callback"></div>
-## インストール計測完了のコールバックを受け取る
+## 取得Install计测完成的回调函数
 [![F.O.X](http://img.shields.io/badge/F.O.X%20SDK-4.1.1%20〜-blue.svg?style=flat)](https://github.com/cyber-z/public-fox-unity-sdk/releases)
 
-バージョン4.1.1以降でインストール計測完了のコールバックを受け取る場合には<br>
-以下のように必ずUnityPlayerActivity(メインのアクティビティ)のonResumeに`Fox.trackDeeplinkLaunch`メソッドを実装してください。
+从4.1.1版及以后，希望取得Install计测完成的回调函数的话<br>
+请一定按下方所示那样在UnityPlayerActivity(主Activity)的onResume里面执行`Fox.trackDeeplinkLaunch`方法。
 
 ```java
 // Resume Unity
@@ -109,40 +109,40 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排�
 	}
 ```
 
-> ※ 本実装が行われていない場合、C#にインストール計測完了が通知されません。
+> ※ 如果不按上述的方式来编码安装，在C#里将无法通知Install计测完成。
 
 <div id="proguard"></div>
-## ProGuardを利用する場合
+## 使用ProGuard
 
-ProGuard を利用してアプリケーションの難読化を行う際は F.O.X SDK のメソッドが対象とならないよう、以下の設定 を追加してください。
+使用Proguard进行APP代码混淆时，为排除F.O.X SDK的方法，请添加以下设置。
 
 ```
 -keepattributes *Annotation*
 -keep class co.cyberz.** { *; }
 -keep class com.google.android.gms.ads.identifier.* { *; }
 -dontwarn co.cyberz.**
-# Gradle経由でSDKをインストールしている場合、下記jarファイルの指定は不要です。
+# 通过Gradle安装SDK时，不需要指定以下jar文件。
 -libraryjars libs/FOX_Android_SDK_<VERSION>.jar
 
 ```
 
-また、Google Play Service SDK を導入されている場合は、以下のぺージに記載されている keep 指定が記述されているかご確認ください。
+另外，在已安装Google Play Service SDK 的情况下，请确认以下页面中是否已记述keep指定。
 
-> [Google Play Services導入時のProguard対応 (Android Developers)](https://developer.android.com/google/play-services/setup.html#Proguard)
+> [Google Play Services导入时的Proguard应对(Android Developers)](https://developer.android.com/google/play-services/setup.html#Proguard)
 
 <div id="others"></div>
-## その他
+## 其他
 
-* [広告IDを利用するためのGoogle Play Services SDKの導入](./google_play_services/README.md)
+* [导入Google Play Services SDK来使用广告ID](./google_play_services/README.md)
 
-* [AndroidManifest.xml 設定サンプル](./config_android_manifest/AndroidManifest.xml)
+* [AndroidManifest.xml设置案例](./config_android_manifest/AndroidManifest.xml)
 
-* [（オプション）外部ストレージを利用した重複排除設定](./external_storage/README.md)
+* [任意）利用外部储存优化重复排除](./external_storage/README.md)
 
-* [（オプション）Android M オートバックアップ機能の利用](./auto_backup/README.md)
+* [（任意）Android M自动备份功能使用](./auto_backup/README.md)
 
 
 ---
-[戻る](../README.md)
+[返回](../README.md)
 
-[トップ](../../../README.md)
+[Top](../../../README.md)
