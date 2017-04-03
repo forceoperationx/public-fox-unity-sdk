@@ -13,6 +13,7 @@
 * [其他](#others)
 
 <div id="install_by_gradle"></div>
+
 ## 通过Gradle导入
 
 Android Studio项目中使用Gradle导入SDK的情况时，设置以下依存关系(Dependencies)。
@@ -32,12 +33,14 @@ dependencies {
 
 
 <div id="sample_manifest"></div>
+
 ## 关于AndroidManifest.xml样本
 
 可以在Unity项目上进行Android设置。编辑Unity项目中的
 AndroidManifest.xml。<br>在项目中已经存在AndroidManifest.xml的情况时，将 「Plugins/Android/AndroidManifest-sample.xml」重命名为「AndroidManifest.xml」后来使用。
 
 <div id="permission"></div>
+
 ## 权限设置
 
 F.O.X SDK可以使用以下三种权限。
@@ -58,6 +61,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|使用外部储存来优化排除重复�
 > ※1 从Android M开始，使用ProtectionLevel被指定为dangerous权限的功能时，需要用户许可。具体请参考[使用外部储存来优化排除重复功能](./external_storage/README.md)。
 
 <div id="install_referrer"></div>
+
 ## install referrer计测设置
 使用install referrer进行安装测量时，将以下设置添加至&lt;application&gt;标签中。
 
@@ -72,6 +76,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|使用外部储存来优化排除重复�
 已经定义了"com.android.vending.INSTALL_REFERRER"的receiver类的话，请参考[让两种以上的INSTALL_REFERRER Receiver共存设置](./install_referrer/README.md)。
 
 <div id="track_reengagement"></div>
+
 ## 流失唤回广告(Reengagement)计测的执行
 
 为了计测经由自定义URL SCHEME的启动行为时，将所需设置添加在<application>标签中。
@@ -92,6 +97,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|使用外部储存来优化排除重复�
 ```
 
 <div id="receive_callback"></div>
+
 ## 取得Install计测完成的回调函数
 
 [![F.O.X](http://img.shields.io/badge/F.O.X%20SDK-4.1.1%20〜-blue.svg?style=flat)](https://github.com/cyber-z/public-fox-unity-sdk/releases)
@@ -113,6 +119,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|使用外部储存来优化排除重复�
 > ※ 如果不按上述的方式来编码安装，在C#里将无法通知Install计测完成。
 
 <div id="proguard"></div>
+
 ## 使用ProGuard
 
 使用Proguard进行APP代码混淆时，为排除F.O.X SDK的方法，请添加以下设置。
@@ -132,6 +139,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|使用外部储存来优化排除重复�
 > [Google Play Services导入时的Proguard应对(Android Developers)](https://developer.android.com/google/play-services/setup.html#Proguard)
 
 <div id="others"></div>
+
 ## 其他
 
 * [导入Google Play Services SDK来使用广告ID](./google_play_services/README.md)

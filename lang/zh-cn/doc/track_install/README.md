@@ -34,6 +34,7 @@ using Cyz;
 ```
 
 <div id="check_track"></div>
+
 ### 确认是否已完成Install计测
 
 首次启动时Fox.trackInstall是否运行的信息，可以通过来bool型返回值来获取。<br>
@@ -48,6 +49,7 @@ using Cyz;
 
 
 <div id="receive_callback"></div>
+
 ### 接收回调函数
 
 使用`FoxTrackOption`的`onTrackComplete`（事件处理），可以在F.O.X SDK的计测处理完成时接受回调函数。

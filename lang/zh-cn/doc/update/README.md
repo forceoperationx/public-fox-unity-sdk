@@ -12,6 +12,7 @@
 * [4. 其他](#other)
 
 <div id="remove_regacy"></div>
+
 ## 1. 删除旧版本所有文件
 
 #### 1.1 Cocos2d-x插件文件一览
@@ -96,18 +97,20 @@
 
 
 <div id="install_plugins"></div>
+
 ## 2. 在项目中导入最新版文件
 
 > 请确认[Unity插件的导入方法](./doc/integration/README.md)。
 
 <div id="update_implementation"></div>
+
 ## 3. 从旧版本(4.0.0以下)更新升级的执行方法
 
 |分类|`〜 3.3.0` 的执行|`4.0.0 〜` 的执行|
 |:---:|:---|:---|
 |[激活](../../README.md#activate_sdk)|**[iOS]**<br>・AppAdForce.plist<br><br>**[Android]**<br>AndroidManifest.xml<br><br>・APPADFORCE_APP_ID<br>・APPADFORCE_CRYPTO_SALT<br>・ANALYTICS_APP_KEY|代码上<br><br>FoxConfig config = new FoxConfig ();<br>config.iOSAppId = 发行的iOS APP_ID;<br>config.iOSAppKey = 发行的iOS APP_KEY;<br>config.iOSAppSalt = 发行的iOS APP_SALT;<br>config.androidAppId = 发行的Android APP_ID;<br>config.androidAppKey = 发行的Android APP_KEY;<br>config.androidAppSalt = 发行的Android APP_SALT;<br>Fox.activate(config);|
 |[Install计测](../../README.md#track_install)|FoxPlugin.sendConversion("default");|Fox.trackInstall();|
-|[Install计测<br>使用option](../track_install/README.md)|FoxPlugin.sendConversion("http://yourhost.com", "USER_001");|FoxTrackOption option = new FoxTrackOption();<br>option.redirectURL = "http://yourhost.com";<br>option.buid = "USER_001";<br>Fox.sendConversion(option);|
+|[Install计测<br>使用option](../track_install/README.md)|FoxPlugin.sendConversion("http://yourhost.com", "USER_001");|FoxTrackOption option = new FoxTrackOption();<br>option.redirectURL = "http://yourhost.com";<br>option.buid = "USER_001";<br>Fox.trackInstall(option);|
 |通过外部浏览器进行事件计测|-|Fox.trackEventByBrowser("http://yourhost.com");|
 |[session计测](../../README.md#track_session)|FoxPlugin.sendStartSession();|Fox.trackSession();|
 |[事件计测 1](../track_event/README.md#add_buid)|// 新手引导完成事件<br>int ltvId = 成果地点ID;<br>FoxPlugin.sendLtv(ltvId, "USER_001");<br>FoxPlugin.sendEvent("_tutorial_comp", null, null, 0);|// 新手引导完成事件<br>int ltvId = 成果地点ID;<br>FoxEvent e = new FoxEvent("_tutorial_comp", ltvId);<br>	e.buid = "USER_001";<br>Fox.trackEvent(e);|
@@ -117,6 +120,7 @@
 
 
 <div id="other"></div>
+
 ## 4. 其他
 
 #### (Android) BroadcastReceiver多项指定

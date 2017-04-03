@@ -21,6 +21,7 @@ Fox.trackEvent(e);
 > 成果地点ID(必须) : 请输入管理员告知的值。
 
 <div id="add_buid"></div>
+
 ### 指定Buid(广告主终端ID)
 
 APP内部的成果中，可以包含广告主终端ID（会员ID等），可以以基准做成果计测。LTV成果中希望赋予广告主终端ID时请按下面的方式去执行。
@@ -38,6 +39,7 @@ using Cyz;
 可以设置64文字以内的半角英文和数字。
 
 <div id="add_params"></div>
+
 ### 指定任意参数
 
 APP内计测时可以进行参数设置。
@@ -52,6 +54,7 @@ using Cyz;
 ```
 
 <div id="purchase"></div>
+
 ### 付费事件执行案例
 
 ```cs
@@ -85,6 +88,7 @@ FoxEvent中可以指定的参数如下。
 > currency请设置为[ISO 4217](http://ja.wikipedia.org/wiki/ISO_4217)中定义的货币代码。
 
 <div id="session"></div>
+
 ### session事件
 
 APP启动时或从后台恢复时，添加session计测代码。不需要该项结果时，请忽略本项。
