@@ -40,7 +40,7 @@ dependencies {
 
 ## Google Play development program准则
 
-Force Operation X Android SDK以Google Play development program 条约为准则。该SDK为了遵守条约，已经获取永久设备ID（IMEI、MAC adress以及AndroidID）的情况下将不会获取广告ID。2014年8月1日开始，Google Play Store上所有的更新以及发布新app时，以广告为目的的终端ID必须使用广告ID。为了遵守该条约，请执行以下步骤。
+Force Operation X Android SDK以Google Play development program 条约为准则。该SDK为了遵守条约，已经获取永久设备ID（IMEI、MAC adress以及AndroidID）的情况下将不会获取广告ID。2014年8月1日开始，Google Play Store上所有的更新以及发布新app时，以广告为目的的终端ID必须使用广告ID。
 
 ---
 [Top](../../README.md)
