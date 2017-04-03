@@ -1,42 +1,41 @@
-[TOP](../../../README.md)　>　[Unityプラグインの導入手順](../README.md)　>　**iOS プロジェクトの詳細設定**
+[TOP](../../../README.md)　>　[Unity插件的导入步骤](../README.md)　>　**iOS 项目设置**
 
 ---
 
-# iOS プロジェクトの詳細設定
+# iOS项目设置
 
-## **Xcodeプロジェクトの設定**
+## **Xcode项目设置**
 
-### Xcodeプロジェクトのパブリッシュ
+### Xcode项目的发布
 
-iOS用のプロジェクトを作成するために、次の手順でXcodeプロジェクトをパブリッシュし、Xcode上で必要な設定を行います。
+为制作iOS项目，按以下步骤发布Xcode项目，在Xcode上进行必要设置。
 
-1. メニューの「File」>「BUild Settings…」を選択する
-2. Platformの「iOS」を選択し、「Switch Platform」を押下する
-3. 「Player Settings」を押下し、Inspectorでご自身の環境に合わせて設定を行う
-4. 	「Build」か「Build And Run」を押下し、Xcodeプロジェクトのパブリッシュを行う
+1. 选择菜单中「File」>「BUild Settings…」
+2. Platform中选择「iOS」，点击「Switch Platform」
+3. 点击「Player Settings」，Inspector中根据自身环境进行设置
+4. 	点击「Build」或「Build And Run」，进行Xcode项目发布
 
-### Xcodeプロジェクトの編集
+### Xcode项目编辑
 
-パブリッシュされたXcodeプロジェクトを開き、編集します。
+打开发布的Xcode项目进行编辑。
 
-* **フレームワーク設定**
+* **框架设置**
 
-次のフレームワークをプロジェクトにリンクしてください。
+请将以下框架设置到项目里。
 
 <table>
-<tr><th>フレームワーク名</th><th>Status</th></tr>
-<tr><td>AdSupport.framework</td><td>Optional</td></tr>
-<tr><td>Security.framework</td><td>Required </td></tr>
-<tr><td>SystemConfig.framework</td><td>Required </td></tr>
-<tr><td>WebKit.framework</td><td>Required </td></tr>
+<tr><th>框架名</th><th>Status</th></tr>
+<tr><td>AdSupport.framework</td><td>任意</td></tr>
+<tr><td>Security.framework </td><td>必须</td></tr>
+<tr><td>SystemConfig.framework </td><td>必须</td></tr>
+<tr><td>WebKit.framework</td><td>必须</td></tr>
 </table>
 
-* **App Transport Securityについて**
+* **关于App Transport Security**
 
-F.O.X SDK ver4.0.0からは計測における全ての通信をHTTPSを利用して行うため、追加で対応を行う必要はありません。
-
+从F.O.X SDK ver4.0.0开始，底层全部都基于HTTPS协议进行通信，不需要做额外的对应。
 
 ---
-[戻る](../README.md)
+[返回](../README.md)
 
-[トップ](../../../README.md)
+[Top](../../../README.md)
