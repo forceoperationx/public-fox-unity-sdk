@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <!-- URL スキームの設定 (sampleapp://) -->
+            <!-- URL Scheme的设置(sampleapp://) -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
 
-        <!-- カスタムURLスキーム経由の起動計測の設定 -->
+        <!-- 设置经由自定义URL Scheme的启动计测 -->
         <activity
             android:name="jp.appAdForce.android.IntentReceiverActivity">
             <intent-filter>
@@ -39,32 +39,32 @@
             </intent-filter>
         </activity>
 
-        <!-- インストールリファラー計測の receiver 設定 -->
+        <!-- Install Referrer计测的receiver设置 -->
         <receiver android:exported="true" android:name="jp.appAdForce.android.InstallReceiver" >
             <intent-filter>
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
         </receiver>
 
-        <!-- オプション: 二つのINSTALL_REFERRER レシーバーを共存させる 設定 -->
-        <!-- valueに共存させたいレシーバークラスのパスを記述します -->
+        <!-- 可选项:让两个INSTALL_REFERRER Receiver共存的设定 -->
+        <!-- 记载了让value共存的Receiver类的path -->
         <meta-data android:name="APPADFORCE_FORWARD_RECEIVER"
             android:value="com.example.InstallReceiver" />
 
-        <!-- オプション: Google Play Services SDKの導入 -->
+        <!-- 任意: 导入Google Play Services SDK -->
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <!-- 必須: meta-data の設定 -->
+        <!-- 必須，meta-data的设置 -->
         <meta-data android:name="APPADFORCE_APP_ID" android:value="xxxxxx" />
         <meta-data android:name="APPADFORCE_SERVER_URL" android:value="xxxxxx" />
         <meta-data android:name="APPADFORCE_CRYPTO_SALT" android:value="xxxxxx" />
         <meta-data android:name="ANALYTICS_APP_KEY" android:value="xxxxxx" />
 
-        <!-- オプション: -->
+        <!-- option: -->
     </application>
 
-    <!-- 必須: パーミッションの設定 -->
+    <!-- 必须: permission的设置 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
