@@ -1,26 +1,26 @@
-[TOP](../../README.md)　>　**インストール計測の詳細**
+[TOP](../../README.md)　>　**Install计测详细**
 
 ---
 
-# インストール計測の詳細
+# Install计测详细
 
-`trackInstall`メソッドを利用することで、インストール計測を行うことができます。<br>
-起動時に実行されるスクリプトから以下のコードが呼ばれるよう実装を行ってください。<br>
-特定のURLヘ遷移させたい場合や、アプリケーションで動的にURLを生成したい場合には、URLの文字列を設定してください。
+使用`trackInstall`方法可以进行Install计测。<br>
+请在APP启动执行的处理中执行以下代码。<br>
+想要跳转至特定URL或APP中动态生成URL时，请设置URL字符串。
 
 ```cs
 using Cyz;
 ...
 
   FoxTrackOption option = new FoxTrackOption();
-  // URLを指定
+  // 指定URL
   option.redirectURL = "http://yourhost.com/yourpage.html";
   Fox.trackInstall(option);
 ```
 
-### Buid (広告主端末ID)を指定する
+### 指定Buid (广告主终端ID)
 
-`FoxTrackOption`のbuidに広告主端末IDを渡すことができます。<br>例えば、アプリ起動時にSDKがUUIDを生成し、初回起動の成果と紐付けて管理したい場合等に、利用できます。
+`FoxTrackOption`的buid中可以传递广告主终端ID。<br>例如，APP启动时SDK生成UUID，可以在关联首次启动APP的成果做管理时使用。
 
 ```cs
 using Cyz;
@@ -28,29 +28,29 @@ using Cyz;
 
   FoxTrackOption option = new FoxTrackOption();
   option.redirectURL = "http://yourhost.com/yourpage.html";
-  // BUIDを指定
+  // 指定BUID
   option.buid = "USER_001"
   Fox.trackInstall(option);
 ```
 
 <div id="check_track"></div>
-### インストール計測が完了したかをチェックする
+### 确认是否已完成Install计测
 
-初回起動時のFox.trackInstallが行われたかの情報をboolで取得することができます。<br>
-以下メソッドを用いることでインストール計測が完了し、２回目以降の起動時に特定の処理を行うことが出来るようになります。
+首次启动时Fox.trackInstall是否运行的信息，可以通过来bool型返回值来获取。<br>
+使用以下方法，可以在计测完成后第二次以上的启动时进行特定处理。
 
 ```cs
 using Cyz;
 ...
-  // 計測済みかどうか
+  // 是否计测完成
   bool isComplete = Fox.isConversionCompleted();
 ```
 
 
 <div id="receive_callback"></div>
-### コールバックを受け取る
+### 接收回调函数
 
-`FoxTrackOption`の`onTrackComplete`（イベントハンドラ）を用いることで、F.O.X SDKの計測処理が完了したタイミングのコールバックを受け取ることが可能です。
+使用`FoxTrackOption`的`onTrackComplete`（事件处理），可以在F.O.X SDK的计测处理完成时接受回调函数。
 
 ```cs
 using Cyz;
@@ -59,30 +59,30 @@ using Cyz;
   FoxTrackOption option = new FoxTrackOption();
   option.redirectURL = "http://yourhost.com/yourpage.html";
   option.buid = "USER_001"
-  // イベントハンドラを指定
+  // 指定事件处理
   option.onTrackComplete += HandleFoxTrackComplete;
   Fox.trackInstall(option);
 ...
 
-// SDKの起動計測が完了したタイミングに呼ばれます
+// SDK的启动计测完成时调用
 public void HandleFoxTrackComplete(object sender, EventArgs args) {
 		print ("FoxTrack tracked complete!!");
 }
 ```
 
-> ※ バージョン4.1.1以降においてAndroidでコールバックを受け取るの場合、`UnityPlayerActivity`を編集する必要がありますので[こちら](../integration/android/README.md#receive_callback)をご確認ください。
+> ※ 在4.1.1及以后的SDK版本，Android里希望接收回调函数的话、需要编辑`UnityPlayerActivity`，请确认[这里](../integration/android/README.md#receive_callback)。
 
-### オプトアウトの設定
+### optout设置
 
-広告会社によってターゲティング広告に利用されないことをユーザーに選択させることが可能です。<br>アプリケーションの起動時において、プライバシーポリシーや利用規約を表示するダイアログでユーザーがオプトアウトを選択した場合、効果測定の結果の通知と共に、F.O.Xが広告会社に対してそのユーザーがオプトアウトを選択したことを通知します。
+有些广告公司可以让用户选择是否使用定向投放（targeting）广告。<br>用户在APP启动时弹出的隐私权政策和使用条例对话框中选择Optout的情况时，告知效果测定结果的同时，F.O.X也会通知广告公司用户选择了Optout。
 
-オプトアウトに対応する場合は、以下の通り「`Fox.trackInstall`の引数に設定を行ってください。
+适用Optout的场合，请在以下「`Fox.trackInstall`的参数中进行设置。
 
 ```cs
 using Cyz;
 ...
 
-  // ユーザーがオプトアウトを選択した場合に setOptout を有効にする
+  // 用户选择optout时，设置setOptout为有效
   FoxTrackOption option = new FoxTrackOption();
   option.redirectURL = "https://www.yourhost.com";
   option.buid = "USER_001";
@@ -92,7 +92,7 @@ using Cyz;
   Fox.trackInstall(option);
 ```
 
-> ※ オプトアウトはデフォルトfalseとなっています。
+> ※ optout默认为false。
 
 ---
 [TOP](../../README.md)
