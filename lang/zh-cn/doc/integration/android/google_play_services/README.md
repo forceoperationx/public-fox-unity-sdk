@@ -1,29 +1,29 @@
-[TOP](../../../../README.md)　>　[Unityプラグインの導入手順](../../README.md)　>　[Android プロジェクトの詳細設定](../README.md)　>　**Google Play Servicesの導入**
+[TOP](../../../../README.md)　>　[Unity插件的导入步骤](../../README.md)　>　[Android 项目的详细设置](../README.md)　>　**Google Play Services的导入**
 
 ---
 
-# Google Play Servicesの導入
+# Google Play Services的导入
 
-Google Play Servicesをプロジェクトに取り込みます。<br>
+将Google Play Services导入项目。<br>
 
-アプリケーションのモジュールディレクトリにあるbuild.gradleを開き、下記のように、最新のGoogle Play servicesへのdependenciesの設定を追記します。
+打开APP模块目录中的build.gradle，按以下方法，对最新Google Play services添加依存(dependencies)设置。
 
 ```
 dependencies {
 	compile 'com.google.android.gms:play-services:9.4.0'
 }
 ```
-> ※ GooglePlayServicesの導入詳細は[`Setting Up Google Play Services | Android Developers`](https://developer.android.com/google/play-services/setup.html)をご確認ください。
+> ※ GooglePlayServices导入详细请参考[`Setting Up Google Play Services | Android Developers`](https://developer.android.com/google/play-services/setup.html)中确认。
 
 
-> ※ ADTのEclipseサポート終了に伴いEclipseでの導入は廃止しました。<br>開発されている環境がEclipseの場合、[Google Play Services Jar Resolver Library for Unity](https://github.com/googlesamples/unity-jar-resolver)を用いてGooglePlayServicesを導入してください。
+> ※ 随着ADT的Eclipse支持结束，在Eclipse开发环境的导入方法已经被废除。<br>开发环境为Eclipse的场合，请使用[Google Play Services Jar Resolver Library for Unity](https://github.com/googlesamples/unity-jar-resolver)导入GooglePlayServices。
 
-## メソッド数の上限が64Kの仕様について
+## 关于方法数上限到64K的式样
 
-Androidアプリでは、保持できるメソッド数に64K(65536)の上限があり、超えるとビルドエラーが発生します。<br>
-そのため多くのメソッドを有しているGooglePlayServicesを、広告IDの取得のためだけに導入されている場合は<br>
-広告IDの取得を目的に切り出された以下のライブラリをお使いください。<br>
-F.O.X SDKではGooglePlayServicesを広告IDの取得を目的に利用しています。
+Android APP中，可以维持的方法数上限为64K(65536)，超过上限时会发生编译错误。<br>
+因此，如果仅为获取广告ID而想导入拥有众多方法的GooglePlayServices时<br>
+请使用下面这个专门获取广告ID的类库。<br>
+在F.O.X SDK中使用GooglePlayServices的目的只为获取广告ID。
 
 ```
 dependencies {
@@ -31,16 +31,16 @@ dependencies {
 }
 ```
 
-> ※ メソッド数の上限が64Kの仕様についての詳細<br>
+> ※ 方法数上限64K的式样详细<br>
 [Configure Apps with Over 64K Methods | Android Developers](https://developer.android.com/studio/build/multidex.html)
 
-> ※ Google Play servicesの最新のバージョンはAndroidのデベロッパーサイトにて確認するようにしてください。<br>
+> ※ Google Play services的最新版本请在Android developer site中确认。<br>
 [Google Play Services | Android Developers](https://developer.android.com/google/play-services/index.html)
 
 
-## Google Playデベロッパープログラムへの準拠
+## Google Play development program准则
 
-Force Operation X Android SDKはGoogle Playデベロッパープログラムポリシーに準拠しています。本SDKはポリシーに準拠するために、永続的なデバイス ID（IMEI、MACアドレス及びAndroidID）が取得される場合には広告IDが取得されません。2014年8月1日から、Google Playストアにアップロードされたすべての更新や新着アプリには、広告目的で使用する端末IDには広告ID を利用する必要があります。本ポリシーに準拠するために、以下の手順を行ってください。
+Force Operation X Android SDK以Google Play development program 条约为准则。该SDK为了遵守条约，已经获取永久设备ID（IMEI、MAC adress以及AndroidID）的情况下将不会获取广告ID。2014年8月1日开始，Google Play Store上所有的更新以及发布新app时，以广告为目的的终端ID必须使用广告ID。为了遵守该条约，请执行以下步骤。
 
 ---
-[トップ](../../README.md)
+[Top](../../README.md)
