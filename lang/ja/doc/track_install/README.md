@@ -34,6 +34,7 @@ using Cyz;
 ```
 
 <div id="check_track"></div>
+
 ### インストール計測が完了したかをチェックする
 
 初回起動時のFox.trackInstallが行われたかの情報をboolで取得することができます。<br>
@@ -48,6 +49,7 @@ using Cyz;
 
 
 <div id="receive_callback"></div>
+
 ### コールバックを受け取る
 
 `FoxTrackOption`の`onTrackComplete`（イベントハンドラ）を用いることで、F.O.X SDKの計測処理が完了したタイミングのコールバックを受け取ることが可能です。
