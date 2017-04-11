@@ -13,6 +13,7 @@
 * [その他](#others)
 
 <div id="install_by_gradle"></div>
+
 ## Gradle経由での導入
 
 Android StudioプロジェクトでGradleを用いてSDKを導入する場合以下のDependenciesを設定します。
@@ -32,15 +33,17 @@ dependencies {
 
 
 <div id="sample_manifest"></div>
+
 ## AndroidManifest.xmlのサンプルについて
 
 Android 用の設定は Unity プロジェクト上で行うことができます。Unity プロジェクトに組み込まれた
 AndroidManifest.xml を編集します。<br>プロジェクトに AndroidManifest.xml が存在しない場合は、 「Plugins/Android/AndroidManifest-sample.xml」を「AndroidManifest.xml」にリネームしてご利用ください。
 
 <div id="permission"></div>
+
 ## パーミッションの設定
 
-F.O.X SDKでは下記4つのパーミッションを利用します。
+F.O.X SDKでは下記3つのパーミッションを利用します。
 &lt;Manifest&gt;タグ内に次のパーミッションの設定を追加します。
 
 ```xml
@@ -58,6 +61,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排�
 > ※1 Android MよりProtectionLevelが`dangerous`に指定されているパーミッションを必要とする機能を利用するには、ユーザーの許可が必要になります。詳細は[外部ストレージを利用した重複排除設定](./external_storage/README.md)をご確認ください。
 
 <div id="install_referrer"></div>
+
 ## インストールリファラ計測の設定
 インストールリファラーを用いたインストール計測を行うために下記の設定を&lt;application&gt;タグに追加します。
 
@@ -72,6 +76,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排�
 既に"com.android.vending.INSTALL_REFERRER"に対するレシーバークラスが定義されている場合には、[二つ以上のINSTALL_REFERRERレシーバーを共存させる場合の設定](./install_referrer/README.md)をご参照ください。
 
 <div id="track_reengagement"></div>
+
 ## リエンゲージメント計測の実装
 
 カスタムURLスキーム経由の起動を計測するために必要な設定を<application>タグ内に追記します。
@@ -81,7 +86,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排�
 ここでのカスタムURLスキームは他のActivityに設定しているものとは異なる値を設定してください。
 
 ```xml
-<activity android:name="co.cyberz.fox.support.unity.IntentReceiverActivity ">
+<activity android:name="co.cyberz.fox.support.unity.IntentReceiverActivity">
 	<intent-filter>
 		<action android:name="android.intent.action.VIEW" />
 		<category android:name="android.intent.category.DEFAULT" />
@@ -92,7 +97,9 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排�
 ```
 
 <div id="receive_callback"></div>
+
 ## インストール計測完了のコールバックを受け取る
+
 [![F.O.X](http://img.shields.io/badge/F.O.X%20SDK-4.1.1%20〜-blue.svg?style=flat)](https://github.com/cyber-z/public-fox-unity-sdk/releases)
 
 バージョン4.1.1以降でインストール計測完了のコールバックを受け取る場合には<br>
@@ -112,6 +119,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排�
 > ※ 本実装が行われていない場合、C#にインストール計測完了が通知されません。
 
 <div id="proguard"></div>
+
 ## ProGuardを利用する場合
 
 ProGuard を利用してアプリケーションの難読化を行う際は F.O.X SDK のメソッドが対象とならないよう、以下の設定 を追加してください。
@@ -131,6 +139,7 @@ ProGuard を利用してアプリケーションの難読化を行う際は F
 > [Google Play Services導入時のProguard対応 (Android Developers)](https://developer.android.com/google/play-services/setup.html#Proguard)
 
 <div id="others"></div>
+
 ## その他
 
 * [広告IDを利用するためのGoogle Play Services SDKの導入](./google_play_services/README.md)
