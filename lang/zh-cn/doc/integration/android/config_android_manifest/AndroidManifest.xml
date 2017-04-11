@@ -5,7 +5,7 @@
     android:versionName="1.0" >
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="16" />
+        android:targetSdkVersion="21" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -30,7 +30,7 @@
 
         <!-- 设置经由自定义URL Scheme的启动计测 -->
         <activity
-            android:name="jp.appAdForce.android.IntentReceiverActivity">
+            android:name="co.cyberz.fox.support.unity.IntentReceiverActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -40,7 +40,7 @@
         </activity>
 
         <!-- Install Referrer计测的receiver设置 -->
-        <receiver android:exported="true" android:name="jp.appAdForce.android.InstallReceiver" >
+        <receiver android:exported="true" android:name="co.cyberz.fox.FoxInstallReceiver" >
             <intent-filter>
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
@@ -49,7 +49,7 @@
         <!-- 可选项:让两个INSTALL_REFERRER Receiver共存的设定 -->
         <!-- 记载了让value共存的Receiver类的path -->
         <meta-data android:name="APPADFORCE_FORWARD_RECEIVER"
-            android:value="com.example.InstallReceiver" />
+            android:value="com.other.sample.InstallReferrerReceiver1|com.other.sample.InstallReferrerReceiver2|com.other.sample.InstallReferrerReceiver3" />
 
         <!-- 任意: 导入Google Play Services SDK -->
         <meta-data android:name="com.google.android.gms.version"
@@ -59,7 +59,9 @@
 
     <!-- 必须: permission的设置 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <!-- 任意: パーミッションの設定 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>
