@@ -2,16 +2,16 @@
 
 ---
 
-## DynalystGamesでUserInfoに設定できるパラメータ一覧
+## DynalystGames에서 UserInfo에 설정 가능한 파라메터 리스트
 
-| パラメータ名 | 型 | 必須 | 説明 |
+| 파라메터명 | 타입 | 필수 | 설명 |
 | ------------- | :-------------: | :-------------: | -------------:|
-| guid | String | | ゲームユーザーID |
-| adnt | int | | アプリオプトアウト <br>オプトアウトの場合は1、指定していない場合は0 |
-| ext | JsonObject | | ユーザーデータ<br>詳細はDynalyst社にお問い合わせください。 |
+| guid | String | | 게임 유저 ID |
+| adnt | int | | 앱 opt out <br>opt out의 경우에는 1、지정하지 않는 경우에는 0 |
+| ext | JsonObject | | 유저 데이터<br>상세는 Dynalyst사에 문의하여 주십시오 |
 
 
 ---
-[戻る](../README.md)
+[돌아가기](../README.md)
 
-[トップ](../../../../README.md)
+[](../../../../README.md)

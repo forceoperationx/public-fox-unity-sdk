@@ -177,4 +177,4 @@
 ```
 
 ---
-[톱](/lang/ja/README.md)
+[](/lang/ja/README.md)
