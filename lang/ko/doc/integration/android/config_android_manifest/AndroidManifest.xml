@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.aaa"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="21" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.aaa.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- URL 스킴의 설정 (sampleapp://) -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="sampleapp" />
+            </intent-filter>
+        </activity>
+
+        <!-- 커스텀 URL스킴 경유의 기동 계측의 설정 -->
+        <activity
+            android:name="co.cyberz.fox.support.unity.IntentReceiverActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="sampleapplaunch" />
+            </intent-filter>
+        </activity>
+
+        <!-- 인스톨 리퍼러 계측의 receiver 설정 -->
+        <receiver android:exported="true" android:name="co.cyberz.fox.FoxInstallReceiver" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 옵션: 두개 이상의INSTALL_REFERRER 레시버를 공존시키기 위한 설정 -->
+        <!-- value에 공존 시키고 싶은 레시커 클라스 패스를 기술합니다 -->
+        <meta-data android:name="APPADFORCE_FORWARD_RECEIVER"
+            android:value="com.other.sample.InstallReferrerReceiver1|com.other.sample.InstallReferrerReceiver2|com.other.sample.InstallReferrerReceiver3" />
+
+    </application>
+
+    <!-- 필수: 퍼밋션의 설정 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 임의: 퍼밋션의 설정 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+</manifest>
