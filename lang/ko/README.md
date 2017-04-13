@@ -1,70 +1,71 @@
-# Force Operation Xとは
+# Force Operation X 란?
 
-Force Operation X (以下F.O.X)は、スマートフォンにおける広告効果最適化のためのトータルソリューションプラットフォームです。アプリケーションのダウンロード、ウェブ上でのユーザーアクションの計測はもちろん、スマートフォンユーザーの行動特性に基づいた独自の効果計測基準の元、企業のプロモーションにおける費用対効果を最大化することができます。
+Force Operation X (이하 F.O.X)는 스마트폰의 광고 효과 최적화를 위한 토탈 솔루션 플랫폼 입니다. 애플리케이션의 다운로드, 웹상에서의 사용자 액션의 측정은 물론, 스마트폰 사용자의 행동 특성에 근거한 독자적인 효과측정기준을 바탕으로 기업의 프로모션의 비용효과를 극대화 할 수 있습니다.
 
-本ドキュメントでは、スマートフォンアプリケーションにおける広告効果最大化のためのF.O.X SDK導入手順について説明します。
+본 문서에서는 스마트폰 애플리케이션의 광고 효과 극대화를 위한 F.O.X SDK 도입 단계에 대해 설명합니다.
 
-## 目次
+## 목차
 
-* **[1. インストール](#install_sdk)**
-  * [SDKダウンロード](https://github.com/cyber-z/public-fox-unity-sdk/releases)
-  * [Unityプラグインの導入方法](./doc/integration/README.md)
-   * [iOSプロジェクトの設定](./doc/integration/ios/README.md)
-   * [Androidプロジェクトの設定](./doc/integration/android/README.md)
-  * [最新バージョンへのマイグレーションについて](./doc/update/README.md)
-* **[2. F.O.X SDKのアクティベーション](#activate_sdk)**
-* **[3. インストール計測の実装](#track_install)**
-	*	[インストール計測の詳細](./doc/track_install/README.md)
-* **[4. アプリ内イベントの計測](#track_event)**
-	* [セッション(起動)イベントの計測](#track_event)
-	* [その他アプリ内イベントの計測](#track_other_event)
-	* [イベント計測の詳細](./doc/track_event/README.md)
-* **[5. 最後に必ずご確認ください](#trouble_shooting)**
+* **[1. 인스톨](#install_sdk)**
+  * [SDK다운로드](https://github.com/cyber-z/public-fox-unity-sdk/releases)
+  * [Unity 플러그인의 도입 방법](./doc/integration/README.md)
+   * [iOS 프로젝트의 설정](./doc/integration/ios/README.md)
+   * [Android 프로젝트의 설정](./doc/integration/android/README.md)
+  * [최신 버전으로의 Migration에 대해서](./doc/update/README.md)
+* **[2. F.O.X SDK의 액티베이션](#activate_sdk)**
+* **[3. 인스톨 계측의 실장](#track_install)**
+	*	[인스톨 계측의 상세](./doc/track_install/README.md)
+* **[4. 애플리케이션내의 이벤트 계측](#track_event)**
+	* [세션 (기동) 이벤트의 계측](#track_event)
+	* [기타 애플리케이션내의 이벤트 계측](#track_other_event)
+	* [이벤트 계측의 상세](./doc/track_event/README.md)
+* **[5. 과거의 트러블 모음집(반드시 확인하여 주십시오)](#trouble_shooting)**
 
 ---
 
-## F.O.X SDKとは
+## F.O.X SDK란
 
-F.O.X SDKをアプリケーションに導入することで、以下の機能を実現します。
+F.O.X SDK를 애플리케이션에 도입함으로써 아래와 같은 기능을 제공합니다.
 
-* **インストール計測**
+* **인스톨 계측**
 
-広告流入別にインストール数を計測することができます。
+광고 유입별 설치 횟수를 측정 할 수 있습니다.
 
-* **LTV計測**
+* **LTV계측**
 
-流入元広告別にLife Time Valueを計測します。主な成果地点としては、会員登録、チュートリアル突破、課金などがあります。各広告別に登録率、課金率や課金額などを計測することができます。
+유입원 광고별로 Life Time Value를 측정합니다. 주요 성과 지점으로는 회원 가입, 튜토리얼 돌파, 과금등이 있습니다. 각 광고별 등록률, 과금률, 과금액 등을 측정 할 수 있습니다.
 
-* **アクセス解析**
+* **액세스 해석**
 
-自然流入と広告流入のインストール比較。アプリケーションの起動数やユニークユーザー数(DAU/MAU)。継続率等を計測することができます。
+자연 유입과 광고 유입의 설치 비교, 애플리케이션의 기동수, 유니크 사용자수(DAU/MAU), 지속률 등을 측정 할 수 있습니다.
 
 
 <div id="install_sdk"></div>
 
-## 1. インストール
+## 1. 인스톨
 
-以下のページより最新のSDKをダウンロードしてください。
+아래의 페이지에서 최신의 SDK를 다운로드 하십시오.
 
-[SDKリリースページ](https://github.com/cyber-z/public-fox-unity-sdk/releases)
+[SDK 릴리스 페이지] (https://github.com/cyber-z/public-fox-unity-sdk/releases)
 
-既にアプリケーションにSDKが導入されている場合には、[最新バージョンへのマイグレーションについて](./doc/update/README.md)をご参照ください。
+이미 애플리케이션에 SDK가 설치되어있는 경우에는 [최신 버전으로의 Migration에 대해서](./doc/update/README.md)를 참조하십시오.
 
-ダウンロードしたSDK「FOX_UnityPlugin_<version>.zip」を展開し、アプリケーションのプロジェクトに組み込んでください。
+다운로드 한 SDK「FOX_UnityPlugin_<version>.zip」의 압축을 풀어 애플리케이션 프로젝트에 포함 시키십시오.
 
-[Unityプラグインの導入方法](./doc/integration/README.md)
+[Unity 플러그인의 설치 방법](./doc/integration/README.md)
 
-### 各OS毎の設定
 
-* [iOSプロジェクトの設定](./doc/integration/ios/README.md)
-* [Androidプロジェクトの設定](./doc/integration/android/README.md)
+### 각OS별 설정
+
+* [iOS 프로젝트의 설정](./doc/integration/ios/README.md)
+* [Android 프로젝트의 설정](./doc/integration/android/README.md)
 
 <div id="activate_sdk"></div>
 
-## 2. F.O.X SDKのアクティベーション
+## 2. F.O.X SDK의 액티베이션
 
-F.O.X SDKのアクティベーションを行うため、アプリの起動時点に以下の実装を行います。<br>
-FoxConfigに必須事項を格納したら`Fox.activate`を実行します。
+F.O.X SDK의 액티베이션을 실행하기 위하여 애플리케이션의 기동 시점에 이하의 실장을 행합니다.<br>
+FoxConfig에 필수 사항을 대입하신후 `Fox.activate`를 실행합니다.
 
 ```cs
 using Cyz;
@@ -72,29 +73,29 @@ using Cyz;
 
 void Start() {
 	FoxConfig config = new FoxConfig ();
-	config.iOSAppId = 発行されたiOS用APP_ID;
-	config.iOSAppKey = 発行されたiOS用APP_KEY;
-	config.iOSAppSalt = 発行されたiOS用APP_SALT;
-	config.androidAppId = 発行されたAndroid用APP_ID;
-	config.androidAppKey = 発行されたAndroid用APP_KEY;
-	config.androidAppSalt = 発行されたAndroid用APP_SALT;
+	config.iOSAppId = 발행된iOS용 APP_ID;
+	config.iOSAppKey = 발행된 iOS용 APP_KEY;
+	config.iOSAppSalt = 발행된 iOS용 APP_SALT;
+	config.androidAppId = 발행된 Android용 APP_ID;
+	config.androidAppKey = 발행된 Android용 APP_KEY;
+	config.androidAppSalt = 발행된 Android용 APP_SALT;
 	if(debug) config.isDebug = true;
 	Fox.activate(config);
 }
 ```
 
-> ※ `isDebug`はtrueにするとデバッグ用ログを出力することが可能となります。
+> ※ `isDebug`는 true로 설정하신경우 디버그용 로그를 출력합니다.
 
 
 <div id="track_install"></div>
 
-## 3. インストール計測の実装
+## 3. 인스톨 계측의 실장
 
-初回起動のインストール計測を実装することで、広告の効果測定を行うことができます。
+첫회 기동의 인스톨 계측을 실장하여 광고의 효과 측정이 가능하게 됩니다.
 
-### インストール計測の実装
+### 인스톨 계측을 실장
 
-インストール計測を行うには、起動時に実行されるスクリプトから`Fox.trackInstall`をコールします。
+인스톨 계측을 하기위해서는 기동시에 실행된는 스크립트에서 `Fox.trackInstall`을 호출합니다.
 
 ```cs
 using Cyz;
@@ -103,21 +104,21 @@ using Cyz;
 	Fox.trackInstall();
 ```
 
-*	[インストール計測の詳細](./doc/track_install/README.md)
+*	[인스톨 계측의 상세](./doc/track_install/README.md)
 
 <div id="track_event"></div>
 
-## 4. アプリ内イベントの計測
+## 4. 애플리케이션내 이벤트의 계측
 
-起動セッション、会員登録、チュートリアル突破、課金など任意の成果地点にイベント計測を実装することで、流入元広告のLTVや継続率を測定することができます。それらの計測が不要の場合には、各項目の実装を省略できます。
+기동 세션、회원 등록、튜토리얼 돌파、과금등 임의의 성과 지점에 이벤트 계측을 실장하여、유입별 광고의 LTV 및 잔존율을 측정 가능합니다. 계측을 원하지 않으실 경우에는 각 항목의 실장을 생략 가능합니다.
 
 <div id="track_session"></div>
 
-### セッション(起動)イベントの計測
+### 세션(기동)이벤트의 계측
 
-自然流入と広告流入のインストール数比較、アプリケーションの起動数やユニークユーザー数(DAU/MAU)、継続率等を計測することができます。アクセス解析が不要の場合には、本項目の実装を省略できます。
+자연 유입과 광고 유입의 인스톨 수 비교、애플리케이션의 기동수 및 유니크 유저수(DAU/MAU)、잔존율등을 계측하는 것이 가능합니다. 액세스 분석이 불필요한 경우 본 항목의 실장을 생략 가능합니다.
 <br>
-アプリケーションが起動、もしくはバックグラウンドから復帰する際にセッション計測を行うコードを追加します。不要の場合には、本項目の実装を省略できます。
+애플리케이션의 기동 또는 백 그라운드로 부터의 복귀할 때 세션 계측을 위한 코드를 추가합니다. 계측을 원하지 않으실 경우에는 각 항목의 실장을 생략 가능합니다.
 
 ```cs
 using Cyz;
@@ -128,36 +129,36 @@ using Cyz;
 
 <div id="track_other_event"></div>
 
-### その他アプリ内イベントの計測
+### 기타 애플리케이션내 이벤트의 계측
 
-会員登録、チュートリアル突破、課金など任意の成果地点にイベント計測を実装することで、流入元広告のLTVを測定することができます。<br>
-イベント計測が不要の場合には、本項目の実装を省略できます。<br>
-成果がアプリ内部で発生する場合、成果処理部に以下のように記述してください。<br>
+회원 등록, 튜토리얼 돌파, 과금등 임의의 성과지점에 이벤트 계측을 실장하여 유입별 광고의 LTV를 계측 가능합니다.<br>
+이벤트 계측이 불필요한 경우 본 항목의 실장을 생략 가능합니다.<br>
+성과가 애플리케이션 내부에서 발생하는 경우 성과 처리부에 이하와 같이 기술하여 주십시오<br>
 
-**[チュートリアルイベントの計測例]**
+**[튜토리얼 이벤트의 계측 예]**
 ```cs
 using Cyz;
 ...
 
-	int ltvId = 成果地点ID;
+	int ltvId = 성과 지점ID;
 	FoxEvent e = new FoxEvent("_tutorial_comp", ltvId);
 	e.buid = "USER_001"
 	Fox.trackEvent(e);
 ```
 
-> 成果地点ID(必須)：管理者より連絡します。その値を入力してください。
+> 성과지점 ID(필수)：관리콘솔의 성과지점설정에서 발행되는 성과 지점ID를 입력하여 주십시오.
 
-> LTV計測を行うためには、各成果地点を識別する`成果地点ID`を指定する必要があります。FoxEventのコンストラクタの第二引数に発行されたIDを指定してください。
+> LTV계측을 행하기 위해서는 각 성과지점을 식별하는 `성과 지점ID`를 지정하실 필요가 있습니다. FoxEvent의 컨스트럭트의 두번째 인수에 발행된 ID를 지정하여 주십시오.
 
-**[課金イベントの計測例]**
+**[과금 이벤트의 계측 예]**
 
-課金計測を行う場合には、課金が完了した箇所で以下のように課金額を指定してください。
+과금 계측을 하실 경우 과금이 완료된 지점에 이하와 같이 과금액을 지정하여 주십시오.
 
 ```cs
 using Cyz;
 ...
 
-	int ltvId = 成果地点ID;
+	int ltvId = 성과 지점ID;
 	double price = 1.2;
 	String currency = "USD";
 	FoxEvent purchase = FoxEvent.makePurchase("_purchase", ltvId, price, currency);
@@ -169,51 +170,52 @@ using Cyz;
 	Fox.trackEvent(purchase);
 ```
 
-> currencyの指定には[ISO 4217](http://ja.wikipedia.org/wiki/ISO_4217)で定義された通過コードを指定してください。
+> currency의 지정시에는[ISO 4217](https://ko.wikipedia.org/wiki/ISO_4217)에 정의된 통화 코드를 지정하여 주십시오
 
-* [イベント計測の詳細](./doc/track_event/README.md)
+* [이벤트 계측의 상세](./doc/track_event/README.md)
 
 <div id="trouble_shooting"></div>
 
-## 5. 最後に必ずご確認ください（これまで発生したトラブル集）
+## 과거의 트러블 모음집(반드시 확인하여 주십시오)
 
-### 5.1. URLスキームの設定がされずリリースされたためブラウザからアプリに遷移ができない
+### URL스키마 설정이 되지 않고 출시 되었기 때문에 브라우저에서 애플리케이션을 전환을 할 수 없습니다
 
-Cookie計測を行うために外部ブラウザを起動した後に、元の画面に戻すためにはURLスキームを利用してアプリケーションに遷移させる必要があります。この際、独自のURLスキームが設定されている必要があり、URLスキームを設定せずにリリースした場合にはこのような遷移を行うことができなくなります。
+Cookie 측정을 위해 외부 브라우저를 실행 한 후 원래 화면으로 되돌리려면 URL스키마를 이용하여 앱을 전환시킬 필요가 있습니다. 이 때 자신의 URL스키마가 설정되어 있어야 합니다. URL스키마를 설정하지 않고 출시하는 경우에는 이러한 전환을 할 수 없게됩니다.
 
-### 5.2. URLスキームに大文字や記号が含まれ、正常にアプリに遷移されない
+### URL스키마에 대문자나 기호가 포함되어 성공적으로 앱에 전이되지 않는다
 
-環境によって、URLスキームの大文字小文字が判別されないことにより正常にURLスキームの遷移が行えない場合があります。URLスキームは全て小文字の英数字で設定を行ってください。
-
-
-### 5.3. URLスキームの設定が他社製アプリと同一でブラウザからそちらのアプリが起動してしまう
-
-iOSにおいて、複数のアプリに同一のURLスキームが設定されていた場合に、どのアプリが起動するかは不定です。確実に特定のアプリを起動することができなくなるため、URLスキームは他社製アプリとはユニークになるようある程度の複雑性のあるものを設定してください。
-
-### 5.4. 短時間で大量のユーザー獲得を行うプロモーションを実施したら正常に計測がされなかった
-
-iOSには、アプリ起動時に一定時間以上メインスレッドがブロックされるとアプリケーションを強制終了する仕様があります。起動時の初期化処理など、メインスレッド上でサーバーへの同期通信を行わないようにご注意ください。リワード広告などの大量のユーザーを短時間で獲得した結果、サーバーへのアクセスが集中し、通信のレスポンスが非常に悪くなることでアプリケーションの起動に時間がかかり、起動時に強制終了され正常に広告成果が計測できなくなった事例がございます。
-
-以下の手順で、こうした状況をテストすることができますので、以下の設定でアプリケーションが正常に起動するかをご確認ください。
-
-`iOS「設定」→「デベロッパー」→「NETWORK LINK CONDITIONER」`
-
-* 「Enable」をオン
-* 「Very Bad Network」をチェック
+환경에 따라, URL스키마의 대소 문자를 판별 않음으로써 정상적으로 URL스키마의 전환 할수없는 경우가 있습니다. URL스키마는 모두 소문자와 숫자로 설정해야합니다.
 
 
-### 5.5. F.O.Xで確認できるインストール数の値がGoogle Play Developer Consoleの数字より大きい
+### URL스키마 설정이 타사 앱과 동일하게 브라우저로부터 앱이 시작된다
 
-F.O.Xではいくつかの方式を組み合わせて端末の重複インストール検知を行っています。
-重複検知が行えない設定では、同一端末でも再インストールされる度にF.O.Xは新規のインストールと判定してしまいます。
+iOS에서 복수의 앱에 동일한 URL 스키마가 설정되어있는 경우에는 어떤 앱이 시작하는지는 알 수 없습니다. 확실하게 특정 앱을 시작 할 수 없게 되므로 URL스키마는 타사 앱과는 유니크한 어느 정도의 복잡성이 있는것으로 설정하십시오.
 
-重複検知の精度を向上するために、以下の設定を行ってください。
+### 단시간에 대량의 유저 획득을 하는 프로모션을 실시하면 제대로 측정이되지 않았다
 
-* [広告IDを利用するためのGoogle Play Services SDKの導入](./doc/integration/android/google_play_services/README.md)
+iOS에는 앱 시작시 일정 시간 이상 메인 스레드가 차단되는 앱을 강제 종료하는 사양이 있습니다. 기동시 초기화 처리 등 메인 스레드에서 서버에 동기화 통신을 하지 않도록 주의하시기 바랍니다. 리워드 광고 등 대량의 사용자를 단시간에 획득한 결과, 서버에 대한 액세스가 집중시 통신 응답이 매우 나빠져 앱을 시작하는 데 시간이 걸려 처음 시작시 강제 종료되어 정상적으로 광고 성과가 측정 할 수 없게 된 사례가 있습니다.
 
-* [（オプション）外部ストレージを利用した重複排除設定](/lang/ja/doc/integration/android/external_storage/README.md)
+아래 단계에서 이러한 상황을 테스트 할 수 있도록 아래의 설정에서 앱이 제대로 시작할지 여부를 확인하시기 바랍니다.
 
-* [（オプション）Android M オートバックアップ機能の利用](./doc/integration/android/auto_backup/README.md)
+iOS「setting」 → 「developer」 → 「NETWORK LINK CONDITIONER」
+
+* 「Enable」을 ON
+* 「Very Bad Network」를 체크
+
+
+### F.O.X에서 확인할 수 있는 설치수의 값이 Google Play Developer Console의 숫자보다 많을때
+
+F.O.X는 몇개의 방식을 조합하여 단말기의 중복 설치 검사를 실시하고 있습니다.
+중복 감지 할 수 없는 설정은 동일한 단말기에서도 다시 설치 될 때마다 F.O.X는 신규 설치라고 판정해 버립니다.
+
+중복 탐지의 정확성을 향상시키기 위해 아래와 같이 설정하십시오.
+
+* [광고 ID를 이용하기 위한 Google Play Services SDK의 도입](./doc/google_play_services/README.md)
+
+* [(옵션)외부 스토리지를 이용한 중복 제거 설정](./doc/external_storage/README.md)
+
+* [（옵션）Android M 오토 백업 기능의 이용](./doc/integration/android/auto_backup/README.md)
+
 
 ---
-[トップメニュー](/README.md)
+[톱 메뉴](/README.md)
