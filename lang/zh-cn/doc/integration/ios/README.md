@@ -27,7 +27,7 @@
 <tr><th>框架名</th><th>Status</th></tr>
 <tr><td>AdSupport.framework</td><td>任意</td></tr>
 <tr><td>Security.framework </td><td>必须</td></tr>
-<tr><td>SystemConfig.framework </td><td>必须</td></tr>
+<tr><td>SystemConfiguration.framework</td><td>必须</td></tr>
 <tr><td>WebKit.framework</td><td>必须</td></tr>
 </table>
 
