@@ -49,7 +49,7 @@ PARAM_CURRENCY에는[ISO 4217](http://ja.wikipedia.org/wiki/ISO_4217)에서 정�
 FoxPlugin.addParameter(PARAM_SKU, "ABC1234");
 FoxPlugin.addParameter(PARAM_CURRENCY,  "USD");
 FoxPlugin.addParameter(PARAM_PRICE, "20");
-FoxPlugin.addParameter(“my_param”, "ABC");
+FoxPlugin.addParameter("my_param", "ABC");
 FoxPlugin.sendLtv(70, "Taro");
 ```
 

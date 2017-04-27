@@ -19,7 +19,6 @@ This documents instructs the installation procedures of F.O.X. SDK to maximize t
 * **[5. Implementation of examination of communication](#integration_test)**
   * [Test procedure for re-engagement mesurement](./doc/reengagement_test/README.md)
 * **[6. Implementation of other functions](#other_function)**
-  * [Implementation of push notification](./doc/notify/README.md)
   * [Implementation of Opt-out](./doc/optout/README.md)
 * **[7. Please absolutely confirm](#trouble_shooting)**
 
@@ -39,16 +38,9 @@ It measures Life Time Value for each advertisements of influx sources. Primary c
 
 Comparison of natural inflows and advertisement inflow. It is able to measure the number of starting application and unique users (DAU/MAU), persistency rate and etc.
 
-* **Push notification**
-
-By using information measured in F.O.X, it is able to conduct push notification towards users. For example, it is able to send messages to users who come from specific advertisement.
-
-* **Advertisement distribution**
-
-It is able to display the advertisement of mutual attracting consumers in apps. Still, in the case that displaying advertisement is unnecessary, it is able to omit the implementation of this item.
-
 
 <div id="install_sdk"></div>
+
 ## 1. Installation
 
 Please download the latest version of SDK from the following page.
@@ -68,6 +60,7 @@ Please decompress the downloaded SDK　`"FOX_UnityPlugin_<VERSION>.zip"`,and put
 
 
 <div id="tracking_install"></div>
+
 ## 2. The implementation of installation measurement
 
 By implementing install measurements for first time, it is able to start the effectiveness measurements of advertisement. Please implement in a order following.
@@ -115,6 +108,7 @@ FoxPlugin.sendConversion("default", "your unique id");
 > ※If default is specified, standard simple sample page will appear first, but we will set transition destination URL or HTML page on management screen of F.O.X later. By the time of release to market, please notice us the name of URL scheme to return from transition destination page to app.
 
 <div id="tracking_ltv"></div>
+
 ## 3. Implementation of LTV management
 
 By implementing LTV measurements at arbitrary conversion points such as membership registration, completion of tutorial, billing and etc, It measures Life Time Value for each advertisements of influx sources. In the case that LTV measurement is not necessary, it is able to omit this implementation.
@@ -143,6 +137,7 @@ FoxPlugin.sendLtv(LTV POINT ID);
 
 
 <div id="tracking_analytics"></div>
+
 ## 4. Implementation of the access analysis
 
 You can measure comparison of Installation number of naturally flow and advertising flows, the number of the of activating application and unique users (DAU / MAU),  the ongoing rate and so on. When the access analysis is not required, you can omit the implementation of this item.
@@ -176,6 +171,7 @@ Refer to following link if you want to carry on accounting measurement by accoun
 [Event measurement by access analysis](./doc/analytics_event/README.md)
 
 <div id="integration_test"></div>
+
 ## 5. Implementation of the communication test
 
 Until the application to market, test enough in a state where the the SDK has been introduced, and  make sure that there is no problem in the operation of the application.
@@ -206,14 +202,14 @@ Please tell the time of 3,6,7,9 to us. We will see if measurement has been succe
 
 
 <div id="other_function"></div>
-## 6.  The implementation of other functions
 
-* [The implementation of push notification](./doc/notify/README.md)
+## 6.  The implementation of other functions
 
 * [The implementation of opt-out](./doc/optout/README.md)
 
 
 <div id="trouble_shooting"></div>
+
 ## 7. Please confirm（Collection of troubles so far）
 
 ### 7.1. It is released without setting of URL scheme and it does not transit to application from browser.
