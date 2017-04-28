@@ -37,7 +37,7 @@ dependencies {
 ## 关于AndroidManifest.xml样本
 
 可以在Unity项目上进行Android设置。编辑Unity项目中的
-AndroidManifest.xml。<br>在项目中已经存在AndroidManifest.xml的情况时，将 「Plugins/Android/AndroidManifest-sample.xml」重命名为「AndroidManifest.xml」后来使用。
+AndroidManifest.xml。<br>在项目中不存在AndroidManifest.xml的情况时，将 「Plugins/Android/AndroidManifest-sample.xml」重命名为「AndroidManifest.xml」后来使用。
 
 <div id="permission"></div>
 
@@ -86,7 +86,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|使用外部储存来优化排除重复�
 自定义URL SCHEME的设置请区别于其他Activity中已有内容。
 
 ```xml
-<activity android:name="co.cyberz.fox.support.unity.IntentReceiverActivity ">
+<activity android:name="co.cyberz.fox.support.unity.IntentReceiverActivity">
 	<intent-filter>
 		<action android:name="android.intent.action.VIEW" />
 		<category android:name="android.intent.category.DEFAULT" />
