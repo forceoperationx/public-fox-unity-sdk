@@ -27,7 +27,7 @@ iOS용의 프로젝트를 작성하기 위하여 다음의 절차로 Xcode프로
 <tr><th>프레임워크명</th><th>Status</th></tr>
 <tr><td>AdSupport.framework</td><td>Optional</td></tr>
 <tr><td>Security.framework</td><td>Required </td></tr>
-<tr><td>SystemConfig.framework</td><td>Required </td></tr>
+<tr><td>SystemConfiguration.framework</td><td>Required </td></tr>
 <tr><td>WebKit.framework</td><td>Required </td></tr>
 </table>
 
