@@ -16,7 +16,7 @@ FoxPlugin.sendLtv(LTV point ID);
 It is able to include advertiser terminal ID (such as member ID)in result in application and measure result measurement based on this. In the case of giving advertisement terminal ID to LTV result, please note like following.
 
 ```cs
-	FoxPlugin.sendLtv(LTV point ID, "Advertisement terminal ID");
+FoxPlugin.sendLtv(LTV point ID, "Advertisement terminal ID");
 ```
 
 > Result point ID(mandatory)：There is a contact from administrator., so please type the value.
@@ -26,7 +26,7 @@ Advertsiment terminal ID(Option)：It is unique identifier (such as member ID) a
 When measuring in application, it is able to set parameter as option.
 
 ```cs
-	FoxPlugin.addParameter("Parameter name", "value");
+FoxPlugin.addParameter("Parameter name", "value");
 ```
 
 Available parameters are noted below.
@@ -45,7 +45,7 @@ Setting example :
 FoxPlugin.addParameter(PARAM_SKU, "ABC1234");
 FoxPlugin.addParameter(PARAM_CURRENCY,  "USD");
 FoxPlugin.addParameter(PARAM_PRICE, "20");
-FoxPlugin.addParameter(“my_param”, "ABC");
+FoxPlugin.addParameter("my_param", "ABC");
 FoxPlugin.sendLtv(70, "John");
 ```
 

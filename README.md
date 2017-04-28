@@ -1,6 +1,7 @@
 # Force Operation X Unity SDK (〜 3.3.0) Integration Guide
 
-###LANGUAGE
+### LANGUAGE
+
 * [English](./lang/en/README.md)
 * [Japanese](./lang/ja/README.md)
 * [Korean](./lang/ko/README.md)

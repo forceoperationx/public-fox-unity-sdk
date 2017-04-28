@@ -39,6 +39,7 @@ Force Operation X (下面簡稱F.O.X)是基於智慧手機的，用來最大改�
 自然流入和廣告流入的APP安裝數比較。能夠計測APP的啟動數，唯一用戶數(DAU/MAU)，持續率等。
 
 <div id="install_sdk"></div>
+
 ## 1. 導入
 
 請從下面的頁面來下載最新的安定版(Latest release)SDK。
@@ -55,6 +56,7 @@ Force Operation X (下面簡稱F.O.X)是基於智慧手機的，用來最大改�
 * [Android項目的設定](./doc/integration/android/README.md)
 
 <div id="tracking_install"></div>
+
 ## 2. Install計測的安裝
 
 導入初次啟動的Install計測，就能夠監測廣告效果。請任選下面一個方法來進行安裝。
@@ -101,6 +103,7 @@ FoxPlugin.sendConversion("default", "your unique id");
 > ※為了從跳轉目的地頁面回到APP需要URL Scheme，到發布到Market之前請告知鄙公司URL Scheme。
 
 <div id="tracking_ltv"></div>
+
 ## 3. LTV計測的安裝
 
 通過在會員登錄，教程突破，消費等任意的成果地點安裝LTV計測，能夠測定不同廣告流入的LTV。如果不做LTV計測，可以省略本項目的安裝。
@@ -128,6 +131,7 @@ FoxPlugin.sendLtv(成果地点 ID);
 
 
 <div id="tracking_analytics"></div>
+
 ## 4. 流量分析的安裝
 
 自然流入和廣告流入的安裝數比較。能夠計測APP的啟動數，唯一用戶數(DAU/MAU)，持續率等。如果不做流量分析，可以省略本項目的安裝。
@@ -162,6 +166,7 @@ FoxPlugin.sendStartSession();
 [依靠流量分析進行Event計測](./doc/analytics_event/README.md)
 
 <div id="integration_test"></div>
+
 ## 5.進行疏通測試
 
 在APP上架申請以前，在導入SDK的狀態請做充分的測試，以確保APP的動作沒有問題。
@@ -194,11 +199,13 @@ FoxPlugin.sendStartSession();
 [Reengagement計測時的疏通測試](./doc/reengagement_test/README.md)
 
 <div id="other_function"></div>
+
 ## 6. 其他機能的安裝
 
 * [Opt-Out的安裝](./doc/optout/README.md)
 
 <div id="trouble_shooting"></div>
+
 ## 7. 最後請務必確認（到現在發生過的問題集）
 
 ### 7.1. 未設定URL Scheme發布的APP引起無法從瀏覽器跳轉到APP
