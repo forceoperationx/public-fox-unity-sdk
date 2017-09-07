@@ -78,6 +78,9 @@ void Start() {
 	config.androidAppId = 発行されたAndroid用APP_ID;
 	config.androidAppKey = 発行されたAndroid用APP_KEY;
 	config.androidAppSalt = 発行されたAndroid用APP_SALT;
+
+	// オプショナル設定
+	config.iOSCustomizedUserAgentSupport = true; // User-Agentをカスタマイズしたい場合trueにする
 	if(debug) config.isDebug = true;
 	Fox.activate(config);
 }
@@ -85,6 +88,7 @@ void Start() {
 
 > ※ `isDebug`はtrueにするとデバッグ用ログを出力することが可能となります。
 
+> ※ User-Agentをカスタマイズする場合、必ず`iOSCustomizedUserAgentSupport`をtrueにし、`Fox.activate`メソットの後にします。
 
 <div id="track_install"></div>
 
