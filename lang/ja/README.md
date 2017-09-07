@@ -82,13 +82,13 @@ void Start() {
 	// オプショナル設定
 	config.iOSCustomizedUserAgentSupport = true; // User-Agentをカスタマイズしたい場合trueにする
 	if(debug) config.isDebug = true;
-	Fox.activate(config);
+	Fox.activate(config); // User-Agentのカスタマイズの処理を行う
 }
 ```
 
 > ※ `isDebug`はtrueにするとデバッグ用ログを出力することが可能となります。
 
-> ※ User-Agentをカスタマイズする場合、必ず`iOSCustomizedUserAgentSupport`をtrueにし、`Fox.activate`メソットの後にします。
+> ※ User-Agentをカスタマイズする場合、必ずiOSCustomizedUserAgentSupportをtrueにし、Fox.activateメソッドをコールした後でUser-Agentのカスタマイズをおこなってください。
 
 <div id="track_install"></div>
 
