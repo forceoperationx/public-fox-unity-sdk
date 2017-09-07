@@ -26,10 +26,12 @@ repositories {
 }
 
 dependencies {
-    compile 'co.cyberz.fox:track-core:4.0.0'
+    compile 'co.cyberz.fox:track-core:4.X.X'
     compile 'co.cyberz.fox.support:track-unity:1.0.0'
 }
 ```
+
+> ※ Jarファイルをプロジェクトに導入している場合、上記の設定は不要です。JarファイルとGradle経由の両方を設定しないようご注意ください。
 
 
 <div id="sample_manifest"></div>
