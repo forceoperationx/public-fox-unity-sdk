@@ -82,7 +82,9 @@ void Start() {
 	// オプショナル設定
 	config.iOSCustomizedUserAgentSupport = true; // User-Agentをカスタマイズしたい場合trueにする
 	if(debug) config.isDebug = true;
-	Fox.activate(config); // User-Agentのカスタマイズの処理を行う
+	Fox.activate(config);
+
+	// User-Agentのカスタマイズの処理を行う
 }
 ```
 
