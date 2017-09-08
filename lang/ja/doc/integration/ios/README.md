@@ -47,7 +47,6 @@ SDKの動作に必要な設定をplistに追加します。「AppAdForce.plist�
 Key | Type | Value
 :---: | :---: | :---
 APP_ID | String | Force Operation X管理者より連絡しますので、その値を入力してください。
-SERVER_URL | String | Force Operation X管理者より連絡しますので、その値を入力してください。
 APP_SALT | String | Force Operation X管理者より連絡しますので、その値を入力してください。
 APP_OPTIONS | String | 何も入力せず、空文字の状態にしてください。
 CONVERSION_MODE | String | 1

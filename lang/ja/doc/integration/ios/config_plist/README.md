@@ -36,11 +36,6 @@ SDKの動作に必要な設定をplistに追加します。「AppAdForce.plist�
   <td>Force Operation X管理者より連絡しますので、その値を入力してください。</td>
 </tr>
 <tr>
-  <td>SERVER_URL</td>
-  <td>String</td>
-  <td>Force Operation X管理者より連絡しますので、その値を入力してください。</td>
-</tr>
-<tr>
   <td>APP_SALT</td>
   <td>String</td>
   <td>Force Operation X管理者より連絡しますので、その値を入力してください。</td>

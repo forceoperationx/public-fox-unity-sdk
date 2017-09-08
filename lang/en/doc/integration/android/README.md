@@ -34,9 +34,6 @@ Add the necessary information for conducting SDK in &lt;Application&gt;tag.
 	android:name="APPADFORCE_APP_ID"
 	android:value="There will be a contact from the administrator of Force Operation X, so please type the value." />
 <meta-data
-	android:name="APPADFORCE_SERVER_URL"
-	android:value="There will be a contact from the administrator of Force Operation X, so please type the value." />
-<meta-data
 	android:name="APPADFORCE_CRYPTO_SALT"
 	android:value="There will be a contact from the administrator of Force Operation X, so please type the value." />
 <meta-data
@@ -49,7 +46,6 @@ Key and value for setting are following.
 |Name of parameter|Mandatory|Outline|
 |:------|:------|:------|
 |APPADFORCE_APP_ID|Mandatory|There will be a contact from the administrator of Force Operation X, so please type the value.|
-|APPADFORCE_SERVER_URL|Mandatory|There will be a contact from the administrator of Force Operation X, so please type the value.|
 |APPADFORCE_CRYPTO_SALT|Mandatory|There will be a contact from the administrator of Force Operation X, so please type the value.|
 |ANALYTICS_APP_KEY|Mandatory|There will be a contact from the administrator of Force Operation X, so please type the value.|
 

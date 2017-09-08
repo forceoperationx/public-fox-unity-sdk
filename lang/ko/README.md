@@ -183,11 +183,6 @@ SDK의 동작에 필요한 설정을 plist에 추가합니다. 「AppAdForce.pli
   <td>Force Operation X 관리자가 연락합니다. 그 값을 입력하십시오.</td>
 </tr>
 <tr>
-  <td>SERVER_URL</td>
-  <td>String</td>
-  <td>Force Operation X 관리자가 연락합니다. 그 값을 입력하십시오.</td>
-</tr>
-<tr>
   <td>APP_SALT</td>
   <td>String</td>
   <td>Force Operation X 관리자가 연락합니다. 그 값을 입력하십시오.</td>
@@ -239,7 +234,6 @@ SDK의 실행에 필요한 정보를<application>태그내에 추가합니다.
 
 ```xml:
 <meta-data android:name ="APPADFORCE_APP_ID" android:value="Force Operation X 관리자가 연락합니다. 그 값을 입력하십시오."/>
-<meta-data android:name = "APPADFORCE_SERVER_URL"　android:value="Force Operation X 관리자가 연락합니다. 그 값을 입력하십시오."/>
 <meta-data android:name = "APPADFORCE_CRYPTO_SALT" android:value="Force Operation X 관리자가 연락합니다. 그 값을 입력하십시오."/>
 <meta-data android:name = "ANALYTICS_APP_KEY" android:value="Force Operation X 관리자가 연락합니다. 그 값을 입력하십시오."/>
 ```
@@ -249,7 +243,6 @@ SDK의 실행에 필요한 정보를<application>태그내에 추가합니다.
 |파라메터명|필수|개요|
 |:------|:------|:------|
 |APPADFORCE_APP_ID|필수|Force Operation X 관리자가 연락합니다. 그 값을 입력하십시오.|
-|APPADFORCE_SERVER_URL|필수|Force Operation X 관리자가 연락합니다. 그 값을 입력하십시오.|
 |APPADFORCE_CRYPTO_SALT|필수|Force Operation X 관리자가 연락합니다. 그 값을 입력하십시오.|
 |ANALYTICS_APP_KEY|필수|Force Operation X 관리자가 연락합니다. 그 값을 입력하십시오.|
 
