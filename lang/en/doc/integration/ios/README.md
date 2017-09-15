@@ -47,7 +47,6 @@ Add necessary setting for SDK operation to plist. Create file named AppAdForce.p
 Key | Type | Value
 :---: | :---: | :---
 APP_ID | String | Force Operation X manager will notice, input that value.
-SERVER_URL | String | Force Operation X manager will notice, input that value.
 APP_SALT | String | Force Operation X manager will notice, input that value.
 APP_OPTIONS | String | Please do not type anything, so please keep it empty.
 CONVERSION_MODE | String | 1

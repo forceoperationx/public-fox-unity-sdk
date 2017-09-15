@@ -14,11 +14,11 @@
 
 > ※ `Fox_<version>.unitypackage`には最新のネイティブ版SDK(iOS/Android)が同梱されています。
 
-> ※ iOSでF.O.Xのプッシュ通知を利用しない場合は、FoxNotifyPlugin.h, FoxNotifyPlugin.mをインポートしないでください。また、リエンゲージメント計測を実施しない場合は、FoxReengagePlugin.h, FoxReengagePlugin.mをインポートしないでください。
+> ※ iOSでリエンゲージメント計測を実施しない場合は、FoxReengagePlugin.h, FoxReengagePlugin.mをインポートしないでください。
 
-#### **iOS9における導入の注意点**
+#### **iOS9とiOS10における導入の注意点**
 
-> Cookie計測を実施する際に、iOS9ではSFSafariViewControllerを使用します。
+> Cookie計測を実施する際に、iOS9とiOS10ではSFSafariViewControllerを使用します。
 F.O.X Unity SDK v2.16以降では、SFSafariViewController起動後の制御をFoxReengagePluginで行うため導入が必須となります。
 
 > これまで外されていた場合には、本Unity SDKのunitypackageファイルに同梱のFoxReengagePluginをご導入ください。

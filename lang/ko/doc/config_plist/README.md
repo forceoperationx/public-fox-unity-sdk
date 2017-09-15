@@ -36,11 +36,6 @@ SDK의 동작에 필요한 설정을 plist에 추가합니다. 「AppAdForce.pli
   <td>Force Operation X 관리자가 연락합니다. 그 값을 입력하십시오.</td>
 </tr>
 <tr>
-  <td>SERVER_URL</td>
-  <td>String</td>
-  <td>Force Operation X 관리자가 연락합니다. 그 값을 입력하십시오.</td>
-</tr>
-<tr>
   <td>APP_SALT</td>
   <td>String</td>
   <td>Force Operation X 관리자가 연락합니다. 그 값을 입력하십시오.</td>

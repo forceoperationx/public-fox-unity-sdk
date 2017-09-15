@@ -13,7 +13,6 @@ iOS用のプロジェクトを作成するために、次の手順でXcodeプロ
 
 > ※ `Automatic Reference Counting`をYESにした場合、コンパイルを通すため、Xcode Build Phasesにで下記2ファイルの`compiler flags`に`-fno-objc-arc`を設定してください。
 * LibFoxSdk.m
-* FoxVersionPlugin.mm
 
 ### Xcodeプロジェクトの編集
 
@@ -25,16 +24,12 @@ iOS用のプロジェクトを作成するために、次の手順でXcodeプロ
 
 <table>
 <tr><th>フレームワーク名</th><th>Status</th></tr>
-<tr><td>SafariServices.framework</td><td>Optional</td></tr>
 <tr><td>AdSupport.framework</td><td>Optional</td></tr>
 <tr><td>iAd.framework </td><td>Required</td></tr>
 <tr><td>Security.framework </td><td>Required </td></tr>
 <tr><td>StoreKit.framework </td><td>Required </td></tr>
 </table>
 
-> AdSupport.frameworkはiOS 6以降で追加されたフレームワークのため、アプリケーションをiOS 5以前でも動作させる(iOS Deployment Targetを5.1以下に設定する)場合にはweak linkを行うために”Optional”に設定してください。
-
-> ※ SafariServices.frameworkはiOS 9以降で追加されたフレームワークのため、アプリケーションをiOS 8以前でも動作させる(iOS Deployment Targetを8.4以下に設定する)場合にはweak linkを行うために”Optional”に設定してください。
 
 ![フレームワーク設定01](/lang/ja/doc/integration/ios/config_framework/img01.png)
 
@@ -47,7 +42,6 @@ SDKの動作に必要な設定をplistに追加します。「AppAdForce.plist�
 Key | Type | Value
 :---: | :---: | :---
 APP_ID | String | Force Operation X管理者より連絡しますので、その値を入力してください。
-SERVER_URL | String | Force Operation X管理者より連絡しますので、その値を入力してください。
 APP_SALT | String | Force Operation X管理者より連絡しますので、その値を入力してください。
 APP_OPTIONS | String | 何も入力せず、空文字の状態にしてください。
 CONVERSION_MODE | String | 1
@@ -78,10 +72,6 @@ NSIncludesSubdomains|Boolean|YES を指定しATSの例外設定をサブドメ�
 F.O.X Unity SDK v2.16以降では、SFSafariViewController起動後の制御をFoxReengagePluginで行うため導入が必須となります。
 
 > これまで外されていた場合には、本Unity SDKのunitypackageファイルに同梱のFoxReengagePluginをご導入ください。
-
-### その他
-
-* [管理画面上に登録したバンドルバージョンに応じた処理の振り分け](./check_version/README.md)
 
 ---
 [戻る](/lang/ja/doc/integration/README.md)

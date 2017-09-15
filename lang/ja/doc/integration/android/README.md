@@ -35,9 +35,6 @@ SDKの実行に必要な情報を<application>タグ内に追加します。
 	android:name="APPADFORCE_APP_ID"
 	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
 <meta-data
-	android:name="APPADFORCE_SERVER_URL"
-	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
-<meta-data
 	android:name="APPADFORCE_CRYPTO_SALT"
 	android:value="Force Operation X管理者より連絡しますので、その値を入力してください。" />
 <meta-data
@@ -50,7 +47,6 @@ SDKの実行に必要な情報を<application>タグ内に追加します。
 |パラメータ名|必須|概要|
 |:------|:------|:------|
 |APPADFORCE_APP_ID|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
-|APPADFORCE_SERVER_URL|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
 |APPADFORCE_CRYPTO_SALT|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
 |ANALYTICS_APP_KEY|必須|Force Operation X管理者より連絡しますので、その値を入力してください。|
 

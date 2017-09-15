@@ -1,4 +1,4 @@
-# Force Operation X Unity SDK (〜 3.3.0) Integration Guide
+# Force Operation X Unity SDK (3.x.x) Integration Guide
 
 ### LANGUAGE
 

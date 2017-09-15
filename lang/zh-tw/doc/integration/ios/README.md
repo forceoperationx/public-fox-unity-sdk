@@ -46,12 +46,10 @@
 Key | Type | Value
 :---: | :---: | :---
 APP_ID | String | 請將由Force Operation X管理者通知的數值輸入。
-SERVER_URL | String | 請將由Force Operation X管理者通知的數值輸入。
 APP_SALT | String | 請將由Force Operation X管理者通知的數值輸入。
 APP_OPTIONS | String | 請空白。
 CONVERSION_MODE | String | 請輸入1
 ANALYTICS_APP_KEY | String | 請將由Force Operation X管理者通知的數值輸入。<br />不利用流量分析的場合沒有必要設定
-ANALYTICS_SERVER_URL | String | 請將由Force Operation X管理者通知的數值輸入。<br />不利用流量分析的場合沒有必要設定
 
 ![Framework設定01](/lang/zh-tw/doc/integration/ios/config_plist/img05.png)
 

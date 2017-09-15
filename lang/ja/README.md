@@ -85,6 +85,7 @@ GUI(Inspector)を利用せず、スクリプトでインストール計測処理
 
 iOS9より初回起動時のブラウザ起動からアプリに戻る際に、ダイアログが出力されます。
 F.O.X SDKではiOS9からリリースされた新たなWebView形式である”SFSafariViewController”を初回起動時に起動させ計測することで、ダイアログ表示によるユーザビリティの低下を防止することが出来ます。
+iOS11から"SFSafariViewController"の仕様が変わり使用不能となるので、ブラウザー起動の動きになります。
 
 ```cs
 FoxPlugin.sendConversion("default");

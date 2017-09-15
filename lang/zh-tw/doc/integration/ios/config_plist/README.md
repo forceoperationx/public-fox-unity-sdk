@@ -38,11 +38,6 @@
   <td>請將由Force Operation X管理者通知的數值輸入。</td>
 </tr>
 <tr>
-  <td>SERVER_URL</td>
-  <td>String</td>
-  <td>請將由Force Operation X管理者通知的數值輸入。</td>
-</tr>
-<tr>
   <td>APP_SALT</td>
   <td>String</td>
   <td>請將由Force Operation X管理者通知的數值輸入。</td>
@@ -59,11 +54,6 @@
 </tr>
 <tr>
   <td>ANALYTICS_APP_KEY</td>
-  <td>String</td>
-  <td>請將由Force Operation X管理者通知的數值輸入。<br />不利用流量分析的場合沒有必要設定</td>
-</tr>
-<tr>
-  <td>ANALYTICS_SERVER_URL</td>
   <td>String</td>
   <td>請將由Force Operation X管理者通知的數值輸入。<br />不利用流量分析的場合沒有必要設定</td>
 </tr>

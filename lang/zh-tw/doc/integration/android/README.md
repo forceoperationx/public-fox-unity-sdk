@@ -35,16 +35,10 @@ WRITE_EXTERNAL_STORAGE ※1|Dangerous|任意|利用外部存儲提高重複排�
 	android:name="APPADFORCE_APP_ID"
 	android:value="請輸入Force Operation X管理員告知的值。" />
 <meta-data
-	android:name="APPADFORCE_SERVER_URL"
-	android:value="請輸入Force Operation X管理員告知的值。" />
-<meta-data
 	android:name="APPADFORCE_CRYPTO_SALT"
 	android:value="請輸入Force Operation X管理員告知的值。" />
 <meta-data
 	android:name="ANALYTICS_APP_KEY"
-	android:value="請輸入Force Operation X管理員告知的值。" />
-<meta-data
-	android:name="ANALYTICS_SERVER_URL"
 	android:value="請輸入Force Operation X管理員告知的值。" />
 ```
 
@@ -53,10 +47,8 @@ WRITE_EXTERNAL_STORAGE ※1|Dangerous|任意|利用外部存儲提高重複排�
 |參數名|必須|概要|
 |:------|:------|:------|
 |APPADFORCE_APP_ID|必須|請輸入Force Operation X管理員告知的值。|
-|APPADFORCE_SERVER_URL|必須|請輸入Force Operation X管理員告知的值。|
 |APPADFORCE_CRYPTO_SALT|必須|請輸入Force Operation X管理員告知的值。|
 |ANALYTICS_APP_KEY|必須|請輸入Force Operation X管理員告知的值。|
-|ANALYTICS_SERVER_URL|必須|請輸入Force Operation X管理員告知的值。|
 
 ## Install referrer計測的設定
 將Install referrer計測所需要的設定添加在&lt;application&gt;tag內。

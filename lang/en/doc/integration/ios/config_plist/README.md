@@ -36,11 +36,6 @@ Key and value for setting are following.
   <td>There will be a contact from the administrator,so please type the value. </td>
 </tr>
 <tr>
-  <td>SERVER_URL</td>
-  <td>String</td>
-  <td>There will be a contact from the administrator,so please type the value. </td>
-</tr>
-<tr>
   <td>APP_SALT</td>
   <td>String</td>
   <td>There will be a contact from the administrator,so please type the value. </td>
