@@ -78,13 +78,19 @@ void Start() {
 	config.androidAppId = 发行的Android APP_ID;
 	config.androidAppKey = 发行的Android APP_KEY;
 	config.androidAppSalt = 发行的Android APP_SALT;
-	if(debug) config.isDebug = true;
-	Fox.activate(config);
+
+  // 设定optional
+  config.iOSCustomizedUserAgentSupport = true; // 定制化User-Agent的时候设定为true
+  if(debug) config.isDebug = true;
+  Fox.activate(config);
+
+  // 进行User-Agent的定制化处理
 }
 ```
 
 > ※ `isDebug`为true时，能够输出调试日志。
 
+> ※ 定制化User-Agent的时候、请务必将iOSCustomizedUserAgentSupport设置为true、在调用Fox.activate方法以后，执行User-Agent定制化处理。
 
 <div id="track_install"></div>
 

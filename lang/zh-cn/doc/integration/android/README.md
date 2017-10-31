@@ -26,10 +26,12 @@ repositories {
 }
 
 dependencies {
-    compile 'co.cyberz.fox:track-core:4.0.0'
+    compile 'co.cyberz.fox:track-core:4.x.x'
     compile 'co.cyberz.fox.support:track-unity:1.0.0'
 }
 ```
+
+> ※ 如果是把Jar文件导入进项目里的话，是不需要上面的设置。请注意不要同时设定为使用Jar包导入和通过Gradle导入。
 
 
 <div id="sample_manifest"></div>
