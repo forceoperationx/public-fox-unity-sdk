@@ -71,20 +71,20 @@ using Cyz;
 ...
 
 void Start() {
-	FoxConfig config = new FoxConfig ();
-	config.iOSAppId = 发行的iOS APP_ID;
-	config.iOSAppKey = 发行的iOS APP_KEY;
-	config.iOSAppSalt = 发行的iOS APP_SALT;
-	config.androidAppId = 发行的Android APP_ID;
-	config.androidAppKey = 发行的Android APP_KEY;
-	config.androidAppSalt = 发行的Android APP_SALT;
+    FoxConfig config = new FoxConfig ();
+    config.iOSAppId = 发行的iOS APP_ID;
+    config.iOSAppKey = 发行的iOS APP_KEY;
+    config.iOSAppSalt = 发行的iOS APP_SALT;
+    config.androidAppId = 发行的Android APP_ID;
+    config.androidAppKey = 发行的Android APP_KEY;
+    config.androidAppSalt = 发行的Android APP_SALT;
 
-  // 设定optional
-  config.iOSCustomizedUserAgentSupport = true; // 定制化User-Agent的时候设定为true
-  if(debug) config.isDebug = true;
-  Fox.activate(config);
+    // 设定optional
+    config.iOSCustomizedUserAgentSupport = true; // 定制化User-Agent的时候设定为true
+    if(debug) config.isDebug = true;
+    Fox.activate(config);
 
-  // 进行User-Agent的定制化处理
+    // 进行User-Agent的定制化处理
 }
 ```
 
