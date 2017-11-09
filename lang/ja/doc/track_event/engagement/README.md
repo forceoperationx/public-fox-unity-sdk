@@ -28,10 +28,13 @@ setUserInfoにセットされたユーザー情報はtrackEventが実行され�
 ```cs
 using Cyz;
 ...
-
-string userInfo = "{'guid':'xxxxxxxxxxx', 'ext':{'XXXX':'XXXXX', 'XXXXX':'XXXXXXX'}}";
+// KeyとValueが文字列の場合、ダブルクォーテーションで囲ってください。
+// また、ダブルクォーテーションの前にエスケープ文字必須です。
+string userInfo = "{\"XXXX\":\"xxxxxxxxxxx\", \"XXXX\":0}";
 Fox.setUserInfo(userInfo);
 ```
+
+
 
 ## 連携媒体別の詳細
 * [DynalystGames](dynalyst_games/README.md)
