@@ -33,10 +33,6 @@ string userInfo = "{'guid':'xxxxxxxxxxx', 'ext':{'XXXX':'XXXXX', 'XXXXX':'XXXXXX
 Fox.setUserInfo(userInfo);
 ```
 
-## 연계 미디어별 상세
-* [DynalystGames](dynalyst_games/README.md)
-
-
 ---
 [돌아가기](../README.md)
 

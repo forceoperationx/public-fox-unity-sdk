@@ -34,12 +34,6 @@ string userInfo = "{\"XXXX\":\"xxxxxxxxxxx\", \"XXXX\":0}";
 Fox.setUserInfo(userInfo);
 ```
 
-
-
-## 連携媒体別の詳細
-* [DynalystGames](dynalyst_games/README.md)
-
-
 ---
 [戻る](../README.md)
 
