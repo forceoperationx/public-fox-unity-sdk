@@ -34,10 +34,6 @@ string userInfo = "{'guid':'xxxxxxxxxxx', 'ext':{'XXXX':'XXXXX', 'XXXXX':'XXXXXX
 Fox.setUserInfo(userInfo);
 ```
 
-## 不同连动媒体的详细
-* [DynalystGames](dynalyst_games/README.md)
-
-
 ---
 [返回](../README.md)
 
