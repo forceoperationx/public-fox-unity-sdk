@@ -29,8 +29,8 @@ Fox.trackEvent(e);
 ```cs
 using Cyz;
 ...
-// KeyとValueが文字列の場合、ダブルクォーテーションで囲ってください。
-// また、ダブルクォーテーションの前にエスケープ文字必須です。
+// 如果Key和Value为字符串、请用双引号来括起来。
+// 此外，在双引号之前还需要做添加转义字符。
 string userInfo = "{\"XXXX\":\"xxxxxxxxxxx\", \"XXXX\":0}";
 Fox.setUserInfo(userInfo);
 ```
