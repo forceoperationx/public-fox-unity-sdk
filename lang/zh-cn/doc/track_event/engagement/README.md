@@ -29,8 +29,9 @@ Fox.trackEvent(e);
 ```cs
 using Cyz;
 ...
-
-string userInfo = "{'guid':'xxxxxxxxxxx', 'ext':{'XXXX':'XXXXX', 'XXXXX':'XXXXXXX'}}";
+// KeyとValueが文字列の場合、ダブルクォーテーションで囲ってください。
+// また、ダブルクォーテーションの前にエスケープ文字必須です。
+string userInfo = "{\"XXXX\":\"xxxxxxxxxxx\", \"XXXX\":0}";
 Fox.setUserInfo(userInfo);
 ```
 
