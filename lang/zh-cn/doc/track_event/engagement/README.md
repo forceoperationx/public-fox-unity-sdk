@@ -29,8 +29,9 @@ Fox.trackEvent(e);
 ```cs
 using Cyz;
 ...
-
-string userInfo = "{'guid':'xxxxxxxxxxx', 'ext':{'XXXX':'XXXXX', 'XXXXX':'XXXXXXX'}}";
+// 如果Key和Value为字符串、请用双引号来括起来。
+// 此外，在双引号之前还需要做添加转义字符。
+string userInfo = "{\"XXXX\":\"xxxxxxxxxxx\", \"XXXX\":0}";
 Fox.setUserInfo(userInfo);
 ```
 

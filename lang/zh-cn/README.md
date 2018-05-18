@@ -87,10 +87,30 @@ void Start() {
     // 进行User-Agent的定制化处理
 }
 ```
+> ※ APP登录以后，可以在F.O.X管理画面的【APP一览>此APP右上方的设定按钮>导入SDK】的地方来确认appId、salt、appKey的值。
 
 > ※ `isDebug`为true时，能够输出调试日志。
 
 > ※ 定制化User-Agent的时候、请务必将iOSCustomizedUserAgentSupport设置为true、在调用Fox.activate方法以后，执行User-Agent定制化处理。
+
+### 2.1 线下模式
+开启线下模式功能，可停止F.O.X SDK的所有监测行为。
+
+将config.isOffline设定为true来开启线下模式，设定为false来关闭线下模式（未设定时默认为关闭线下模式）。
+
+- 在开发期间，如不想将数据发送到F.O.X，或者希望按照投放地域停止计测的时候，可以利用这个功能。
+- 根据用户许可来设定线下模式是否开启时，请确保在用户许可之后执行activate()。(activate()需要在App每次启动时去执行)
+- 自动计测的代码实装方式不适用于线下模式。请按手动计测来实装代码。
+- 设定将保持生效至App被删除。
+
+```cs
+{
+  ...
+  // 线下模式的设定
+  config.isOffline = true;
+  Fox.activate(config);
+}
+```
 
 <div id="track_install"></div>
 
