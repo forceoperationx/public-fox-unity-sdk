@@ -29,6 +29,8 @@ iOS用のプロジェクトを作成するために、次の手順でXcodeプロ
 <tr><td>Security.framework</td><td>Required </td></tr>
 <tr><td>SystemConfiguration.framework</td><td>Required </td></tr>
 <tr><td>WebKit.framework</td><td>Required </td></tr>
+<tr><td>WebKit.framework</td><td>Required </td></tr>
+<tr><td>CoreTelephony.framework</td><td>Optional</td></tr>
 </table>
 
 * **App Transport Securityについて**
