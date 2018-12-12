@@ -164,16 +164,23 @@ using Cyz;
 ```cs
 using Cyz;
 ...
-
+        // LTV計測必要な場合
 	int ltvId = 成果地点ID;
 	FoxEvent e = new FoxEvent("_tutorial_comp", ltvId);
 	e.buid = "USER_001"
 	Fox.trackEvent(e);
 ```
+```cs
+using Cyz;
+...
+        // イベント計測のみの場合
+	FoxEvent e = new FoxEvent("_tutorial_comp");
+	e.buid = "USER_001"
+	Fox.trackEvent(e);
+```
 
-> 成果地点ID(必須)：管理者より連絡します。その値を入力してください。
-
-> LTV計測を行うためには、各成果地点を識別する`成果地点ID`を指定する必要があります。FoxEventのコンストラクタの第二引数に発行されたIDを指定してください。
+> LTV計測を行うためには、各成果地点を識別する`成果地点ID`を指定する必要があります。  
+> イベント計測のみを計測する場合、イベント名だけ入力してください。
 
 **[課金イベントの計測例]**
 
