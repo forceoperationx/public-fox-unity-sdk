@@ -141,7 +141,7 @@ using Cyz;
 iOSの場合は、プラグイン導入する段階で設定できます。デフォルトで計測ONになります。詳細はUnityプラグインの導入方法をご参照ください。  
 [Unityプラグインの導入方法](./doc/integration/README.md)  
 Androidの場合は、Androidプロジェクトの設定をご参照ください。  
-[Androidプロジェクトの設定](./doc/integration/android/README.md)
+[Androidプロジェクトの設定](./doc/integration/android/README.md#リエンゲージメント計測の実装)
 
 <div id="track_event"></div>
 
