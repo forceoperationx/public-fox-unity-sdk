@@ -138,7 +138,7 @@ using Cyz;
 
 リエンゲージメント計測はSDKの中で実施しております。  
   
-iOSの場合は、プラグイン導入する段階で設定できます。デフォルトで計測ONになります。詳細はUnityプラグインの導入方法をご参照ください。  
+iOSの場合は、プラグイン導入する段階で設定できます。デフォルトで計測ONになります。詳細はUnityプラグインの導入方法をご参照ください。  
 [Unityプラグインの導入方法](./doc/integration/README.md)  
 Androidの場合は、Androidプロジェクトの設定をご参照ください。  
 [Androidプロジェクトの設定](./doc/integration/android/README.md)
