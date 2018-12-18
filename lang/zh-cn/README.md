@@ -15,12 +15,12 @@ Force Operation X (下面简称F.O.X)是一款基于智能手机的，用来最�
 * **[2. F.O.X SDK激活](#activate_sdk)**
 * **[3. 执行Install计测](#track_install)**
 	*	[Install计测详细](./doc/track_install/README.md)
-* **[4. APP内事件计测](#track_event)**
+* **[4. 执行流失唤回广告计测](#track_engagement)**
+* **[5. APP内事件计测](#track_event)**
 	* [session(启动)事件计测](#track_event)
-	* [唤回计测](#track_reengagement)
 	* [其他APP内事件计测](#track_other_event)
 	* [事件计测详细](./doc/track_event/README.md)
-* **[5. 最后的注意事项](#trouble_shooting)**
+* **[6. 最后的注意事项](#trouble_shooting)**
 
 ---
 
@@ -132,9 +132,18 @@ using Cyz;
 
 *	[Install计测详细](./doc/track_install/README.md)
 
+## 4. 执行流失唤回广告计测
+
+唤回计测在SDK中进行。  
+  
+iOS在Unity导入插件时已默认开启唤回计测。详细可参考以下文档。  
+[Unityプラグインの導入方法](./doc/integration/README.md)  
+Android的设置请参考以下文档。  
+[Androidプロジェクトの設定](./doc/integration/android/README.md#リエンゲージメント計測の実装)
+
 <div id="track_event"></div>
 
-## 4. APP内事件计测
+## 5. APP内事件计测
 
 启动session、会员注册、新手引导突破、付费等任意成果地点中进行事件计测，可以计测广告渠道的LTV和留存率，如不需要以上结果，可以略过。
 
@@ -152,17 +161,6 @@ using Cyz;
 
 	Fox.trackSession();
 ```
-
-<div id="track_reengagement"></div>
-
-### 唤回计测
-
-通过使用在F.O.X发行的流失唤回URL，可以针对已经安装APP的用户再次启动APP，启动成果可以作为流失唤回成果来计测。<br>
-为激活唤回计测，需要在导入Unity插件时，引入`CYZFoxAppDelegateSwizzling.m`文件。<br>
-文件默认为选中状态，如不需要进行唤回计测，请取消勾选CYZFoxAppDelegateSwizzling.m`文件
-> ※ 进行流失唤回广告计测时，必须在Info.plist里事先自定义好URL scheme。
-
-[Unity插件导入步骤](./doc/integration/README.md)
 
 <div id="track_other_event"></div>
 
@@ -220,22 +218,22 @@ using Cyz;
 
 <div id="trouble_shooting"></div>
 
-## 5. 最后需确认内容（常见问题集）
+## 6. 最后需确认内容（常见问题集）
 
-### 5.1. 未设置URL SCHEME 进行发布时无法从浏览器跳转至APP
+### 6.1. 未设置URL SCHEME 进行发布时无法从浏览器跳转至APP
 
 进行Cookie计测时启动浏览器以后，必须使用URL scheme跳转回到APP画面。此时需要设置URL scheme，未设置scheme就上线发布时会导致无法正常迁移。
 
-### 5.2. URL SCHEME中含有大写字母时，无法正常跳转APP。
+### 6.2. URL SCHEME中含有大写字母时，无法正常跳转APP。
 
 根据运行环境，会出现因为URL SCHEME 的大小写字母不能判定而导致URL SCHEME 无法正常迁移的情况。请将URL SCHEME 全部设置为小写英文或数字或小数点。
 
-### 5.3. URL scheme设置与其他公司APP相同时，浏览器会跳转其他APP
+### 6.3. URL scheme设置与其他公司APP相同时，浏览器会跳转其他APP
 
 iOS中，多个APP设置为同一个URL scheme时，会随机启动APP。由于可能导致无法启动指定的APP，请将URL scheme区别与其他APP来设定。
 
 
-### 5.4. 进行短时间内获取大量用户的推广时无法正确计测
+### 6.4. 进行短时间内获取大量用户的推广时无法正确计测
 
 iOS中，APP启动时超过一定时间主线程被阻止运行时，会强制关闭APP。请注意不要让启动时的初始化处理在主线程上与服务器同时进行通讯。短时间内获得大量用户的激励广告等会因为集中访问服务器，通讯回复较差而导致APP启动时间延长或强制关闭等情况，从而导致无法正确计测广告结果。
 
@@ -247,7 +245,7 @@ iOS中，APP启动时超过一定时间主线程被阻止运行时，会强制�
 * 勾选「Very Bad Network」
 
 
-### 5.5. F.O.X中安装数的值会大于Google Play Developer Console的数值
+### 6.5. F.O.X中安装数的值会大于Google Play Developer Console的数值
 
 F.O.X结合多种方式来进行终端重复安装的检查。
 当设置无法进行检查重复时，同一终端的再次安装可能会被F.O.X判定为新的安装。
