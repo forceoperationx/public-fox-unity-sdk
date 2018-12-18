@@ -18,7 +18,7 @@
 
 > ※ `FOX_UNITYPLUGIN_<version>.unitypackage`中包含最新的原生SDK(iOS/Android)。
 
-> 不进行流失唤回广告计测时，不用导入FoxReengagePlugin.h, FoxReengagePlugin.m。
+> 不进行流失唤回广告计测时，不用导入`CYZFoxAppDelegateSwizzling.m`文件。
 
 ### iOS
 
