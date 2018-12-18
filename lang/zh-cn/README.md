@@ -160,7 +160,8 @@ using Cyz;
 通过使用在F.O.X发行的流失唤回URL，可以针对已经安装APP的用户再次启动APP，启动成果可以作为流失唤回成果来计测。<br>
 为激活唤回计测，需要在导入Unity插件时，引入`CYZFoxAppDelegateSwizzling.m`文件。<br>
 文件默认为选中状态，如不需要进行唤回计测，请取消勾选CYZFoxAppDelegateSwizzling.m`文件
-> ※ 进行流失唤回广告计测时，必须在Info.plist里事先自定义好URL scheme。<br>
+> ※ 进行流失唤回广告计测时，必须在Info.plist里事先自定义好URL scheme。
+
 [Unity插件导入步骤](./doc/integration/README.md)
 
 <div id="track_other_event"></div>
