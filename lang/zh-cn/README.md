@@ -17,6 +17,7 @@ Force Operation X (下面简称F.O.X)是一款基于智能手机的，用来最�
 	*	[Install计测详细](./doc/track_install/README.md)
 * **[4. APP内事件计测](#track_event)**
 	* [session(启动)事件计测](#track_event)
+	* [唤回计测](#track_reengagement)
 	* [其他APP内事件计测](#track_other_event)
 	* [事件计测详细](./doc/track_event/README.md)
 * **[5. 最后的注意事项](#trouble_shooting)**
@@ -151,6 +152,15 @@ using Cyz;
 
 	Fox.trackSession();
 ```
+
+<div id="track_reengagement"></div>
+
+### 唤回计测
+
+通过使用在F.O.X发行的流失唤回URL，可以针对已经安装APP的用户再次启动APP，启动成果可以作为流失唤回成果来计测。<br>
+为激活唤回计测，需要在导入Unity插件时，引入`CYZFoxAppDelegateSwizzling.m`文件。<br>
+文件默认为选中状态，如不需要进行唤回计测，请取消勾选CYZFoxAppDelegateSwizzling.m`文件
+> ※ 进行流失唤回广告计测时，必须在Info.plist里事先自定义好URL scheme。
 
 <div id="track_other_event"></div>
 
