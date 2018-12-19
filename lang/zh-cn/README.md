@@ -15,7 +15,7 @@ Force Operation X (下面简称F.O.X)是一款基于智能手机的，用来最�
 * **[2. F.O.X SDK激活](#activate_sdk)**
 * **[3. 执行Install计测](#track_install)**
 	*	[Install计测详细](./doc/track_install/README.md)
-* **[4. 执行流失唤回广告计测](#track_engagement)**
+* **[4. 执行流失唤回广告计测](#track_reengagement)**
 * **[5. APP内事件计测](#track_event)**
 	* [session(启动)事件计测](#track_event)
 	* [其他APP内事件计测](#track_other_event)
@@ -132,13 +132,15 @@ using Cyz;
 
 *	[Install计测详细](./doc/track_install/README.md)
 
+<div id="track_reengagement"></div>
+
 ## 4. 执行流失唤回广告计测
 
-唤回计测在SDK中进行。  
+唤回计测无需调用函数。  
   
 iOS在Unity导入插件时已默认开启唤回计测。详细可参考以下文档。  
 [Unityプラグインの導入方法](./doc/integration/README.md)  
-Android的设置请参考以下文档。  
+Android的设置方法请参考以下文档。  
 [Androidプロジェクトの設定](./doc/integration/android/README.md#リエンゲージメント計測の実装)
 
 <div id="track_event"></div>
