@@ -139,9 +139,9 @@ using Cyz;
 唤回计测无需调用函数。  
   
 iOS在Unity导入插件时已默认开启唤回计测。详细可参考以下文档。  
-[Unityプラグインの導入方法](./doc/integration/README.md)  
+[Unity插件导入步骤](./doc/integration/README.md)  
 Android的设置方法请参考以下文档。  
-[Androidプロジェクトの設定](./doc/integration/android/README.md#リエンゲージメント計測の実装)
+[Android项目设置](./doc/integration/android/README.md#track_reengagement)
 
 <div id="track_event"></div>
 
