@@ -18,7 +18,7 @@
 
 > ※ `FOX_UNITYPLUGIN_<version>.unitypackage`には最新のネイティブ版SDK(iOS/Android)が同梱されています。
 
-> リエンゲージメント計測を実施しない場合は、FoxReengagePlugin.h, FoxReengagePlugin.mをインポートしないでください。
+> リエンゲージメント計測を実施しない場合は、`CYZFoxAppDelegateSwizzling.m`をインポートしないでください。
 
 ### iOS
 
