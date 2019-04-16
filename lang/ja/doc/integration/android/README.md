@@ -98,28 +98,6 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排�
 </activity>
 ```
 
-<div id="receive_callback"></div>
-
-## インストール計測完了のコールバックを受け取る
-
-[![F.O.X](http://img.shields.io/badge/F.O.X%20SDK-4.1.1%20〜-blue.svg?style=flat)](https://github.com/cyber-z/public-fox-unity-sdk/releases)
-
-バージョン4.1.1以降でインストール計測完了のコールバックを受け取る場合には<br>
-以下のように必ずUnityPlayerActivity(メインのアクティビティ)のonResumeに`Fox.trackDeeplinkLaunch`メソッドを実装してください。
-
-```java
-// Resume Unity
-	@Override protected void onResume()
-	{
-		super.onResume();
-		mUnityPlayer.resume();
-		// FOX
-		Fox.trackDeeplinkLaunch(this);
-	}
-```
-
-> ※ 本実装が行われていない場合、C#にインストール計測完了が通知されません。
-
 <div id="proguard"></div>
 
 ## ProGuardを利用する場合
@@ -139,6 +117,29 @@ ProGuard を利用してアプリケーションの難読化を行う際は F
 また、Google Play Service SDK を導入されている場合は、以下のぺージに記載されている keep 指定が記述されているかご確認ください。
 
 > [Google Play Services導入時のProguard対応 (Android Developers)](https://developer.android.com/google/play-services/setup.html#Proguard)
+
+
+<div id="receive_callback"></div>
+
+## インストール計測完了のコールバックを受け取る（オプション機能）
+
+[![F.O.X](http://img.shields.io/badge/F.O.X%20SDK-4.1.1%20〜-blue.svg?style=flat)](https://github.com/cyber-z/public-fox-unity-sdk/releases)
+
+オプション機能として、インストール計測完了のコールバックをアプリ側で受け取ることが可能です（コールバックが必要ない場合は実装不要です）。<br>
+バージョン4.1.1以降の場合、以下のように必ずUnityPlayerActivity(メインのアクティビティ)のonResumeに`Fox.trackDeeplinkLaunch`メソッドを実装してください。<br>
+
+```java
+// Resume Unity
+	@Override protected void onResume()
+	{
+		super.onResume();
+		mUnityPlayer.resume();
+		// F.O.X
+		Fox.trackDeeplinkLaunch(this);
+	}
+```
+
+> ※ 本実装が行われていない場合、C#にインストール計測完了が通知されません。
 
 <div id="others"></div>
 
