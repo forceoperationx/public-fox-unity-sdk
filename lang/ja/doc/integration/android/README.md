@@ -21,7 +21,7 @@ Android StudioプロジェクトでGradleを用いてSDKを導入する場合以
 ```groovy
 repositories {
     maven {
-        url "https://github.com/cyber-z/public-fox-android-sdk/raw/master/mavenRepo"
+        url "https://github.com/forceoperationx/public-fox-android-sdk/raw/master/mavenRepo"
     }
 }
 
@@ -102,7 +102,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|ストレージを利用した重複排�
 
 ## インストール計測完了のコールバックを受け取る
 
-[![F.O.X](http://img.shields.io/badge/F.O.X%20SDK-4.1.1%20〜-blue.svg?style=flat)](https://github.com/cyber-z/public-fox-unity-sdk/releases)
+[![F.O.X](http://img.shields.io/badge/F.O.X%20SDK-4.1.1%20〜-blue.svg?style=flat)](https://github.com/forceoperationx/public-fox-unity-sdk/releases)
 
 バージョン4.1.1以降でインストール計測完了のコールバックを受け取る場合には<br>
 以下のように必ずUnityPlayerActivity(メインのアクティビティ)のonResumeに`Fox.trackDeeplinkLaunch`メソッドを実装してください。

@@ -21,7 +21,7 @@ Android Studio 프로젝트에서 Gradle를 이용하여 SDK를 도압하는 경
 ```groovy
 repositories {
     maven {
-        url "https://github.com/cyber-z/public-fox-android-sdk/raw/master/mavenRepo"
+        url "https://github.com/forceoperationx/public-fox-android-sdk/raw/master/mavenRepo"
     }
 }
 
@@ -100,7 +100,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|임의|스토레지를 이용한 중복 배제 
 
 ## 인스톨 계측완료의 콜백을 받습니다.
 
-[![F.O.X](http://img.shields.io/badge/F.O.X%20SDK-4.1.1%20〜-blue.svg?style=flat)](https://github.com/cyber-z/public-fox-unity-sdk/releases)
+[![F.O.X](http://img.shields.io/badge/F.O.X%20SDK-4.1.1%20〜-blue.svg?style=flat)](https://github.com/forceoperationx/public-fox-unity-sdk/releases)
 
 버전 4.1.1이후에 인스톨 계측 완료의 콜백을 받을 경우에는<br>
 이하와 같이 반드시 UnityPlayerActivity(메인의 액티비티)의 onResume에 `Fox.trackDeeplinkLaunch`메소드를 실장하여 주십시오.
