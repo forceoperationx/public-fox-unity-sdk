@@ -130,7 +130,7 @@ using Cyz;
 	Fox.trackInstall();
 ```
 
-*	[インストール計測の詳細](./doc/track_install/README.md)
+*	[インストール計測のオプション機能](./doc/track_install/README.md)
 
 <div id="track_reengagement"></div>
 
