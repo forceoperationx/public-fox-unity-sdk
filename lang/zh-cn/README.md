@@ -7,7 +7,7 @@ Force Operation X (下面简称F.O.X)是一款基于智能手机的，用来最�
 ## 目录
 
 * **[1. 导入](#install_sdk)**
-  * [SDK导入](https://github.com/cyber-z/public-fox-unity-sdk/releases)
+  * [SDK导入](https://github.com/forceoperationx/public-fox-unity-sdk/releases)
   * [Unity插件导入步骤](./doc/integration/README.md)
    * [iOS项目设置](./doc/integration/ios/README.md)
    * [Android项目设置](./doc/integration/android/README.md)
@@ -47,7 +47,7 @@ Force Operation X (下面简称F.O.X)是一款基于智能手机的，用来最�
 
 请从以下页面中下载最新安定版(Latest release)SDK。
 
-[SDK发布页面](https://github.com/cyber-z/public-fox-unity-sdk/releases)
+[SDK发布页面](https://github.com/forceoperationx/public-fox-unity-sdk/releases)
 
 APP中已经导入SDK的场合，请参考[更新到最新版本](./doc/update/README.md)。
 

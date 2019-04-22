@@ -7,7 +7,7 @@ Force Operation X (이하 F.O.X)는 스마트폰의 광고 효과 최적화를 �
 ## 목차
 
 * **[1. 인스톨](#install_sdk)**
-  * [SDK다운로드](https://github.com/cyber-z/public-fox-unity-sdk/releases)
+  * [SDK다운로드](https://github.com/forceoperationx/public-fox-unity-sdk/releases)
   * [Unity 플러그인의 도입 방법](./doc/integration/README.md)
    * [iOS 프로젝트의 설정](./doc/integration/ios/README.md)
    * [Android 프로젝트의 설정](./doc/integration/android/README.md)
@@ -46,7 +46,7 @@ F.O.X SDK를 애플리케이션에 도입함으로써 아래와 같은 기능을
 
 아래의 페이지에서 최신의 SDK를 다운로드 하십시오.
 
-[SDK 릴리스 페이지] (https://github.com/cyber-z/public-fox-unity-sdk/releases)
+[SDK 릴리스 페이지] (https://github.com/forceoperationx/public-fox-unity-sdk/releases)
 
 이미 애플리케이션에 SDK가 설치되어있는 경우에는 [최신 버전으로의 Migration에 대해서](./doc/update/README.md)를 참조하십시오.
 

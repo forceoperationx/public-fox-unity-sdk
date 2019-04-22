@@ -21,7 +21,7 @@ Android Studio项目中使用Gradle导入SDK的情况时，设置以下依存关
 ```groovy
 repositories {
     maven {
-        url "https://github.com/cyber-z/public-fox-android-sdk/raw/master/mavenRepo"
+        url "https://github.com/forceoperationx/public-fox-android-sdk/raw/master/mavenRepo"
     }
 }
 
@@ -102,7 +102,7 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|使用外部储存来优化排除重复�
 
 ## 取得Install计测完成的回调函数
 
-[![F.O.X](http://img.shields.io/badge/F.O.X%20SDK-4.1.1%20〜-blue.svg?style=flat)](https://github.com/cyber-z/public-fox-unity-sdk/releases)
+[![F.O.X](http://img.shields.io/badge/F.O.X%20SDK-4.1.1%20〜-blue.svg?style=flat)](https://github.com/forceoperationx/public-fox-unity-sdk/releases)
 
 从4.1.1版及以后，希望取得Install计测完成的回调函数的话<br>
 请一定按下方所示那样在UnityPlayerActivity(主Activity)的onResume里面执行`Fox.trackDeeplinkLaunch`方法。
