@@ -2,10 +2,12 @@
 
 ---
 
-# インストール計測の詳細
+# インストール計測のオプション機能
 
-`trackInstall`メソッドを利用することで、インストール計測を行うことができます。<br>
-起動時に実行されるスクリプトから以下のコードが呼ばれるよう実装を行ってください。<br>
+オプション機能として以下の機能があります。<br>
+必要に応じて起動時に実行されるスクリプトから以下のコードが呼ばれるよう実装を行ってください。<br>
+
+### 特定のURLヘ遷移させたい場合
 特定のURLヘ遷移させたい場合や、アプリケーションで動的にURLを生成したい場合には、URLの文字列を設定してください。
 
 ```cs
@@ -73,28 +75,6 @@ public void HandleFoxTrackComplete(object sender, EventArgs args) {
 ```
 
 > ※ バージョン4.1.1以降においてAndroidでコールバックを受け取るの場合、`UnityPlayerActivity`を編集する必要がありますので[こちら](../integration/android/README.md#receive_callback)をご確認ください。
-
-### オプトアウトの設定
-
-広告会社によってターゲティング広告に利用されないことをユーザーに選択させることが可能です。<br>アプリケーションの起動時において、プライバシーポリシーや利用規約を表示するダイアログでユーザーがオプトアウトを選択した場合、効果測定の結果の通知と共に、F.O.Xが広告会社に対してそのユーザーがオプトアウトを選択したことを通知します。
-
-オプトアウトに対応する場合は、以下の通り「`Fox.trackInstall`の引数に設定を行ってください。
-
-```cs
-using Cyz;
-...
-
-  // ユーザーがオプトアウトを選択した場合に setOptout を有効にする
-  FoxTrackOption option = new FoxTrackOption();
-  option.redirectURL = "https://www.yourhost.com";
-  option.buid = "USER_001";
-  if(user.optout) {
-	   option.optout = true;
-  }
-  Fox.trackInstall(option);
-```
-
-> ※ オプトアウトはデフォルトfalseとなっています。
 
 ---
 [TOP](../../README.md)
