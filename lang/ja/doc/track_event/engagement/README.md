@@ -15,7 +15,7 @@ using Cyz;
 ...
 
 FoxEvent e = new FoxEvent("_purchase_item", 12345);
-e.eventInfo = "{'product':[{'id':'XXXX'},{'id':'XXXX'}],'hoge':'xxxxxxxxxxx'}";
+e.eventInfo = "{\"product\":[{\"id\":\"XXXX\"},{\"id\":\"XXXX\"}],\"hoge\":\"xxxxxxxxxxx\"}";
 Fox.trackEvent(e);
 ```
 
