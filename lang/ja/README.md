@@ -256,9 +256,9 @@ F.O.Xではいくつかの方式を組み合わせて端末の重複インスト
 
 * [広告IDを利用するためのGoogle Play Services SDKの導入](./doc/integration/android/google_play_services/README.md)
 
-* [（オプション）外部ストレージを利用した重複排除設定](/lang/ja/doc/integration/android/external_storage/README.md)
-
 * [（オプション）Android M オートバックアップ機能の利用](./doc/integration/android/auto_backup/README.md)
+
+* [（オプション）外部ストレージを利用した重複排除設定（非推奨）](/lang/ja/doc/integration/android/external_storage/README.md)
 
 ---
 [トップメニュー](/README.md)
