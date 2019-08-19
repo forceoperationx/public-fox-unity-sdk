@@ -148,10 +148,9 @@ WRITE_EXTERNAL_STORAGE|Dangerous|任意|使用外部储存来优化排除重复�
 
 * [AndroidManifest.xml设置案例](./config_android_manifest/AndroidManifest.xml)
 
-* [（任意）利用外部储存优化重复排除](./external_storage/README.md)
-
 * [（任意）Android M自动备份功能使用](./auto_backup/README.md)
 
+* [（任意）利用外部储存优化重复排除（不推荐）](./external_storage/README.md)
 
 ---
 [返回](../README.md)
