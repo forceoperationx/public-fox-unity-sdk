@@ -258,9 +258,9 @@ F.O.X结合多种方式来进行终端重复安装的检查。
 * [导入Google Play Services SDK来使用广告ID
 ](./doc/integration/android/google_play_services/README.md)
 
-* [（任意）利用外部储存优化重复排除](/lang/ja/doc/integration/android/external_storage/README.md)
-
 * [（任意）使用自动备份功能 Android M ](./doc/integration/android/auto_backup/README.md)
+
+* [（任意）利用外部储存优化重复排除（不推荐）](/lang/ja/doc/integration/android/external_storage/README.md)
 
 ---
 [Top](/README.md)
