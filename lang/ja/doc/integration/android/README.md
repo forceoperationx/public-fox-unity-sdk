@@ -164,10 +164,9 @@ ProGuard を利用してアプリケーションの難読化を行う際は F
 
 * [AndroidManifest.xml 設定サンプル](./config_android_manifest/AndroidManifest.xml)
 
-* [（オプション）外部ストレージを利用した重複排除設定](./external_storage/README.md)
-
 * [（オプション）Android M オートバックアップ機能の利用](./auto_backup/README.md)
 
+* [（オプション）外部ストレージを利用した重複排除設定（非推奨）](./external_storage/README.md)
 
 ---
 [戻る](../README.md)
